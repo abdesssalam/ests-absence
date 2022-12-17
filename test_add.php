@@ -1,3 +1,19 @@
+<?php
+if(isset($_POST['nom'])){
+    
+
+    $scolarite = simplexml_load_file('db/absence.xml');
+    $persons = $scolarite->persons;
+    $person = $persons->addChild('person');
+    $person->addChild('nom', $_POST['nom']);
+    $person->addChild('prenom', $_POST['prenom']);
+    file_put_contents('db/absence.xml',$scolarite->asXML());
+    header('location:test_add.php');
+
+    
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +35,8 @@
                 <span class="w-1/3">Prenom:</span>
                 <input class="w-2/3 focus:outline-none py-1 " type="text" name="prenom">
            </div>
-            <input id="btn_add_person" type="submit" value="add" class="bg-green-500 w-1/3 mx-auto cursor-pointer hover:bg-green-700 text-white">
+           <button>add</button>
+            <!-- <input id="btn_add_person" name="add_person" type="submit" value="add" class="bg-green-500 w-1/3 mx-auto cursor-pointer hover:bg-green-700 text-white"> -->
         </form> 
     </div>
     
