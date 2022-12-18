@@ -59,6 +59,7 @@ $full_name = 'abdessalam ait omar';
                 <a class="w-full" href="#">les absences</a> 
             </li>
         </ul>
+        <!--
         <div class="w-full  text-white h-1/5 self-end">
             <div class="flex items-center bg-red-500 w-11/12 mx-auto py-2 uppercase">
                 <i class="fa-solid fa-right-to-bracket text-3xl mx-3"></i>
@@ -66,7 +67,7 @@ $full_name = 'abdessalam ait omar';
             </div>
         
         </div>
-        
+        -->
     </nav>
 
     <div class="content bg-gray-100 md:w-9/12 md:mb-5 ">
@@ -75,9 +76,9 @@ $full_name = 'abdessalam ait omar';
       <!--  <h3 class="text-lg uppercase font-semibold text-white">-----home in php----------</h3>
 -->
         <div class="header" style="width:100%;border:2px solid black; ">
-            <a href="./home.php" class="logo test">- Ecole Supérieure de Technologie -</a>
+            <a href="./index.php" class="logo test">- Ecole Supérieure de Technologie -</a>
             <div class="header-right">
-            <a class="active" href="./home.php">Home</a>
+            <a class="active" href="./index.php">Home</a>
             <a href="mailto:contact.ests@uca.ma">contact Us</a>
             <a href="../../controllers/logout.php">logout <i class="icon fa fa-sign-out fa-fw " title="Déconnexion" aria-label="Déconnexion"></i></a>
             </div>
