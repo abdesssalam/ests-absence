@@ -80,7 +80,7 @@ $full_name = 'abdessalam ait omar';
             <div class="header-right">
             <a class="active" href="./index.php">Home</a>
             <a href="mailto:contact.ests@uca.ma">contact Us</a>
-            <a href="../../controllers/logout.php">logout <i class="icon fa fa-sign-out fa-fw " title="Déconnexion" aria-label="Déconnexion"></i></a>
+            <a href="../controllers/logout.php">logout <i class="icon fa fa-sign-out fa-fw " title="Déconnexion" aria-label="Déconnexion"></i></a>
             </div>
         </div>
 
