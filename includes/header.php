@@ -46,10 +46,7 @@ $full_name = 'abdessalam ait omar';
                 <i class="fa-solid fa-graduation-cap text-3xl mx-3"></i>
                 <a class="w-full" href="#">Gestion des  filiers</a> 
             </li>
-            <li class="flex w-11/12 bg-green-500 py-2 my-1 items-center hover:bg-green-700">
-                <i class="fa-solid fa-graduation-cap text-3xl mx-3"></i>
-                <a class="w-full" href="#>les filiers de bac</a> 
-            </li>
+           
             
 
              <li class="flex w-11/12 bg-green-500 py-2 my-1 items-center hover:bg-green-700">
