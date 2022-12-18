@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<scolarite>
 <persons>
 
-<person><nom>awd</nom><prenom>dawdw</prenom></person><person><nom>mohati</nom><prenom>houssame</prenom></person></persons>
-</scolarite>
+<person>
+    <nom>awd</nom>
+    <prenom>dawdw</prenom>
+</person>
+<person>
+    <nom>mohati</nom>
+    <prenom>houssame</prenom>
+</person>
+<person>
+    <nom>awd</nom>
+    <prenom>dawdw</prenom>
+</person>
+<person>
+    <nom>mohati</nom>
+    <prenom>houssame</prenom>
+</person>
+<person>
+    <nom>awd</nom>
+    <prenom>dawdw</prenom>
+</person>
+<person>
+    <nom>mohati</nom>
+    <prenom>houssame</prenom>
+</person>
+
+
+</persons>
