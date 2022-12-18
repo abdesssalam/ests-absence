@@ -27,7 +27,7 @@ $full_name = 'abdessalam ait omar';
 
         <div class="bg-blue-900 w-11/12 rounded-md  my-2 text-center text-white uppercase py-2 md:block sm:flex-none h-1/4 ">
             <h3 class="text-lg font-semibold ">EST SAFI</h3>
-            <h1 class="text-lg font-semibold my-1"> les absence</h1>
+            <h1 class="text-lg font-semibold my-1"> les absences</h1>
             <div class="flex items-center mx-auto text-center justify-center w-10/12 border border-gray-100 py-1 rounded-md hover:text-gray-400 ">
                 <i class="fas fa-user text-3xl mx-2"></i>
                 <span><?php echo $full_name; ?> </span>
@@ -37,26 +37,26 @@ $full_name = 'abdessalam ait omar';
         <ul class="w-11/12 h-3/4 text-white font-bold text-lg uppercase ">
             <li class="flex w-11/12 bg-green-500 py-2 my-1 items-center hover:bg-green-700">
                 <i class="fas fa-user text-3xl mx-3"></i>
-                <a class="w-full" href="#">Gestion contact et roles</a>
+                <a class="w-full" href="../dashboard/contacts.php">Gestion contact et roles</a>
             </li>
             <li class="flex w-11/12 bg-green-500 py-2 my-1 items-center hover:bg-green-700">
                 <i class="fa-solid fa-table-list text-3xl mx-3"></i>
-                <a class="w-full" href="#">Gestion des départements</a>
+                <a class="w-full" href="../dashboard/departements.php">Gestion des départements</a>
             </li>
            <li class="flex w-11/12 bg-green-500 py-2 my-1 items-center hover:bg-green-700">
                 <i class="fa-solid fa-graduation-cap text-3xl mx-3"></i>
-                <a class="w-full" href="#">Gestion des  filiers</a> 
+                <a class="w-full" href="../dashboard/filiers.php">Gestion des  filiers</a> 
             </li>
            
             
 
              <li class="flex w-11/12 bg-green-500 py-2 my-1 items-center hover:bg-green-700">
                 <i class="fa-solid fa-hourglass-end text-3xl mx-3"></i>
-                <a class="w-full" href="#">les emploit de tepms</a> 
+                <a class="w-full" href="../dashboard/emplois.php">les emploit de tepms</a> 
             </li>
             <li class="flex w-11/12 bg-green-500 py-2 my-1 items-center hover:bg-green-700">
                 <i class="fa-solid fa-building text-3xl mx-3"></i>
-                <a class="w-full" href="#">les absences</a> 
+                <a class="w-full" href="../dashboard/absences.php">les absences</a> 
             </li>
         </ul>
         <!--
