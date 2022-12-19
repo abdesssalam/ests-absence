@@ -3,7 +3,8 @@ module.exports = {
   content: [
     "*.{php,html}",
     "./includes/*.{php,html}",
-    "./dashboard/*.{php,html}"
+    "./dashboard/*.{php,html}",
+    "./*/*/*.{php,html}"
   ],
   presets: [],
   darkMode: 'media', // or 'class'
