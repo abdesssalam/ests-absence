@@ -22,6 +22,7 @@ module.exports = {
       transparent: colors.transparent,
       black: colors.black,
       white: colors.white,
+      primary : '#03c55e',
       slate: colors.slate,
       gray: colors.gray,
       zinc: colors.zinc,
