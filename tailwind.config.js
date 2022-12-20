@@ -3,7 +3,8 @@ module.exports = {
   content: [
     "*.{php,html}",
     "./includes/*.{php,html}",
-    "./dashboard/*.{php,html}"
+    "./dashboard/*.{php,html}",
+    "./*/*/*.{php,html}"
   ],
   presets: [],
   darkMode: 'media', // or 'class'
@@ -22,6 +23,7 @@ module.exports = {
       transparent: colors.transparent,
       black: colors.black,
       white: colors.white,
+      primary : '#03c55e',
       slate: colors.slate,
       gray: colors.gray,
       zinc: colors.zinc,
