@@ -1,5 +1,7 @@
-<div class="bg-green-200 w-10/12 mx-auto my-5 py-1 px-2">
-    <div class="my-2 flex content-around focus:outline-none">
+<div class="bg-green-200 w-10/12 mx-auto my-5 py-1 px-2 flex flex-col ">
+<i id="toggle-form-user" class='active fas fa-angle-down font-extrabold cursor-pointer text-4xl self-end'></i>
+<div id="form-user" class="hidden">
+<div class=" my-2 flex content-around focus:outline-none">
         <label class="font-medium text-lg capitalize  w-1/3" for="">Nom:</label>
         <input class="p-1 rounded-sm w-2/3" value="test" type="text" id="user_nom">
     </div>
@@ -22,7 +24,9 @@
             </select>
     </div>
     
-        <input id="btn_add_user" class="block text-white w-1/4 mx-auto bg-green-500 py-2 px-3 font-semibold my-2 cursor-pointer rounded-md uppercase hover:text-gray-600" type="submit" value="ajouter">
+    <input id="btn_add_user" class="block text-white w-1/4 mx-auto bg-green-500 py-2 px-3 font-semibold my-2 cursor-pointer rounded-md uppercase hover:text-gray-600" type="submit" value="ajouter">
+</div>
+    
    
 </div>
 <div class="overflow-x-auto relative mt-5">
