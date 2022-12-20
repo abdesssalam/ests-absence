@@ -36,10 +36,10 @@ if(isset($_POST['submit'])){
      $password = $_POST['password'];
 
     $existanceOfUser = false;
-    $users = simplexml_load_file('db/absence.xml');
+    $root = simplexml_load_file('db/absence.xml');
     
     
-    foreach($users->user as $user) { 
+    foreach($root->users->user as $user) { 
        if($login ==  $user->email && $password ==  $user->password ){
             //ran 3arfo bli utlisateur kayn ray b9a n3rfo role dyalo bax 3la hsab xno ran ntal3o lih
             session_start();
