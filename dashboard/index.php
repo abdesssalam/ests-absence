@@ -1,18 +1,8 @@
 <?php require_once '../includes/header.php' ?>
 dashboard
 <?php
-
-
-if(!isset($_SESSION)) 
-{ 
-	session_start(); 
-	 echo  $_SESSION['role'];
-
-
-} else{
-	echo "wwwwwhaa";
+if(isset($_SESSION)){
+   echo $role = $_SESSION['role'];
 }
-
-
 ?>
 <?php require_once '../includes/footer.php' ?>

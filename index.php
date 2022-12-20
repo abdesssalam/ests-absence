@@ -40,11 +40,12 @@ if(isset($_POST['submit'])){
     
     
     foreach($users->user as $user) { 
-        if($login ==  $user->email && $password ==  $user->password ){
+       if($login ==  $user->email && $password ==  $user->password ){
             //ran 3arfo bli utlisateur kayn ray b9a n3rfo role dyalo bax 3la hsab xno ran ntal3o lih
             session_start();
+
             $_SESSION['identifiant'] = $_POST['email'];
-            $_SESSION['role'] = $user->role;
+            $_SESSION['role'] = "$user->role";
 
             header('Location:dashboard/index.php');
             $existanceOfUser = true;
