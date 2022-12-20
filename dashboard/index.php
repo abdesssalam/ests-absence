@@ -1,7 +1,7 @@
 <?php require_once '../includes/header.php' ?>
 dashboard
 <?php
-if(isset($_SESSION)){
+if(isset($_SESSION['role'])){
    echo $role = $_SESSION['role'];
 }
 ?>

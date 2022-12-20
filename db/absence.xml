@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<scolarite>
 <users>
 
 <user>
@@ -27,3 +28,18 @@
 
 
 </users>
+
+<!-- users > user -->
+<!-- departements > departement -->
+<!-- filiers > filier -->
+<!-- modules > module -->
+<!-- professeurs > professeur -->
+<!-- etudiants > etudiant -->
+<!-- groups > group -->
+<!-- __________________________ -->
+<!-- semesters > semester -->
+<!-- semaines > semaine -->
+<!-- jours > jour -->
+<!-- seances > seance -->
+
+</scolarite>
