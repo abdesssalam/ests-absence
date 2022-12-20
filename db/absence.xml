@@ -119,8 +119,28 @@ TECHNIQUES ANALYSES ET CONTRÔLE DE QUALITÉ
 <prenom>Ahmed</prenom>
 <cin>BA123456</cin> 
 </professeur>
-</professeurs>
-<!--end professeurs-->
+<professeur idProf="9">
+<nom>BELEFKIH</nom>
+<prenom>Khalid</prenom>
+<cin>BK123456</cin> 
+</professeur>
+<professeur idProf="10">
+<nom>EL OUAZZANI</nom>
+<prenom>Hind</prenom>
+<cin>EH123456</cin>
+</professeur>
+<professeur idProf="11">
+<nom>KHZAMI</nom>
+<prenom>Hind</prenom>
+<cin>KH123456</cin>  
+</professeur>
+<professeur idProf="12">
+<nom>Abdelhadi</nom>
+<prenom>Daou</prenom>
+<cin>AD123456</cin>  
+</professeur>
+</professeurs> 
+<!--end professeurs--> 
 <!--start modules-->
 <modules>
 </modules>
