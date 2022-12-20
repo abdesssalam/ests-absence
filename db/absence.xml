@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scolarite>
+<!--start users-->
 <users>
-
 <user>
     <nom>super</nom>
     <prenom>user</prenom>
@@ -9,7 +9,6 @@
     <password>12345</password>
     <role>superAdmin</role>
 </user>
-
 <user>
     <nom>super</nom>
     <prenom>user</prenom>
@@ -17,7 +16,6 @@
     <password>0000</password>
     <role>simple</role>
 </user>
-
 <user>
     <nom>sime</nom>
     <prenom>user</prenom>
@@ -25,9 +23,111 @@
     <password>0000</password>
     <role>simple</role>
 </user>
-
-
 </users>
+<!--end users-->
+<!--start departement-->
+<departements>
+<departement codeDep="1" idProf="1">
+<intitule>
+MAINTENANCE INDUSTRIELLE
+</intitule>
+</departement>
+<departement codeDep="2" idProf="2">
+<intitule>
+INFORMATIQUE
+</intitule>
+</departement>
+<departement codeDep="3" idProf="3">
+<intitule>
+TECHNIQUES DE MANAGEMENT
+</intitule>
+</departement>
+<departement codeDep="4" idProf="4">
+<intitule>
+TECHNIQUES ANALYSES ET CONTRÔLE DE QUALITÉ
+</intitule>
+</departement>
+</departements>
+<!--end departements-->
+<!--start filiers-->
+<filiers>
+<filier codeFil="1" codeDep="1">
+<intitule>Génie Industriel et Maintenance</intitule>
+</filier>
+<filier codeFil="2" codeDep="1">
+<intitule>Mécatronique</intitule>
+</filier>
+<filier codeFil="3" codeDep="2">
+<intitule>Génie Informatique</intitule>
+</filier>
+<filier codeFil="4" codeDep="2">
+<intitule>Métiers de informatique</intitule>
+</filier>
+<filier codeFil="5" codeDep="3">
+<intitule>Techniques de Management</intitule>
+</filier>
+<filier codeFil="6" codeDep="3">
+<intitule>Gestion comptable et financière</intitule>
+</filier>
+<filier codeFil="7" codeDep="4">
+<intitule>Techniques Instrumentales et Management de Qualité</intitule>
+</filier>
+<filier codeFil="8" codeDep="4">
+<intitule>Métrologie, qualité, sécurité et environnement</intitule>
+</filier>
+</filiers>
+<!--end filiers-->
+<!--start professeurs-->
+<professeurs>
+<professeur idProf="1">
+<nom>ECHAIBI</nom>
+<prenom>Mohammed </prenom>
+<cin>EM12345</cin>
+</professeur>
+<professeur idProf="2">
+<nom>Ilham</nom>
+<prenom>MOUNIR</prenom>
+<cin>IM12345</cin>
+</professeur>
+<professeur idProf="3">
+<nom>MOKHLIS</nom>
+<prenom>Khalil</prenom>
+<cin>MK12345</cin>
+</professeur>
+<professeur idProf="4">
+<nom>BENHIDA</nom>
+<prenom>Khalid</prenom>
+<cin>BK12345</cin>
+</professeur>
+<professeur idProf="5">
+<nom>Boussalhi</nom>
+<prenom>Abdessamad</prenom>
+<cin>BA12345</cin> 
+</professeur>
+<professeur idProf="6">
+<nom>BAYAR</nom>
+<prenom>Abdelouahad</prenom>
+<cin>AB12345</cin> 
+</professeur>
+<professeur idProf="7">
+<nom>SOULMANI</nom>
+<prenom>Abdellah </prenom>
+<cin>SA12345</cin> 
+</professeur>
+<professeur idProf="8">
+<nom>BOULAHOUAL</nom>
+<prenom>Ahmed</prenom>
+<cin>BA123456</cin> 
+</professeur>
+</professeurs>
+<!--end professeurs-->
+<!--start modules-->
+<modules>
+</modules>
+<!--end modules-->
+
+
+
 
 <!-- users > user -->
 <!-- departements > departement -->
