@@ -17,27 +17,8 @@ $(document).ready(function(){
         })
     })
 
-    // toggle form user on icon click
-    let icon_arrow=$('#toggle-form-user');
-    icon_arrow.click(()=>toggleForm());
+    
 
-    //toggle form on click in modifier
-    $('.btn_edit').click(()=>toggleForm());
-
-    // btn_edit
-    function toggleForm(){
-       console.log("clicl")
-        if(icon_arrow[0].classList.contains('active')){
-           icon_arrow.removeClass('active');
-           icon_arrow.removeClass('fa-angle-down');
-           icon_arrow.addClass('fa-angle-up');
-            $('#form-user').removeClass('hidden');
-        }else{
-           icon_arrow.addClass('active');
-           icon_arrow.addClass('fa-angle-down');
-           icon_arrow.removeClass('fa-angle-up');
-            $('#form-user').addClass('hidden');
-        }
-    }
+    
 })
 
