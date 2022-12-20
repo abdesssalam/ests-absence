@@ -62,7 +62,7 @@ $full_name = 'abdessalam ait omar';
         <div class="w-full  text-white h-1/5 self-end">
             <div class="flex items-center bg-red-500 w-11/12 mx-auto py-2 uppercase">
                 <i class="fa-solid fa-right-to-bracket text-3xl mx-3"></i>
-                <a class="w-full"  href="#">déconnection</a> 
+                <a class="w-full"  href="../controllers/logout.php">déconnection</a> 
             </div>
         
         </div>
@@ -72,19 +72,3 @@ $full_name = 'abdessalam ait omar';
       <div class="w-9/12 text-center cursor-pointer bg-green-500 mx-auto my-2 py-4 rounded-md shadow-md hover:bg-green-700">
         <h3 class="text-lg uppercase font-semibold text-white"><?php echo $title ?></h3>
       </div>
-<!--    
-    <div class="content bg-gray-100 md:w-9/12 md:mb-5 ">
-      <div class="w-full text-center cursor-pointer mx-auto my-2 py-24 rounded-md shadow-md"> -->
-
-      <!--  <h3 class="text-lg uppercase font-semibold text-white">-----home in php----------</h3>
--->
-        <!-- <div class="header" style="width:100%;border:2px solid black; ">
-            <a href="./index.php" class="logo test">- Ecole Supérieure de Technologie -</a>
-            <div class="header-right">
-            <a class="active" href="./index.php">Home</a>
-            <a href="mailto:contact.ests@uca.ma">contact Us</a>
-            <a href="../controllers/logout.php">logout <i class="icon fa fa-sign-out fa-fw " title="Déconnexion" aria-label="Déconnexion"></i></a>
-            </div>
-        </div>
-
-    </div>   -->

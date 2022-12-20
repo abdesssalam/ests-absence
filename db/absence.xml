@@ -1,30 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<persons>
+<users>
 
-<person>
-    <nom>awd</nom>
-    <prenom>dawdw</prenom>
-</person>
-<person>
-    <nom>mohati</nom>
-    <prenom>houssame</prenom>
-</person>
-<person>
-    <nom>awd</nom>
-    <prenom>dawdw</prenom>
-</person>
-<person>
-    <nom>mohati</nom>
-    <prenom>houssame</prenom>
-</person>
-<person>
-    <nom>awd</nom>
-    <prenom>dawdw</prenom>
-</person>
-<person>
-    <nom>mohati</nom>
-    <prenom>houssame</prenom>
-</person>
+<user>
+    <nom>super</nom>
+    <prenom>user</prenom>
+    <email>test@gmail.com</email>
+    <password>12345</password>
+    <role>superAdmin</role>
+</user>
+
+<user>
+    <nom>super</nom>
+    <prenom>user</prenom>
+    <email>test2@gmail.com</email>
+    <password>0000</password>
+    <role>simple</role>
+</user>
+
+<user>
+    <nom>sime</nom>
+    <prenom>user</prenom>
+    <email>test3@gmail.com</email>
+    <password>0000</password>
+    <role>simple</role>
+</user>
 
 
-</persons>
+</users>
