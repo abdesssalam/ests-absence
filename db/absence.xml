@@ -139,15 +139,70 @@ TECHNIQUES ANALYSES ET CONTRÔLE DE QUALITÉ
 <prenom>Daou</prenom>
 <cin>AD123456</cin>  
 </professeur>
-</professeurs> 
+</professeurs>
 <!--end professeurs--> 
 <!--start modules-->
 <modules>
+<module codeMod="1" idProf="9">
+<intitule>Langues et techniques</intitule>
+<volh>390</volh>
+</module>
 </modules>
 <!--end modules-->
-
-
-
+<!--start matiere-->
+<matieres>
+<matiere codeMat="1" codeMod="1">
+<intitule>Langue française</intitule>
+</matiere>
+<matiere codeMat="2" codeMod="1">
+<intitule>Langue anglaise</intitule>
+</matiere>
+<matiere codeMat="3" codeMod="1">
+<intitule>Techniques expression et de communication</intitule>
+</matiere>
+</matieres>
+<!--end matieres-->
+<!--start groups-->
+<groups>
+<group codeGrp="1" codeFil="1">
+<intitule>G1</intitule>
+<nbretud>30<nbretud>
+</group>
+</groups>
+<!--end groups-->
+<!--start etudiants-->
+<etudiants>
+<etudiant codeCin="EE98654" codeGrp="1">
+<cne>E22107341<cne>
+<nom>jabrane</nom>
+<prenom>amine</prenom>
+<datenaiss>1996-12-18</datenaiss>
+<ville>Marrakech</ville>
+</etudiant>
+</etudiants>
+<!--end etudiants-->
+<!--start semesters-->
+<semesters>
+<semester codeSem="1">
+<intitule>S1</intitule>
+</semester>
+<semester codeSem="2">
+<intitule>S2</intitule>
+</semester>
+<semester codeSem="3">
+<intitule>S3</intitule>
+</semester>
+<semester codeSem="4">
+<intitule>S4</intitule>
+</semester>
+<semester codeSem="5">
+<intitule>S5</intitule>
+</semester>
+<semester codeSem="6">
+<intitule>S6</intitule>
+</semester>
+</semesters>
+<!--end semesters-->
 
 <!-- users > user -->
 <!-- departements > departement -->
