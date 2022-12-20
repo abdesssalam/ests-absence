@@ -54,10 +54,12 @@
                     abdessalam ait omar
                 </th>
                 <td class="py-4 px-6">
-                   aitoamrabdeslam@gmail.com
-                </td>
-                <td class="py-4 px-6">
-                supper admin
+                    <select >
+                        <option >agent scolaire</option>
+                        <option>chef departement</option>
+                        <option selected>chef filier</option>
+                        <option>professeur</option>
+                    </select>
                 </td>
                 <td class="py-4 px-6">
                 <a class="text-blue-600 w-full btn_edit" href="#">modfier</a>
