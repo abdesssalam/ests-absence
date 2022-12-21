@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+
     //add  new user
     $('#btn_add_user').click(function(){
        console.log("hello")
@@ -16,21 +17,27 @@ $(document).ready(function(){
         })
     })
 
-    // toggle form user
-    $('#toggle-form-user').click(function(){
-        $(this).toggleClass('active');
-        
-        if($(this)[0].classList.contains('active')){
-            $(this).removeClass('fa-angle-down');
-            $(this).addClass('fa-angle-up');
+    // toggle form user on icon click
+    let icon_arrow=$('#toggle-form-user');
+    icon_arrow.click(()=>toggleForm());
+
+    //toggle form on click in modifier
+    $('.btn_edit').click(()=>toggleForm());
+
+    // btn_edit
+    function toggleForm(){
+       console.log("clicl")
+        if(icon_arrow[0].classList.contains('active')){
+           icon_arrow.removeClass('active');
+           icon_arrow.removeClass('fa-angle-down');
+           icon_arrow.addClass('fa-angle-up');
             $('#form-user').removeClass('hidden');
         }else{
-            $(this).addClass('fa-angle-down');
-            $(this).removeClass('fa-angle-up');
+           icon_arrow.addClass('active');
+           icon_arrow.addClass('fa-angle-down');
+           icon_arrow.removeClass('fa-angle-up');
             $('#form-user').addClass('hidden');
         }
-    })
-
-    
+    }
 })
 
