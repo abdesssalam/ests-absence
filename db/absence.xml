@@ -27,8 +27,7 @@
 </user>
 
 
-</users>
-
+<user><nom>test</nom><prenom>SQ</prenom><email>qs</email><password>$2y$10$tADtFREeu.Y5WzzofE6NROoVDFDmeCyDIcscu5ITfD7Ph9YQenuSO</password><role>chef departement</role></user><user><nom>test</nom><prenom>awd</prenom><email>awd</email><password>$2y$10$auHhhcdV2USRaFTvzBQ6SOaBgUtSOp.cOwOMKtWt3Gx6ZIViMqRgu</password><role>responsable filier</role></user><user><nom>testwww</nom><prenom>awda</prenom><email>awd</email><password>$2y$10$qSUU6NWzhLaabW6RtzoY7eXADQVVEsquZ.k5Sm45EG3uT9Qx8ChpO</password><role>4</role></user></users>
 <!-- users > user -->
 <!-- departements > departement -->
 <!-- filiers > filier -->
