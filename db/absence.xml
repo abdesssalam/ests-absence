@@ -150,6 +150,18 @@ TECHNIQUES ANALYSES ET CONTRÔLE DE QUALITÉ
 <intitule>Langues et techniques</intitule>
 <volh>390</volh>
 </module>
+<module codeMod="2" idProf="2">
+<intitule>Mathématiques</intitule>
+<volh>100</volh>
+</module>
+<module codeMod="3" idProf="6">
+<intitule>Algorithmique et Bases de la Programmation</intitule>
+<volh>90</volh>
+</module>
+<module codeMod="4" idProf="2">
+<intitule>Mathématiques Appliquées à Informatique</intitule>
+<volh>90</volh>
+</module>
 </modules>
 <!--end modules-->
 <!--start matiere-->
@@ -163,6 +175,27 @@ TECHNIQUES ANALYSES ET CONTRÔLE DE QUALITÉ
 <matiere codeMat="3" codeMod="1">
 <intitule>Techniques expression et de communication</intitule>
 </matiere>
+<matiere codeMat="4" codeMod="2">
+<intitule>Analyse</intitule>
+</matiere>
+<matiere codeMat="5" codeMod="2">
+<intitule>Algèbre</intitule>
+</matiere>
+<matiere codeMat="6" codeMod="2">
+<intitule>Probabilités</intitule>
+</matiere>
+<matiere codeMat="7" codeMod="3">
+<intitule>Algorithmique</intitule>
+</matiere>
+<matiere codeMat="8" codeMod="3">
+<intitule>Langage de programmation</intitule>
+</matiere>
+<matiere codeMat="9" codeMod="4">
+<intitule>Analyse numérique</intitule>
+</matiere>
+<matiere codeMat="10" codeMod="4">
+<intitule>Cryptologie</intitule>
+</matiere>
 </matieres>
 <!--end matieres-->
 <!--start groups-->
@@ -171,16 +204,83 @@ TECHNIQUES ANALYSES ET CONTRÔLE DE QUALITÉ
 <intitule>G1</intitule>
 <nbretud>30<nbretud>
 </group>
+<group codeGrp="2" codeFil="3">
+<intitule>G2</intitule>
+<nbretud>25<nbretud>
+</group>
 </groups>
 <!--end groups-->
 <!--start etudiants-->
 <etudiants>
-<etudiant codeCin="EE98654" codeGrp="1">
+<etudiant codeCin="EE98654" codeGrp="1"> 
 <cne>E22107341<cne>
 <nom>jabrane</nom>
 <prenom>amine</prenom>
 <datenaiss>1996-12-18</datenaiss>
 <ville>Marrakech</ville>
+</etudiant>
+<etudiant codeCin="EE94355" codeGrp="1"> 
+<cne>E22107341<cne>
+<nom>Sidqi</nom> 
+<prenom>Abdullah</prenom>
+<datenaiss>1996-04-20</datenaiss>
+<ville>Safi</ville>
+</etudiant>
+<etudiant codeCin="EE23875" codeGrp="1"> 
+<cne>E22107341<cne>
+<nom>Ramli</nom>
+<prenom>Safeeullah</prenom>
+<datenaiss>1996-03-12</datenaiss>  
+<ville>Essaouira</ville>
+</etudiant>
+<etudiant codeCin="EE66321" codeGrp="1"> 
+<cne>E22107341<cne>
+<nom>Alawi</nom>
+<prenom>Rashad</prenom>
+<datenaiss>1996-10-16</datenaiss>  
+<ville>Rhamna</ville>
+</etudiant>
+<etudiant codeCin="EE18654" codeGrp="1">  
+<cne>E22177341<cne>
+<nom>Hadir</nom>
+<prenom>Fadel</prenom>
+<datenaiss>1999-12-18</datenaiss>
+<ville>Rabat</ville>
+</etudiant>
+<etudiant codeCin="EE28654" codeGrp="2"> 
+<cne>E22167341<cne>
+<nom>Toufiq</nom>
+<prenom>Abdelhamid </prenom>
+<datenaiss>1993-12-18</datenaiss>
+<ville>Beni mellal</ville>
+</etudiant>
+<etudiant codeCin="EE38654" codeGrp="2">  
+<cne>E22157341<cne>
+<nom>Skali</nom>
+<prenom>Jamal</prenom>
+<datenaiss>1995-02-20</datenaiss>
+<ville>Dakhla</ville>
+</etudiant>
+<etudiant codeCin="EE23459" codeGrp="2">  
+<cne>E22073654<cne>
+<nom>Al-Ghumari</nom>
+<prenom>Aziz</prenom>
+<datenaiss>1996-12-10</datenaiss>
+<ville>Meknes</ville>
+</etudiant>
+<etudiant codeCin="EK33421" codeGrp="2">  
+<cne>E22190011<cne>
+<nom>Bikri</nom>
+<prenom>Laila</prenom>
+<datenaiss>1994-11-05</datenaiss>
+<ville>Tanger</ville>
+</etudiant>
+<etudiant codeCin="EB98770" codeGrp="2">  
+<cne>E22120080<cne>
+<nom>Bendahan</nom>
+<prenom>Aziza</prenom>
+<datenaiss>1997-10-18</datenaiss>
+<ville>Casablanca</ville>
 </etudiant>
 </etudiants>
 <!--end etudiants-->
@@ -205,9 +305,63 @@ TECHNIQUES ANALYSES ET CONTRÔLE DE QUALITÉ
 <intitule>S6</intitule>
 </semester>
 </semesters>
-
 <!--end semesters-->
-
+<!--start semaine-->
+<semaines>
+<semaine codeSemain="1">
+<intitule>S1</intitule>
+</semaine>
+<semaine codeSemain="2">
+<intitule>S2</intitule>
+</semaine>
+<semaine codeSemain="3">
+<intitule>S3</intitule>
+</semaine>
+<semaine codeSemain="4">
+<intitule>S4</intitule>
+</semaine>
+<semaine codeSemain="5">
+<intitule>S5</intitule>
+</semaine>
+<semaine codeSemain="6">
+<intitule>S6</intitule>
+</semaine>
+<semaine codeSemain="7">
+<intitule>S6</intitule>
+</semaine>
+<semaine codeSemain="8">
+<intitule>S6</intitule>
+</semaine>
+<semaine codeSemain="9">
+<intitule>S6</intitule>
+</semaine>
+<semaine codeSemain="10">
+<intitule>S6</intitule>
+</semaine>
+<semaine codeSemain="11">
+<intitule>S6</intitule>
+</semaine>
+<semaine codeSemain="12">
+<intitule>S6</intitule>
+</semaine>
+</semaines>
+<!--end semesters-->
+<jours>
+<jour codeJr="1"><intitule>lundi</intitule></jour>
+<jour codeJr="2"><intitule>mardi</intitule></jour>
+<jour codeJr="3"><intitule>mercredi</intitule></jour>
+<jour codeJr="4"><intitule>jeudi</intitule></jour>
+<jour codeJr="5"><intitule>vendredi</intitule></jour>
+<jour codeJr="6"><intitule>samedi</intitule></jour>
+<jour codeJr="7"><intitule>dimanche</intitule></jour>
+</jours>
+<!--end jours-->
+<seances>
+<seance codeSean="1">1</seance>
+<seance codeSean="2">2</seance>
+<seance codeSean="3">3</seance>
+<seance codeSean="4">4</seance>
+</seances>
 <!-- users > user -->
 <!-- departements > departement -->
 <!-- filiers > filier -->
