@@ -1,7 +1,23 @@
 <?php include_once 'session.php';
 
+
+
+//enplacement na9ass.
+    $root = simplexml_load_file('../db/absence.xml');
+
+    foreach($root->users->user as $user) { 
+       if(  $_SESSION['identifiant'] ==  $user->email ){
+        $active = $user;
+        }
+    }
+
+
+
+
 $title = 'gestion des absences';
-$full_name = 'abdessalam ait omar';
+// cola page o le titre dyalha walowal 9bla lheader exemple profil page.
+
+$full_name = "$active->nom"." "."$active->prenom";
 ?>
 
 <!DOCTYPE html>
@@ -25,12 +41,12 @@ $full_name = 'abdessalam ait omar';
     
     <nav class="bg-blue-500 py-2  flex flex-col items-center cursor-pointer w-screen   md:w-3/12 md:h-screen">
         <div class="bg-blue-900 w-11/12 rounded-md  my-2 text-center text-white uppercase py-2 md:block sm:flex-none h-1/4 ">
-            <h3 class="text-lg font-semibold ">EST SAFI</h3>
-            <h1 class="text-lg font-semibold my-1"> les absences</h1>
-            <div class="flex items-center mx-auto text-center justify-center w-10/12 border border-gray-100 py-1 rounded-md hover:text-gray-400 ">
-                <i class="fas fa-user text-3xl mx-2"></i>
-                <span><?php echo $full_name; ?> </span>
-            </div>
+            <a  href="../dashboard/profil.php">
+                <div class="flex items-center mx-auto text-center justify-center w-10/12 border border-gray-100 py-1 rounded-md hover:text-gray-400 ">
+                    <i class="fas fa-user text-3xl mx-2"></i>
+                    <span><?php echo $full_name; ?> </span>
+                </div>
+            </a>
             
         </div>
         <ul class="w-11/12 h-3/4 text-white font-bold text-lg uppercase ">
