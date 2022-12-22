@@ -48,10 +48,17 @@ $full_name = "$active->nom"." "."$active->prenom";
             
         </div>
         <ul class="w-11/12 h-3/4 text-white font-bold text-lg uppercase ">
+            <?php 
+            //only super admin can manage acount&roles
+            //ga3ma khdamna 3ab bsesseioin role rir katjiv les  donne dyal khona kamlin fda9a bham hak nadi.
+            // exemple super admin : login : test@gmail.com && pass :12345
+            if($active->role == "SuperAdmin"){?>
+
             <li class="flex w-11/12 bg-green-500 py-2 my-1 items-center hover:bg-green-700">
                 <i class="fas fa-user text-3xl mx-3"></i>
                 <a class="w-full" href="../dashboard/contacts.php">les comptes et les roles</a>
             </li>
+            <?php } ?>
             <li class="flex w-11/12 bg-green-500 py-2 my-1 items-center hover:bg-green-700">
                 <i class="fa-solid fa-table-list text-3xl mx-3"></i>
                 <a class="w-full" href="../dashboard/departements.php">les départements</a>

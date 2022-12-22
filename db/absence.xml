@@ -7,22 +7,31 @@
     <prenom>yassin</prenom>
     <email>test@gmail.com</email>
     <password>12345</password>
-    <role>superAdmin</role>
+    <role>SuperAdmin</role>
 </user>
 <user>
     <nom>ahmed</nom>
     <prenom>mohaùed</prenom>
     <email>test2@gmail.com</email>
     <password>0000</password>
-    <role>simple</role>
+    <role>AgentScolarite</role>
 </user>
 <user>
     <nom>simo</nom>
     <prenom>xarokhan</prenom>
     <email>test3@gmail.com</email>
     <password>0000</password>
-    <role>simple</role>
+    <role>ChefeDpartement</role>
 </user>
+<user>
+    <nom>simo</nom>
+    <prenom>xarokshan</prenom>
+    <email>tesst3@gmail.com</email>
+    <password>0000</password>
+    <role>Professeur</role>
+</user>
+
+
 <user><nom>test</nom><prenom>SQ</prenom><email>qs</email><password>$2y$10$tADtFREeu.Y5WzzofE6NROoVDFDmeCyDIcscu5ITfD7Ph9YQenuSO</password><role>chef departement</role></user>
 <user><nom>test</nom><prenom>awd</prenom><email>awd</email><password>$2y$10$auHhhcdV2USRaFTvzBQ6SOaBgUtSOp.cOwOMKtWt3Gx6ZIViMqRgu</password><role>responsable filier</role></user>
 <user><nom>testwww</nom><prenom>awda</prenom><email>awd</email><password>$2y$10$qSUU6NWzhLaabW6RtzoY7eXADQVVEsquZ.k5Sm45EG3uT9Qx8ChpO</password><role>4</role></user>
