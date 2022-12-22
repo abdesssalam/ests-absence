@@ -1,9 +1,10 @@
-<div class="bg-green-200 w-10/12 mx-auto my-5 py-1 px-2 flex flex-col ">
-<i id="toggle-form-user" class='active fas fa-angle-down font-extrabold cursor-pointer text-4xl self-end'></i>
-<div id="form-user" class="hidden">
+<div class="bg-green-200 rounded-sm shadow-md transition-all ease-in-out w-10/12 mx-auto my-5 py-1 px-2 flex flex-col ">
+<span class="justify-self-center self-center text-lg font-medium capitalize">ajouter nouveau utilisateur </span>
+<i id="toggle-form-user" class='active w-10 h-10  fas fa-angle-down font-extrabold cursor-pointer text-4xl self-end'></i>
+<div id="form-user" class="hidden ">
 <div class=" my-2 flex content-around focus:outline-none">
         <label class="font-medium text-lg capitalize  w-1/3" for="">Nom:</label>
-        <input class="p-1 rounded-sm w-2/3" value="test" type="text" id="user_nom">
+        <input class="p-1 rounded-sm w-2/3"  type="text" id="user_nom">
     </div>
     <div class="my-2 flex content-around focus:outline-none">
         <label class="font-medium text-lg capitalize  w-1/3" for="">Prenom:</label>
@@ -53,13 +54,15 @@
                     abdessalam ait omar
                 </th>
                 <td class="py-4 px-6">
-                   aitoamrabdeslam@gmail.com
+                    <select >
+                        <option >agent scolaire</option>
+                        <option>chef departement</option>
+                        <option selected>chef filier</option>
+                        <option>professeur</option>
+                    </select>
                 </td>
                 <td class="py-4 px-6">
-                supper admin
-                </td>
-                <td class="py-4 px-6">
-                <a class="text-blue-600 w-full" href="#">modfier</a>
+                <a class="text-blue-600 w-full btn_edit" href="#">modfier</a>
                 </td>
 
             </tr>
