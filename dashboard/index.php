@@ -1,4 +1,7 @@
-<?php require_once '../includes/header.php' ?>
+<?php 
+$title = "gestion d'absence";
+
+require_once '../includes/header.php' ?>
 dashboard
 <?php
 if(isset($_SESSION['role'])){

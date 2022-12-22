@@ -12,9 +12,7 @@
     }
 
 
-
-
-$title = 'gestion des absences';
+//$title = 'gestion des absences';
 // cola page o le titre dyalha walowal 9bla lheader exemple profil page.
 
 $full_name = "$active->nom"." "."$active->prenom";

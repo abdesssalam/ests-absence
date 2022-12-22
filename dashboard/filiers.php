@@ -1,5 +1,7 @@
 
-<?php require_once '../includes/header.php' ?>
+<?php 
+$title = 'gestion des filiéres';
+require_once '../includes/header.php' ?>
 <div class="bg-green-200 w-10/12 mx-auto my-5 py-1 px-2">
     <div class="my-2 flex content-around focus:outline-none">
         <label class="font-medium text-lg capitalize  w-1/3" for="">labele:</label>

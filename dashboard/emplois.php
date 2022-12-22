@@ -1,1 +1,3 @@
-<?php require_once '../includes/header.php' ?>
+<?php 
+$title = 'gestion des emploit de tepms';
+require_once '../includes/header.php' ?>

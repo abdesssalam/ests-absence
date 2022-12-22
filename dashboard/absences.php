@@ -1,4 +1,6 @@
-<?php require_once '../includes/header.php' ?>
+<?php 
+$title = 'gestion des absences';
+require_once '../includes/header.php' ?>
 
 <div class="w-full mt-5">
     <div class="w-auto flex justify-start items-center">

@@ -3,22 +3,22 @@
 <!--start users-->
 <users>
 <user>
-    <nom>super</nom>
-    <prenom>user</prenom>
+    <nom>alouan </nom>
+    <prenom>yassin</prenom>
     <email>test@gmail.com</email>
     <password>12345</password>
     <role>superAdmin</role>
 </user>
 <user>
-    <nom>super</nom>
-    <prenom>user</prenom>
+    <nom>ahmed</nom>
+    <prenom>mohaùed</prenom>
     <email>test2@gmail.com</email>
     <password>0000</password>
     <role>simple</role>
 </user>
 <user>
-    <nom>sime</nom>
-    <prenom>user</prenom>
+    <nom>simo</nom>
+    <prenom>xarokhan</prenom>
     <email>test3@gmail.com</email>
     <password>0000</password>
     <role>simple</role>
@@ -202,81 +202,81 @@ TECHNIQUES ANALYSES ET CONTRÔLE DE QUALITÉ
 <groups>
 <group codeGrp="1" codeFil="1">
 <intitule>G1</intitule>
-<nbretud>30<nbretud>
+<nbretud>30</nbretud>
 </group>
 <group codeGrp="2" codeFil="3">
 <intitule>G2</intitule>
-<nbretud>25<nbretud>
+<nbretud>25</nbretud>
 </group>
 </groups>
 <!--end groups-->
 <!--start etudiants-->
 <etudiants>
 <etudiant codeCin="EE98654" codeGrp="1"> 
-<cne>E22107341<cne>
+<cne>E22107341</cne>
 <nom>jabrane</nom>
 <prenom>amine</prenom>
 <datenaiss>1996-12-18</datenaiss>
 <ville>Marrakech</ville>
 </etudiant>
 <etudiant codeCin="EE94355" codeGrp="1"> 
-<cne>E22107341<cne>
+<cne>E22107341</cne>
 <nom>Sidqi</nom> 
 <prenom>Abdullah</prenom>
 <datenaiss>1996-04-20</datenaiss>
 <ville>Safi</ville>
 </etudiant>
 <etudiant codeCin="EE23875" codeGrp="1"> 
-<cne>E22107341<cne>
+<cne>E22107341</cne>
 <nom>Ramli</nom>
 <prenom>Safeeullah</prenom>
 <datenaiss>1996-03-12</datenaiss>  
 <ville>Essaouira</ville>
 </etudiant>
 <etudiant codeCin="EE66321" codeGrp="1"> 
-<cne>E22107341<cne>
+<cne>E22107341</cne>
 <nom>Alawi</nom>
 <prenom>Rashad</prenom>
 <datenaiss>1996-10-16</datenaiss>  
 <ville>Rhamna</ville>
 </etudiant>
 <etudiant codeCin="EE18654" codeGrp="1">  
-<cne>E22177341<cne>
+<cne>E22177341</cne>
 <nom>Hadir</nom>
 <prenom>Fadel</prenom>
 <datenaiss>1999-12-18</datenaiss>
 <ville>Rabat</ville>
 </etudiant>
 <etudiant codeCin="EE28654" codeGrp="2"> 
-<cne>E22167341<cne>
+<cne>E22167341</cne>
 <nom>Toufiq</nom>
 <prenom>Abdelhamid </prenom>
 <datenaiss>1993-12-18</datenaiss>
 <ville>Beni mellal</ville>
 </etudiant>
 <etudiant codeCin="EE38654" codeGrp="2">  
-<cne>E22157341<cne>
+<cne>E22157341</cne>
 <nom>Skali</nom>
 <prenom>Jamal</prenom>
 <datenaiss>1995-02-20</datenaiss>
 <ville>Dakhla</ville>
 </etudiant>
 <etudiant codeCin="EE23459" codeGrp="2">  
-<cne>E22073654<cne>
+<cne>E22073654</cne>
 <nom>Al-Ghumari</nom>
 <prenom>Aziz</prenom>
 <datenaiss>1996-12-10</datenaiss>
 <ville>Meknes</ville>
 </etudiant>
 <etudiant codeCin="EK33421" codeGrp="2">  
-<cne>E22190011<cne>
+<cne>E22190011</cne>
 <nom>Bikri</nom>
 <prenom>Laila</prenom>
 <datenaiss>1994-11-05</datenaiss>
 <ville>Tanger</ville>
 </etudiant>
 <etudiant codeCin="EB98770" codeGrp="2">  
-<cne>E22120080<cne>
+<cne>E22120080</cne>
 <nom>Bendahan</nom>
 <prenom>Aziza</prenom>
 <datenaiss>1997-10-18</datenaiss>
