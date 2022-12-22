@@ -345,7 +345,7 @@ TECHNIQUES ANALYSES ET CONTRÔLE DE QUALITÉ
 <intitule>S6</intitule>
 </semaine>
 </semaines>
-<!--end semesters-->
+<!--end semaine-->
 <jours>
 <jour codeJr="1"><intitule>lundi</intitule></jour>
 <jour codeJr="2"><intitule>mardi</intitule></jour>
