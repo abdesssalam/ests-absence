@@ -1,6 +1,6 @@
 <div class="bg-green-200 rounded-sm shadow-md transition-all ease-in-out w-10/12 mx-auto my-5 py-1 px-2 flex flex-col ">
 <span class="justify-self-center self-center text-lg font-medium capitalize">ajouter nouveau utilisateur </span>
-<i id="toggle-form-user" class='active w-10 h-10  fas fa-angle-down font-extrabold cursor-pointer text-4xl self-end'></i>
+<i id="toggle-form-user" class='w-10 h-10  fas fa-angle-down font-extrabold cursor-pointer text-4xl self-end'></i>
 <div id="form-user" class="hidden ">
 <div class=" my-2 flex content-around focus:outline-none">
         <label class="font-medium text-lg capitalize  w-1/3" for="">Nom:</label>
@@ -31,7 +31,7 @@
    
 </div>
 <div class="overflow-x-auto relative mt-5">
-    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+    <table id="table" class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="py-3 px-6">

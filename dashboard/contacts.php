@@ -1,5 +1,5 @@
 <?php
-$title = 'gestion des profil';
+$title = 'gestion des comptes et permessions';
 require_once '../includes/header.php' ?>
 
 <div class="w-full  py-1 px-2">

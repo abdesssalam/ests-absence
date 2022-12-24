@@ -5,17 +5,18 @@
 //enplacement na9ass.
     $root = simplexml_load_file('../db/absence.xml');
 
-    foreach($root->users->user as $user) { 
-       if(  $_SESSION['identifiant'] ==  $user->email ){
-        $active = $user;
-        }
+    if(isset($_SESSION['identifiant'] )){
+        foreach($root->users->user as $user) { 
+        if($_SESSION['identifiant'] ==  $user->email ){
+            $active = $user;
+            }
     }
-
+}
 
 //$title = 'gestion des absences';
 // cola page o le titre dyalha walowal 9bla lheader exemple profil page.
 
-$full_name = "$active->nom"." "."$active->prenom";
+$full_name = isset($_SESSION['identifiant']) ? "$active->nom"." "."$active->prenom" : 'abdessalam';
 ?>
 
 <!DOCTYPE html>
@@ -29,6 +30,11 @@ $full_name = "$active->nom"." "."$active->prenom";
     <link rel="stylesheet" href="../css/output.css">
     <!-- <link rel="stylesheet" href="../css/header.css"> -->
     <title><?php echo $title ?></title>
+    <style>
+        input:focus{
+            outline: none;
+        }
+    </style>
 </head>
 <body class="md:flex ">
 
@@ -39,7 +45,7 @@ $full_name = "$active->nom"." "."$active->prenom";
     
     <nav class="bg-blue-500 py-2  flex flex-col items-center cursor-pointer w-screen   md:w-3/12 md:h-screen">
         <div class="bg-blue-900 w-11/12 rounded-md  my-2 text-center text-white uppercase py-2 md:block sm:flex-none h-1/4 ">
-            <a  href="../dashboard/profil.php">
+            <a  href="../dashboard/profile.php">
                 <div class="flex items-center mx-auto text-center justify-center w-10/12 border border-gray-100 py-1 rounded-md hover:text-gray-400 ">
                     <i class="fas fa-user text-3xl mx-2"></i>
                     <span><?php echo $full_name; ?> </span>
@@ -52,13 +58,19 @@ $full_name = "$active->nom"." "."$active->prenom";
             //only super admin can manage acount&roles
             //ga3ma khdamna 3ab bsesseioin role rir katjiv les  donne dyal khona kamlin fda9a bham hak nadi.
             // exemple super admin : login : test@gmail.com && pass :12345
-            if($active->role == "SuperAdmin"){?>
+            /**
+             * @author abdessalam 
+             * andir lhad test comment bach n9ad design bla ma kola mra ndir login
+             * nsali design d les role kamlin w ghadi n7yd les cemmentaires
+             */
+           // if($active->role == "SuperAdmin"){
+            ?>
 
             <li class="flex w-11/12 bg-green-500 py-2 my-1 items-center hover:bg-green-700">
                 <i class="fas fa-user text-3xl mx-3"></i>
                 <a class="w-full" href="../dashboard/contacts.php">les comptes et les roles</a>
             </li>
-            <?php } ?>
+            <?php //} ?>
             <li class="flex w-11/12 bg-green-500 py-2 my-1 items-center hover:bg-green-700">
                 <i class="fa-solid fa-table-list text-3xl mx-3"></i>
                 <a class="w-full" href="../dashboard/departements.php">les départements</a>

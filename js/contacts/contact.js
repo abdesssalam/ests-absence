@@ -17,7 +17,30 @@ $(document).ready(function(){
         })
     })
 
-    
+    // toggle form
+    let ic_toggle_form=$('#toggle-form-user');
+    ic_toggle_form.click(()=>toggleForm())
+
+    function toggleForm(){
+        //hide
+        if(ic_toggle_form[0].classList.contains('active')){
+            $('#table').removeClass('hidden');
+            // if($('#table')[0].classList.contains('hidden')){
+            //     $('#table').removeClass('hidden');
+            // } 
+            ic_toggle_form.removeClass('active');
+            $('#form-user').addClass('hidden');
+            ic_toggle_form.addClass('fa-angle-down');
+            ic_toggle_form.removeClass('fa-angle-up');
+        }else{
+            ic_toggle_form.addClass('active');
+            $('#form-user').removeClass('hidden');
+            ic_toggle_form.removeClass('fa-angle-down');
+            ic_toggle_form.addClass('fa-angle-up');
+            $('#table').addClass('hidden');
+        }
+        
+    }
 
     
 })
