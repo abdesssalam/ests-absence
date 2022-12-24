@@ -1,4 +1,8 @@
 <?php
+require_once 'db/config.php';
+//var_dump($db->get_users());
+ print_r($db->get_users()->where('nom','alouan'));
+
 if(isset($_POST['nom'])){
     
 

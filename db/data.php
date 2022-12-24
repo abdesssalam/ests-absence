@@ -1,5 +1,8 @@
 <?php
 
+require "vendor/autoload.php";
+use Illuminate\Support\Collection;
+
 class Data{
 
     // public $scolarite=simplexml_load_file('absence.xml');
@@ -35,7 +38,29 @@ class Data{
         
     }
 
+    public function get_users(){
+        return new Collection($this->xml_to_aray($this->users));
+    }
 
+    /**
+     * @author abdessalam 
+     * @method array : xml_to_array(simplexmlobject) 
+     * this function used to convert xml to array that can be used in collection
+     */
+    public function xml_to_aray($data){
+        $json = json_encode($data);
+        $arr = json_decode($json,true);
+        $arr = array_values($arr);
+        return $arr[0];
+    }
+
+    
+    /**
+     * @author abdessalam 
+     * @method array : saveChange(string) 
+     * used after updating xml file (add,delete,edit)
+     * to save new data
+     */
     public function saveChange($type){
         if($type=="ajax"){
             file_put_contents('../db/absence.xml',$this->scolarite->asXML());
