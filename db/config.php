@@ -1,6 +1,6 @@
 <?php
 
-/*
+
 require_once 'data.php';
 
 
@@ -19,5 +19,5 @@ $db = new Data($xml);
 // ];
 // $added = $db->add_user($data);
 // var_dump($added);
-*/
+
 ?>

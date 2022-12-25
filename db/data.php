@@ -1,7 +1,7 @@
 <?php
 
-//require "vendor/autoload.php";
-//use Illuminate\Support\Collection;
+require "../vendor/autoload.php";
+use Illuminate\Support\Collection;
 
 class Data{
 
@@ -10,7 +10,7 @@ class Data{
     public $users;
     public function __construct($xml){
        
-        $this->scolarite = simplexml_load_file($xml);
+        $this->scolarite = $xml;
         $this->users = $this->scolarite->users;
     }
 
@@ -40,17 +40,12 @@ class Data{
     }
 
     public function get_users(){
-        $users = $this->xml_to_collection($this->users);
-
-           
-            
-       
-        return $users;
+        return $users = $this->xml_to_collection($this->users);
     }
 
     /**
      * @author abdessalam 
-     * @method array : xml_to_collection(simplexmlobject) 
+     * @method collection : xml_to_collection(simplexmlobject) 
      * this function used to convert xml to array that can be used in collection
      */
     public function xml_to_collection($data){
