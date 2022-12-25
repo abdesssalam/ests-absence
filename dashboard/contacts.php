@@ -14,5 +14,5 @@ require_once '../includes/header.php' ?>
 </div>
 
 
-<script src="../js/jquery-3.6.0.min.js"></script>
+<!-- <script src="../js/jquery-3.6.0.min.js"></script> -->
 <script src="../js/contacts/main.js"></script>

@@ -69,27 +69,38 @@ $full_name = isset($_SESSION['identifiant']) ? "$active->nom"." "."$active->pren
              */
            // if($active->role == "SuperAdmin"){
             ?>
-
+            <!-- only for super admin -->
             <li class="flex w-11/12 bg-green-500 py-2 my-1 items-center hover:bg-green-700">
                 <i class="fas fa-user text-3xl mx-3"></i>
                 <a class="w-full" href="../dashboard/contacts.php">les comptes et les roles</a>
             </li>
             <?php //} ?>
+            <!-- only for supper admin -->
             <li class="flex w-11/12 bg-green-500 py-2 my-1 items-center hover:bg-green-700">
                 <i class="fa-solid fa-table-list text-3xl mx-3"></i>
                 <a class="w-full" href="../dashboard/departements.php">les départements</a>
             </li>
+            <!-- supper admin + chef departement -->
            <li class="flex w-11/12 bg-green-500 py-2 my-1 items-center hover:bg-green-700">
                 <i class="fa-solid fa-graduation-cap text-3xl mx-3"></i>
                 <a class="w-full" href="../dashboard/filiers.php">les  filiers</a> 
             </li>
-           
-            
-
+            <!-- chef filier + agent scolaire -->
+           <li class="flex w-11/12 bg-green-500 py-2 my-1 items-center hover:bg-green-700">
+                <i class="fa-solid fa-graduation-cap text-3xl mx-3"></i>
+                <a class="w-full" href="../dashboard/modules.php">modules et matieres</a> 
+            </li>
+            <!-- agent scolaire -->
              <li class="flex w-11/12 bg-green-500 py-2 my-1 items-center hover:bg-green-700">
                 <i class="fa-solid fa-hourglass-end text-3xl mx-3"></i>
                 <a class="w-full" href="../dashboard/emplois.php">les emploit de tepms</a> 
             </li>
+            <!-- all but there is traitement inside
+               supper admin + agenet scolaire =>lister par : depatrement + filers + annee + modules + matiers
+               chef departement => lister par : filers + annee + modules + matiers
+               chef filier => lister par : annee + modules + matiers
+               prof => marker absence + lister par matiers 
+            -->
             <li class="flex w-11/12 bg-green-500 py-2 my-1 items-center hover:bg-green-700">
                 <i class="fa-solid fa-building text-3xl mx-3"></i>
                 <a class="w-full" href="../dashboard/absences.php">les absences</a> 

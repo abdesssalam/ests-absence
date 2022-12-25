@@ -1,8 +1,5 @@
-<?php 
-$title = 'gestion des absences';
-require_once '../includes/header.php' ?>
-
 <div class="w-full mt-5">
+    <!-- menu : lister et mise a jour  -->
     <div class="w-11/12 mx-auto  bg-green-300 py-3 px-2 rounded shadow flex justify-start items-center">
         <div class="w-1/3 mx-2 flex justify-between items-center" >
             <label  class="block mx-1 text-sm font-medium text-gray-900 dark:text-white">departement</label>
@@ -34,5 +31,18 @@ require_once '../includes/header.php' ?>
                
             </select>
         </div>
+        <div class="w-1/3  mx-2 flex justify-between items-center" >
+            <label  class="block mx-1 text-sm font-medium text-gray-900 dark:text-white">modules</label>
+            <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <option selected>choiser le module</option>
+                <option value="1">programmation web</option>
+                <option value="1">java oop</option>
+                <option value="1">SI</option>
+               
+               
+            </select>
+        </div>
     </div>
+    
+    <!-- table -->
 </div>

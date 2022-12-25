@@ -25,7 +25,8 @@ class Data{
             $user->addChild('password',  $pass);
             $user->addChild('role', $data['role']);
 
-            $this->saveChange($data['type']);
+            $type = isset($data['type']) ? $data['type'] : '';
+            $this->saveChange($type);
             return true;
 
         }catch(Exception $e){
@@ -39,21 +40,49 @@ class Data{
     }
 
     public function get_users(){
-        return new Collection($this->xml_to_aray($this->users));
+        $users = $this->xml_to_collection($this->users);
+
+           
+            
+       
+        return $users;
     }
 
     /**
      * @author abdessalam 
-     * @method array : xml_to_array(simplexmlobject) 
+     * @method array : xml_to_collection(simplexmlobject) 
      * this function used to convert xml to array that can be used in collection
      */
-    public function xml_to_aray($data){
+    public function xml_to_collection($data){
         $json = json_encode($data);
         $arr = json_decode($json,true);
         $arr = array_values($arr);
-        return $arr[0];
+        $arr =new Collection($arr[0]);
+        //cleaning collection (attribute to simple element)
+
+        return $this->exctract_xml_attrs($arr);
     }
 
+    /**
+     * @author abdessalam 
+     * @method array : exctract_xml_attrs(simplexmlobject) 
+     * this function used to make xml attribue like any element
+     */
+
+    public function exctract_xml_attrs($arr){
+        $arr = $arr->map(function ($item, $key) {
+            $item = new Collection($item);
+            $attrs=[];
+            if($item->has('@attributes')){
+                $attrs = $item->get('@attributes');
+                $item->forget('@attributes');
+            }
+            $item=$item->merge($attrs);
+            return $item;
+        });
+        return $arr;
+    }
+    
     
     /**
      * @author abdessalam 

@@ -1,8 +1,5 @@
-<?php 
-$title = 'gestion des absences';
-require_once '../includes/header.php' ?>
-
 <div class="w-full mt-5">
+    <!-- menu : lister et mise a jour  -->
     <div class="w-11/12 mx-auto  bg-green-300 py-3 px-2 rounded shadow flex justify-start items-center">
         <div class="w-1/3 mx-2 flex justify-between items-center" >
             <label  class="block mx-1 text-sm font-medium text-gray-900 dark:text-white">departement</label>
@@ -35,4 +32,6 @@ require_once '../includes/header.php' ?>
             </select>
         </div>
     </div>
+    
+    <!-- table -->
 </div>

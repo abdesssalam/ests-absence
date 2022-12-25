@@ -1,5 +1,6 @@
 <?php
 require_once 'db/config.php';
+echo '<br>-------------________ <br>';
 //var_dump($db->get_users());
  print_r($db->get_users()->where('nom','alouan'));
 
