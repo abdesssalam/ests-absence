@@ -1,6 +1,6 @@
 <?php
 
-require "../vendor/autoload.php";
+require $_SERVER['DOCUMENT_ROOT']."/absence/vendor/autoload.php";
 use Illuminate\Support\Collection;
 
 class Data{
