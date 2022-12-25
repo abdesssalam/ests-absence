@@ -62,7 +62,41 @@
                     </select>
                 </td>
                 <td class="py-4 px-6">
-                <a class="text-blue-600 w-full btn_edit" href="#">modfier</a>
+                <a id="btn_edit" class="text-blue-600 w-full btn_edit" href="#">modfier</a>
+                </td>
+
+            </tr>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    abdessalam ait omar
+                </th>
+                <td class="py-4 px-6">
+                    <select >
+                        <option >agent scolaire</option>
+                        <option>chef departement</option>
+                        <option selected>chef filier</option>
+                        <option>professeur</option>
+                    </select>
+                </td>
+                <td class="py-4 px-6">
+                <a id="btn_edit" class="text-blue-600 w-full btn_edit" href="#">modfier</a>
+                </td>
+
+            </tr>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    abdessalam ait omar
+                </th>
+                <td class="py-4 px-6 ">
+                    <select >
+                        <option >agent scolaire</option>
+                        <option>chef departement</option>
+                        <option selected>chef filier</option>
+                        <option>professeur</option>
+                    </select>
+                </td>
+                <td class="py-4 px-6">
+                <a id="btn_edit" class="text-blue-600 w-full btn_edit" href="#">modfier</a>
                 </td>
 
             </tr>

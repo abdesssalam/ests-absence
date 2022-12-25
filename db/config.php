@@ -1,6 +1,7 @@
 <?php
 require_once 'data.php';
 
+
 $path = "http://localhost/absence/db/absence.xml";
 $xml = simplexml_load_file($path);
 $db = new Data($xml);

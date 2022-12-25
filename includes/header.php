@@ -1,8 +1,12 @@
-<?php include_once 'session.php';
+<?php 
+require_once('session.php');
+require_once('../db/config.php');
 
 
 
-//enplacement na9ass.
+//simple xml load file deja kayna had les fonctionalité khas dirha f data 
+// function d login dirha tma
+// matnsach test dyal isset() soit session soit dakchi li katzid wstha bhal (active)
     $root = simplexml_load_file('../db/absence.xml');
 
     if(isset($_SESSION['identifiant'] )){
@@ -37,7 +41,7 @@ $full_name = isset($_SESSION['identifiant']) ? "$active->nom"." "."$active->pren
     </style>
 </head>
 <body class="md:flex ">
-
+<script src="../js/jquery-3.6.0.min.js"></script>
     <div class="md:hidden bg-blue-500 text-center text-3xl  w-full">
     
         <i id="menu" class="fas fa-bars cursor-pointer "></i>

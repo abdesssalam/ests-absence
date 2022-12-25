@@ -10,7 +10,7 @@ require_once '../includes/header.php' ?>
     <div class="my-2 flex content-around focus:outline-none">
             <label class="font-medium text-lg capitalize  w-1/3" for="">Chef departement :</label>
              <select id="user_role"  class="w-2/3 bg-white border border-white text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  p-2.5 ">
-                <!--  dynamique list all professeur -->
+                <!-- @abdessalam: dynamique list all professeur -->
                 <option value="1">Super admin</option>
                 <option value="2">agent scolaire</option>
                 <option value="3">chef departement</option>
