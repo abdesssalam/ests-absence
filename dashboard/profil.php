@@ -2,6 +2,8 @@
 $title = 'gestion des profil';
 require_once '../includes/header.php';
 
+
+//reading
 $root = simplexml_load_file('../db/absence.xml');
 
     foreach($root->users->user as $user) { 
@@ -10,7 +12,21 @@ $root = simplexml_load_file('../db/absence.xml');
         }
     }
 
-//don't how to control width using tailwind friend someone handle it.
+    //updating
+    if(isset($_POST['update'])) {
+
+        foreach($root->users->user as $user) { 
+            if(  $_SESSION['identifiant'] ==  $user->email ){
+                $user->email = $_POST['email'];
+                $user->password = $_POST['pass'];
+                break;
+            }
+         }
+         file_put_contents('../db/absence.xml', $root->asXML());
+
+         // to talk about : using of header meaning operation have succeded ;
+         header('location:../index.php');
+    }
 
 ?>
 
@@ -36,15 +52,17 @@ $root = simplexml_load_file('../db/absence.xml');
             <div class="flex justify-between w-2/3" style="margin-top:2vh;">
                 <label style="position:relative;top:10px;" for="email" class=" font-extrabold tracking-tight block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email Address</label>
                 <div class="w-1/12"></div>
-                <input value = "<?php echo $active->email ?>" type="email" id="email" class="w-2/3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="john.doe@company.com" required>
+                <input name="email" value = "<?php echo $active->email ?>" type="email" id="email" class="w-2/3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="john.doe@company.com" required>
             </div>
 
             <div class="flex justify-between w-2/3" style="margin-top:2vh;">
                 <label style="position:relative;top:10px;" for="password" class=" font-extrabold tracking-tight block mb-2 text-sm font-medium text-gray-900 dark:text-white">Mot De Pass</label>
                 <div class="w-1/12"></div>
-                <input value = "<?php echo $active->password ?>" type="text" id="password" class="w-2/3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="john.doe@company.com" required>
+                <input name="pass" value = "<?php echo $active->password ?>" type="text" id="password" class="w-2/3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="john.doe@company.com" required>
             </div>
-            <button type="submit" class="border border-black focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-yellow-900">Modifier</button>
+            <button name="update" type="submit" style="width:60%; margin:30px 20%;padding:5px;border-radius:10px;;cursor:pointer;color:white;background-color:black;">Modifier</button>
+
+
         </div>
     </form>
 
