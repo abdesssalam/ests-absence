@@ -1,17 +1,11 @@
 <?php 
 $title = 'profile';
 require_once '../includes/header.php';
+require_once '../db/data.php';
 
-$root = simplexml_load_file('../db/absence.xml');
+$db = new Data('../db/absence.xml');
+$active = $db->getSpecificUser($_SESSION['identifiant']);
 
-    if(isset($_SESSION['identifiant'])){
-         foreach($root->users->user as $user) { 
-       if(  $_SESSION['identifiant'] ==  $user->email ){
-        $active = $user;
-        }
-    }
-    }
-   
 
 //don't how to control width using tailwind friend someone handle it.
 

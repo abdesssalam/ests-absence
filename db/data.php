@@ -1,7 +1,7 @@
 <?php
 
-require "../vendor/autoload.php";
-use Illuminate\Support\Collection;
+//require "vendor/autoload.php";
+//use Illuminate\Support\Collection;
 
 class Data{
 
@@ -10,7 +10,7 @@ class Data{
     public $users;
     public function __construct($xml){
        
-        $this->scolarite=$xml;
+        $this->scolarite = simplexml_load_file($xml);
         $this->users = $this->scolarite->users;
     }
 
@@ -70,6 +70,18 @@ class Data{
         
        
     }
+
+    public function getSpecificUser($id){
+
+        foreach($this->users->user as $user) { 
+            if(  $id ==  $user->email ){
+             $active = $user;
+             }
+         }
+         return $active;
+    }
+
+
 }
 
 ?>
