@@ -1,14 +1,10 @@
 <?php 
 $title = 'profile';
 require_once '../includes/header.php';
-require_once '../db/data.php';
+require_once '../db/config.php';
 
-$db = new Data('../db/absence.xml');
 $active = $db->getSpecificUser($_SESSION['identifiant']);
-
-
 //don't how to control width using tailwind friend someone handle it.
-
 ?>
 
 <div class="w-full ">
@@ -18,16 +14,16 @@ $active = $db->getSpecificUser($_SESSION['identifiant']);
         <div class="w-1/2 mx-auto flex md:flex-row flex-col justify-between items-center mb-2">
             <div class="w-full md:w-1/2 mr-1">
                 <label for="nom" class="block mb-2 text-sm font-medium text-gray-900 ">Nom :</label>
-                <input value ="<?php echo  isset($active) ? $active->nom : '' ?>"  type="text" id="nom" class="bg-gray-50 border border-black text-gray-900 text-sm rounded-lg  block w-full p-2.5 " placeholder="nom" >
+                <input value ="<?php echo  isset($active) ? $active['nom'] : '' ?>"  type="text" id="nom" class="bg-gray-50 border border-black text-gray-900 text-sm rounded-lg  block w-full p-2.5 " placeholder="nom" >
             </div>
             <div class="w-full md:w-1/2">
                 <label for="prenom" class="block mb-2 text-sm font-medium text-gray-900 ">Prenom :</label>
-                <input  value ="<?php echo  isset($active) ? $active->prenom : ''?>" type="text" id="prenom" class="bg-gray-50 border border-black text-gray-900 text-sm rounded-lg  block w-full p-2.5 " placeholder="Prenom" >
+                <input  value ="<?php echo  isset($active) ? $active['prenom'] : ''?>" type="text" id="prenom" class="bg-gray-50 border border-black text-gray-900 text-sm rounded-lg  block w-full p-2.5 " placeholder="Prenom" >
             </div> 
         </div>
         <div class="w-1/2 mx-auto mb-2">
             <label for="email" class="block mb-2 text-sm font-medium text-gray-900 ">Email address</label>
-            <input value ="<?php echo  isset($active) ?  $active->email : '' ?>" type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  block w-full p-2.5 " placeholder="john.doe@company.com">
+            <input value ="<?php echo  isset($active) ?  $active['email'] : '' ?>" type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  block w-full p-2.5 " placeholder="john.doe@company.com">
         </div>
         <div class="w-1/2 mx-auto mb-2">
             <label for="email" class="block  mb-2 text-sm font-medium text-gray-900 ">Mot de pass actuel</label>

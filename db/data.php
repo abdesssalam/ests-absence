@@ -1,6 +1,6 @@
 <?php
 
-require $_SERVER['DOCUMENT_ROOT']."/absence/vendor/autoload.php";
+require $_SERVER['DOCUMENT_ROOT']."/ests-absence/vendor/autoload.php";
 use Illuminate\Support\Collection;
 
 class Data{
@@ -97,15 +97,76 @@ class Data{
 
     public function getSpecificUser($id){
 
-        foreach($this->users->user as $user) { 
-            if(  $id ==  $user->email ){
-             $active = $user;
+        foreach($this->get_users() as $user) { 
+            if(  $id ==  $user['email'] ){
+             return $user;
              }
          }
-         return $active;
+       
+    }
+    
+    public function getDepartements(){
+       return $this->xml_to_collection($this->scolarite->departements);
+  
     }
 
+    public function getFiliers(){
+        return $this->xml_to_collection($this->scolarite->filiers);
+   
+     }
+     public function getProfesseurs(){
+        return $this->xml_to_collection($this->scolarite->professeurs);
+   
+     }
+     public function getModules(){
+        return $this->xml_to_collection($this->scolarite->modules);
+   
+     }
+     public function getMatieres(){
+        return $this->xml_to_collection($this->scolarite->matieres);
+   
+     }
+     public function getGroups(){
+        return $this->xml_to_collection($this->scolarite->groups);
+   
+     }
+     public function getEtudiants(){
+        return $this->xml_to_collection($this->scolarite->etudiants);
+   
+     }
+     public function getSemesters(){
+        return $this->xml_to_collection($this->scolarite->semesters);
+   
+     }
+     public function getSemaines(){
+        return $this->xml_to_collection($this->scolarite->semaines);
+   
+     }
+     public function getJours(){
+        return $this->xml_to_collection($this->scolarite->jours);
+   
+     }
+     public function getSeances(){
+        return $this->xml_to_collection($this->scolarite->seances);
+   
+     }
 
+     public function userExist($login,$pass){
+        $users= $this->get_users();
+        $checking = false ;
+        foreach($users as $user){
+            if($user['email'] == $login && $user['password'] == $pass ){
+                $checking = true;
+                break;
+            }
+        }
+        return $checking;
+     }
+
+     public function connect($location,$login,$pass){
+        if($this->userExist($login,$pass)){
+            header("Location:$location");
+        }
+     }  
 }
-
 ?>

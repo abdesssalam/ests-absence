@@ -30,39 +30,20 @@
 </head>
 
 <?php
+include_once 'db/config.php';
+
+$table = $db->get_users();
+
 if(isset($_POST['submit'])){
     
      $login = $_POST['email'];
      $password = $_POST['password'];
-
-    $existanceOfUser = false;
-    $root = simplexml_load_file('db/absence.xml');
+    $db->connect("dashboard/index.php",$login,$password);
     
-    
-    foreach($root->users->user as $user) { 
-       if($login ==  $user->email && $password ==  $user->password ){
-            //ran 3arfo bli utlisateur kayn ray b9a n3rfo role dyalo bax 3la hsab xno ran ntal3o lih
-            session_start();
-
-            $_SESSION['identifiant'] = $_POST['email'];
-            $_SESSION['role'] = "$user->role";
-
-            header('Location:dashboard/index.php');
-            $existanceOfUser = true;
-
-            break;
-        }
-    }
-
-    //ila l code wsall lhan ran 3arfo khona makynx f lbase.
-
     echo "<h1>ndiroha f popup : user doesn't exist</h1>";
 
 
 }
-$noSuchUserPopup = false ;
-
-
 ?>
 
 
