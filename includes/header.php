@@ -3,24 +3,8 @@ require_once('session.php');
 require_once('../db/config.php');
 
 
-
-//simple xml load file deja kayna had les fonctionalité khas dirha f data 
-// function d login dirha tma
-// matnsach test dyal isset() soit session soit dakchi li katzid wstha bhal (active)
-    $root = simplexml_load_file('../db/absence.xml');
-
-    if(isset($_SESSION['identifiant'] )){
-        foreach($root->users->user as $user) { 
-        if($_SESSION['identifiant'] ==  $user->email ){
-            $active = $user;
-            }
-    }
-}
-
-//$title = 'gestion des absences';
-// cola page o le titre dyalha walowal 9bla lheader exemple profil page.
-
-$full_name = isset($_SESSION['identifiant']) ? "$active->nom"." "."$active->prenom" : 'abdessalam';
+$active = $db->getSpecificUser($_SESSION['identifiant']);
+$full_name = $active['nom']." ".$active['prenom'];
 ?>
 
 <!DOCTYPE html>

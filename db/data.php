@@ -165,8 +165,19 @@ class Data{
 
      public function connect($location,$login,$pass){
         if($this->userExist($login,$pass)){
+            session_start();
+            $_SESSION['identifiant'] = $_POST['email'];
             header("Location:$location");
         }
-     }  
+     }
+     
+     
+//flmodification mohal khsak t9lbha collection axbanlikom ankhliha mn ba3d
+
+public function updateUserInfo($nom,$prenom,$email,$nvPass){
+     
 }
+
+
+    }
 ?>
