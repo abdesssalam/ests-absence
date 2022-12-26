@@ -40,14 +40,14 @@ $full_name = isset($_SESSION['identifiant']) ? "$active->nom"." "."$active->pren
         }
     </style>
 </head>
-<body class="md:flex ">
+<body class="md:flex bg-gray-100 ">
 <script src="../js/jquery-3.6.0.min.js"></script>
     <div class="md:hidden bg-blue-500 text-center text-3xl  w-full">
     
         <i id="menu" class="fas fa-bars cursor-pointer "></i>
     </div>
     
-    <nav class="bg-blue-500 py-2  flex flex-col items-center cursor-pointer w-screen   md:w-3/12 md:h-screen">
+    <nav class="bg-blue-500 py-2 md:fixed flex flex-col items-center cursor-pointer w-screen   md:w-3/12 md:h-screen">
         <div class="bg-blue-900 w-11/12 rounded-md  my-2 text-center text-white uppercase py-2 md:block sm:flex-none  ">
             <a  href="../dashboard/profile.php">
                 <div class="flex items-center mx-auto text-center justify-center w-10/12 border border-gray-100 py-1 rounded-md hover:text-gray-400 ">
@@ -105,6 +105,11 @@ $full_name = isset($_SESSION['identifiant']) ? "$active->nom"." "."$active->pren
                 <i class="fa-solid fa-building text-3xl mx-3"></i>
                 <a class="w-full" href="../dashboard/absences.php">les absences</a> 
             </li>
+            <!-- only for prof -->
+            <li class="flex w-11/12 bg-green-500 py-2 my-1 items-center hover:bg-green-700">
+                <i class="fa-solid fa-building text-3xl mx-3"></i>
+                <a class="w-full" href="../dashboard/marker.php">marker</a> 
+            </li>
         </ul>
         
         <div class="w-full  text-white h-1/5 self-end">
@@ -116,7 +121,7 @@ $full_name = isset($_SESSION['identifiant']) ? "$active->nom"." "."$active->pren
         </div>
        
     </nav>
-    <div class="content bg-gray-100 md:w-9/12 md:mb-5 ">
+    <div class="content  md:w-9/12 md:mb-5 md:absolute right-0  md:top-0  ">
       <div class="w-9/12 text-center cursor-pointer bg-green-500 mx-auto my-2 py-4 rounded-md shadow-md hover:bg-green-700">
         <h3 class="text-lg uppercase font-semibold text-white"><?php echo $title ?></h3>
       </div>
