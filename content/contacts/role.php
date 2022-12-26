@@ -30,9 +30,9 @@
         </div>
 </div>
 
-<div class="w-10/12 mx-auto py-3 overflow-hidden ">
+<div class="w-11/12 mx-auto py-3 overflow-hidden ">
  <h2 class="text-center font-bold text-xl capitalize">Liste des filiers </h2>
- <div class="overflow-x-auto relative mt-3 mx-4 h-1/3 ">
+ <div class="overflow-x-auto  relative mt-3 w-full h-1/3 ">
     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>

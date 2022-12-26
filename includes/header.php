@@ -48,7 +48,7 @@ $full_name = isset($_SESSION['identifiant']) ? "$active->nom"." "."$active->pren
     </div>
     
     <nav class="bg-blue-500 py-2  flex flex-col items-center cursor-pointer w-screen   md:w-3/12 md:h-screen">
-        <div class="bg-blue-900 w-11/12 rounded-md  my-2 text-center text-white uppercase py-2 md:block sm:flex-none h-1/4 ">
+        <div class="bg-blue-900 w-11/12 rounded-md  my-2 text-center text-white uppercase py-2 md:block sm:flex-none  ">
             <a  href="../dashboard/profile.php">
                 <div class="flex items-center mx-auto text-center justify-center w-10/12 border border-gray-100 py-1 rounded-md hover:text-gray-400 ">
                     <i class="fas fa-user text-3xl mx-2"></i>
@@ -57,7 +57,7 @@ $full_name = isset($_SESSION['identifiant']) ? "$active->nom"." "."$active->pren
             </a>
             
         </div>
-        <ul class="w-11/12 h-3/4 text-white font-bold text-lg uppercase ">
+        <ul class="w-11/12 h-4/5 my-1 text-white font-bold text-lg uppercase ">
             <?php 
             //only super admin can manage acount&roles
             //ga3ma khdamna 3ab bsesseioin role rir katjiv les  donne dyal khona kamlin fda9a bham hak nadi.

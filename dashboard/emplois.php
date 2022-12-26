@@ -8,12 +8,15 @@ require_once '../includes/header.php' ?>
 
 <!-- TODO: dynamic departements and filiers for menu -->
 <div class="w-full  py-1 px-2">
-    <ul class="list-none flex flex-col md:flex-row w-full justify-between bg-green-400 ">
-        <li id="dep-info" class="cursor-pointer text-lg text-gray-700 font-semibold py-1 hover:bg-blue-400 hover:text-white border-r border-r-white w-full  md:w-1/2 text-center">Informatique</li>
-        <li id="dep-TIMQ" class="cursor-pointer text-lg text-gray-700 font-semibold py-1 hover:bg-blue-400 hover:text-white border-r border-r-white  w-full md:w-1/2 text-center">TIMQ</li>
-        <li id="dep-TM" class="cursor-pointer text-lg text-gray-700 font-semibold py-1 hover:bg-blue-400 hover:text-white border-r border-r-white  w-full md:w-1/2 text-center">TM</li>
-        <li id="dep-GIM" class="cursor-pointer text-lg text-gray-700 font-semibold py-1 hover:bg-blue-400 hover:text-white border-r border-r-white  w-full md:w-1/2 text-center">GIM</li>    
+    <ul class="list-none flex flex-col md:flex-row w-full justify-between  ">    
+        <a id="dep-info"  class="<?php echo isset($_GET['dep']) && $_GET['dep']==1 ? 'bg-blue-400' : 'bg-green-400 ' ?> cursor-pointer text-lg text-gray-700 font-semibold py-1 hover:bg-blue-400 hover:text-white border-r border-r-white w-full md:mx-1 md:my-0 my-1  md:w-1/2 text-center" href="?dep=1">Informatique</a> 
+        <a id="dep-TIMQ"  class="<?php echo isset($_GET['dep']) && $_GET['dep']==2 ? 'bg-blue-400' : 'bg-green-400 ' ?> cursor-pointer text-lg text-gray-700 font-semibold py-1 hover:bg-blue-400 hover:text-white border-r border-r-white w-full md:mx-1 md:my-0 my-1  md:w-1/2 text-center" href="?dep=2">TIMQ</a> 
+        <a id="dep-TM"  class="<?php echo isset($_GET['dep']) && $_GET['dep']==3 ? 'bg-blue-400' : 'bg-green-400 ' ?> cursor-pointer text-lg text-gray-700 font-semibold py-1 hover:bg-blue-400 hover:text-white border-r border-r-white w-full  md:mx-1 md:my-0 my-1 md:w-1/2 text-center" href="?dep=3">TM</a> 
+        <a id="dep-GIM"  class="<?php echo isset($_GET['dep']) && $_GET['dep']==4 ? 'bg-blue-400' : 'bg-green-400 ' ?> cursor-pointer text-lg text-gray-700 font-semibold py-1 hover:bg-blue-400 hover:text-white border-r border-r-white w-full md:mx-1 md:my-0 my-1  md:w-1/2 text-center" href="?dep=4">GIM</a> 
+        
+        
     </ul>
+    <!-- display after GET Method -->
     <div class="w-full mt-5 mx-auto  bg-green-300 py-3 px-2 rounded shadow  flex flex-wrap justify-start items-center">
         <div class="md:w-1/3 w-full px-1 my-1 flex justify-between items-center " >
             <label  class="block  md:w-1/3 w-full  text-sm font-medium text-gray-900 dark:text-white">filiers</label>
@@ -84,11 +87,11 @@ require_once '../includes/header.php' ?>
         
         <div class="md:w-1/3 w-full px-1 my-1  flex justify-between items-center" >
             <label  class="block  md:w-1/3 w-full  text-sm font-medium text-gray-900 ">semaine debut </label>
-            <input class=" p-2.5 rounded-md md:w-2/3 w-full " type="number" >
+            <input class=" p-2.5 md:p-2 rounded-md md:w-2/3 w-full " type="number" >
         </div>
         <div class="md:w-1/3 w-full px-1 my-1  flex justify-between items-center" >
             <label  class="block  md:w-1/3 w-full  text-sm font-medium text-gray-900 ">semaine fin </label>
-            <input class=" p-2.5 rounded-md md:w-2/3 w-full " type="number" >
+            <input class=" p-2.5 md:p-2 rounded-md md:w-2/3 w-full " type="number" >
         </div>
         <div class="md:w-1/3 w-full px-1 my-1  flex justify-between items-center" >
             <label  class="block  md:w-1/3 w-full  text-sm font-medium text-gray-900 dark:text-white">jour</label>
@@ -113,7 +116,7 @@ require_once '../includes/header.php' ?>
         </div>
         <div class="md:w-1/3 w-full px-1 my-1  flex justify-end items-center" >
             
-            <input class="cursor-pointer text-white font-semibold  p-1 rounded-md justify-self-end  md:w-2/3 w-full bg-green-600 hover:bg-green-500 hover:text-gray-50" type="submit" value="ajouter" >
+            <input class="cursor-pointer text-white font-semibold   rounded-md justify-self-end  md:w-2/3 w-full p-2.5 bg-green-600 hover:bg-green-500 hover:text-gray-50" type="submit" value="ajouter" >
         </div>
         
     </div>

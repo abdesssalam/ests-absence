@@ -6,7 +6,6 @@ require_once '../includes/header.php' ?>
         <label class="font-medium text-lg capitalize  w-1/3" for="">labele:</label>
         <input class="p-1 rounded-sm w-2/3" type="text" id="dept_label">
     </div>
-
     <div class="my-2 flex content-around focus:outline-none">
             <label class="font-medium text-lg capitalize  w-1/3" for="">Chef departement :</label>
              <select id="user_role"  class="w-2/3 bg-white border border-white text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  p-2.5 ">
@@ -18,9 +17,7 @@ require_once '../includes/header.php' ?>
                 <option value="5">profisseur</option>
             </select>
     </div>
-    
         <input id="btn_add_dpt" class="block text-white w-1/4 mx-auto bg-green-500 py-2 px-3 font-semibold my-2 cursor-pointer rounded-md uppercase hover:text-gray-600" type="submit" value="ajouter">
-   
 </div>
 <div class="overflow-x-auto relative mt-5 px-3">
     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">

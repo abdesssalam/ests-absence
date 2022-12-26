@@ -1,48 +1,29 @@
 <div class="w-full mt-5">
     <!-- menu : lister et mise a jour  -->
-    <div class="w-11/12 mx-auto  bg-green-300 py-3 px-2 rounded shadow flex justify-start items-center">
-        <div class="w-1/3 mx-2 flex justify-between items-center" >
-            <label  class="block mx-1 text-sm font-medium text-gray-900 dark:text-white">departement</label>
-            <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                <option selected>choiser departement</option>
-                <option value="GI">GI</option>
-                <option value="GIM">GIM</option>
-                <option value="TM">TM</option>
-                <option value="TIMQ">TIMQ</option>
+    <div class="bg-green-200 w-10/12 mx-auto my-5 py-1 px-2">
+    <div class="my-2 flex content-around focus:outline-none">
+        <label class="font-medium text-lg capitalize  w-1/3" for="">Nom de matier:</label>
+        <input class="p-1 rounded-sm w-2/3" type="text" id="dept_label">
+    </div>
+
+    <div class="my-2 flex content-around focus:outline-none">
+            <label class="font-medium text-lg capitalize  w-1/3" for="">Module :</label>
+             <select id="user_role"  class="w-2/3 bg-white border border-white text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  p-2.5 ">
+                <!-- @abdessalam: dynamique list all professeur -->
+                <option value="1">Super admin</option>
+                <option value="2">agent scolaire</option>
+                <option value="3">chef departement</option>
+                <option value="4">responsable filier</option>
+                <option value="5">profisseur</option>
             </select>
-        </div>
-        
-        <div class="w-1/3  mx-2 flex justify-between items-center" >
-            <label  class="block mx-1 text-sm font-medium text-gray-900 dark:text-white">filier</label>
-            <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                <option selected>choiser filier</option>
-                <option value="GI">GI</option>
-                <option value="GIM">GIM</option>
-                <option value="TM">TM</option>
-                <option value="TIMQ">TIMQ</option>
-            </select>
-        </div>
-        <div class="w-1/3  mx-2 flex justify-between items-center" >
-            <label  class="block mx-1 text-sm font-medium text-gray-900 dark:text-white">Année</label>
-            <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                <option selected>choiser l'année</option>
-                <option value="1">1er</option>
-                <option value="2">2eme</option>
-               
-            </select>
-        </div>
-        <div class="w-1/3  mx-2 flex justify-between items-center" >
-            <label  class="block mx-1 text-sm font-medium text-gray-900 dark:text-white">modules</label>
-            <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                <option selected>choiser le module</option>
-                <option value="1">programmation web</option>
-                <option value="1">java oop</option>
-                <option value="1">SI</option>
-               
-               
-            </select>
-        </div>
     </div>
     
-    <!-- table -->
+        <input id="btn_add_dpt" class="block text-white w-1/4 mx-auto bg-green-500 py-2 px-3 font-semibold my-2 cursor-pointer rounded-md uppercase hover:text-gray-600" type="submit" value="ajouter">
+   
+</div>
+    
+    
+    <h1 class="text-center text-xl font-semibold ">list des matiers de filier GI_1  </h1>
+
+    <!-- todo add table table -->
 </div>
