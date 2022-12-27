@@ -8,6 +8,7 @@ class Data{
     // public $scolarite=simplexml_load_file('absence.xml');
     public $scolarite;
     public $users;
+
     public function __construct($xml){
        
         $this->scolarite = $xml;
@@ -152,16 +153,18 @@ class Data{
      }
 
      public function userExist($login,$pass){
-        $users= $this->get_users();
+
+        //get user pass  from with email
         $checking = false ;
-        foreach($users as $user){
-            if($user['email'] == $login && $user['password'] == $pass ){
-                $checking = true;
-                break;
-            }
+        $us=$this->get_users()->firstWhere('email',$login);
+        if($us){
+        if(password_verify($pass,$us['password'])){
+            $checking = true;
+         }
         }
         return $checking;
-     }
+     
+    }
 
      public function connect($location,$login,$pass){
         if($this->userExist($login,$pass)){
