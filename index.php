@@ -1,4 +1,7 @@
-<?php include_once 'includes/session.php';?>
+<?php include_once 'includes/session.php';
+include_once 'db/config.php';
+include_once 'db/Columns.php';
+use Illuminate\Support\Collection;?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,9 +33,39 @@
 </head>
 
 <?php
-include_once 'db/config.php';
+
 
 $table = $db->get_users();
+
+$tt = [
+    [
+        "nom" => "3bi9a",
+        "nom1" => "z3bol",
+    ],
+    [
+        "nom" => "dwa",
+        "nom1" => "io",
+    ],
+    [
+        "nom" => "waad",
+        "nom1" => "grtt",
+    ]
+
+];
+$tt = new Columns($tt);
+
+
+
+
+echo ('<pre>');
+
+print_r($db->getDepartements()->cols(['codeDep','intitule']));
+
+echo ('</pre>');
+
+// $dep = $db->getDepartements()->where('codeDep', '1');
+// var_dump($dep);
+
 
 if(isset($_POST['submit'])){
     

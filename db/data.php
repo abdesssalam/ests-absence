@@ -1,6 +1,7 @@
 <?php
 
 require $_SERVER['DOCUMENT_ROOT']."/ests-absence/vendor/autoload.php";
+require 'Columns.php';
 use Illuminate\Support\Collection;
 
 class Data{
@@ -8,6 +9,7 @@ class Data{
     // public $scolarite=simplexml_load_file('absence.xml');
     public $scolarite;
     public $users;
+    protected $keys=[];
 
     public function __construct($xml){
        
@@ -41,7 +43,7 @@ class Data{
     }
 
     public function get_users(){
-        return $users = $this->xml_to_collection($this->users);
+        return  $this->xml_to_collection($this->users);
     }
 
     /**
@@ -53,10 +55,11 @@ class Data{
         $json = json_encode($data);
         $arr = json_decode($json,true);
         $arr = array_values($arr);
-        $arr =new Collection($arr[0]);
+        $arr = $arr[0];
+        $arr =new Collection($arr);
         //cleaning collection (attribute to simple element)
 
-        return $this->exctract_xml_attrs($arr);
+        return new Columns($this->exctract_xml_attrs($arr));
     }
 
     /**
@@ -64,8 +67,8 @@ class Data{
      * @method array : exctract_xml_attrs(simplexmlobject) 
      * this function used to make xml attribue like any element
      */
-
-    public function exctract_xml_attrs($arr){
+    
+    public function exctract_xml_attrs($arr){ 
         $arr = $arr->map(function ($item, $key) {
             $item = new Collection($item);
             $attrs=[];

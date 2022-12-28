@@ -3,7 +3,11 @@ $title = 'profile';
 require_once '../includes/header.php';
 require_once '../db/config.php';
 
-$active = $db->getSpecificUser($_SESSION['identifiant']);
+
+if(isset($_SESSION['identifiant'])){
+    $active = $db->getSpecificUser($_SESSION['identifiant']);
+}
+
 
     if(isset($_POST['update'])){
 
