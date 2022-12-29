@@ -153,30 +153,7 @@ class Data{
      public function getSeances(){
         return $this->xml_to_collection($this->scolarite->seances);
    
-     }
-
-     public function userExist($login,$pass){
-
-        //get user pass  from with email
-        $checking = false ;
-        $us=$this->get_users()->firstWhere('email',$login);
-        if($us){
-        if(password_verify($pass,$us['password'])){
-            $checking = true;
-         }
-        }
-        return $checking;
-     
-    }
-
-     public function connect($location,$login,$pass){
-        if($this->userExist($login,$pass)){
-            session_start();
-            $_SESSION['identifiant'] = $_POST['email'];
-            header("Location:$location");
-        }
-     }
-     
+     }     
      
 //flmodification mohal khsak t9lbha collection axbanlikom ankhliha mn ba3d
 
