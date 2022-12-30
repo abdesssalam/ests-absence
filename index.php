@@ -1,7 +1,7 @@
 <?php include_once 'includes/session.php';
 include_once 'db/config.php';
 include_once 'db/Columns.php';
-use Illuminate\Support\Collection;?>
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

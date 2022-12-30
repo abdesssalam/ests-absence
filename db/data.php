@@ -27,7 +27,7 @@ class Data{
             $user->addChild('email', $data['email']);
             $user->addChild('password',  $pass);
             $user->addChild('role', $data['role']);
-
+            $user->addAttribute('id', $this->auto_increment('id', $this->get_users()));
             $type = isset($data['type']) ? $data['type'] : '';
             $this->saveChange($type);
             return true;
@@ -91,14 +91,40 @@ class Data{
      */
     public function saveChange($type){
         if($type=="ajax"){
-            file_put_contents('../db/absence.xml',$this->scolarite->asXML());
+            file_put_contents('../db/abs_dev.xml',$this->scolarite->asXML());
         }else{
-            file_put_contents('absence.xml',$this->scolarite->asXML());
+            file_put_contents('abs_dev.xml',$this->scolarite->asXML());
         }
-        
-       
     }
 
+    /**
+     * 
+     * @author abdessalam
+     * Summary of auto_increment
+     * @param string $identifier : the identifier of table
+     * @param Collection $table : collection of table
+     * @return int  : the ID of new record
+     * 
+     */
+    public function auto_increment(string $identifier,Collection $table){
+        if($table->count()==0){
+            return 1;
+        }else{
+           return (int)($table->last()[$identifier])+1;
+        }
+    }
+
+    /**
+     * @author Abdessalam
+     * Summary of get_tables
+     * @return array of all xml table name
+     * use case : in dashboard/roles and permessions we have to fill it dynamicly
+     */
+    public function get_tables(){
+        $root = new Columns($this->scolarite);
+        $names = new Columns(array_keys($root->toArray()));
+        return $names->all();
+    }
     public function getSpecificUser($id){
 
         foreach($this->get_users() as $user) { 
@@ -153,7 +179,9 @@ class Data{
      public function getSeances(){
         return $this->xml_to_collection($this->scolarite->seances);
    
-     }     
+     }
+     
+     
      
 //flmodification mohal khsak t9lbha collection axbanlikom ankhliha mn ba3d
 
