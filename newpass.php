@@ -8,8 +8,7 @@ if(isset($_POST['submit'])){
     if($_POST['password']!=$_POST['password_conf']){
         $err['pass']='not match';
     }
-
-    //else method to edit password
+    $db->updateUserPass($_SESSION['identifiant'],$_POST['password']);
 }
 
 ?>

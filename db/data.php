@@ -181,14 +181,64 @@ class Data{
    
      }
      
-     
+     public function getRoles(){
+        return $this->xml_to_collection($this->scolarite->roles);
+   
+     }
      
 //flmodification mohal khsak t9lbha collection axbanlikom ankhliha mn ba3d
-
 public function updateUserInfo($nom,$prenom,$email,$nvPass){
-     
+    $hashedPass =  password_hash($nvPass, PASSWORD_DEFAULT);
+    $arr = $this->scolarite->users;
+foreach($arr as $element){
+    if($element->email == $email){
+        $element->nom = $nom;
+        $element->prenom = $prenom;
+        $element->email = $email;
+        $element->password = $hashedPass;
+        break ;
+    }
+
+}
+$this->saveChange("ajax");
 }
 
+public function updateUserPass($id,$pass){
+               $activeUser = $this->getSpecificUser($id); 
+               $hached_pass = password_hash($pass, PASSWORD_DEFAULT);
+               $activeUser->password = $hached_pass;
+               $this->saveChange(" ");//not ajax
+               header("Location:dashboard/profile.php");            
+        }
 
+
+
+
+   
+
+
+
+ public function add_departement($data){
+    try{
+        $departement =$this->scolarite->departements->addChild('departement');
+        $departement->addChild('intitule', $data['intitule']);
+    
+        $departement->addAttribute('codeDep',$data['codeDep']);
+        $departement->addAttribute('idProf',$data['idProf']);
+
+        $type = isset($data['type']) ? $data['type'] : '';
+        $this->saveChange($type);
+        return true;
+
+    }catch(Exception $e){
+        return array(
+            "error" => $e->getMessage(),
+            "line" => $e->getLine()
+        );
+       
     }
+    
+}
+
+}
 ?>

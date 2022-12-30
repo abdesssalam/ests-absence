@@ -5,30 +5,26 @@ require_once '../db/config.php';
 
 
 if(isset($_SESSION['identifiant'])){
-    $active = $db->getSpecificUser($_SESSION['identifiant']);
+    $active = $db->get_users()->firstWhere('email',$_SESSION['identifiant']);
 }
-
-
     if(isset($_POST['update'])){
+        if(password_verify($_POST['pass_old'],$active['password'])){
+            if($_POST['pass_nv_conf'] == $_POST['pass_nv']){
+            $pass_nv = $_POST['pass_nv'];
+            $email = $_POST['email'];
+            $prenom = $_POST['prenom'];
+            $nom = $_POST['nom'];
+                $db->updateUserInfo($nom,$prenom,$email,$pass_nv);
+                header("Location:profile.php");
 
-        if($_POST['pass_nv_conf'] != $_POST['pass_nv']){
-            echo "error not the same passwoord";
-        if($pass_old != $active['password']){
-            echo "hmm you don't know your password header index -> login  ";
-
-        }
+            }else{
+                echo "error not the same passwoord";
+            }
         }else{
-
-        $pass_nv_conf = $_POST['pass_nv_conf'];
-        $pass_nv = $_POST['pass_nv'];
-        $pass_old = $_POST['pass_old'];
-        $email = $_POST['email'];
-        $prenom = $_POST['prenom'];
-        $nom = $_POST['nom'];
+            echo "hmm you don't know your password error  ";
+        }
         
-    
-    } 
-     }
+        } 
 ?>
 
 <div class="w-full ">
