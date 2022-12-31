@@ -11,7 +11,7 @@ if(isset($_GET['id'])){
     echo $users->firstWhere('id', $_GET['id'])->toJson();
 }
 
-if(isset($_POST['add'])){
+if(isset($_POST['add_user'])){
     if($added==true){
         echo json_encode(array("message" => "ok"));
     }else{

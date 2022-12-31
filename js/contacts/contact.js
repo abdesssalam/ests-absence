@@ -3,20 +3,31 @@ $(document).ready(function(){
     //define elements
     let nom=$('#user_nom');
     let prenom=$('#user_prenom');
-    let email=$('#user_email');   
-    let role=$('#user_role');
+    let email=$('#user_email');
+    
+    let role=$('input[name="roles"]');
+   
+    // console.log(role.val())
+    // let role=$('#user_role');
 
     //load users
     loadUsers()
     //add  new user
-    $('#btn_add_user').click(function(){
-       
-        let data={'nom':nom.val(),'prenom':prenom.val(),'email':email.val(),'role':role.val(),'type':'ajax'};
-        
-        $.post('../ajax/add_user.php',data,function(data,st){
-            console.log("sttt"+st);
-            console.log(data);
-        })
+    $('#btn_add_user').click(function(e){
+        e.preventDefault();
+        let roles= [];
+        role.each(function(){
+            if($(this).is(":checked")){
+                roles.push($(this).val());
+            }
+           
+        });
+        let data={'nom':nom.val(),'prenom':prenom.val(),'email':email.val(),'roles':roles};
+        console.log(data);
+        // $.post('../ajax/add_user.php',data,function(data,st){
+        //     console.log("sttt"+st);
+        //     console.log(data);
+        // })
     })
 
     // toggle form
@@ -63,12 +74,10 @@ $(document).ready(function(){
                      $("#table tbody").append(content)
 
                     content=$.parseHTML(content);
-                     var tst=$(`#edit-${user.id}`,content);
                      $('#content #table tbody').find(`#edit-${user.id}`).click(function(){
                         nom.val(user.nom);
                         prenom.val(user.prenom);
                         email.val(user.email);
-                       
                         showForm();
                      })
                     //console.log($('#content #table tbody').find(`#edit-${user.id}`))

@@ -103,12 +103,7 @@ class Data{
      * 
      */
     public function auto_increment(string $identifier,String $table){
-        $tb = $this->xml_to_collection($this->scolarite->$table);
-        if($tb->count()==0){
-            return 1;
-        }else{
-           return (int)($tb->last()[$identifier])+1;
-        }
+        return $this->getData($table)->count();
     }
     /**
      * @author Abdessalam
@@ -194,6 +189,7 @@ class Data{
         $departement->addAttribute('codeDep', $this->auto_increment('codeDepid', 'departements'));
         $departement->addAttribute('idProf',$data['idProf']);
 
+        $type = isset($data['type']) ? $data['type'] : '';
         $this->saveChange();
         return true;
 
@@ -201,8 +197,7 @@ class Data{
         return array(
             "error" => $e->getMessage(),
             "line" => $e->getLine()
-        );
-       
+        );   
     }
     
 }

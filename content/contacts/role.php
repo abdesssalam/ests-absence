@@ -6,12 +6,9 @@ require_once '../../db/config.php';
         <div class="my-2 flex content-around focus:outline-none">
             <label class="font-medium text-lg capitalize  w-1/3" for="">Role :</label>
              <select id="role" name="role" class="w-2/3 bg-white border border-white text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  p-2.5 ">
-                <!-- TODO : get roles -->
-             <option>Super admin</option>
-                <option>agent scolaire</option>
-                <option>chef departement</option>
-                <option>responsable filier</option>
-                <option>profisseur</option>
+             <?php foreach($db->getData('roles') as $role ){
+                    echo '<option value="'.$role['Num'].'" >' . $role['label'] . '</option>';
+                } ?>
             </select>
         </div>
         <div class="my-2 flex content-around focus:outline-none">
