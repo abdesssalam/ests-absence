@@ -200,7 +200,55 @@ class Data{
         );   
     }
     
-}
+    }
+
+    // auth and permessions
+     //add auth
+     public function add_authorization(array $data){
+        //get permession code
+        $permession_code = $this->get_permessionID($data);
+        //permession = null => add new permession
+        //permession != null => add only auth
+        if(!$permession_code){
+            if($this->add_permession($data)){
+                $permession_code = $this->get_permessionID($data); 
+            }
+        }
+        //add auth
+        $authorization = $this->scolarite->authorizations->addChild('authorization');
+            $authorization->addAttribute('CodePermission', $permession_code);
+            $authorization->addAttribute('NumRole', $data['role']);
+            $this->saveChange();
+            return true;
+      
+    
+    }
+
+    public function get_permessionID($data){
+        $permession =$this->getData('permissions')
+        ->where('action',$data['action'])
+        ->where('table',$data['table'])
+        ->cols('code')
+        ->first();
+        if($permession!=null){
+            return $permession['code'];
+        }
+        return null;
+    }
+
+    public function add_permession(array $data){
+        //check permession not exsit
+        $permession_code = $this->get_permessionID($data); 
+        if($permession_code==null){
+            $permession = $this->scolarite->permissions->addChild('permission');
+            $permession->addAttribute('code', $this->auto_increment('code','permissions'));
+            $permession->addChild('action', $data['action']);
+            $permession->addChild('table', $data['table']);
+            $this->saveChange();
+            return true;
+        }
+        return false;
+    }
 
 }
 ?>
