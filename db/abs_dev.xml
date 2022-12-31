@@ -3,16 +3,28 @@
 <!--start users-->
 <users>
     <user id="1">
+<<<<<<< HEAD
+        <nom>ali</nom>
+        <prenom>sasw</prenom>
+        <email>gess@cc.com</email>
+        <password>$2y$10$1fSiWWuRiT0bDaaoISdty.Oo5DNdpZ8cWmwG70dppb3QjN9QTJzZC</password>
+=======
         <nom>ait omar</nom>
         <prenom>abdessalam</prenom>
         <email>test@site.com</email>
-        <password>$2y$10$tADtFREeu.Y5WzzofE6NROoVDFDmeCyDIcscu5ITfD7Ph9YQenuSO</password>
+        <password>$2y$10$ud3Erln1inQmxw2LI6KJKuijCAqK.DtLbDb4hpZruNY7uJjfO5QC2</password>
+>>>>>>> a9a32e8 (optimization gestion contact et roles)
     </user>
     <user id="2">
-        <nom>test</nom>
-        <prenom>awd</prenom>
-        <email>awd</email>
-        <password>$2y$10$auHhhcdV2USRaFTvzBQ6SOaBgUtSOp.cOwOMKtWt3Gx6ZIViMqRgu</password>
+        <nom>ali</nom>
+        <prenom>sasw</prenom>
+<<<<<<< HEAD
+        <email>gess@ccx.com</email>
+        <password>$2y$10$Z94Ji7WainpV4sDKyPX.ru5ypU4sIShIkXGKat9laHtumBIAKQnuK</password>
+=======
+        <email>ge@cc.com</email>
+        <password>$2y$10$Ha535EaURjcTWAnJ.b86v.vNbFn0wVfA92ltgdJ7ftFwoB/A3IEKm</password>
+>>>>>>> a9a32e8 (optimization gestion contact et roles)
         
     </user>
     <user id="3">
@@ -47,28 +59,29 @@
 <permissions>
     <permission code="1">
         <action>update</action>
-        <table>user</table>
+        <table>users</table>
     </permission>
     <permission code="2">
         <action>select</action>
-        <table>user</table>
+        <table>users</table>
     </permission>
     <permission code="3">
         <action>update</action>
-        <table>permission</table>
+        <table>permissions</table>
     </permission>
-</permissions>
+
+<permission code="4"><action>delete</action><table>users</table></permission></permissions>
 <!-- end permissions -->
 <authorizations>
-    <authorization CodePermission="1" NumRole="1" />
-    <authorization CodePermission="2" NumRole="1" />
-    <authorization CodePermission="3" NumRole="1" />
-</authorizations>
+    <authorization CodePermission="1" NumRole="1"/>
+    <authorization CodePermission="2" NumRole="1"/>
+    <authorization CodePermission="3" NumRole="1"/>
+<authorization CodePermission="4" NumRole="1"/></authorizations>
 <!-- end auth -->
 <RoleUsers>
-    <RoleUser id="1" NumRole="1" />
-    <RoleUser id="2" NumRole="3" />
-    <RoleUser id="3" NumRole="3" />
+    <RoleUser id="1" NumRole="1"/>
+    <RoleUser id="2" NumRole="3"/>
+    <RoleUser id="3" NumRole="3"/>
 </RoleUsers>
 <!--start departement-->
 <departements>

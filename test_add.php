@@ -1,23 +1,8 @@
 <?php
 require_once 'db/config.php';
-echo '<br>-------------________ <br>';
-//var_dump($db->get_users());
- print_r($db->get_users()->where('nom','alouan'));
-
-if(isset($_POST['nom'])){
-    
-
-    $scolarite = simplexml_load_file('db/absence.xml');
-    $persons = $scolarite->persons;
-    $person = $persons->addChild('person');
-    $person->addChild('nom', $_POST['nom']);
-    $person->addChild('prenom', $_POST['prenom']);
-    file_put_contents('db/absence.xml',$scolarite->asXML());
-    header('location:test_add.php');
-
-    
+if(isset($_POST)){
+    var_dump($_POST);
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,7 +25,7 @@ if(isset($_POST['nom'])){
                 <span class="w-1/3">Prenom:</span>
                 <input class="w-2/3 focus:outline-none py-1 " type="text" name="prenom">
            </div>
-           <button>add</button>
+           <input type="submit" name="add" value="add">
             <!-- <input id="btn_add_person" name="add_person" type="submit" value="add" class="bg-green-500 w-1/3 mx-auto cursor-pointer hover:bg-green-700 text-white"> -->
         </form> 
     </div>

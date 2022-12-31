@@ -9,7 +9,6 @@ class Data{
     // public $scolarite=simplexml_load_file('absence.xml');
     public $scolarite;
     public $users;
-    protected $keys=[];
 
     public function __construct($xml){
        
@@ -27,9 +26,9 @@ class Data{
             $user->addChild('email', $data['email']);
             $user->addChild('password',  $pass);
             $user->addChild('role', $data['role']);
-            $user->addAttribute('id', $this->auto_increment('id', $this->get_users()));
+            $user->addAttribute('id', $this->auto_increment('id', 'users'));
             $type = isset($data['type']) ? $data['type'] : '';
-            $this->saveChange($type);
+            $this->saveChange();
             return true;
 
         }catch(Exception $e){
@@ -89,12 +88,9 @@ class Data{
      * used after updating xml file (add,delete,edit)
      * to save new data
      */
-    public function saveChange($type){
-        if($type=="ajax"){
-            file_put_contents('../db/abs_dev.xml',$this->scolarite->asXML());
-        }else{
-            file_put_contents('abs_dev.xml',$this->scolarite->asXML());
-        }
+    public function saveChange(){
+            file_put_contents($_SERVER['DOCUMENT_ROOT'].'/ests-absence/db/abs_dev.xml',$this->scolarite->asXML());
+       
     }
 
     /**
@@ -106,110 +102,77 @@ class Data{
      * @return int  : the ID of new record
      * 
      */
-    public function auto_increment(string $identifier,Collection $table){
-        if($table->count()==0){
-            return 1;
-        }else{
-           return (int)($table->last()[$identifier])+1;
-        }
+    public function auto_increment(string $identifier,String $table){
+        return $this->getData($table)->count();
     }
-
     /**
      * @author Abdessalam
      * Summary of get_tables
      * @return array of all xml table name
-     * use case : in dashboard/roles and permessions we have to fill it dynamicly
+     * use case : in dashboard/roles and permessions we have to fill it dynamic
      */
     public function get_tables(){
         $root = new Columns($this->scolarite);
         $names = new Columns(array_keys($root->toArray()));
         return $names->all();
     }
-    public function getSpecificUser($id){
-
-        foreach($this->get_users() as $user) { 
-            if(  $id ==  $user['email'] ){
-             return $user;
-             }
-         }
-       
+    //had function trj3 lna id d l user li rah logged
+    public function getLoggedUserID($email){
+        $user = $this->getData('users')->firstWhere('email', $email);
+        return $user['id'];
     }
-    
-    public function getDepartements(){
-       return $this->xml_to_collection($this->scolarite->departements);
-  
+    public function getLoggedUser($email){
+        $user = $this->getData('users')->firstWhere('email', $email);
+        return $user;
     }
 
-    public function getFiliers(){
-        return $this->xml_to_collection($this->scolarite->filiers);
-   
-     }
-     public function getProfesseurs(){
-        return $this->xml_to_collection($this->scolarite->professeurs);
-   
-     }
-     public function getModules(){
-        return $this->xml_to_collection($this->scolarite->modules);
-   
-     }
-     public function getMatieres(){
-        return $this->xml_to_collection($this->scolarite->matieres);
-   
-     }
-     public function getGroups(){
-        return $this->xml_to_collection($this->scolarite->groups);
-   
-     }
-     public function getEtudiants(){
-        return $this->xml_to_collection($this->scolarite->etudiants);
-   
-     }
-     public function getSemesters(){
-        return $this->xml_to_collection($this->scolarite->semesters);
-   
-     }
-     public function getSemaines(){
-        return $this->xml_to_collection($this->scolarite->semaines);
-   
-     }
-     public function getJours(){
-        return $this->xml_to_collection($this->scolarite->jours);
-   
-     }
-     public function getSeances(){
-        return $this->xml_to_collection($this->scolarite->seances);
-   
-     }
+
+    /**
+     * Summary of getData
+     * @param string $table : the name of element parent in xml
+     * @return Columns : all records of this column
+     */
+    public function getData(String $table){
+        return $this->xml_to_collection($this->scolarite->$table);
+    }
+
      
-     public function getRoles(){
-        return $this->xml_to_collection($this->scolarite->roles);
-   
-     }
      
 //flmodification mohal khsak t9lbha collection axbanlikom ankhliha mn ba3d
-public function updateUserInfo($nom,$prenom,$email,$nvPass){
-    $hashedPass =  password_hash($nvPass, PASSWORD_DEFAULT);
-    $arr = $this->scolarite->users;
-foreach($arr as $element){
-    if($element->email == $email){
-        $element->nom = $nom;
-        $element->prenom = $prenom;
-        $element->email = $email;
-        $element->password = $hashedPass;
-        break ;
+/**
+ * ay modification khdm b xpath
+ *  matnsach dima ay modification (add,delete,update) dirha wst try catch
+ * */ 
+    public function updateUserInfo($id,$data){
+        try{
+            $pass = password_hash($data['pass'], PASSWORD_DEFAULT);
+            $user = $this->scolarite->xpath('//users/user[@id='.$id.']');
+            $user =$user[0];
+            $user->nom = $data['nom'];
+            $user->prenom = $data['prenom'];
+            $user->password = $pass;
+            $user->email = $data['email'];
+            $this->saveChange();
+            return true;
+        }catch(Exception $e){
+            return false;
+        }
     }
 
-}
-$this->saveChange("ajax");
-}
-
-public function updateUserPass($id,$pass){
-               $activeUser = $this->getSpecificUser($id); 
-               $hached_pass = password_hash($pass, PASSWORD_DEFAULT);
-               $activeUser->password = $hached_pass;
-               $this->saveChange(" ");//not ajax
-               header("Location:dashboard/profile.php");            
+    
+    public function updateUserPass($id,$pass){
+        try{
+            $pass = password_hash($pass, PASSWORD_DEFAULT);
+            $user = $this->scolarite->xpath('//users/user[@id='.$id.']');
+            $user =$user[0];
+            $user->password = $pass;
+            
+            $this->saveChange();
+            return true;
+        }catch(Exception $e){
+            return false;
         }
+    }
 
 
 
@@ -223,22 +186,82 @@ public function updateUserPass($id,$pass){
         $departement =$this->scolarite->departements->addChild('departement');
         $departement->addChild('intitule', $data['intitule']);
     
-        $departement->addAttribute('codeDep',$data['codeDep']);
+        $departement->addAttribute('codeDep', $this->auto_increment('codeDep', 'departements'));
         $departement->addAttribute('idProf',$data['idProf']);
 
-        $type = isset($data['type']) ? $data['type'] : '';
-        $this->saveChange($type);
+        $this->saveChange();
         return true;
 
     }catch(Exception $e){
         return array(
             "error" => $e->getMessage(),
             "line" => $e->getLine()
-        );
-       
+        );   
     }
     
-}
+    }
+
+    // auth and permessions
+     //add auth
+     public function add_authorization(array $data){
+        //get permession code
+        $permession_code = $this->get_permessionID($data);
+        //permession = null => add new permession
+        //permession != null => add only auth
+        if(!$permession_code){
+            if($this->add_permession($data)){
+                $permession_code = $this->get_permessionID($data); 
+            }
+        }
+        //add auth
+        $authorization = $this->scolarite->authorizations->addChild('authorization');
+            $authorization->addAttribute('CodePermission', $permession_code);
+            $authorization->addAttribute('NumRole', $data['role']);
+            $this->saveChange();
+            return true;
+      
+    
+    }
+
+    public function get_permessionID($data){
+        $permession =$this->getData('permissions')
+        ->where('action',$data['action'])
+        ->where('table',$data['table'])
+        ->cols('code')
+        ->first();
+        if($permession!=null){
+            return $permession['code'];
+        }
+        return null;
+    }
+
+    public function add_permession(array $data){
+        //check permession not exsit
+        $permession_code = $this->get_permessionID($data); 
+        if($permession_code==null){
+            $permession = $this->scolarite->permissions->addChild('permission');
+            $permession->addAttribute('code', $this->auto_increment('code','permissions'));
+            $permession->addChild('action', $data['action']);
+            $permession->addChild('table', $data['table']);
+            $this->saveChange();
+            return true;
+        }
+        return false;
+    }
+
+    public function getRolesByUser($idUser){
+        $userRole = $this->getData('RoleUsers')->firstWhere('id', $idUser); 
+        return  $userRole['NumRole'];
+    }
+
+
+    public function addRoleUsers($data){
+        $RoleUser = $this->scolarite->RoleUsers->addChild('RoleUser');
+        $RoleUser->addAttribute('NumRole', $data['NumRole']);
+        $RoleUser->addAttribute('id', $data['id']);
+        $this->saveChange();
+    }
+
 
 }
 ?>

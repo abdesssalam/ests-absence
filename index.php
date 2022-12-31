@@ -1,6 +1,7 @@
 <?php include_once 'includes/session.php';
 include_once 'db/config.php';
 include_once 'db/Columns.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,11 +35,41 @@ include_once 'db/Columns.php';
 
 <?php 
 $err = 0;
+//  espace for testing $db functions
+
+//test get user with xpath
+// $id = 1;
+// $user = $db->scolarite->xpath('//users/user[@id='.$id.']');
+//test update user info
+$data = ['nom'=>'ali','prenom'=>'sasw','email'=>'gess@ccx.com','pass'=>'123'];
+$add = $db->updateUserInfo(2, $data);
+// $data = ['nom'=>'fse','prenom'=>'sasw','email'=>'ge@cc.com','pass'=>'erer'];
+// $add = $db->updateUserInfo(2, $data);
+// var_dump($add);
+$data = ['intitule'=>'gggggg','idProf'=>2];
+$db->add_departement($data);
+
+
+$db->getRolesByUser(2);
+
+//test get logged user
+// $add = $db->getLoggedUserID('test@site.com');
+// var_dump($add);
+
+// test update user pass
+// var_dump($db->updateUserPass(1, 'test123'));
+//test getdata
+//var_dump($db->getData('roles'));
+
+//test get permession code
+
+
+//end testing
 if(isset($_POST['submit'])){
      $us=$db->get_users()->firstWhere('email',$_POST['email']);
      if($us){
         if(password_verify($_POST['password'],$us['password'])){
-            $_SESSION['identifiant'] = $_POST['email'];
+            $_SESSION['identifiant'] = $db->getLoggedUserID($_POST['email']);
             if(password_verify('ESTS123',$us['password'])){
                 header("Location:newpass.php");
             }else{

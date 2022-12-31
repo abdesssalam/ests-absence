@@ -3,7 +3,7 @@ require_once('session.php');
 require_once('../db/config.php');
 
 if(isset($_SESSION['identifiant'])){
-  $active = $db->getSpecificUser($_SESSION['identifiant']);  
+  $active = $db->getLoggedUser($_SESSION['identifiant']);  
 }
 
 $full_name = isset($active) ? $active['nom']." ".$active['prenom'] : 'first last';
@@ -25,9 +25,11 @@ $full_name = isset($active) ? $active['nom']." ".$active['prenom'] : 'first last
             outline: none;
         }
     </style>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script> const BASE_URL="<?php echo "http://localhost/ests-absence/api/" ?>"; </script>
 </head>
 <body class="md:flex bg-gray-100 ">
-<script src="../js/jquery-3.6.0.min.js"></script>
+
     <div class="md:hidden bg-blue-500 text-center text-3xl  w-full">
     
         <i id="menu" class="fas fa-bars cursor-pointer "></i>
@@ -107,7 +109,7 @@ $full_name = isset($active) ? $active['nom']." ".$active['prenom'] : 'first last
         </div>
        
     </nav>
-    <div class="content  md:w-9/12 md:mb-5 md:absolute right-0  md:top-0  ">
+    <div class="content  md:w-9/12 md:mb-5 py-3 md:absolute right-0  md:top-0  ">
       <div class="w-9/12 text-center cursor-pointer bg-green-500 mx-auto my-2 py-4 rounded-md shadow-md hover:bg-green-700">
         <h3 class="text-lg uppercase font-semibold text-white"><?php echo $title ?></h3>
       </div>

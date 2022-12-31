@@ -4,7 +4,9 @@ $(document).ready(function(){
     let menu_roles=$('#contact-role');
     let content=$('#content');
    
-    content.load('../content/contacts/contact.php');
+    content.load('../content/contacts/contact.php',function(){
+        console.log("hello")
+    });
     menu_contact.click(function(){
         
         content.load('../content/contacts/contact.php');
