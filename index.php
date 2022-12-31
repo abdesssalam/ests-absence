@@ -34,6 +34,8 @@ include_once 'db/Columns.php';
 
 <?php 
 $err = 0;
+
+var_dump($db->getData('roles'));
 if(isset($_POST['submit'])){
      $us=$db->get_users()->firstWhere('email',$_POST['email']);
      if($us){

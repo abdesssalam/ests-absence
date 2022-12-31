@@ -113,12 +113,11 @@ class Data{
            return (int)($table->last()[$identifier])+1;
         }
     }
-
     /**
      * @author Abdessalam
      * Summary of get_tables
      * @return array of all xml table name
-     * use case : in dashboard/roles and permessions we have to fill it dynamicly
+     * use case : in dashboard/roles and permessions we have to fill it dynamic
      */
     public function get_tables(){
         $root = new Columns($this->scolarite);

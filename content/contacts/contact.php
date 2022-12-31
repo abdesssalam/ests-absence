@@ -1,7 +1,7 @@
 <div class="bg-green-200 rounded-sm shadow-md transition-all ease-in-out w-10/12 mx-auto my-5 py-1 px-2 flex flex-col ">
 <span class="justify-self-center self-center text-lg font-medium capitalize">ajouter nouveau utilisateur </span>
-<i id="toggle-form" class='w-10 h-10  fas fa-angle-down font-extrabold cursor-pointer text-4xl self-end'></i>
-<form  method="post" action="" id="form" class="hidden ">
+<i id="toggle-form" class=' w-10 h-10  fas fa-angle-down font-extrabold cursor-pointer text-4xl self-end'></i>
+<form  method="post" action="" id="form" class="hidden">
     <div class=" my-2 flex content-around focus:outline-none">
         <label class="font-medium text-lg capitalize  w-1/3" for="">Nom:</label>
         <input class="p-1 rounded-sm w-2/3"  type="text" id="user_nom">
@@ -31,7 +31,7 @@
    
 </div>
 <div class="overflow-x-auto relative mt-5">
-    <table id="table" class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+    <table id="table" class="w-11/12 mx-auto text-sm text-left text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="py-3 px-6">
@@ -44,62 +44,15 @@
                     Role
                 </th>
                 <th scope="col" class="py-3 px-6">
-                    
                 </th>
             </tr>
         </thead>
         <tbody>
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    abdessalam ait omar
-                </th>
-                <td class="py-4 px-6">
-                    <select >
-                        <option >agent scolaire</option>
-                        <option>chef departement</option>
-                        <option selected>chef filier</option>
-                        <option>professeur</option>
-                    </select>
-                </td>
-                <td class="py-4 px-6">
-                <a id="btn_edit" class="text-blue-600 w-full btn_edit" href="#">modfier</a>
-                </td>
+        <tr class="bg-white border-b">
+            <!-- <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+            </th>
+            <td class="py-4 px-6"> -->
 
-            </tr>
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    abdessalam ait omar
-                </th>
-                <td class="py-4 px-6">
-                    <select >
-                        <option >agent scolaire</option>
-                        <option>chef departement</option>
-                        <option selected>chef filier</option>
-                        <option>professeur</option>
-                    </select>
-                </td>
-                <td class="py-4 px-6">
-                <a id="btn_edit" class="text-blue-600 w-full btn_edit" href="#">modfier</a>
-                </td>
-
-            </tr>
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    abdessalam ait omar
-                </th>
-                <td class="py-4 px-6 ">
-                    <select >
-                        <option >agent scolaire</option>
-                        <option>chef departement</option>
-                        <option selected>chef filier</option>
-                        <option>professeur</option>
-                    </select>
-                </td>
-                <td class="py-4 px-6">
-                <a id="btn_edit" class="text-blue-600 w-full btn_edit" href="#">modfier</a>
-                </td>
-
-            </tr>
            
         </tbody>
     </table>
