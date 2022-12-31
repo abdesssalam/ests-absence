@@ -186,10 +186,9 @@ class Data{
         $departement =$this->scolarite->departements->addChild('departement');
         $departement->addChild('intitule', $data['intitule']);
     
-        $departement->addAttribute('codeDep', $this->auto_increment('codeDepid', 'departements'));
+        $departement->addAttribute('codeDep', $this->auto_increment('codeDep', 'departements'));
         $departement->addAttribute('idProf',$data['idProf']);
 
-        $type = isset($data['type']) ? $data['type'] : '';
         $this->saveChange();
         return true;
 
@@ -249,6 +248,20 @@ class Data{
         }
         return false;
     }
+
+    public function getRolesByUser($idUser){
+        $userRole = $this->getData('RoleUsers')->firstWhere('id', $idUser); 
+        return  $userRole['NumRole'];
+    }
+
+
+    public function addRoleUsers($data){
+        $RoleUser = $this->scolarite->RoleUsers->addChild('RoleUser');
+        $RoleUser->addAttribute('NumRole', $data['NumRole']);
+        $RoleUser->addAttribute('id', $data['id']);
+        $this->saveChange();
+    }
+
 
 }
 ?>
