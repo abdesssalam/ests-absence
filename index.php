@@ -47,8 +47,10 @@ $add = $db->updateUserInfo(2, $data);
 // $add = $db->updateUserInfo(2, $data);
 // var_dump($add);
 $data = ['intitule'=>'gggggg','idProf'=>2];
+$db->add_departement($data);
 
 
+$db->getRolesByUser(2);
 
 //test get logged user
 // $add = $db->getLoggedUserID('test@site.com');
