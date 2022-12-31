@@ -4,14 +4,14 @@
 <users>
     <user id="1">
         <nom>ait omar</nom>
-        <prenom>abdessalam</prenom>
+        <prenom>abdessalamxx</prenom>
         <email>test@site.com</email>
-        <password>$2y$10$0socoDDOyn7ku5IRPSdK9ukIG2lslt9oSt0JIDteqs0oQZVFv3gTO</password>
+        <password>$2y$10$H33M/MPpLH1ZcbQD.O3TseK1AcDjkeaRpytLDxJQYmJiqB7oVKGj.</password>
     </user>
     <user id="2">
-        <nom>fse</nom>
+        <nom>ali</nom>
         <prenom>sasw</prenom>
-        <email>ge@cc.com</email>
+        <email>gess@cc.com</email>
         <password>$2y$10$hrZnTFUkZIcQJG95ki823Odhq5Sb8E7uNmVoL1/Eqg0.N9.pQnV0q</password>
         
     </user>

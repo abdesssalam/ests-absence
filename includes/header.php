@@ -3,7 +3,7 @@ require_once('session.php');
 require_once('../db/config.php');
 
 if(isset($_SESSION['identifiant'])){
-  $active = $db->getSpecificUser($_SESSION['identifiant']);  
+  $active = $db->getLoggedUser($_SESSION['identifiant']);  
 }
 
 $full_name = isset($active) ? $active['nom']." ".$active['prenom'] : 'first last';

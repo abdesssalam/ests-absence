@@ -126,7 +126,12 @@ class Data{
         $user = $this->getData('users')->firstWhere('email', $email);
         return $user['id'];
     }
-    
+    public function getLoggedUser($email){
+        $user = $this->getData('users')->firstWhere('email', $email);
+        return $user;
+    }
+
+
     /**
      * Summary of getData
      * @param string $table : the name of element parent in xml
@@ -145,19 +150,18 @@ class Data{
  * */ 
     public function updateUserInfo($id,$data){
         try{
-            $data['pass'] = password_hash($data['pass'], PASSWORD_DEFAULT);
+            $pass = password_hash($data['pass'], PASSWORD_DEFAULT);
             $user = $this->scolarite->xpath('//users/user[@id='.$id.']');
             $user =$user[0];
             $user->nom = $data['nom'];
             $user->prenom = $data['prenom'];
-            $user->password = $data['pass'];
+            //$user->password = $data['password'];
             $user->email = $data['email'];
             $this->saveChange();
             return true;
         }catch(Exception $e){
             return false;
         }
-        
     }
 
     
@@ -187,8 +191,9 @@ class Data{
         $departement =$this->scolarite->departements->addChild('departement');
         $departement->addChild('intitule', $data['intitule']);
     
-        $departement->addAttribute('codeDep',$data['codeDep']);
+        $departement->addAttribute('codeDep', $this->auto_increment('codeDepid', 'departements'));
         $departement->addAttribute('idProf',$data['idProf']);
+
 
         $type = isset($data['type']) ? $data['type'] : '';
         $this->saveChange();
