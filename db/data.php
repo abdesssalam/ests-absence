@@ -155,7 +155,7 @@ class Data{
             $user =$user[0];
             $user->nom = $data['nom'];
             $user->prenom = $data['prenom'];
-            //$user->password = $data['password'];
+            $user->password = $pass;
             $user->email = $data['email'];
             $this->saveChange();
             return true;
@@ -194,8 +194,6 @@ class Data{
         $departement->addAttribute('codeDep', $this->auto_increment('codeDepid', 'departements'));
         $departement->addAttribute('idProf',$data['idProf']);
 
-
-        $type = isset($data['type']) ? $data['type'] : '';
         $this->saveChange();
         return true;
 

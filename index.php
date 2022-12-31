@@ -40,9 +40,12 @@ $err = 0;
 $id = 1;
 $user = $db->scolarite->xpath('//users/user[@id='.$id.']');
 //test update user info
-$data = ['nom'=>'ali','prenom'=>'sasw','email'=>'gess@cc.com','pass'=>'123'];
+$data = ['nom'=>'ali','prenom'=>'sasw','email'=>'gess@ccx.com','pass'=>'123'];
 $add = $db->updateUserInfo(2, $data);
 // var_dump($add);
+$data = ['intitule'=>'gggggg','idProf'=>2];
+
+
 
 //test get logged user
 // $add = $db->getLoggedUserID('test@site.com');

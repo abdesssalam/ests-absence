@@ -3,16 +3,16 @@
 <!--start users-->
 <users>
     <user id="1">
-        <nom>ait omar</nom>
-        <prenom>abdessalamxx</prenom>
-        <email>test@site.com</email>
-        <password>$2y$10$H33M/MPpLH1ZcbQD.O3TseK1AcDjkeaRpytLDxJQYmJiqB7oVKGj.</password>
+        <nom>ali</nom>
+        <prenom>sasw</prenom>
+        <email>gess@cc.com</email>
+        <password>$2y$10$1fSiWWuRiT0bDaaoISdty.Oo5DNdpZ8cWmwG70dppb3QjN9QTJzZC</password>
     </user>
     <user id="2">
         <nom>ali</nom>
         <prenom>sasw</prenom>
-        <email>gess@cc.com</email>
-        <password>$2y$10$hrZnTFUkZIcQJG95ki823Odhq5Sb8E7uNmVoL1/Eqg0.N9.pQnV0q</password>
+        <email>gess@ccx.com</email>
+        <password>$2y$10$Z94Ji7WainpV4sDKyPX.ru5ypU4sIShIkXGKat9laHtumBIAKQnuK</password>
         
     </user>
     <user id="3">
