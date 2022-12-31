@@ -2,28 +2,28 @@
 <scolarite>
 <!--start users-->
 <users>
-<user id="5">
+<user id="13">
     <nom>alouan</nom>
     <prenom>yassin</prenom>
     <email>test@gmail.com</email>
     <password>12345</password>
     <role>SuperAdmin</role>
 </user>
-<user id="5">
+<user id="14">
     <nom>ahmed</nom>
     <prenom>mohaùed</prenom>
     <email>test2@gmail.com</email>
     <password>0000</password>
     <role>AgentScolarite</role>
 </user>
-<user id="5">
+<user id="15">
     <nom>simo</nom>
     <prenom>xarokhan</prenom>
     <email>test3@gmail.com</email>
     <password>0000</password>
     <role>ChefeDpartement</role>
 </user>
-<user id="5">
+<user id="16">
     <nom>simo</nom>
     <prenom>xarokshan</prenom>
     <email>tesst3@gmail.com</email>
@@ -32,29 +32,150 @@
 </user>
 
 
-<user id="5"><nom>test</nom><prenom>SQ</prenom><email>test@site.com</email><password>$2y$10$tADtFREeu.Y5WzzofE6NROoVDFDmeCyDIcscu5ITfD7Ph9YQenuSO</password><role>chef departement</role></user>
-<user id="5"><nom>test</nom><prenom>awd</prenom><email>awd</email><password>$2y$10$auHhhcdV2USRaFTvzBQ6SOaBgUtSOp.cOwOMKtWt3Gx6ZIViMqRgu</password><role>responsable filier</role></user>
-<user id="5"><nom>testwww</nom><prenom>awda</prenom><email>awd</email><password>$2y$10$qSUU6NWzhLaabW6RtzoY7eXADQVVEsquZ.k5Sm45EG3uT9Qx8ChpO</password><role>4</role></user>
+<user id="17"><nom>test</nom><prenom>SQ</prenom><email>test@site.com</email><password>$2y$10$tADtFREeu.Y5WzzofE6NROoVDFDmeCyDIcscu5ITfD7Ph9YQenuSO</password><role>chef departement</role></user>
+<user id="18"><nom>test</nom><prenom>awd</prenom><email>awd</email><password>$2y$10$auHhhcdV2USRaFTvzBQ6SOaBgUtSOp.cOwOMKtWt3Gx6ZIViMqRgu</password><role>responsable filier</role></user>
+<user id="19"><nom>testwww</nom><prenom>awda</prenom><email>awd</email><password>$2y$10$qSUU6NWzhLaabW6RtzoY7eXADQVVEsquZ.k5Sm45EG3uT9Qx8ChpO</password><role>4</role></user>
+    <user id="1">
+        <nom>ECHAIBI</nom>
+        <prenom>Mohammed </prenom>
+        <email>mohammed.echaibi@gmail.com</email>
+        <password>0000</password>
+    </user>
+    <user id="2">
+        <nom>Ilham</nom>
+        <prenom>MOUNIR</prenom>
+        <email>ilham.mounir@gmail.com</email>
+        <password>0000</password>
+    </user>
+    <user id="3">
+        <nom>MOKHLIS</nom>
+        <prenom>Khalil</prenom>
+        <email>khalil.mokhlis@gmail.com</email>
+        <password>0000</password>
+    </user>
+    <user id="4">
+        <nom>BENHIDA</nom>
+        <prenom>Khalid</prenom>
+        <email>khalid.benhida@gmail.com</email>
+        <password>0000</password>
+    </user>
+    <user id="5">
+        <nom>Boussalhi</nom>
+        <prenom>Abdessamad</prenom>
+        <email>abdessamad.boussalhi@gmail.com</email>
+        <password>0000</password>
+    </user>
+    <user id="6">
+        <nom>BAYAR</nom>
+        <prenom>Abdelouahad</prenom>
+        <email>abdelouahad.bayar@gmail.com</email>
+        <password>0000</password>
+    </user>
+    <user id="7">
+        <nom>SOULMANI</nom>
+        <prenom>Abdellah </prenom>
+        <email>abdellah.soulmani@gmail.com</email>
+        <password>0000</password>
+    </user>
+    <user id="8">
+        <nom>BOULAHOUAL</nom>
+        <prenom>Ahmed</prenom>
+        <email>ahmed.boulahoual@gmail.com</email>
+        <password>0000</password>
+    </user>
+    <user id="9">
+        <nom>BELEFKIH</nom>
+        <prenom>Khalid</prenom>
+        <email>khalid.belefkih@gmail.com</email>
+        <password>0000</password>
+    </user>
+    <user id="10">
+        <nom>EL OUAZZANI</nom>
+        <prenom>Hind</prenom>
+        <email>hind.elouazzani@gmail.com</email>
+        <password>0000</password>
+    </user>
+    <user id="11">
+        <nom>KHZAMI</nom>
+        <prenom>Hind</prenom>
+        <email>hind.khzami@gmail.com</email>
+        <password>0000</password>
+    </user>
+    <user id="12">
+        <nom>Abdelhadi</nom>
+        <prenom>Daou</prenom>
+        <email>doua.abdelhadi@gmail.com</email>
+        <password>0000</password>
+    </user>
 </users>
 <!--end users-->
+<!--start roles-->
+<roles>
+    <role NumRole="1">
+            <label>supper admin</label>
+        </role>
+    <role NumRole="2">
+            <label>Agent de scolarité</label>
+        </role>
+    <role NumRole="3">
+            <label>Chef département</label>
+        </role>
+    <role NumRole="4">
+            <label>Chef filière</label>
+        </role>
+    <role NumRole="5">
+            <label>Professeur</label>
+        </role>
+ </roles>
+<!--end roles-->
+<!-- start permissions -->
+ <permissions>
+     <permission CodePermission="1">
+            <action>update</action>
+            <table>user</table>
+        </permission>
+     <permission CodePermission="2">
+            <action>select</action>
+            <table>user</table>
+        </permission>
+     <permission CodePermission="3">
+            <action>update</action>
+            <table>permission</table>
+        </permission>
+ </permissions>
+<!-- end permissions -->
+<!-- start authorization -->
+<authorizations>
+        <authorization CodePermission="1" NumRole="1" />
+        <authorization CodePermission="2" NumRole="1" />
+        <authorization CodePermission="3" NumRole="1" />
+</authorizations>
+<!-- end authorization -->
+<!-- start RoleUsers -->
+ <RoleUsers>
+        <RoleUser id="1" NumRole="1" />
+        <RoleUser id="2" NumRole="3" />
+        <RoleUser id="3" NumRole="3" />
+ </RoleUsers>
+<!-- end RoleUsers -->
 <!--start departement-->
 <departements>
-<departement codeDep="1" idProf="1">
+<departement codeDep="1" matricule ="EM12345">
 <intitule>
 MAINTENANCE INDUSTRIELLE
 </intitule>
 </departement>
-<departement codeDep="2" idProf="2">
+<departement codeDep="2" matricule="IM12345">
 <intitule>
 INFORMATIQUE
 </intitule>
 </departement>
-<departement codeDep="3" idProf="3">
+<departement codeDep="3" matricule="MK12345">
 <intitule>
 TECHNIQUES DE MANAGEMENT
 </intitule>
 </departement>
-<departement codeDep="4" idProf="4">
+<departement codeDep="4" matricule="BK12345">
 <intitule>
 TECHNIQUES ANALYSES ET CONTRÔLE DE QUALITÉ
 </intitule>
@@ -63,111 +184,63 @@ TECHNIQUES ANALYSES ET CONTRÔLE DE QUALITÉ
 <!--end departements-->
 <!--start filiers-->
 <filiers>
-<filier codeFil="1" codeDep="1">
+<filier codeFil="1" codeDep="1" matricule="BK12345" Numannee="1">
 <intitule>Génie Industriel et Maintenance</intitule>
 </filier>
-<filier codeFil="2" codeDep="1">
+<filier codeFil="2" codeDep="1" matricule="BK12345" Numannee="1">
 <intitule>Mécatronique</intitule>
 </filier>
-<filier codeFil="3" codeDep="2">
+<filier codeFil="3" codeDep="2" matricule="AB12345" Numannee="1">
 <intitule>Génie Informatique</intitule>
 </filier>
-<filier codeFil="4" codeDep="2">
+<filier codeFil="4" codeDep="2" matricule="IM12345" Numannee="1">
 <intitule>Métiers de informatique</intitule>
 </filier>
-<filier codeFil="5" codeDep="3">
+<filier codeFil="5" codeDep="3" matricule="MK12345" Numannee="1">
 <intitule>Techniques de Management</intitule>
 </filier>
-<filier codeFil="6" codeDep="3">
+<filier codeFil="6" codeDep="3" matricule="BA123456" Numannee="1">
 <intitule>Gestion comptable et financière</intitule>
 </filier>
-<filier codeFil="7" codeDep="4">
+<filier codeFil="7" codeDep="4" matricule="KH123456" Numannee="1">
 <intitule>Techniques Instrumentales et Management de Qualité</intitule>
 </filier>
-<filier codeFil="8" codeDep="4">
+<filier codeFil="8" codeDep="4" matricule="AD123456">
 <intitule>Métrologie, qualité, sécurité et environnement</intitule>
 </filier>
 </filiers>
 <!--end filiers-->
 <!--start professeurs-->
 <professeurs>
-<professeur idProf="1">
-<nom>ECHAIBI</nom>
-<prenom>Mohammed </prenom>
-<cin>EM12345</cin>
-</professeur>
-<professeur idProf="2">
-<nom>Ilham</nom>
-<prenom>MOUNIR</prenom>
-<cin>IM12345</cin>
-</professeur>
-<professeur idProf="3">
-<nom>MOKHLIS</nom>
-<prenom>Khalil</prenom>
-<cin>MK12345</cin>
-</professeur>
-<professeur idProf="4">
-<nom>BENHIDA</nom>
-<prenom>Khalid</prenom>
-<cin>BK12345</cin>
-</professeur>
-<professeur idProf="5">
-<nom>Boussalhi</nom>
-<prenom>Abdessamad</prenom>
-<cin>BA12345</cin> 
-</professeur>
-<professeur idProf="6">
-<nom>BAYAR</nom>
-<prenom>Abdelouahad</prenom>
-<cin>AB12345</cin> 
-</professeur>
-<professeur idProf="7">
-<nom>SOULMANI</nom>
-<prenom>Abdellah </prenom>
-<cin>SA12345</cin> 
-</professeur>
-<professeur idProf="8">
-<nom>BOULAHOUAL</nom>
-<prenom>Ahmed</prenom>
-<cin>BA123456</cin> 
-</professeur>
-<professeur idProf="9">
-<nom>BELEFKIH</nom>
-<prenom>Khalid</prenom>
-<cin>BK123456</cin> 
-</professeur>
-<professeur idProf="10">
-<nom>EL OUAZZANI</nom>
-<prenom>Hind</prenom>
-<cin>EH123456</cin>
-</professeur>
-<professeur idProf="11">
-<nom>KHZAMI</nom>
-<prenom>Hind</prenom>
-<cin>KH123456</cin>  
-</professeur>
-<professeur idProf="12">
-<nom>Abdelhadi</nom>
-<prenom>Daou</prenom>
-<cin>AD123456</cin>  
-</professeur>
+<professeur matricule ="EM12345" id="1" />
+<professeur matricule="IM12345" id="2" />
+<professeur matricule="MK12345" id="3" />
+<professeur matricule="BK12345" id="4" />
+<professeur matricule="BA12345" id="5" />
+<professeur matricule="AB12345" id="6" />
+<professeur matricule="SA12345" id="7" />
+<professeur matricule="BA123456" id="8" />
+<professeur matricule="BK123456" id="9" />
+<professeur matricule="EH123456" id="10" />
+<professeur matricule="KH123456" id="11" />
+<professeur matricule="AD123456" id="12" />
 </professeurs>
 <!--end professeurs--> 
 <!--start modules-->
 <modules>
-<module codeMod="1" idProf="9">
+<module codeMod="1" matricule="BK123456">
 <intitule>Langues et techniques</intitule>
 <volh>390</volh>
 </module>
-<module codeMod="2" idProf="2">
+<module codeMod="2" matricule="IM12345">
 <intitule>Mathématiques</intitule>
 <volh>100</volh>
 </module>
-<module codeMod="3" idProf="6">
+<module codeMod="3" matricule="AB12345">
 <intitule>Algorithmique et Bases de la Programmation</intitule>
 <volh>90</volh>
 </module>
-<module codeMod="4" idProf="2">
+<module codeMod="4" matricule="IM12345">
 <intitule>Mathématiques Appliquées à Informatique</intitule>
 <volh>90</volh>
 </module>
@@ -175,202 +248,158 @@ TECHNIQUES ANALYSES ET CONTRÔLE DE QUALITÉ
 <!--end modules-->
 <!--start matiere-->
 <matieres>
-<matiere codeMat="1" codeMod="1">
+<matiere codeMat="1" codeMod="1" codeSemainDebut="1" codeSemainFin="3">
 <intitule>Langue française</intitule>
 </matiere>
-<matiere codeMat="2" codeMod="1">
+<matiere codeMat="2" codeMod="1" codeSemainDebut="1" codeSemainFin="3">
 <intitule>Langue anglaise</intitule>
 </matiere>
-<matiere codeMat="3" codeMod="1">
+<matiere codeMat="3" codeMod="1" codeSemainDebut="1" codeSemainFin="4">
 <intitule>Techniques expression et de communication</intitule>
 </matiere>
-<matiere codeMat="4" codeMod="2">
+<matiere codeMat="4" codeMod="2" codeSemainDebut="1" codeSemainFin="5">
 <intitule>Analyse</intitule>
 </matiere>
-<matiere codeMat="5" codeMod="2">
+<matiere codeMat="5" codeMod="2" codeSemainDebut="1" codeSemainFin="6">
 <intitule>Algèbre</intitule>
 </matiere>
-<matiere codeMat="6" codeMod="2">
+<matiere codeMat="6" codeMod="2" codeSemainDebut="1" codeSemainFin="7">
 <intitule>Probabilités</intitule>
 </matiere>
-<matiere codeMat="7" codeMod="3">
+<matiere codeMat="7" codeMod="3" codeSemainDebut="1" codeSemainFin="10">
 <intitule>Algorithmique</intitule>
 </matiere>
-<matiere codeMat="8" codeMod="3">
+<matiere codeMat="8" codeMod="3" codeSemainDebut="1" codeSemainFin="12">
 <intitule>Langage de programmation</intitule>
 </matiere>
-<matiere codeMat="9" codeMod="4">
+<matiere codeMat="9" codeMod="4" codeSemainDebut="S1" codeSemainFin="S12">
 <intitule>Analyse numérique</intitule>
 </matiere>
-<matiere codeMat="10" codeMod="4">
+<matiere codeMat="10" codeMod="4" codeSemainDebut="S1" codeSemainFin="S12">
 <intitule>Cryptologie</intitule>
 </matiere>
 </matieres>
 <!--end matieres-->
 <!--start groups-->
 <groups>
-<group codeGrp="1" codeFil="1">
-<intitule>G1</intitule>
-<nbretud>30</nbretud>
-</group>
-<group codeGrp="2" codeFil="3">
-<intitule>G2</intitule>
-<nbretud>25</nbretud>
-</group>
+<group codeGrp="1" codeFil="3" anneescolaireid="1" Numannee="1"/>
+<group codeGrp="2" codeFil="4" anneescolaireid="2" Numannee="1" />
 </groups>
 <!--end groups-->
 <!--start etudiants-->
 <etudiants>
-<etudiant codeCin="EE98654" codeGrp="1"> 
-<cne>E22107341</cne>
+<etudiant codeCin="EE98654" codeGrp="1" codeFil="3" Numannee="1" anneescolaireid="2"> 
 <nom>jabrane</nom>
 <prenom>amine</prenom>
-<datenaiss>1996-12-18</datenaiss>
-<ville>Marrakech</ville>
+<email>jabrane.amine@gmail.com</email>
+<tele>0666334455</tele>
 </etudiant>
-<etudiant codeCin="EE94355" codeGrp="1"> 
-<cne>E22107341</cne>
+<etudiant codeCin="EE94355" codeGrp="1" codeFil="3" Numannee="1" anneescolaireid="2"> 
 <nom>Sidqi</nom> 
 <prenom>Abdullah</prenom>
-<datenaiss>1996-04-20</datenaiss>
-<ville>Safi</ville>
+<email>sidqi.abdullah@gmail.com</email>
+<tele>0666334455</tele>
 </etudiant>
-<etudiant codeCin="EE23875" codeGrp="1"> 
-<cne>E22107341</cne>
+<etudiant codeCin="EE23875" codeGrp="1" codeFil="3" Numannee="1" anneescolaireid="2"> 
 <nom>Ramli</nom>
 <prenom>Safeeullah</prenom>
-<datenaiss>1996-03-12</datenaiss>  
-<ville>Essaouira</ville>
+<email>ramli.safeeullah@gmail.com</email>
+<tele>0666334455</tele>
 </etudiant>
-<etudiant codeCin="EE66321" codeGrp="1"> 
-<cne>E22107341</cne>
+<etudiant codeCin="EE66321" codeGrp="1" codeFil="3" Numannee="1" anneescolaireid="2"> 
 <nom>Alawi</nom>
 <prenom>Rashad</prenom>
-<datenaiss>1996-10-16</datenaiss>  
-<ville>Rhamna</ville>
+<email>alawi.rashad@gmail.com</email>
+<tele>0666334455</tele>
 </etudiant>
-<etudiant codeCin="EE18654" codeGrp="1">  
-<cne>E22177341</cne>
+ <etudiant codeCin="EE18654" codeGrp="1" codeFil="3" Numannee="1" anneescolaireid="2">  
 <nom>Hadir</nom>
 <prenom>Fadel</prenom>
-<datenaiss>1999-12-18</datenaiss>
-<ville>Rabat</ville>
+<email>hadir.fadel@gmail.com</email>
+<tele>0666334455</tele>
 </etudiant>
-<etudiant codeCin="EE28654" codeGrp="2"> 
-<cne>E22167341</cne>
+<etudiant codeCin="EE28654" codeGrp="2" codeFil="4" Numannee="1" anneescolaireid="2"> 
 <nom>Toufiq</nom>
 <prenom>Abdelhamid </prenom>
-<datenaiss>1993-12-18</datenaiss>
-<ville>Beni mellal</ville>
+<email>toufiqe.abdelhamid@gmail.com</email>
+<tele>0666334455</tele>
 </etudiant>
-<etudiant codeCin="EE38654" codeGrp="2">  
-<cne>E22157341</cne>
+<etudiant codeCin="EE38654" codeGrp="2" codeFil="4" Numannee="1" anneescolaireid="2">  
 <nom>Skali</nom>
 <prenom>Jamal</prenom>
-<datenaiss>1995-02-20</datenaiss>
-<ville>Dakhla</ville>
+<email>jamal.skali@gmail.com</email>
+<tele>0666334455</tele>
 </etudiant>
-<etudiant codeCin="EE23459" codeGrp="2">  
-<cne>E22073654</cne>
+<etudiant codeCin="EE23459" codeGrp="2" codeFil="4" Numannee="1" anneescolaireid="2">  
 <nom>Al-Ghumari</nom>
 <prenom>Aziz</prenom>
-<datenaiss>1996-12-10</datenaiss>
-<ville>Meknes</ville>
+<email>aziz.algumari@gmail.com</email>
+<tele>0666334455</tele>
 </etudiant>
-<etudiant codeCin="EK33421" codeGrp="2">  
-<cne>E22190011</cne>
+<etudiant codeCin="EK33421" codeGrp="2" codeFil="4" Numannee="1" anneescolaireid="2">  
 <nom>Bikri</nom>
 <prenom>Laila</prenom>
-<datenaiss>1994-11-05</datenaiss>
-<ville>Tanger</ville>
+<email>bkri.laila@gmail.com</email>
+<tele>0666334455</tele>
 </etudiant>
-<etudiant codeCin="EB98770" codeGrp="2">  
-<cne>E22120080</cne>
+<etudiant codeCin="EB98770" codeGrp="2" codeFil="4" Numannee="1" anneescolaireid="2">  
 <nom>Bendahan</nom>
 <prenom>Aziza</prenom>
-<datenaiss>1997-10-18</datenaiss>
-<ville>Casablanca</ville>
+<email>bendehan.aziaz@gmail.com</email>
+<tele>0666334455</tele>
 </etudiant>
 </etudiants>
 <!--end etudiants-->
 <!--start semesters-->
 <semesters>
-<semester codeSem="1">
-<intitule>S1</intitule>
-</semester>
-<semester codeSem="2">
-<intitule>S2</intitule>
-</semester>
-<semester codeSem="3">
-<intitule>S3</intitule>
-</semester>
-<semester codeSem="4">
-<intitule>S4</intitule>
-</semester>
-<semester codeSem="5">
-<intitule>S5</intitule>
-</semester>
-<semester codeSem="6">
-<intitule>S6</intitule>
-</semester>
+<semester codeSem="S1" anneescolaireid="2"/>
+<semester codeSem="S2" anneescolaireid="2"/>
+<semester codeSem="S3" anneescolaireid="2"/>
+<semester codeSem="S4" anneescolaireid="2"/>
+<semester codeSem="S5" anneescolaireid="2"/>
+<semester codeSem="S6" anneescolaireid="2"/>
 </semesters>
 <!--end semesters-->
 <!--start semaine-->
 <semaines>
-<semaine codeSemain="1">
-<intitule>S1</intitule>
-</semaine>
-<semaine codeSemain="2">
-<intitule>S2</intitule>
-</semaine>
-<semaine codeSemain="3">
-<intitule>S3</intitule>
-</semaine>
-<semaine codeSemain="4">
-<intitule>S4</intitule>
-</semaine>
-<semaine codeSemain="5">
-<intitule>S5</intitule>
-</semaine>
-<semaine codeSemain="6">
-<intitule>S6</intitule>
-</semaine>
-<semaine codeSemain="7">
-<intitule>S6</intitule>
-</semaine>
-<semaine codeSemain="8">
-<intitule>S6</intitule>
-</semaine>
-<semaine codeSemain="9">
-<intitule>S6</intitule>
-</semaine>
-<semaine codeSemain="10">
-<intitule>S6</intitule>
-</semaine>
-<semaine codeSemain="11">
-<intitule>S6</intitule>
-</semaine>
-<semaine codeSemain="12">
-<intitule>S6</intitule>
-</semaine>
+<semaine codeSemain="1" codeSem="S5" anneescolaireid="2"/>
+<semaine codeSemain="2" codeSem="S5" anneescolaireid="2"/>
+<semaine codeSemain="3" codeSem="S5" anneescolaireid="2"/>
+<semaine codeSemain="4" codeSem="S5" anneescolaireid="2"/>
+<semaine codeSemain="5" codeSem="S5" anneescolaireid="2"/>
+<semaine codeSemain="6" codeSem="S5" anneescolaireid="2"/>
+<semaine codeSemain="7" codeSem="S5" anneescolaireid="2"/>
+<semaine codeSemain="8" codeSem="S5" anneescolaireid="2"/>
+<semaine codeSemain="9" codeSem="S5" anneescolaireid="2"/>
+<semaine codeSemain="10" codeSem="S5" anneescolaireid="2"/>
+<semaine codeSemain="11" codeSem="S5" anneescolaireid="2"/>
+<semaine codeSemain="12" codeSem="S5" anneescolaireid="2"/>
 </semaines>
 <!--end semaine-->
 <jours>
-<jour codeJr="1"><intitule>lundi</intitule></jour>
-<jour codeJr="2"><intitule>mardi</intitule></jour>
-<jour codeJr="3"><intitule>mercredi</intitule></jour>
-<jour codeJr="4"><intitule>jeudi</intitule></jour>
-<jour codeJr="5"><intitule>vendredi</intitule></jour>
-<jour codeJr="6"><intitule>samedi</intitule></jour>
-<jour codeJr="7"><intitule>dimanche</intitule></jour>
+    <jour codeJr="l" codeSemain="1" codeSem="S5" anneescolaireid="2"/>
+    <jour codeJr="2" codeSemain="1" codeSem="S5" anneescolaireid="2"/>
+    <jour codeJr="3" codeSemain="1" codeSem="S5" anneescolaireid="2"/>
+    <jour codeJr="4" codeSemain="1" codeSem="S5" anneescolaireid="2"/>
+    <jour codeJr="5" codeSemain="1" codeSem="S5" anneescolaireid="2"/>
+    <jour codeJr="6" codeSemain="1" codeSem="S5" anneescolaireid="2"/>
+    <jour codeJr="7" codeSemain="1" codeSem="S5" anneescolaireid="2"/>
 </jours>
 <!--end jours-->
 <seances>
-<seance codeSean="1">1</seance>
-<seance codeSean="2">2</seance>
-<seance codeSean="3">3</seance>
-<seance codeSean="4">4</seance>
+<seance codeSean="1" codeJr="l" codeSemain="1" codeSem="S5" anneescolaireid="2" codeGrp="2" codeFil="4" codeMat="9" matricule="AB12345"/>
+<seance codeSean="2" codeJr="l" codeSemain="1" codeSem="S5" anneescolaireid="2" codeGrp="2" codeFil="4" codeMat="5" matricule="IM12345"/>
 </seances>
+<!--end seances -->
+<anneescolaires>
+<anneescolaire anneescolaireid="1">2022/2024</anneescolaire>
+<anneescolaire anneescolaireid="2">2022/2023</anneescolaire>
+</anneescolaires>
+<!--end anneescolaires -->
+<absences>
+    <absence codeAbsence="1" codeSean="1"  codeJr="l" codeSemain="1" codeSem="S5" codeFil="4" codeCin="EK33421"/>
+</absences>
+<!--end anneescolaires -->    
 <!-- users > user -->
 <!-- departements > departement -->
 <!-- filiers > filier -->
