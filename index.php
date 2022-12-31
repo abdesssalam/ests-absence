@@ -34,8 +34,27 @@ include_once 'db/Columns.php';
 
 <?php 
 $err = 0;
+//  espace for testing $db functions
 
-var_dump($db->getData('roles'));
+//test get user with xpath
+$id = 1;
+$user = $db->scolarite->xpath('//users/user[@id='.$id.']');
+//test update user info
+$data = ['nom'=>'fse','prenom'=>'sasw','email'=>'ge@cc.com','pass'=>'erer'];
+$add = $db->updateUserInfo(2, $data);
+// var_dump($add);
+
+//test get logged user
+// $add = $db->getLoggedUserID('test@site.com');
+// var_dump($add);
+
+// test update user pass
+var_dump($db->updateUserPass(1, 'test123'));
+//test getdata
+//var_dump($db->getData('roles'));
+
+
+//end testing
 if(isset($_POST['submit'])){
      $us=$db->get_users()->firstWhere('email',$_POST['email']);
      if($us){

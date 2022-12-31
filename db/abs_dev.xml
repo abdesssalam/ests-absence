@@ -6,13 +6,13 @@
         <nom>ait omar</nom>
         <prenom>abdessalam</prenom>
         <email>test@site.com</email>
-        <password>$2y$10$tADtFREeu.Y5WzzofE6NROoVDFDmeCyDIcscu5ITfD7Ph9YQenuSO</password>
+        <password>$2y$10$0socoDDOyn7ku5IRPSdK9ukIG2lslt9oSt0JIDteqs0oQZVFv3gTO</password>
     </user>
     <user id="2">
-        <nom>test</nom>
-        <prenom>awd</prenom>
-        <email>awd</email>
-        <password>$2y$10$auHhhcdV2USRaFTvzBQ6SOaBgUtSOp.cOwOMKtWt3Gx6ZIViMqRgu</password>
+        <nom>fse</nom>
+        <prenom>sasw</prenom>
+        <email>ge@cc.com</email>
+        <password>$2y$10$hrZnTFUkZIcQJG95ki823Odhq5Sb8E7uNmVoL1/Eqg0.N9.pQnV0q</password>
         
     </user>
     <user id="3">
@@ -60,15 +60,15 @@
 </permissions>
 <!-- end permissions -->
 <authorizations>
-    <authorization CodePermission="1" NumRole="1" />
-    <authorization CodePermission="2" NumRole="1" />
-    <authorization CodePermission="3" NumRole="1" />
+    <authorization CodePermission="1" NumRole="1"/>
+    <authorization CodePermission="2" NumRole="1"/>
+    <authorization CodePermission="3" NumRole="1"/>
 </authorizations>
 <!-- end auth -->
 <RoleUsers>
-    <RoleUser id="1" NumRole="1" />
-    <RoleUser id="2" NumRole="3" />
-    <RoleUser id="3" NumRole="3" />
+    <RoleUser id="1" NumRole="1"/>
+    <RoleUser id="2" NumRole="3"/>
+    <RoleUser id="3" NumRole="3"/>
 </RoleUsers>
 <!--start departement-->
 <departements>
