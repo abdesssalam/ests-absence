@@ -27,7 +27,6 @@ class Data{
             $user->addChild('password',  $pass);
             $user->addChild('role', $data['role']);
             $user->addAttribute('id', $this->auto_increment('id', 'users'));
-            $type = isset($data['type']) ? $data['type'] : '';
             $this->saveChange();
             return true;
 
@@ -72,7 +71,7 @@ class Data{
             $item = new Collection($item);
             $attrs=[];
             if($item->has('@attributes')){
-                $attrs = $item->get('@attributes');
+                $attrs = $item->get('@attributes');   
                 $item->forget('@attributes');
             }
             $item=$item->merge($attrs);
@@ -103,8 +102,16 @@ class Data{
      * 
      */
     public function auto_increment(string $identifier,String $table){
-        return $this->getData($table)->count();
+        $tb = $this->xml_to_collection($this->scolarite->$table)->sortBy($identifier);
+        if($tb->count()==0){
+            return 1;
+        }else{
+            
+           return (int)($tb->last()[$identifier])+1;
+        }
     }
+        
+    
     /**
      * @author Abdessalam
      * Summary of get_tables
@@ -183,12 +190,12 @@ class Data{
 
  public function add_departement($data){
     try{
+        //incrementer before add 
+            $id = $this->auto_increment('NumDept', 'departements');
         $departement =$this->scolarite->departements->addChild('departement');
         $departement->addChild('intitule', $data['intitule']);
-    
-        $departement->addAttribute('codeDep', $this->auto_increment('codeDep', 'departements'));
-        $departement->addAttribute('idProf',$data['idProf']);
-
+        $departement->addAttribute('NumDept',$id );
+        $departement->addAttribute('chef',$data['chef']);
         $this->saveChange();
         return true;
 
@@ -250,8 +257,8 @@ class Data{
     }
 
     public function getRolesByUser($idUser){
-        $userRole = $this->getData('RoleUsers')->firstWhere('id', $idUser); 
-        return  $userRole['NumRole'];
+        $userRole = $this->getData('RoleUsers')->where('id', $idUser); 
+        return  new Columns($userRole);
     }
 
 
@@ -262,6 +269,34 @@ class Data{
         $this->saveChange();
     }
 
+    public function add_module($data){
+        $module = $this->scolarite->modules->addChild('module');
+        $module->addAttribute('codeMod', $this->auto_increment('codeMod','modules'));
+        $module->addAttribute('idProf', $data['idProf']);
+        $module->addChild('intitule', $data['intitule']);
+        $module->addChild('volh', $data['volh']);
+        $this->saveChange();
+    }
+
+    public function add_matiere($data){
+        $matiere = $this->scolarite->matieres->addChild('matiere');
+        $matiere->addAttribute('codeMat', $this->auto_increment('codeMat','matieres'));
+        $matiere->addAttribute('codeMod', $data['codeMod']);
+        $matiere->addChild('intitule', $data['intitule']);
+        $this->saveChange();
+    }
+
+    public function add_absence($data){
+        $absence = $this->scolarite->absences->addChild('absence');
+        $absence->addAttribute('codeAbsence', $this->auto_increment('codeAbsence','absences'));
+        $absence->addAttribute('cne', $data['cne']);
+        $absence->addAttribute('codeSean', $data['codeSean']);
+        $absence->addAttribute('codeSem', $data['codeSem']);
+        $absence->addAttribute('codeSemain', $data['codeSemain']);
+        $absence->addAttribute('codeJr', $data['codeJr']);
+        $absence->addAttribute('codeFil', $data['codeFil']);
+        $this->saveChange();
+    }
 
 }
 ?>

@@ -3,8 +3,7 @@
 /**
  * @author Abdessalam 
  * this class extends from collection
- * new method added to get collection of columns 
- * like select col1,col2 from t1
+ * new method cols and jointure
  * 
  * 
  */
@@ -12,26 +11,51 @@ use Illuminate\Support\Collection;
 
  class Columns extends Collection {
 
-
-
-
-    private $keys=[];
     protected $items = [];
 
     public function __construct( $items = []){
         $this->items = $this->getArrayableItems($items);
 
     }
-
-    public  function cols($ks){
-        $this->keys = $ks;
-
-        $res = $this->map(function ($item) {
+    /**
+     * Summary of cols
+     * @param string|array $keys : coulmns you want to select
+     * @return Columns collection with specific columns
+     */
+    public  function cols(String | array $keys){
+        $res = $this->map(function ($item) use ($keys) {
             $item = new Columns($item);
-            return $item->only($this->keys);
+            return $item->only($keys);
         });
         return new Columns($res);
+    }
 
+          /**
+           * Summary of jointure
+           * @param string $origine : the key in current table
+           * @param array|Columns $target
+           * @param string $foregin : the key in target table
+           * @return Columns
+           */
+    
+    public function jointure(string $origine,array | Columns $target,string $foregin){
+       $target = new Columns($target);
+        $res1 = $this->filter(function ($item) use ($target,$origine,$foregin) {
+            $item = new Columns($item);
+            $id = $item->only($origine)[$origine];
+            $res2 = $target->filter(function ($item2) use ($id,$foregin) {
+                $item2 = new Columns($item2);
+                if($id==$item2->only($foregin)[$foregin]){
+                        return $item2->forget('id');
+                }   
+            });
+             $res2 = array_values($res2->toArray());
+            $res2 = $res2[0]; 
+            unset($res2[$foregin]);
+            $item = array_merge($item->toArray(),$res2 );
+            return $item;
+        });
+        return new Columns($res1);
     }
 
 

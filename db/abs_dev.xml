@@ -3,28 +3,16 @@
 <!--start users-->
 <users>
     <user id="1">
-<<<<<<< HEAD
         <nom>ali</nom>
         <prenom>sasw</prenom>
         <email>gess@cc.com</email>
         <password>$2y$10$1fSiWWuRiT0bDaaoISdty.Oo5DNdpZ8cWmwG70dppb3QjN9QTJzZC</password>
-=======
-        <nom>ait omar</nom>
-        <prenom>abdessalam</prenom>
-        <email>test@site.com</email>
-        <password>$2y$10$ud3Erln1inQmxw2LI6KJKuijCAqK.DtLbDb4hpZruNY7uJjfO5QC2</password>
->>>>>>> a9a32e8 (optimization gestion contact et roles)
     </user>
     <user id="2">
         <nom>ali</nom>
         <prenom>sasw</prenom>
-<<<<<<< HEAD
         <email>gess@ccx.com</email>
-        <password>$2y$10$Z94Ji7WainpV4sDKyPX.ru5ypU4sIShIkXGKat9laHtumBIAKQnuK</password>
-=======
-        <email>ge@cc.com</email>
-        <password>$2y$10$Ha535EaURjcTWAnJ.b86v.vNbFn0wVfA92ltgdJ7ftFwoB/A3IEKm</password>
->>>>>>> a9a32e8 (optimization gestion contact et roles)
+        <password>$2y$10$sR7l6Rdixknz5GGvzk3o9uAd290Pqnvd5dAThY0r/rN33ZCOcW9je</password>
         
     </user>
     <user id="3">
@@ -85,26 +73,18 @@
 </RoleUsers>
 <!--start departement-->
 <departements>
-<departement codeDep="1" idProf="1">
-<intitule>
-MAINTENANCE INDUSTRIELLE
-</intitule>
-</departement>
-<departement codeDep="2" idProf="2">
-<intitule>
-INFORMATIQUE
-</intitule>
-</departement>
-<departement codeDep="3" idProf="3">
-<intitule>
-TECHNIQUES DE MANAGEMENT
-</intitule>
-</departement>
-<departement codeDep="4" idProf="4">
-<intitule>
-TECHNIQUES ANALYSES ET CONTRÔLE DE QUALITÉ
-</intitule>
-</departement>
+    <departement NumDept="1" chef="1">
+        <intitule>INFORMATIQUE</intitule>
+    </departement>
+    <departement NumDept="2" chef="3">
+        <intitule>MAINTENANCE INDUSTRIELLE</intitule>
+    </departement>
+    <departement NumDept="3" chef="1">
+        <intitule>MAINTENANCE INDUSTRIELLE</intitule>
+    </departement>
+    <departement NumDept="4" chef="1">
+        <intitule>MAINTENANCE INDUSTRIELLE</intitule>
+    </departement>
 </departements>
 <!--end departements-->
 <!--start filiers-->
@@ -217,7 +197,7 @@ TECHNIQUES ANALYSES ET CONTRÔLE DE QUALITÉ
 <intitule>Mathématiques Appliquées à Informatique</intitule>
 <volh>90</volh>
 </module>
-</modules>
+<module codeMod="5" idProf="2"><intitule>devlopement</intitule><volh>50</volh></module><module codeMod="6" idProf="2"><intitule>devlopement</intitule><volh>50</volh></module></modules>
 <!--end modules-->
 <!--start matiere-->
 <matieres>
@@ -251,7 +231,7 @@ TECHNIQUES ANALYSES ET CONTRÔLE DE QUALITÉ
 <matiere codeMat="10" codeMod="4">
 <intitule>Cryptologie</intitule>
 </matiere>
-</matieres>
+<matiere codeMat="11" codeMod="2"><intitule>devlopement</intitule></matiere></matieres>
 <!--end matieres-->
 <!--start groups-->
 <groups>
@@ -417,6 +397,12 @@ TECHNIQUES ANALYSES ET CONTRÔLE DE QUALITÉ
 <seance codeSean="3">3</seance>
 <seance codeSean="4">4</seance>
 </seances>
+
+
+<absences>
+    <absence  codeAbsence="1" cne="" codeSean="" codeSem="" codeSemain="" codeJr="" codeFil="" />
+</absences>
+
 <!-- users > user -->
 <!-- departements > departement -->
 <!-- filiers > filier -->
