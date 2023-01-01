@@ -140,7 +140,12 @@ class Data{
      * @return Columns : all records of this column
      */
     public function getData(String $table){
-        return $this->xml_to_collection($this->scolarite->$table);
+        if(!in_array($table,$this->get_tables())){
+            return new Columns([]);
+        }else{
+             return $this->xml_to_collection($this->scolarite->$table);
+        }
+       
     }
 
      
@@ -191,7 +196,7 @@ class Data{
  public function add_departement($data){
     try{
         //incrementer before add 
-            $id = $this->auto_increment('NumDept', 'departements');
+        $id = $this->auto_increment('NumDept', 'departements');
         $departement =$this->scolarite->departements->addChild('departement');
         $departement->addChild('intitule', $data['intitule']);
         $departement->addAttribute('NumDept',$id );
@@ -257,8 +262,15 @@ class Data{
     }
 
     public function getRolesByUser($idUser){
-        $userRole = $this->getData('RoleUsers')->where('id', $idUser); 
-        return  new Columns($userRole);
+        $userRole = $this->getData('RoleUsers')->where('id', $idUser)
+         ->jointure('NumRole',$this->getData('roles'),'Num');
+
+        $userRole = $userRole->map(function ($u) {
+            unset($u['id']);
+            return $u;
+            
+        });
+        return array_values($userRole->toArray());
     }
 
 
@@ -267,6 +279,7 @@ class Data{
         $RoleUser->addAttribute('NumRole', $data['NumRole']);
         $RoleUser->addAttribute('id', $data['id']);
         $this->saveChange();
+        return true;
     }
 
     public function add_module($data){

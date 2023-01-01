@@ -36,11 +36,15 @@ use Illuminate\Support\Collection;
            * @param array|Columns $target
            * @param string $foregin : the key in target table
            * @return Columns
+           * current table (*)
            */
     
     public function jointure(string $origine,array | Columns $target,string $foregin){
-       $target = new Columns($target);
-        $res1 = $this->filter(function ($item) use ($target,$origine,$foregin) {
+        $target = new Columns($target);
+        if($target->count()==0){
+            return new Collection([]);
+        }
+        $res1 = $this->map(function ($item) use ($target,$origine,$foregin) {
             $item = new Columns($item);
             $id = $item->only($origine)[$origine];
             $res2 = $target->filter(function ($item2) use ($id,$foregin) {
@@ -55,6 +59,10 @@ use Illuminate\Support\Collection;
             $item = array_merge($item->toArray(),$res2 );
             return $item;
         });
+        // echo '<br>';
+        // var_dump($res1);
+        // echo '<br>';
+        // echo '<br>';
         return new Columns($res1);
     }
 

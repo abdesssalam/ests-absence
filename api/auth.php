@@ -7,8 +7,11 @@ if(isset($_POST['add'])){
     echo 'add new authorizations';
 }
 
-if(isset($_GET['auth'])){
-    //$db->getData('authorizarions')
-    echo 'all auth';
+if(isset($_GET['all'])){
+    echo  $authorization = $db->getData('authorizations')
+    ->jointure('NumRole',$db->getData('roles'),'Num')
+    ->jointure('CodePermission',$db->getData('permissions'),'code')->toJson();
+    
 }
+
 ?>

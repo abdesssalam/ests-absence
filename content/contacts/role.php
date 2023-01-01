@@ -7,7 +7,7 @@ require_once '../../db/config.php';
             <label class="font-medium text-lg capitalize  w-1/3" for="">Role :</label>
              <select id="role" name="role" class="w-2/3 bg-white border border-white text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  p-2.5 ">
              <?php foreach($db->getData('roles') as $role ){
-                    echo '<option value="'.$role['Num'].'" >' . $role['label'] . '</option>';
+                    echo $role['Num']=='1' ? '' : '<option value="'.$role['Num'].'" >' . $role['label'] . '</option>';
                 } ?>
             </select>
         </div>
@@ -30,19 +30,19 @@ require_once '../../db/config.php';
 </div>
 
 <div class="w-11/12 mx-auto py-3 overflow-hidden ">
- <h2 class="text-center font-bold text-xl capitalize">Liste des filiers </h2>
+ <h2 class="text-center font-bold text-xl capitalize">Liste des Authorizations </h2>
  <div class="overflow-x-auto  relative mt-3 w-full h-1/3 ">
-    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+    <table id="table" class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="py-3 px-6">
                     Role
                 </th>
                 <th scope="col" class="py-3 px-6">
-                    table
+                    Action
                 </th>
                 <th scope="col" class="py-3 px-6">
-                    Permission
+                    Table
                 </th>
                 
                 <th scope="col" class="py-3 px-6">
@@ -51,21 +51,8 @@ require_once '../../db/config.php';
             </tr>
         </thead>
         <tbody >
-
-            <tr class="bg-white border-b ">
-                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                  Supper admin
-                </th>
-                <td class="py-4 px-6">
-                    contact 
-                </td>
-                <td class="py-4 px-6">
-                 ajouter
-                </td>
-                <td class="py-4 px-6">
-                   <a class="text-blue-600 w-full" href="filiers.php?edit=#">supprimer</a>
-                </td>
-            </tr>
+           
+           
            
         </tbody>
     </table>

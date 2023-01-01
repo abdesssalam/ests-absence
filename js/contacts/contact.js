@@ -13,7 +13,7 @@ $(document).ready(function(){
     //load users
     loadUsers()
     //add  new user
-    $('#btn_add_user').click(function(e){
+    $('#btn_action_user').click(function(e){
         e.preventDefault();
         let roles= [];
         role.each(function(){
@@ -24,6 +24,7 @@ $(document).ready(function(){
         });
         let data={'nom':nom.val(),'prenom':prenom.val(),'email':email.val(),'roles':roles};
         console.log(data);
+        console.log($(this).attr('name'));
         // $.post('../ajax/add_user.php',data,function(data,st){
         //     console.log("sttt"+st);
         //     console.log(data);
@@ -62,22 +63,35 @@ $(document).ready(function(){
         $.get(BASE_URL+"users.php?all",function(data,st){
             data=JSON.parse(data)
             if(data){
-                
                 data.forEach(function(user){
-                    
+                    var roles="";
+                    user.roles.forEach((r)=>{
+                        // console.log(r)
+                        roles+= `<li class="my-1 md:my-0">${r.label}</li>`;
+                        // roles= `<li>${r.label}</li>`+roles+r.label+" | ";
+                    });
+                    roles+="";
+
                     var content='<tr class="bg-white border-b"> <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">';
                      content+=user.nom+' '+user.prenom+'</th><td class="py-4 px-6">';
                      content+=user.email+'</td><td class="py-4 px-6">';
-                     content+=user.id+'</td>';
+                     content+=roles+'</td>';
                     //  content+='<td class="py-4 px-6"> <a id="btn_edit" class="text-blue-600 w-full btn_edit" href="?edit='+user.id+'">modfier</a></td></tr>';
                       content+='<td id="td-edit-'+user.id+'" class="py-4 px-6"> <span  id="edit-'+user.id+'" class="cursor-pointer text-blue-600 w-full btn_edit" href="?edit='+user.id+'">modfier</span></td></tr>';
                      $("#table tbody").append(content)
 
                     content=$.parseHTML(content);
                      $('#content #table tbody').find(`#edit-${user.id}`).click(function(){
+                        $('#btn_action_user').attr('name','edit');
+                        $('#btn_action_user').val('modifier');
                         nom.val(user.nom);
                         prenom.val(user.prenom);
                         email.val(user.email);
+                        
+                        user.roles.forEach((r)=>{
+                            $(`input[name="roles"][value="${r.NumRole}"]`).prop('checked',true);
+                        })
+                        
                         showForm();
                      })
                     //console.log($('#content #table tbody').find(`#edit-${user.id}`))

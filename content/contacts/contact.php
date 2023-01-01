@@ -33,7 +33,7 @@ require_once '../../db/config.php';
     </ul>
     </div>
     
-    <input id="btn_add_user" class="block text-white w-1/4 mx-auto bg-green-500 py-2 px-3 font-semibold my-2 cursor-pointer rounded-md uppercase hover:text-gray-600" type="submit" value="ajouter">
+    <input id="btn_action_user" class="block text-white w-1/4 mx-auto bg-green-500 py-2 px-3 font-semibold my-2 cursor-pointer rounded-md uppercase hover:text-gray-600" type="submit" name="add" value="ajouter">
 </form>
     
    

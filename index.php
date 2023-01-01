@@ -37,20 +37,9 @@ include_once 'db/Columns.php';
 $err = 0;
 //  espace for testing $db functions
 
-//test get user with xpath
-// $id = 1;
-// $user = $db->scolarite->xpath('//users/user[@id='.$id.']');
-//test update user info
-// $data = ['nom'=>'ali','prenom'=>'sasw','email'=>'gess@ccx.com','pass'=>'123'];
-// $add = $db->updateUserInfo(2, $data);
-// // $data = ['nom'=>'fse','prenom'=>'sasw','email'=>'ge@cc.com','pass'=>'erer'];
-// // $add = $db->updateUserInfo(2, $data);
-// // var_dump($add);
-// $data = ['intitule'=>'gggggaaadwag','chef'=>2];
-// $db->add_departement($data);
+// $t = $db->getData('users')->jointure('id',$db->getData('RoleUsers'),'id')->jointure('NumRole',$db->getData('roles'),'Num');
 
-// $join=$db->getData('users')->jointure('id',$db->getData('RoleUsers'),'id');
-// var_dump($join);
+// var_dump($t);
 
 // $db->getRolesByUser(2);
 // var_dump($db->auto_increment('code', 'permissions'));

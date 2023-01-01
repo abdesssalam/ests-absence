@@ -3,22 +3,22 @@
 <!--start users-->
 <users>
     <user id="1">
-        <nom>ali</nom>
-        <prenom>sasw</prenom>
+        <nom>Hamid</nom>
+        <prenom>mol ziton</prenom>
         <email>gess@cc.com</email>
         <password>$2y$10$1fSiWWuRiT0bDaaoISdty.Oo5DNdpZ8cWmwG70dppb3QjN9QTJzZC</password>
     </user>
     <user id="2">
-        <nom>ali</nom>
-        <prenom>sasw</prenom>
+        <nom>3bi9la</nom>
+        <prenom>SUIIIIIIII</prenom>
         <email>gess@ccx.com</email>
         <password>$2y$10$sR7l6Rdixknz5GGvzk3o9uAd290Pqnvd5dAThY0r/rN33ZCOcW9je</password>
         
     </user>
     <user id="3">
-        <nom>testwww</nom>
-        <prenom>awda</prenom>
-        <email>awd</email>
+        <nom>tabi3a</nom>
+        <prenom>rabi3a</prenom>
+        <email>tabi3a@cc.com</email>
         <password>$2y$10$qSUU6NWzhLaabW6RtzoY7eXADQVVEsquZ.k5Sm45EG3uT9Qx8ChpO</password>
        
     </user>
@@ -68,8 +68,10 @@
 <!-- end auth -->
 <RoleUsers>
     <RoleUser id="1" NumRole="1"/>
+    <RoleUser id="1" NumRole="2"/>
     <RoleUser id="2" NumRole="3"/>
     <RoleUser id="3" NumRole="3"/>
+    <RoleUser id="3" NumRole="5"/>
 </RoleUsers>
 <!--start departement-->
 <departements>

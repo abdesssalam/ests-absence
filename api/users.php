@@ -4,7 +4,13 @@ require_once '../db/config.php';
 $users = $db->get_users();
 
 if(isset($_GET['all'])){
-       echo $users->toJson();
+    $users = $users->map(function ($user) use ($db) {
+
+        $user['roles'] = $db->getRolesByUser($user['id']);
+        return $user;
+    });
+
+    echo $users->toJson();
 }
 
 if(isset($_GET['id'])){
