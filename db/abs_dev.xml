@@ -20,7 +20,6 @@
         <prenom>rabi3a</prenom>
         <email>tabi3a@cc.com</email>
         <password>$2y$10$qSUU6NWzhLaabW6RtzoY7eXADQVVEsquZ.k5Sm45EG3uT9Qx8ChpO</password>
-       
     </user>
 </users>
 <!--end users-->
@@ -403,7 +402,11 @@
 
 <absences>
     <absence codeAbsence="1" cne="" codeSean="" codeSem="" codeSemain="" codeJr="" codeFil=""/>
+<<<<<<< HEAD
 <absence codeAbsence="2" cne="2" codeSean="devlopement" codeSem="devlopement" codeSemain="devlopement" codeJr="devlopement" codeFil="devlopement"/></absences>
+=======
+</absences>
+>>>>>>> a08d7de (update user in data)
 
 <!-- users > user -->
 <!-- departements > departement -->

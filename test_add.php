@@ -1,8 +1,8 @@
 <?php
 require_once 'db/config.php';
-if(isset($_POST)){
-    var_dump($_POST);
-}
+
+var_dump($db->updateUserRoles(1,[1,2,3]));
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

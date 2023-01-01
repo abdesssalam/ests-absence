@@ -19,16 +19,16 @@ class Data{
     public function add_user($data){
         try{
             // default pass
+            $id = $this->auto_increment('id', 'users');
             $pass = password_hash('ESTS123', PASSWORD_DEFAULT);
             $user = $this->users->addChild('user');
             $user->addChild('nom', $data['nom']);
             $user->addChild('prenom', $data['prenom']);
             $user->addChild('email', $data['email']);
             $user->addChild('password',  $pass);
-            $user->addChild('role', $data['role']);
-            $user->addAttribute('id', $this->auto_increment('id', 'users'));
+            $user->addAttribute('id', $id);
             $this->saveChange();
-            return true;
+            return $id;
 
         }catch(Exception $e){
             return array(
@@ -149,20 +149,12 @@ class Data{
     }
 
      
-     
-//flmodification mohal khsak t9lbha collection axbanlikom ankhliha mn ba3d
-/**
- * ay modification khdm b xpath
- *  matnsach dima ay modification (add,delete,update) dirha wst try catch
- * */ 
     public function updateUserInfo($id,$data){
         try{
-            $pass = password_hash($data['pass'], PASSWORD_DEFAULT);
             $user = $this->scolarite->xpath('//users/user[@id='.$id.']');
             $user =$user[0];
             $user->nom = $data['nom'];
             $user->prenom = $data['prenom'];
-            $user->password = $pass;
             $user->email = $data['email'];
             $this->saveChange();
             return true;
@@ -275,11 +267,19 @@ class Data{
 
 
     public function addRoleUsers($data){
-        $RoleUser = $this->scolarite->RoleUsers->addChild('RoleUser');
-        $RoleUser->addAttribute('NumRole', $data['NumRole']);
-        $RoleUser->addAttribute('id', $data['id']);
-        $this->saveChange();
-        return true;
+        try{
+            $RoleUser = $this->scolarite->RoleUsers->addChild('RoleUser');
+            $RoleUser->addAttribute('NumRole', $data['NumRole']);
+            $RoleUser->addAttribute('id', $data['id']);
+            $this->saveChange();
+            return true;
+        }catch(Exception $e){
+            return array(
+                "error" => $e->getMessage(),
+                "line" => $e->getLine()
+            );
+        }
+       
     }
 
     public function add_module($data){
@@ -287,7 +287,6 @@ class Data{
         $module->addAttribute('codeMod', $this->auto_increment('codeMod','modules'));
         $module->addAttribute('idProf', $data['idProf']);
         $module->addChild('intitule', $data['intitule']);
-        $module->addChild('volh', $data['volh']);
         $this->saveChange();
     }
 
@@ -309,6 +308,39 @@ class Data{
         $absence->addAttribute('codeJr', $data['codeJr']);
         $absence->addAttribute('codeFil', $data['codeFil']);
         $this->saveChange();
+    }
+
+    public function updateUserRoles($id,$roles){
+        try{
+            //delete all user roles
+            $role = $this->scolarite->RoleUsers->RoleUser;
+            $j=0;
+            for ($i = 0; $i < count($role);$i++){
+                if($role[$j]['id']==$id){
+                    unset($role[$j]);
+                    $j = $j - 1;
+                }
+                $j = $j + 1;  
+            }
+            $this->saveChange();
+            //append new roles
+            $i=0;
+            do {
+                $roleAdded = $this->addRoleUsers(['id' => $id, 'NumRole'=>$roles[$i]]);
+                if(is_array($roleAdded)){
+                    return $roleAdded;
+                }
+                $i++;
+            }while ($i < count($roles) && $roleAdded==true);
+
+            return $role;
+        }catch(Exception $e){
+            return array(
+                "error" => $e->getMessage(),
+                "line" => $e->getLine()
+            );
+        }
+        
     }
 
 }

@@ -24,7 +24,7 @@ use Illuminate\Support\Collection;
      */
 
      //String | array $keys
-    public  function cols(any $keys){
+    public  function cols( $keys){
         $res = $this->map(function ($item) use ($keys) {
             $item = new Columns($item);
             return $item->only($keys);
@@ -41,7 +41,7 @@ use Illuminate\Support\Collection;
            * current table (*)
            */
     //string $origine,array | Columns $target,string $foregin
-    public function jointure(string $origine,any $target,string $foregin){
+    public function jointure(string $origine, $target,string $foregin){
         $target = new Columns($target);
         if($target->count()==0){
             return new Collection([]);

@@ -37,27 +37,6 @@ include_once 'db/Columns.php';
 $err = 0;
 //  espace for testing $db functions
 
-// $t = $db->getData('users')->jointure('id',$db->getData('RoleUsers'),'id')->jointure('NumRole',$db->getData('roles'),'Num');
-
-// var_dump($t);
-
-// $db->getRolesByUser(2);
-// var_dump($db->auto_increment('code', 'permissions'));
-
-//test get logged user
-// $add = $db->getLoggedUserID('test@site.com');
-// var_dump($add);
-
-// test update user pass
-// var_dump($db->updateUserPass(1, 'test123'));
-//test getdata
-//var_dump($db->getData('roles'));
-
-//test get permession code
-
- $data = ['cne'=>2,'codeSean'=>'devlopement','codeSem'=>'devlopement','codeSemain'=>'devlopement','codeJr'=>'devlopement','codeFil'=>'devlopement'];
- $add = $db->add_absence($data);
-
 
 //end testing
 if(isset($_POST['submit'])){
