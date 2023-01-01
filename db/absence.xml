@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<scolarite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="absence1.xsd">
+<scolarite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="absence.xsd">
 <!--start users-->
 <users>
 <user id="1">
@@ -7,21 +7,18 @@
     <prenom>yassin</prenom>
     <email>test@gmail.com</email>
     <password>12345</password>
-    <role>SuperAdmin</role>
 </user>
 <user id="2">
     <nom>ahmed</nom>
     <prenom>mohaùed</prenom>
     <email>test2@gmail.com</email>
     <password>0000</password>
-    <role>AgentScolarite</role>
 </user>
 <user id="3">
     <nom>simo</nom>
     <prenom>xarokhan</prenom>
     <email>test3@gmail.com</email>
     <password>0000</password>
-    <role>ChefeDpartement</role>
 </user>
 <user id="4">
     <nom>simo</nom>

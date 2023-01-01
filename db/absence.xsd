@@ -38,7 +38,6 @@
         <xs:element ref="prenom"/>
         <xs:element ref="email"/>
         <xs:element ref="password"/>
-        <xs:element minOccurs="0" ref="role"/>
       </xs:sequence>
       <xs:attribute name="id" use="required" type="xs:integer"/>
     </xs:complexType>
@@ -51,6 +50,15 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="role">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="label"/>
+      </xs:sequence>
+      <xs:attribute name="NumRole" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="label" type="xs:string"/>
   <xs:element name="permissions">
     <xs:complexType>
       <xs:sequence>
@@ -316,15 +324,6 @@
   <xs:element name="nom" type="xs:string"/>
   <xs:element name="prenom" type="xs:NCName"/>
   <xs:element name="email" type="xs:string"/>
-  <xs:element name="role">
-    <xs:complexType mixed="true">
-      <xs:sequence>
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="label"/>
-      </xs:sequence>
-      <xs:attribute name="NumRole" type="xs:integer"/>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="label" type="xs:string"/>
   <xs:complexType name="intitule">
     <xs:sequence>
       <xs:element ref="intitule"/>
