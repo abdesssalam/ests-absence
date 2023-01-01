@@ -49,6 +49,8 @@ $add = $db->updateUserInfo(2, $data);
 $data = ['intitule'=>'gggggg','idProf'=>2];
 $db->add_departement($data);
 
+$join=$db->getData('users')->jointure('id',$db->getData('RoleUsers'),'id');
+var_dump($join);
 
 $db->getRolesByUser(2);
 

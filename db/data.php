@@ -27,7 +27,6 @@ class Data{
             $user->addChild('password',  $pass);
             $user->addChild('role', $data['role']);
             $user->addAttribute('id', $this->auto_increment('id', 'users'));
-            $type = isset($data['type']) ? $data['type'] : '';
             $this->saveChange();
             return true;
 
@@ -72,7 +71,7 @@ class Data{
             $item = new Collection($item);
             $attrs=[];
             if($item->has('@attributes')){
-                $attrs = $item->get('@attributes');
+                $attrs = $item->get('@attributes');   
                 $item->forget('@attributes');
             }
             $item=$item->merge($attrs);
@@ -185,10 +184,8 @@ class Data{
     try{
         $departement =$this->scolarite->departements->addChild('departement');
         $departement->addChild('intitule', $data['intitule']);
-    
-        $departement->addAttribute('codeDep', $this->auto_increment('codeDep', 'departements'));
-        $departement->addAttribute('idProf',$data['idProf']);
-
+        $departement->addAttribute('NumDept', $this->auto_increment('NumDept', 'departements'));
+        $departement->addAttribute('chef',$data['chef']);
         $this->saveChange();
         return true;
 
