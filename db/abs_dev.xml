@@ -402,8 +402,8 @@
 
 
 <absences>
-    <absence  codeAbsence="1" cne="" codeSean="" codeSem="" codeSemain="" codeJr="" codeFil="" />
-</absences>
+    <absence codeAbsence="1" cne="" codeSean="" codeSem="" codeSemain="" codeJr="" codeFil=""/>
+<absence codeAbsence="2" cne="2" codeSean="devlopement" codeSem="devlopement" codeSemain="devlopement" codeJr="devlopement" codeFil="devlopement"/></absences>
 
 <!-- users > user -->
 <!-- departements > departement -->
