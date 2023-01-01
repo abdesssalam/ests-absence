@@ -269,6 +269,34 @@ class Data{
         $this->saveChange();
     }
 
+    public function add_module($data){
+        $module = $this->scolarite->modules->addChild('module');
+        $module->addAttribute('codeMod', $this->auto_increment('codeMod','modules'));
+        $module->addAttribute('idProf', $data['idProf']);
+        $module->addChild('intitule', $data['intitule']);
+        $module->addChild('volh', $data['volh']);
+        $this->saveChange();
+    }
+
+    public function add_matiere($data){
+        $matiere = $this->scolarite->matieres->addChild('matiere');
+        $matiere->addAttribute('codeMat', $this->auto_increment('codeMat','matieres'));
+        $matiere->addAttribute('codeMod', $data['codeMod']);
+        $matiere->addChild('intitule', $data['intitule']);
+        $this->saveChange();
+    }
+
+    public function add_absence($data){
+        $absence = $this->scolarite->absences->addChild('absence');
+        $absence->addAttribute('codeAbsence', $this->auto_increment('codeAbsence','absences'));
+        $absence->addAttribute('cne', $data['cne']);
+        $absence->addAttribute('codeSean', $data['codeSean']);
+        $absence->addAttribute('codeSem', $data['codeSem']);
+        $absence->addAttribute('codeSemain', $data['codeSemain']);
+        $absence->addAttribute('codeJr', $data['codeJr']);
+        $absence->addAttribute('codeFil', $data['codeFil']);
+        $this->saveChange();
+    }
 
 }
 ?>

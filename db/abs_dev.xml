@@ -197,7 +197,7 @@
 <intitule>Mathématiques Appliquées à Informatique</intitule>
 <volh>90</volh>
 </module>
-</modules>
+<module codeMod="5" idProf="2"><intitule>devlopement</intitule><volh>50</volh></module><module codeMod="6" idProf="2"><intitule>devlopement</intitule><volh>50</volh></module></modules>
 <!--end modules-->
 <!--start matiere-->
 <matieres>
@@ -231,7 +231,7 @@
 <matiere codeMat="10" codeMod="4">
 <intitule>Cryptologie</intitule>
 </matiere>
-</matieres>
+<matiere codeMat="11" codeMod="2"><intitule>devlopement</intitule></matiere></matieres>
 <!--end matieres-->
 <!--start groups-->
 <groups>
@@ -397,6 +397,12 @@
 <seance codeSean="3">3</seance>
 <seance codeSean="4">4</seance>
 </seances>
+
+
+<absences>
+    <absence  codeAbsence="1" cne="" codeSean="" codeSem="" codeSemain="" codeJr="" codeFil="" />
+</absences>
+
 <!-- users > user -->
 <!-- departements > departement -->
 <!-- filiers > filier -->

@@ -66,6 +66,9 @@ $err = 0;
 
 //test get permession code
 
+ $data = ['cne'=>2,'codeSean'=>'devlopement','codeSem'=>'devlopement','codeSemain'=>'devlopement','codeJr'=>'devlopement','codeFil'=>'devlopement'];
+ $add = $db->add_absence($data);
+
 
 //end testing
 if(isset($_POST['submit'])){
