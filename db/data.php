@@ -102,8 +102,16 @@ class Data{
      * 
      */
     public function auto_increment(string $identifier,String $table){
-        return $this->getData($table)->count();
+        $tb = $this->xml_to_collection($this->scolarite->$table)->sortBy($identifier);
+        if($tb->count()==0){
+            return 1;
+        }else{
+            
+           return (int)($tb->last()[$identifier])+1;
+        }
     }
+        
+    
     /**
      * @author Abdessalam
      * Summary of get_tables
@@ -182,9 +190,11 @@ class Data{
 
  public function add_departement($data){
     try{
+        //incrementer before add 
+            $id = $this->auto_increment('NumDept', 'departements');
         $departement =$this->scolarite->departements->addChild('departement');
         $departement->addChild('intitule', $data['intitule']);
-        $departement->addAttribute('NumDept', $this->auto_increment('NumDept', 'departements'));
+        $departement->addAttribute('NumDept',$id );
         $departement->addAttribute('chef',$data['chef']);
         $this->saveChange();
         return true;
@@ -247,8 +257,8 @@ class Data{
     }
 
     public function getRolesByUser($idUser){
-        $userRole = $this->getData('RoleUsers')->firstWhere('id', $idUser); 
-        return  $userRole['NumRole'];
+        $userRole = $this->getData('RoleUsers')->where('id', $idUser); 
+        return  new Columns($userRole);
     }
 
 

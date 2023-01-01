@@ -41,18 +41,19 @@ $err = 0;
 // $id = 1;
 // $user = $db->scolarite->xpath('//users/user[@id='.$id.']');
 //test update user info
-$data = ['nom'=>'ali','prenom'=>'sasw','email'=>'gess@ccx.com','pass'=>'123'];
-$add = $db->updateUserInfo(2, $data);
-// $data = ['nom'=>'fse','prenom'=>'sasw','email'=>'ge@cc.com','pass'=>'erer'];
+// $data = ['nom'=>'ali','prenom'=>'sasw','email'=>'gess@ccx.com','pass'=>'123'];
 // $add = $db->updateUserInfo(2, $data);
-// var_dump($add);
-$data = ['intitule'=>'gggggg','idProf'=>2];
-$db->add_departement($data);
+// // $data = ['nom'=>'fse','prenom'=>'sasw','email'=>'ge@cc.com','pass'=>'erer'];
+// // $add = $db->updateUserInfo(2, $data);
+// // var_dump($add);
+// $data = ['intitule'=>'gggggaaadwag','chef'=>2];
+// $db->add_departement($data);
 
-$join=$db->getData('users')->jointure('id',$db->getData('RoleUsers'),'id');
-var_dump($join);
+// $join=$db->getData('users')->jointure('id',$db->getData('RoleUsers'),'id');
+// var_dump($join);
 
-$db->getRolesByUser(2);
+// $db->getRolesByUser(2);
+// var_dump($db->auto_increment('code', 'permissions'));
 
 //test get logged user
 // $add = $db->getLoggedUserID('test@site.com');
