@@ -15,6 +15,24 @@ $(document).ready(function(){
     menu_roles.click(function(){
         content.load('../content/contacts/role.php',function(){
             loadRoles();
+            //add new auth
+            $('#btn_add_auth').click(function(){
+                let role=$('#role').val();
+                let table=$('#table').val();
+                let action=$('#action').val();
+
+                let data={'role':role,'table':table,'action':action,'add':'submit'};
+                $.post(BASE_URL+'auth.php',data,function(data,st){
+                    console.log(st);
+                    
+                    data=JSON.parse(data);
+                    console.log(data.message);
+
+                    // if(data.)
+                })
+
+            })
+
         });
         
         function loadRoles(){
@@ -26,10 +44,12 @@ $(document).ready(function(){
                 
             })
         }
-
+        
+        //function to fil table
         const showAuth =(auth)=>{
-            auth=auth[0];
-            console.log(auth);
+           
+            // auth=auth[0];
+           // console.log(auth);
             var content='<tr class="bg-white border-b"> <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">';
             content+=auth.label+'</th><td class="py-4 px-6">';
             content+=auth.action+'</td><td class="py-4 px-6">';

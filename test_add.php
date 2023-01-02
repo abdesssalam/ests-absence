@@ -8,24 +8,22 @@ require_once 'db/config.php';
 // echo $authorization = $db->getData('roles')
 // ->jointure('Num',$db->getData('authorizations'),'NumRole')->toJson();
 
-$x = new Columns([
-    ['aa' => 1, 'bb' => 5, 'l' => 'x'],
-    ['aa' => 1, 'bb' => 5, 'l' => 'x'],
-    ['aa' => 1, 'bb' => 2, 'l' => 'x'],
-    ['aa' => 1, 'bb' => 1, 'l' => 'x'],
-    ['aa' => 1, 'bb' => 0, 'l' => 'x'],
+// $x = new Columns([
+//     ['aa' => 1, 'bb' => 5, 'l' => 'x'],
+//     ['aa' => 1, 'bb' => 5, 'l' => 'x'],
+//     ['aa' => 1, 'bb' => 2, 'l' => 'x'],
+//     ['aa' => 1, 'bb' => 1, 'l' => 'x'],
+//     ['aa' => 1, 'bb' => 0, 'l' => 'x'],
 
-]);
-$y = new Columns([
-    ['cc' => 1, 'bb' => 5],
-    ['cc' => 3, 'bb' => 5],
-    ['cc' => 3, 'bb' => 2],
-    ['cc' => 28, 'bb' => 1]
-]);
+// ]);
+// $y = new Columns([
+//     ['cc' => 1, 'bb' => 5],
+//     ['cc' => 3, 'bb' => 5],
+//     ['cc' => 3, 'bb' => 2],
+//     ['cc' => 28, 'bb' => 1]
+// ]);
 
-echo   $db->getData('authorizations')
-->jointure($db->getData('roles'),'NumRole','Num')
-->jointure($db->getData('permissions'),'CodePermission','code')->toJson();
+// echo $y->jointure($x, 'bb', 'bb')->toJson();
 
 // ?>
 <!DOCTYPE html>

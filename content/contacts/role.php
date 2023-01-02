@@ -7,7 +7,7 @@ require_once '../../db/config.php';
             <label class="font-medium text-lg capitalize  w-1/3" for="">Role :</label>
              <select id="role" name="role" class="w-2/3 bg-white border border-white text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  p-2.5 ">
              <?php foreach($db->getData('roles') as $role ){
-                    echo $role['Num']=='1' ? '' : '<option value="'.$role['Num'].'" >' . $role['label'] . '</option>';
+                    echo '<option value="'.$role['Num'].'" >' . $role['label'] . '</option>';
                 } ?>
             </select>
         </div>

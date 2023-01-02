@@ -243,7 +243,7 @@ class Data{
         if($permession!=null){
             return $permession['code'];
         }
-        return -1;
+        return false;
     }
 
     public function add_permession(array $data){
@@ -264,11 +264,16 @@ class Data{
         $userRole = $this->getData('RoleUsers')->where('id', $idUser)
          ->jointure($this->getData('roles'),'NumRole','Num');
 
+        $userRole = array_values($userRole->toArray());
+        $userRole = new Columns($userRole);
         $userRole = $userRole->map(function ($u) {
+            $u = array_values($u);
+            $u = $u[0];
             unset($u['id']);
             return $u;
             
-        });
+        });  
+       
         return array_values($userRole->toArray());
     }
 

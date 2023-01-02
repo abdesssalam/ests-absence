@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scolarite>
-<!--start users-->
 <users>
     <user id="1">
         <nom>Hamid</nom>
@@ -57,21 +56,20 @@
         <table>permissions</table>
     </permission>
 
-<permission code="4"><action>delete</action><table>users</table></permission></permissions>
+<permission code="4"><action>delete</action><table>users</table></permission><permission code="5"><action>select</action><table>authorizations</table></permission><permission code="6"><action>update</action><table>departements</table></permission><permission code="7"><action>update</action><table>roles</table></permission><permission code="8"><action>select</action><table>matieres</table></permission><permission code="9"><action>select</action><table>filiers</table></permission></permissions>
 <!-- end permissions -->
 <authorizations>
     <authorization CodePermission="1" NumRole="1"/>
-    
-    
-</authorizations>
+    <authorization CodePermission="2" NumRole="1"/>
+    <authorization CodePermission="6" NumRole="1"/><authorization CodePermission="7" NumRole="1"/><authorization CodePermission="3" NumRole="1"/><authorization CodePermission="8" NumRole="1"/><authorization CodePermission="9" NumRole="1"/></authorizations>
 <!-- end auth -->
 <RoleUsers>
-    <RoleUser id="1" NumRole="1"/>
-    <RoleUser id="1" NumRole="2"/>
+    
+    
     
     <RoleUser id="3" NumRole="3"/>
     <RoleUser id="3" NumRole="5"/>
-<RoleUser NumRole="3" id="2"/><RoleUser NumRole="5" id="2"/></RoleUsers>
+<RoleUser NumRole="3" id="2"/><RoleUser NumRole="5" id="2"/><RoleUser NumRole="1" id="1"/><RoleUser NumRole="2" id="1"/><RoleUser NumRole="3" id="1"/></RoleUsers>
 <!--start departement-->
 <departements>
     <departement NumDept="1" chef="1">
@@ -402,11 +400,7 @@
 
 <absences>
     <absence codeAbsence="1" cne="" codeSean="" codeSem="" codeSemain="" codeJr="" codeFil=""/>
-<<<<<<< HEAD
 <absence codeAbsence="2" cne="2" codeSean="devlopement" codeSem="devlopement" codeSemain="devlopement" codeJr="devlopement" codeFil="devlopement"/></absences>
-=======
-</absences>
->>>>>>> a08d7de (update user in data)
 
 <!-- users > user -->
 <!-- departements > departement -->

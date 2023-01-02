@@ -141,7 +141,7 @@ use Illuminate\Support\Collection;
         // echo '<br>';
        // return new Columns($res1);
     }
-    private function is_multi_array( $arr ) {
+    public static function is_multi_array( $arr ) {
        $result = array_filter($arr, 'is_array');
 
         if (!empty($result)) {
