@@ -151,6 +151,27 @@ use Illuminate\Support\Collection;
         }
     }
 
+    public function clean(){
+        $res = $this->map(function ($u) {
+            if($this->count()>1){
+                $u = array_values($u->toArray());
+                if(!isset($u[0][0])){
+                    $u = array_values($u[0]);
+               
+                    $u = $u[0];
+                }else{
+                    $u = array_values($u[0]);
+                    $u = $u[0];
+                }
+    
+            }else{
+                $u = $u[0];
+            }
+            return $u;
+        });
+        return $res;
+    }
+
 
 }
 

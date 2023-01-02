@@ -18,17 +18,12 @@ if(isset($_GET['all'])){
     $data = new Columns($data);
 
     $data = $data->map(function ($u) use($data) {
-        
-        // $u = $u[0];
         if($data->count()>1){
             $u = array_values($u);
            
             if(!isset($u[0][0])){
                 $u = array_values($u[0]);
                 $u = $u[0];
-                //  var_dump($u[0]);
-                //  echo '<br>';
-                // echo '<br>';
             }else{
                 $u = array_values($u[0]);
                 $u = $u[0];
@@ -39,15 +34,6 @@ if(isset($_GET['all'])){
             $u = $u[0];
         }
         return $u;
-        /* version stable
-         $u = $u[0];
-        if($data->count()>1){
-            $u = array_values($u);
-            $u = $u[0];
-        }
-        return $u;
-        */
-        
     });  
     echo json_encode($data);
     

@@ -197,7 +197,7 @@ class Data{
         //incrementer before add 
         $id = $this->auto_increment('NumDept', 'departements');
         $departement =$this->scolarite->departements->addChild('departement');
-        $departement->addChild('intitule', $data['intitule']);
+        $departement->addChild('intituleDep', $data['intituleDep']);
         $departement->addAttribute('NumDept',$id );
         $departement->addAttribute('chef',$data['chef']);
         $this->saveChange();

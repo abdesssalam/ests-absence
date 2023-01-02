@@ -1,7 +1,15 @@
 
 <?php 
 $title = 'gestion des filières';
-require_once '../includes/header.php' ?>
+require_once '../includes/header.php';
+
+$data = $db->getData('filiers')
+    ->jointure($db->getData('departements'), 'codeDep', 'NumDept')
+    ->jointure($db->getData('users'),'responsable','id');
+
+$data = $data->clean();
+    
+?>
 <div class="w-full  py-1 px-2">
     
     <div class="bg-green-200 rounded-sm shadow-md transition-all ease-in-out w-10/12 mx-auto my-5 py-1 px-2 flex flex-col ">
@@ -59,21 +67,22 @@ require_once '../includes/header.php' ?>
             </tr>
         </thead>
         <tbody>
+            <?php foreach($data as $fl) : ?>
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                 <th scope="row" class="py-4 px-6  font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Ginie Informatique
+                    <?php echo $fl['intituleFil']; ?>
                 </th>
                 <td class="py-4 px-6 uppercase">
-                    Informatique
+                <?php echo $fl['intituleFil']; ?>
                 </td>
                 <td class="py-4 px-6 uppercase">
-                    ilham mounir
+                <?php echo $fl['nom'].' '.$fl['nom']; ?>
                 </td>
                 <td class="py-4 px-6">
                 <a class="text-blue-600 w-full" href="#">modifier</a>
                 </td>
             </tr>
-           
+           <?php endforeach;?>
         </tbody>
     </table>
 </div>

@@ -26,7 +26,7 @@ if(isset($_POST['ajouter'])){
     <form action="" method="post">
     <div class="my-2 flex content-around focus:outline-none">
         <label class="font-medium text-lg capitalize  w-1/3" for="">labele:</label>
-        <input name="intitule" value="<?php echo isset($dep) ? $dep['intitule'] : '' ?>" class="p-1 rounded-sm w-2/3" type="text" id="dept_label">
+        <input name="intitule" value="<?php echo isset($dep) ? $dep['intituleDep'] : '' ?>" class="p-1 rounded-sm w-2/3" type="text" id="dept_label">
     </div>
     <div class="my-2 flex content-around focus:outline-none">
             <label class="font-medium text-lg capitalize  w-1/3" for="">Chef departement :</label>
@@ -64,7 +64,7 @@ if(isset($_POST['ajouter'])){
             <?php foreach($deps as $dep): ?>
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                 <th scope="row" class="py-4 px-6  font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                   <?php echo $dep['intitule']; ?>
+                   <?php echo $dep['intituleDep']; ?>
                 </th>
                 <td class="py-4 px-6 uppercase">
                     <?php echo $dep['prenom'].' '.$dep['nom']; ?>
