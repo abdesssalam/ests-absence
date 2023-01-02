@@ -84,7 +84,7 @@
     <departement NumDept="4" chef="1">
         <intitule>MAINTENANCE INDUSTRIELLE</intitule>
     </departement>
-</departements>
+<departement NumDept="5" chef="2"><intitule>eeeda awdwa</intitule></departement></departements>
 <!--end departements-->
 <!--start filiers-->
 <filiers>

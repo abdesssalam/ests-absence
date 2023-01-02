@@ -376,5 +376,21 @@ class Data{
         }
     }
 
+
+    //give role and return list of users have this given role
+
+    public function getUsersByRole($role){
+        $data = $this->getData('RoleUsers')
+        ->where('NumRole',$role)
+        ->cols('id');
+
+        $Roleusers = $data->map(function ($item) {
+            $item = array_values($item->toArray());
+            $item =$item[0];
+            return $item;
+        });
+
+        return $this->getData('users')->whereIn('id', $Roleusers);
+    }
 }
 ?>
