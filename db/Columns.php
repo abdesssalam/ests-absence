@@ -37,35 +37,118 @@ use Illuminate\Support\Collection;
            * @param string $origine : the key in current table
            * @param array|Columns $target
            * @param string $foregin : the key in target table
-           * @return Columns
+            * @return Columns
            * current table (*)
            */
-    //string $origine,array | Columns $target,string $foregin
-    public function jointure(string $origine, $target,string $foregin){
+    
+    public function jointure(array | Columns $target,string $origine,string $foregin){
+        
+        $target=new Columns($target);
+       
+        $res = new Columns;
+         //one - one 
+        if(!$this->is_multi_array($this->toArray()) && !$this->is_multi_array($target->toArray())){
+            if($this[$origine]==$target[$foregin]){
+                $res = $res->merge($target->forget($foregin));
+                $res = $this->merge($res);
+            }
+        }
+        //one- Many
+        if(!$this->is_multi_array($this->toArray()) && $this->is_multi_array($target->toArray())){
+            $res = $target->where($foregin, $this[$origine]);
+            $res = $res->map(function ($item) use ($origine, $foregin) {
+                $item = new Columns($item);
+                $item = $this->merge($item->forget($foregin));
+                return $item;
+            });
+        }
+
+        //many to one
+        if ($this->is_multi_array($this->toArray()) && !$this->is_multi_array($target->toArray())) {
+            return $target->jointure($this, $foregin, $origine);
+        }
+
+        //Many Many
+
+        if ($this->is_multi_array($this->toArray()) && $this->is_multi_array($target->toArray())) {
+            $res = $this->map(function ($item) use ($target, $foregin, $origine) {
+                $item = new Columns($item);
+                $item = $item->jointure($target, $origine, $foregin);
+                return $item;
+            });
+            return $res;
+        }
+        
+
+         return $res;
+        // $results = new Collection;
+        // $this->each(function($item, $key) use ($target, $results) {
+        //     $push = $target->has($key) ? $item->mergeRecursive($target->get($key)) : $item;
+        //     $results[$key] = $push;
+        // });
+        // return $results;
+        /*
         $target = new Columns($target);
         if($target->count()==0){
             return new Collection([]);
         }
-        $res1 = $this->map(function ($item) use ($target,$origine,$foregin) {
-            $item = new Columns($item);
-            $id = $item->only($origine)[$origine];
-            $res2 = $target->filter(function ($item2) use ($id,$foregin) {
-                $item2 = new Columns($item2);
-                if($id==$item2->only($foregin)[$foregin]){
-                        return $item2->forget('id');
-                }   
-            });
-             $res2 = array_values($res2->toArray());
-            $res2 = $res2[0]; 
-            unset($res2[$foregin]);
-            $item = array_merge($item->toArray(),$res2 );
-            return $item;
-        });
+        $res1 = new Columns;
+        $res1 = $target->whereIn($foregin,$this->cols($origine)->all())->forget($foregin);
+        return $res1;
+        if (!isset($this[0][0])) {
+            if(!isset($target[0])){
+                echo '<br>target and orgine 1';
+                if($this[$origine]==$target[$foregin]){
+                    $res1 = $res1->merge($this)
+                        ->merge($target)->forget($foregin);     
+                }
+            }else{
+                echo '<br>only orgine 1';
+                    
+                    $res1 = $target->where($foregin,$this[$origine])->forget($foregin);
+                    $res1 = array_merge($res1->toArray(), $this->toArray());
+                echo '<br>only orgine 1<br>';
+                    var_dump($res1);
+                    echo '<br>only orgine 1';
+                }
+           
+        }else{
+            echo '<br>multi  mult';
+            var_dump($this->cols($origine));
+            $res1 = $target->whereIn($foregin,$this->cols($origine)->all())->forget($foregin);
+
+        }
+        return new Columns($res1);
+        */
+        // $res1 = $this->map(function ($item) use ($target,$origine,$foregin) {
+        //     $item = new Columns($item);
+        //     $id = $item->only($origine)[$origine];
+        //     $res2 = $target->filter(function ($item2) use ($id,$foregin) {
+        //         $item2 = new Columns($item2);
+        //         if($id==$item2->only($foregin)[$foregin]){
+        //                 return $item2->forget('id');
+        //         }   
+        //     });
+        //     $res2 = array_values($res2->toArray());
+        //     $res2 = $res2[0]; 
+        //     unset($res2[$foregin]);
+        //     $item = array_merge($item->toArray(),$res2 );
+        //     return $item;
+        // });
         // echo '<br>';
         // var_dump($res1);
         // echo '<br>';
         // echo '<br>';
-        return new Columns($res1);
+       // return new Columns($res1);
+    }
+    private function is_multi_array( $arr ) {
+       $result = array_filter($arr, 'is_array');
+
+        if (!empty($result)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 

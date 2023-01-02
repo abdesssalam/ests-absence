@@ -8,10 +8,20 @@ if(isset($_POST['add'])){
 }
 
 if(isset($_GET['all'])){
-    echo  $authorization = $db->getData('authorizations')
-    ->jointure('NumRole',$db->getData('roles'),'Num')
-    ->jointure('CodePermission',$db->getData('permissions'),'code')->toJson();
+    echo   $db->getData('authorizations')
+->jointure($db->getData('roles'),'NumRole','Num')
+->jointure($db->getData('permissions'),'CodePermission','code')->toJson();
     
+}
+
+if(isset($_GET['delete'])){
+    $delete = $db->deleteAuth($_GET);
+    if(is_bool($delete)){
+        echo json_encode(['message' => 'ok']);
+    }else{
+        echo json_encode($delete);
+    }
+   
 }
 
 ?>

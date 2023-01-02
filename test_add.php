@@ -1,9 +1,33 @@
 <?php
 require_once 'db/config.php';
 
-var_dump($db->updateUserRoles(1,[1,2,3]));
+// var_dump();
+// echo $authorization = $db->getData('authorizations')
+// ->jointure('NumRole',$db->getData('roles'),'Num')
+// ->jointure('CodePermission',$db->getData('permissions'),'code')->toJson();
+// echo $authorization = $db->getData('roles')
+// ->jointure('Num',$db->getData('authorizations'),'NumRole')->toJson();
 
-?>
+$x = new Columns([
+    ['aa' => 1, 'bb' => 5, 'l' => 'x'],
+    ['aa' => 1, 'bb' => 5, 'l' => 'x'],
+    ['aa' => 1, 'bb' => 2, 'l' => 'x'],
+    ['aa' => 1, 'bb' => 1, 'l' => 'x'],
+    ['aa' => 1, 'bb' => 0, 'l' => 'x'],
+
+]);
+$y = new Columns([
+    ['cc' => 1, 'bb' => 5],
+    ['cc' => 3, 'bb' => 5],
+    ['cc' => 3, 'bb' => 2],
+    ['cc' => 28, 'bb' => 1]
+]);
+
+echo   $db->getData('authorizations')
+->jointure($db->getData('roles'),'NumRole','Num')
+->jointure($db->getData('permissions'),'CodePermission','code')->toJson();
+
+// ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

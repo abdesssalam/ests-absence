@@ -39,7 +39,12 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
     }
 
     if($_POST['submit']=='edit'){
-        
+        if($db->updateUserInfo($_POST['id'],$_POST)){
+            $update = $db->updateUserRoles($_POST['id'], $_POST['roles']);
+            if(!is_array($update)){
+                echo json_encode(array('message' => 'ok'));
+            }
+        }
         echo json_encode($_POST);
     }
     

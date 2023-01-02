@@ -54,9 +54,9 @@ class Data{
         $arr = json_decode($json,true);
         $arr = array_values($arr);
         $arr = $arr[0];
-        $arr =new Collection($arr);
+        
         //cleaning collection (attribute to simple element)
-
+        
         return new Columns($this->exctract_xml_attrs($arr));
     }
 
@@ -67,6 +67,13 @@ class Data{
      */
     
     public function exctract_xml_attrs($arr){ 
+       
+        if(count($arr)==1){
+            if(array_key_exists('@attributes',$arr)){
+                return $arr['@attributes'];
+            }
+        }
+        $arr =new Collection($arr);
         $arr = $arr->map(function ($item, $key) {
             $item = new Collection($item);
             $attrs=[];
@@ -236,7 +243,7 @@ class Data{
         if($permession!=null){
             return $permession['code'];
         }
-        return null;
+        return -1;
     }
 
     public function add_permession(array $data){
@@ -255,7 +262,7 @@ class Data{
 
     public function getRolesByUser($idUser){
         $userRole = $this->getData('RoleUsers')->where('id', $idUser)
-         ->jointure('NumRole',$this->getData('roles'),'Num');
+         ->jointure($this->getData('roles'),'NumRole','Num');
 
         $userRole = $userRole->map(function ($u) {
             unset($u['id']);
@@ -333,7 +340,7 @@ class Data{
                 $i++;
             }while ($i < count($roles) && $roleAdded==true);
 
-            return $role;
+            return true;
         }catch(Exception $e){
             return array(
                 "error" => $e->getMessage(),
@@ -341,6 +348,27 @@ class Data{
             );
         }
         
+    }
+
+    public function deleteAuth($data){
+        try{
+            $auth = $this->scolarite->authorizations->authorization;
+            $j=0;
+            for ($i = 0; $i < count($auth);$i++){
+                if($auth[$j]['CodePermission']==$data['CodePermission'] && $auth[$j]['NumRole']==$data['NumRole'] ){
+                    unset($auth[$j]);
+                    $j = $j - 1;
+                }
+                $j = $j + 1;  
+            }
+            $this->saveChange();
+            return true;
+        }catch(Exception $e){
+            return array(
+                "error" => $e->getMessage(),
+                "line" => $e->getLine()
+            );
+        }
     }
 
 }

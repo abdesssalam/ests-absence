@@ -61,17 +61,17 @@
 <!-- end permissions -->
 <authorizations>
     <authorization CodePermission="1" NumRole="1"/>
-    <authorization CodePermission="2" NumRole="1"/>
-    <authorization CodePermission="3" NumRole="1"/>
-<authorization CodePermission="4" NumRole="1"/></authorizations>
+    
+    
+</authorizations>
 <!-- end auth -->
 <RoleUsers>
     <RoleUser id="1" NumRole="1"/>
     <RoleUser id="1" NumRole="2"/>
-    <RoleUser id="2" NumRole="3"/>
+    
     <RoleUser id="3" NumRole="3"/>
     <RoleUser id="3" NumRole="5"/>
-</RoleUsers>
+<RoleUser NumRole="3" id="2"/><RoleUser NumRole="5" id="2"/></RoleUsers>
 <!--start departement-->
 <departements>
     <departement NumDept="1" chef="1">
