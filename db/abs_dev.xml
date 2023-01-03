@@ -68,21 +68,24 @@
     
     
     <RoleUser id="3" NumRole="3"/>
+    <RoleUser id="3" NumRole="4"/>
+    <RoleUser id="2" NumRole="4"/>
     <RoleUser id="3" NumRole="5"/>
 <RoleUser NumRole="3" id="2"/><RoleUser NumRole="5" id="2"/><RoleUser NumRole="1" id="1"/><RoleUser NumRole="2" id="1"/><RoleUser NumRole="3" id="1"/></RoleUsers>
 <!--start departement-->
 <departements>
-    <departement NumDept="1" chef="1">
+    <departement NumDept="1" chef="2">
         <intituleDep>INFORMATIQUE</intituleDep>
     </departement>
     <departement NumDept="2" chef="3">
-        <intituleDep>INFORMATIQUE</intituleDep>
+        <intituleDep>TM</intituleDep>
     </departement>
+   <departement NumDept="3" chef="2"><intituleDep>GIM</intituleDep></departement>
    </departements>
 <!--end departements-->
 <!--start filiers-->
 <filiers>
-<filier codeFil="1" codeDep="1" responsable="1">
+<filier codeFil="1" codeDep="3" responsable="2">
 <intituleFil>Génie Industriel et Maintenance</intituleFil>
 </filier>
 <filier codeFil="2" codeDep="1" responsable="2">
@@ -94,7 +97,7 @@
 <filier codeFil="4" codeDep="2" responsable="3">
 <intituleFil>Métiers de informatique</intituleFil>
 </filier>
-</filiers>
+<filier codeFil="5" codeDep="2" responsable="3"><intituleFil>wadwa</intituleFil></filier></filiers>
 <!--end filiers-->
 <!--start professeurs-->
 <professeurs>

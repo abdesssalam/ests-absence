@@ -420,6 +420,22 @@ class Data{
             return false;
         }
     }
+    public function add_filier($data){
+        try{
+
+            $id = $this->auto_increment('codeFil', 'filiers');
+            $departement =$this->scolarite->filiers->addChild('filier');
+            $departement->addChild('intituleFil', $data['intituleFil']);
+            $departement->addAttribute('codeFil',$id );
+            $departement->addAttribute('codeDep',$data['codeDep'] );
+            $departement->addAttribute('responsable',$data['responsable']);
+            $this->saveChange();
+            return true;
+
+        }catch(Exception $e){
+            return false;
+        }
+    }
 
     public function updateModule($id,$data){
         try{

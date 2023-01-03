@@ -10,23 +10,47 @@ $deps = $deps->map(function ($item) {
     return $item;
 });
 
+$message;
+
 $dep;
 if(isset($_GET['edit'])){
     $dep = $deps->firstWhere('NumDept', $_GET['edit']);
 }
+$bg = 'text-green-700 bg-green-200 ';
 if(isset($_POST['ajouter'])){
     $added=$db->add_departement($_POST);
     if($added){
         //pop up after
-        echo 'add';
+        $message='departement bien ajouter';
+    }else{
+        $message = 'error';
+        $bg = 'text-red-700 bg-red-100';
     }
 }
+
+if(isset($_POST['modifier'])){
+    $update = $db->updateDepartement($_GET['edit'], $_POST);
+    if($update){
+        $message='departement bien modifier';
+    }else{
+        $message = 'error';
+        $bg = 'text-red-700 bg-red-100';
+    }
+}
+
 ?>
+
+<?php if(isset($message)): ?>
+<div class="p-4 w-1/2 text-center mx-auto mb-4 text-sm <?php echo $bg;?>  rounded-lg dark:bg-green-200 dark:text-green-800" role="alert">
+         <span class="font-medium"><?php echo $message; ?></span> 
+</div>
+<?php endif;?>
 <div class="bg-green-200 w-10/12 mx-auto my-5 py-1 px-2">
+    
     <form action="" method="post">
     <div class="my-2 flex content-around focus:outline-none">
         <label class="font-medium text-lg capitalize  w-1/3" for="">labele:</label>
-        <input name="intitule" value="<?php echo isset($dep) ? $dep['intituleDep'] : '' ?>" class="p-1 rounded-sm w-2/3" type="text" id="dept_label">
+        <input name="intituleDep" value="<?php echo isset($dep) ? $dep['intituleDep'] : '' ?>" class="p-1 rounded-sm w-2/3" type="text" id="dept_label">
     </div>
     <div class="my-2 flex content-around focus:outline-none">
             <label class="font-medium text-lg capitalize  w-1/3" for="">Chef departement :</label>
