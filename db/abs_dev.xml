@@ -80,24 +80,26 @@
     <departement NumDept="2" chef="3">
         <intituleDep>TM</intituleDep>
     </departement>
-   <departement NumDept="3" chef="2"><intituleDep>GIM</intituleDep></departement>
+   <departement NumDept="3" chef="1"><intituleDep>GIM</intituleDep></departement>
    </departements>
 <!--end departements-->
 <!--start filiers-->
 <filiers>
-<filier codeFil="1" codeDep="3" responsable="2">
+<filier codeFil="1" numAnnee="" codeDep="3" responsable="2">
 <intituleFil>Génie Industriel et Maintenance</intituleFil>
 </filier>
-<filier codeFil="2" codeDep="1" responsable="2">
+<filier codeFil="2" numAnnee="1" codeDep="1" responsable="2">
 <intituleFil>Mécatronique</intituleFil>
 </filier>
-<filier codeFil="3" codeDep="2" responsable="3">
+<filier codeFil="3" numAnnee="1" codeDep="2" responsable="3">
 <intituleFil>Génie Informatique</intituleFil>
 </filier>
-<filier codeFil="4" codeDep="2" responsable="3">
+<filier codeFil="4" numAnnee="1" codeDep="2" responsable="3">
 <intituleFil>Métiers de informatique</intituleFil>
 </filier>
-<filier codeFil="5" codeDep="2" responsable="3"><intituleFil>wadwa</intituleFil></filier></filiers>
+<filier codeFil="7" codeDep="3" numAnnee="1" responsable="3">
+<intituleFil>edddd</intituleFil></filier>
+<filier codeFil="8" codeDep="2" numAnnee="1" responsable="3"><intituleFil>wdwar333333</intituleFil></filier><filier codeFil="8" codeDep="2" numAnnee="2" responsable="3"><intituleFil>wdwar333333</intituleFil></filier></filiers>
 <!--end filiers-->
 <!--start professeurs-->
 <professeurs>
@@ -165,23 +167,19 @@
 <!--end professeurs--> 
 <!--start modules-->
 <modules>
-<module codeMod="1" idProf="9">
-<intitule>Langues et techniques</intitule>
-<volh>390</volh>
+<module codeMod="1" filier="1" annee="1" coordonnateur="9">
+<nomModule>Langues et techniques</nomModule>
 </module>
-<module codeMod="2" idProf="2">
-<intitule>Mathématiques</intitule>
-<volh>100</volh>
+<module codeMod="2" filier="1" annee="1" coordonnateur="2">
+<nomModule>Mathématiques</nomModule>
 </module>
-<module codeMod="3" idProf="6">
-<intitule>Algorithmique et Bases de la Programmation</intitule>
-<volh>90</volh>
+<module codeMod="3" filier="1" annee="1" coordonnateur="6">
+<nomModule>Algorithmique et Bases de la Programmation</nomModule>
 </module>
-<module codeMod="4" idProf="2">
-<intitule>Mathématiques Appliquées à Informatique</intitule>
-<volh>90</volh>
+<module codeMod="4" filier="1" annee="1" coordonnateur="2">
+<nomModule>Mathématiques Appliquées à Informatique</nomModule>
 </module>
-<module codeMod="5" idProf="2"><intitule>devlopement</intitule><volh>50</volh></module><module codeMod="6" idProf="2"><intitule>devlopement</intitule><volh>50</volh></module></modules>
+<module codeMod="5" coordonnateur="2" filier="2" annee="1"><nomModule>wdwdw</nomModule></module><module codeMod="6" coordonnateur="3" filier="2" annee="2"><nomModule>eee</nomModule></module></modules>
 <!--end modules-->
 <!--start matiere-->
 <matieres>
@@ -215,7 +213,7 @@
 <matiere codeMat="10" codeMod="4">
 <intitule>Cryptologie</intitule>
 </matiere>
-<matiere codeMat="11" codeMod="2"><intitule>devlopement</intitule></matiere></matieres>
+</matieres>
 <!--end matieres-->
 <!--start groups-->
 <groups>

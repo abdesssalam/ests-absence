@@ -1,0 +1,54 @@
+<?php
+
+require_once '../db/config.php';
+
+    if(isset($_GET['departement'])){
+        if(isset($_GET['all'])){
+            echo $db->getData('departements')->toJson();
+    }
+   
+    }
+    if(isset($_GET['filiers'])){
+        $data = $db->getData('filiers')->where('codeDep', $_GET['filiers']);
+        $data = array_values($data->toArray());
+        $data = collect($data)->unique('codeFil');
+        echo json_encode($data);
+    }
+
+    if(isset($_GET['by']) && isset($_GET['filier']) && isset($_GET['annee'])){
+        $data = $db->getData('modules')->where('filier', $_GET['filier'])
+            ->where('annee', $_GET['annee']);
+        if($data->count()>0){
+            $data = $data->jointure($db->getData('users'), 'coordonnateur','id');
+            $data = array_values($data->toArray());
+            $data = array_filter($data, function ($item) {
+                return $item != [];
+            });
+            $data = array_values($data);
+            $data = array_map(function ($item) {
+                $item = array_values($item);
+                return $item[0];
+            }, $data);
+            $data = new Columns($data);
+            $data = $data->jointure($db->getData('filiers'), 'filier','codeFil');
+            $data = array_values($data->toArray());
+            $data = array_map(function ($item) {
+                $item = array_values($item);
+                return $item[0];
+            }, $data);
+            echo json_encode($data);
+        }else{
+            echo json_encode(['message' => 'no data exsits']);
+        }
+        
+    }
+    
+    if(isset($_POST['add'])){
+        $added = $db->add_module($_POST);
+        if($added){
+            echo json_encode(['message' => 'ok']);
+        }else{
+            echo json_encode(['message' => 'non']);
+        }
+    }
+?>

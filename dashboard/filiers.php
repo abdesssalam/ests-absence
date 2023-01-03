@@ -8,7 +8,7 @@ $fils = $db->getData('filiers')
     ->jointure($db->getData('users'),'responsable','id');
 
 $fils = $fils->clean();
-
+$fils = collect($fils)->unique('codeFil');
 $fil;
 if(isset($_GET['edit'])){
     $fil = $fils->firstWhere('codeFil', $_GET['edit']);
@@ -17,17 +17,24 @@ if(isset($_GET['edit'])){
 //mise a jour
 $bg = 'text-green-700 bg-green-200 ';
 if(isset($_POST['ajouter'])){
-    $added=$db->add_filier($_POST);
+
+     $added=$db->add_filier($_POST);
+   
+
     if($added){
         //pop up after
         $message='filier bien ajouter';
+
     }else{
         $message = 'error';
         $bg = 'text-red-700 bg-red-100';
     }
+   
+
 }
 
 if(isset($_POST['modifier'])){
+   
     $update = $db->updateFilier($_GET['edit'], $_POST);
     if($update){
         $message='departement bien modifier';
@@ -42,6 +49,7 @@ if(isset($_POST['modifier'])){
 <div class="p-4 w-1/2 text-center mx-auto mb-4 text-sm <?php echo $bg;?>  rounded-lg dark:bg-green-200 dark:text-green-800" role="alert">
          <span class="font-medium"><?php echo $message; ?></span> 
 </div>
+    <?php echo "<meta http-equiv='refresh' content='0'>";?>
 <?php endif;?>
 <div class="w-full  py-1 px-2">
     
@@ -80,6 +88,25 @@ if(isset($_POST['modifier'])){
                
             </select>
     </div>
+    <div class="my-2 flex content-around focus:outline-none" >
+            <label  class="font-medium text-lg   w-1/3">nombre des années</label>
+            <ul class="items-center w-2/3 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                    <div class="flex items-center pl-3">
+                        <input  <?php echo isset($fil) ? 'disabled' : ''; ?>   type="radio" value="1" name="annee" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                        <label class="w-full py-3 ml-2 text-sm font-medium text-gray-<?php echo isset($fil) ? '100' : '900'; ?> dark:text-gray-300"> 1 </label>
+                    </div>
+                </li>
+                <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                    <div class="flex items-center pl-3">
+                        <input <?php echo isset($fil) ? 'disabled' : ''; ?>   type="radio" value="2" name="annee" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                        <label class="w-full py-3 ml-2 text-sm font-medium text-gray-<?php echo isset($fil) ? '100' : '900'; ?> dark:text-gray-300">2 </label>
+                    </div>
+                </li>
+            </ul>
+                
+
+        </div>
     
         <input id="btn_add_fil" class="block text-white w-1/4 mx-auto bg-green-500 py-2 px-3 font-semibold my-2 cursor-pointer rounded-md uppercase hover:text-gray-600" type="submit" name="<?php echo isset($fil) ? 'modifier' : 'ajouter' ?>" value="<?php echo isset($fil) ? 'modifier' : 'ajouter' ?>">
    
@@ -126,4 +153,4 @@ if(isset($_POST['modifier'])){
 </div>
 </div>
 
-<script src="../js/filiers/main.js"></script>
+<!-- <script src="../js/filiers/main.js"></script> -->

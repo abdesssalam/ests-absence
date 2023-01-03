@@ -295,19 +295,35 @@ class Data{
     }
 
     public function add_module($data){
-        $module = $this->scolarite->modules->addChild('module');
-        $module->addAttribute('codeMod', $this->auto_increment('codeMod','modules'));
-        $module->addAttribute('idProf', $data['idProf']);
-        $module->addChild('intitule', $data['intitule']);
-        $this->saveChange();
+        try{
+            $code = $this->auto_increment('codeMod', 'modules');
+            $module = $this->scolarite->modules->addChild('module');
+            $module->addAttribute('codeMod', $code);
+            $module->addAttribute('coordonnateur', $data['coordonnateur']);
+            $module->addAttribute('filier', $data['filier']);
+            $module->addAttribute('annee', $data['annee']);
+            $module->addChild('nomModule', $data['nomModule']);
+            $this->saveChange();
+            return true;
+        }catch(Exception $e){
+            return false;
+        }
+        
     }
 
     public function add_matiere($data){
-        $matiere = $this->scolarite->matieres->addChild('matiere');
-        $matiere->addAttribute('codeMat', $this->auto_increment('codeMat','matieres'));
-        $matiere->addAttribute('codeMod', $data['codeMod']);
-        $matiere->addChild('intitule', $data['intitule']);
-        $this->saveChange();
+        try{
+            $code=$this->auto_increment('codeMat', 'matieres');
+            $matiere = $this->scolarite->matieres->addChild('matiere');
+            $matiere->addAttribute('codeMat',$code);
+            $matiere->addAttribute('codeMod', $data['codeMod']);
+            $matiere->addChild('nomMatier', $data['nomMatier']);
+            $this->saveChange();
+            return false;
+        }catch(Exception $e){
+            return false;
+        }
+       
     }
 
     public function add_absence($data){
@@ -409,12 +425,19 @@ class Data{
 
     public function updateFilier($id,$data){
         try{
-            $filier = $this->scolarite->xpath('//filiers/filier[@codeFil='.$id.']');
-            $filier =$filier[0];
-            $filier->intituleFil = $data['intituleFil'];
-            $filier['codeDep'] = $data['codeDep'];
-            $filier['responsable'] = $data['responsable'];
-            $this->saveChange();
+            $nbr = count($this->scolarite->xpath('//filiers/filier[@codeFil=' . $id . ']'));
+
+            $i = 0;
+            while($i<$nbr){
+                $filier = $this->scolarite->xpath('//filiers/filier[@codeFil='.$id.']');
+                $filier =$filier[$i];
+                $filier->intituleFil = $data['intituleFil'];
+                $filier['codeDep'] = $data['codeDep'];
+                $filier['responsable'] = $data['responsable'];
+                $this->saveChange();
+                $i++;
+            }
+            
             return true;
         }catch(Exception $e){
             return false;
@@ -422,14 +445,18 @@ class Data{
     }
     public function add_filier($data){
         try{
-
-            $id = $this->auto_increment('codeFil', 'filiers');
-            $departement =$this->scolarite->filiers->addChild('filier');
-            $departement->addChild('intituleFil', $data['intituleFil']);
-            $departement->addAttribute('codeFil',$id );
-            $departement->addAttribute('codeDep',$data['codeDep'] );
-            $departement->addAttribute('responsable',$data['responsable']);
-            $this->saveChange();
+            $i=1;
+             $id = $this->auto_increment('codeFil', 'filiers');
+            while($i<=$data['annee']){
+                $departement =$this->scolarite->filiers->addChild('filier');
+                $departement->addChild('intituleFil', $data['intituleFil']);
+                $departement->addAttribute('codeFil',$id );
+                $departement->addAttribute('codeDep',$data['codeDep'] );
+                $departement->addAttribute('numAnnee',$i );
+                $departement->addAttribute('responsable',$data['responsable']);
+                $this->saveChange();
+                $i++; 
+            }
             return true;
 
         }catch(Exception $e){
@@ -442,8 +469,9 @@ class Data{
             $module = $this->scolarite->xpath('//modules/module[@codeMod='.$id.']');
             $module =$module[0];
             $module->intitule = $data['intitule'];
-            $module->volh = $data['volh'];
-            $module['idProf'] = $data['idProf'];
+           
+            $module['coordonnateur'] = $data['coordonnateur'];
+            $module['annee'] = $data['annee'];
             $this->saveChange();
             return true;
         }catch(Exception $e){
