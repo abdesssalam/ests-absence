@@ -392,5 +392,60 @@ class Data{
 
         return $this->getData('users')->whereIn('id', $Roleusers);
     }
+
+
+    public function updateDepartement($id,$data){
+        try{
+            $departement = $this->scolarite->xpath('//departements/departement[@NumDept='.$id.']');
+            $departement =$departement[0];
+            $departement->intituleDep = $data['intituleDep'];
+            $departement['chef'] = (isset($data['chef'])?$data['chef']:$departement->chef);
+            $this->saveChange();
+            return true;
+        }catch(Exception $e){
+            return false;
+        }
+    }
+
+    public function updateFilier($id,$data){
+        try{
+            $filier = $this->scolarite->xpath('//filiers/filier[@codeFil='.$id.']');
+            $filier =$filier[0];
+            $filier->intituleFil = $data['intituleFil'];
+            $filier['codeDep'] = $data['codeDep'];
+            $filier['responsable'] = $data['responsable'];
+            $this->saveChange();
+            return true;
+        }catch(Exception $e){
+            return false;
+        }
+    }
+
+    public function updateModule($id,$data){
+        try{
+            $module = $this->scolarite->xpath('//modules/module[@codeMod='.$id.']');
+            $module =$module[0];
+            $module->intitule = $data['intitule'];
+            $module->volh = $data['volh'];
+            $module['idProf'] = $data['idProf'];
+            $this->saveChange();
+            return true;
+        }catch(Exception $e){
+            return false;
+        }
+    }
+    public function updateMatiere($id,$data){
+        try{
+            $matiere = $this->scolarite->xpath('//matieres/matiere[@codeMat='.$id.']');
+            $matiere =$matiere[0];
+            $matiere->intitule = $data['intitule'];
+            $matiere['codeMod'] = $data['codeMod'];
+            $this->saveChange();
+            return true;
+        }catch(Exception $e){
+            return false;
+        }
+    }
+
 }
 ?>
