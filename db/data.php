@@ -117,6 +117,18 @@ class Data{
            return (int)($tb->last()[$identifier])+1;
         }
     }
+    public function auto_increment2(string $id,string $table,string $id1,$v1,string $id2,$v2){
+        $tb = $this->xml_to_collection($this->scolarite->$table)
+            ->where($id1, $v1)
+            ->where($id1, $v2)
+            ->sortBy($id);
+        if($tb->count()==0){
+            return 1;
+        }else{
+            
+           return (int)($tb->last()[$id])+1;
+        }
+    }
         
     
     /**
@@ -296,12 +308,13 @@ class Data{
 
     public function add_module($data){
         try{
-            $code = $this->auto_increment('codeMod', 'modules');
+           
+            $code = $this->auto_increment2('codeMod','modules','filier',$data['filier'],'annee',$data['numAnnee']);
             $module = $this->scolarite->modules->addChild('module');
             $module->addAttribute('codeMod', $code);
             $module->addAttribute('coordonnateur', $data['coordonnateur']);
             $module->addAttribute('filier', $data['filier']);
-            $module->addAttribute('annee', $data['annee']);
+            $module->addAttribute('annee', $data['numAnnee']);
             $module->addChild('nomModule', $data['nomModule']);
             $this->saveChange();
             return true;
@@ -313,13 +326,15 @@ class Data{
 
     public function add_matiere($data){
         try{
-            $code=$this->auto_increment('codeMat', 'matieres');
+            $code = $this->auto_increment2('codeMat','matieres','filier',$data['filier'],'annee',$data['annee']);
             $matiere = $this->scolarite->matieres->addChild('matiere');
             $matiere->addAttribute('codeMat',$code);
             $matiere->addAttribute('codeMod', $data['codeMod']);
+            $matiere->addAttribute('filier', $data['filier']);
+            $matiere->addAttribute('annee', $data['annee']);
             $matiere->addChild('nomMatier', $data['nomMatier']);
             $this->saveChange();
-            return false;
+            return true;
         }catch(Exception $e){
             return false;
         }

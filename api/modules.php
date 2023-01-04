@@ -11,7 +11,8 @@ require_once '../db/config.php';
     if(isset($_GET['filiers'])){
         $data = $db->getData('filiers')->where('codeDep', $_GET['filiers']);
         $data = array_values($data->toArray());
-        $data = collect($data)->unique('codeFil');
+        // $data = collect($data)->unique('codeFil');
+        $data = array_values($data);
         echo json_encode($data);
     }
 
@@ -30,12 +31,17 @@ require_once '../db/config.php';
                 return $item[0];
             }, $data);
             $data = new Columns($data);
-            $data = $data->jointure($db->getData('filiers'), 'filier','codeFil');
-            $data = array_values($data->toArray());
-            $data = array_map(function ($item) {
-                $item = array_values($item);
-                return $item[0];
-            }, $data);
+            
+         $filiers = $db->getData('filiers');
+            $data = $data->map(function ($item) use ($filiers) {
+            $item = collect($item);
+            $fl = $filiers
+                ->where('codeFil', $item->get('filier'))
+                ->firstWhere('numAnnee', $item->get('annee'));
+                $item = $item->merge($fl);
+                return $item;
+            });
+           
             echo json_encode($data);
         }else{
             echo json_encode(['message' => 'no data exsits']);
@@ -43,8 +49,16 @@ require_once '../db/config.php';
         
     }
     
-    if(isset($_POST['add'])){
+    if(isset($_POST['add_mod'])){
         $added = $db->add_module($_POST);
+        if($added){
+            echo json_encode(['message' => 'ok']);
+        }else{
+            echo json_encode(['message' => 'non']);
+        }
+    }
+    if(isset($_POST['add_mat'])){
+        $added = $db->add_matiere($_POST);
         if($added){
             echo json_encode(['message' => 'ok']);
         }else{

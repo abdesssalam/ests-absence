@@ -85,13 +85,22 @@
 <!--end departements-->
 <!--start filiers-->
 <filiers>
-<filier codeFil="1" numAnnee="" codeDep="3" responsable="2">
+<filier codeFil="1" numAnnee="1" codeDep="3" responsable="2">
+<intituleFil>Génie Industriel et Maintenance</intituleFil>
+</filier>
+<filier codeFil="1" numAnnee="2" codeDep="3" responsable="2">
 <intituleFil>Génie Industriel et Maintenance</intituleFil>
 </filier>
 <filier codeFil="2" numAnnee="1" codeDep="1" responsable="2">
 <intituleFil>Mécatronique</intituleFil>
 </filier>
+<filier codeFil="2" numAnnee="2" codeDep="1" responsable="2">
+<intituleFil>Mécatronique</intituleFil>
+</filier>
 <filier codeFil="3" numAnnee="1" codeDep="2" responsable="3">
+<intituleFil>Génie Informatique</intituleFil>
+</filier>
+<filier codeFil="3" numAnnee="2" codeDep="2" responsable="3">
 <intituleFil>Génie Informatique</intituleFil>
 </filier>
 <filier codeFil="4" numAnnee="1" codeDep="2" responsable="3">
@@ -179,41 +188,46 @@
 <module codeMod="4" filier="1" annee="1" coordonnateur="2">
 <nomModule>Mathématiques Appliquées à Informatique</nomModule>
 </module>
-<module codeMod="5" coordonnateur="2" filier="2" annee="1"><nomModule>wdwdw</nomModule></module><module codeMod="6" coordonnateur="3" filier="2" annee="2"><nomModule>eee</nomModule></module></modules>
+<module codeMod="5" coordonnateur="2" filier="2" annee="1">
+    <nomModule>wdwdw</nomModule></module>
+<module codeMod="6" coordonnateur="3" filier="2" annee="2">
+    <nomModule>eee</nomModule></module>
+
+<module codeMod="1" coordonnateur="3" filier="2" annee="1"><nomModule>rrrrrrrfs</nomModule></module><module codeMod="7" coordonnateur="3" filier="2" annee="2"><nomModule>rrrrrrrfs2</nomModule></module><module codeMod="1" coordonnateur="3" filier="2" annee="1"><nomModule>hiko</nomModule></module><module codeMod="1" coordonnateur="2" filier="4" annee="1"><nomModule>algo</nomModule></module></modules>
 <!--end modules-->
 <!--start matiere-->
 <matieres>
-<matiere codeMat="1" codeMod="1">
+<matiere codeMat="1" codeMod="1" filier="1" annee="1">
 <intitule>Langue française</intitule>
 </matiere>
-<matiere codeMat="2" codeMod="1">
+<matiere codeMat="2" codeMod="1" filier="1" annee="1">
 <intitule>Langue anglaise</intitule>
 </matiere>
-<matiere codeMat="3" codeMod="1">
+<!-- <matiere codeMat="3" codeMod="2" filier="1" annee="1">
 <intitule>Techniques expression et de communication</intitule>
 </matiere>
-<matiere codeMat="4" codeMod="2">
+<matiere codeMat="4" codeMod="2" filier="1" annee="1">
 <intitule>Analyse</intitule>
 </matiere>
-<matiere codeMat="5" codeMod="2">
+<matiere codeMat="5" codeMod="3" filier="1" annee="1">
 <intitule>Algèbre</intitule>
 </matiere>
-<matiere codeMat="6" codeMod="2">
+<matiere codeMat="6" codeMod="3" filier="1" annee="1">
 <intitule>Probabilités</intitule>
 </matiere>
-<matiere codeMat="7" codeMod="3">
+<matiere codeMat="7" codeMod="3" filier="1" annee="1">
 <intitule>Algorithmique</intitule>
 </matiere>
-<matiere codeMat="8" codeMod="3">
+<matiere codeMat="8" codeMod="3" filier="1" annee="1">
 <intitule>Langage de programmation</intitule>
 </matiere>
-<matiere codeMat="9" codeMod="4">
+<matiere codeMat="9" codeMod="4" filier="1" annee="1">
 <intitule>Analyse numérique</intitule>
 </matiere>
-<matiere codeMat="10" codeMod="4">
+<matiere codeMat="10" codeMod="4" filier="1" annee="1">
 <intitule>Cryptologie</intitule>
-</matiere>
-</matieres>
+</matiere> -->
+<matiere codeMat="1" codeMod="1" filier="4" annee="1"><nomMatier>c++</nomMatier></matiere></matieres>
 <!--end matieres-->
 <!--start groups-->
 <groups>
