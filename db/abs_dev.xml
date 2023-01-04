@@ -243,77 +243,8 @@
 <!--end groups-->
 <!--start etudiants-->
 <etudiants>
-<etudiant codeCin="EE98654" codeGrp="1"> 
-<cne>E22107341</cne>
-<nom>jabrane</nom>
-<prenom>amine</prenom>
-<datenaiss>1996-12-18</datenaiss>
-<ville>Marrakech</ville>
-</etudiant>
-<etudiant codeCin="EE94355" codeGrp="1"> 
-<cne>E22107341</cne>
-<nom>Sidqi</nom> 
-<prenom>Abdullah</prenom>
-<datenaiss>1996-04-20</datenaiss>
-<ville>Safi</ville>
-</etudiant>
-<etudiant codeCin="EE23875" codeGrp="1"> 
-<cne>E22107341</cne>
-<nom>Ramli</nom>
-<prenom>Safeeullah</prenom>
-<datenaiss>1996-03-12</datenaiss>  
-<ville>Essaouira</ville>
-</etudiant>
-<etudiant codeCin="EE66321" codeGrp="1"> 
-<cne>E22107341</cne>
-<nom>Alawi</nom>
-<prenom>Rashad</prenom>
-<datenaiss>1996-10-16</datenaiss>  
-<ville>Rhamna</ville>
-</etudiant>
-<etudiant codeCin="EE18654" codeGrp="1">  
-<cne>E22177341</cne>
-<nom>Hadir</nom>
-<prenom>Fadel</prenom>
-<datenaiss>1999-12-18</datenaiss>
-<ville>Rabat</ville>
-</etudiant>
-<etudiant codeCin="EE28654" codeGrp="2"> 
-<cne>E22167341</cne>
-<nom>Toufiq</nom>
-<prenom>Abdelhamid </prenom>
-<datenaiss>1993-12-18</datenaiss>
-<ville>Beni mellal</ville>
-</etudiant>
-<etudiant codeCin="EE38654" codeGrp="2">  
-<cne>E22157341</cne>
-<nom>Skali</nom>
-<prenom>Jamal</prenom>
-<datenaiss>1995-02-20</datenaiss>
-<ville>Dakhla</ville>
-</etudiant>
-<etudiant codeCin="EE23459" codeGrp="2">  
-<cne>E22073654</cne>
-<nom>Al-Ghumari</nom>
-<prenom>Aziz</prenom>
-<datenaiss>1996-12-10</datenaiss>
-<ville>Meknes</ville>
-</etudiant>
-<etudiant codeCin="EK33421" codeGrp="2">  
-<cne>E22190011</cne>
-<nom>Bikri</nom>
-<prenom>Laila</prenom>
-<datenaiss>1994-11-05</datenaiss>
-<ville>Tanger</ville>
-</etudiant>
-<etudiant codeCin="EB98770" codeGrp="2">  
-<cne>E22120080</cne>
-<nom>Bendahan</nom>
-<prenom>Aziza</prenom>
-<datenaiss>1997-10-18</datenaiss>
-<ville>Casablanca</ville>
-</etudiant>
-</etudiants>
+
+<etudiant group="1" numEtd="1" filier="3" annee="1"><nom>AIT OMAR 1</nom><prenom>ABDESLAM 1</prenom><email>aitomar1@gmail.com</email><CNE>M132510</CNE></etudiant><etudiant group="1" numEtd="2" filier="3" annee="1"><nom>AIT OMAR 2</nom><prenom>ABDESLAM 2</prenom><email>aitomar2@gmail.com</email><CNE>M132511</CNE></etudiant><etudiant group="1" numEtd="3" filier="3" annee="1"><nom>AIT OMAR 3</nom><prenom>ABDESLAM 3</prenom><email>aitomar3@gmail.com</email><CNE>M132512</CNE></etudiant><etudiant group="1" numEtd="4" filier="3" annee="1"><nom>AIT OMAR 4</nom><prenom>ABDESLAM 4</prenom><email>aitomar4@gmail.com</email><CNE>M132513</CNE></etudiant><etudiant group="1" numEtd="5" filier="3" annee="1"><nom>AIT OMAR 5</nom><prenom>ABDESLAM 5</prenom><email>aitomar5@gmail.com</email><CNE>M132514</CNE></etudiant><etudiant group="1" numEtd="6" filier="3" annee="1"><nom>AIT OMAR 6</nom><prenom>ABDESLAM 6</prenom><email>aitomar6@gmail.com</email><CNE>M132515</CNE></etudiant><etudiant group="1" numEtd="7" filier="3" annee="1"><nom>AIT OMAR 7</nom><prenom>ABDESLAM 7</prenom><email>aitomar7@gmail.com</email><CNE>M132516</CNE></etudiant><etudiant group="1" numEtd="8" filier="3" annee="1"><nom>AIT OMAR 8</nom><prenom>ABDESLAM 8</prenom><email>aitomar8@gmail.com</email><CNE>M132517</CNE></etudiant><etudiant group="1" numEtd="9" filier="3" annee="1"><nom>AIT OMAR 9</nom><prenom>ABDESLAM 9</prenom><email>aitomar9@gmail.com</email><CNE>M132518</CNE></etudiant><etudiant group="1" numEtd="10" filier="3" annee="1"><nom>AIT OMAR 10</nom><prenom>ABDESLAM 10</prenom><email>aitomar10@gmail.com</email><CNE>M132519</CNE></etudiant><etudiant group="1" numEtd="11" filier="3" annee="1"><nom>AIT OMAR 11</nom><prenom>ABDESLAM 11</prenom><email>aitomar11@gmail.com</email><CNE>M132520</CNE></etudiant><etudiant group="1" numEtd="12" filier="3" annee="1"><nom>AIT OMAR 12</nom><prenom>ABDESLAM 12</prenom><email>aitomar12@gmail.com</email><CNE>M132521</CNE></etudiant><etudiant group="1" numEtd="13" filier="3" annee="1"><nom>AIT OMAR 13</nom><prenom>ABDESLAM 13</prenom><email>agnina1@gmail.com</email><CNE>M132522</CNE></etudiant><etudiant group="2" numEtd="1" filier="3" annee="1"><nom>AGNINA 1</nom><prenom>OUSSAMA 1</prenom><email>agnina2@gmail.com</email><CNE>F131580</CNE></etudiant><etudiant group="2" numEtd="2" filier="3" annee="1"><nom>AGNINA 2</nom><prenom>OUSSAMA 2</prenom><email>agnina3@gmail.com</email><CNE>F131581</CNE></etudiant><etudiant group="2" numEtd="3" filier="3" annee="1"><nom>AGNINA 3</nom><prenom>OUSSAMA 3</prenom><email>agnina4@gmail.com</email><CNE>F131582</CNE></etudiant><etudiant group="2" numEtd="4" filier="3" annee="1"><nom>AGNINA 4</nom><prenom>OUSSAMA 4</prenom><email>agnina5@gmail.com</email><CNE>F131583</CNE></etudiant><etudiant group="2" numEtd="5" filier="3" annee="1"><nom>AGNINA 5</nom><prenom>OUSSAMA 5</prenom><email>agnina6@gmail.com</email><CNE>F131584</CNE></etudiant><etudiant group="2" numEtd="6" filier="3" annee="1"><nom>AGNINA 6</nom><prenom>OUSSAMA 6</prenom><email>agnina7@gmail.com</email><CNE>F131585</CNE></etudiant><etudiant group="2" numEtd="7" filier="3" annee="1"><nom>AGNINA 7</nom><prenom>OUSSAMA 7</prenom><email>agnina8@gmail.com</email><CNE>F131586</CNE></etudiant><etudiant group="2" numEtd="8" filier="3" annee="1"><nom>AGNINA 8</nom><prenom>OUSSAMA 8</prenom><email>agnina9@gmail.com</email><CNE>F131587</CNE></etudiant><etudiant group="2" numEtd="9" filier="3" annee="1"><nom>AGNINA 9</nom><prenom>OUSSAMA 9</prenom><email>agnina10@gmail.com</email><CNE>F131588</CNE></etudiant><etudiant group="2" numEtd="10" filier="3" annee="1"><nom>AGNINA 10</nom><prenom>OUSSAMA 10</prenom><email>agnina11@gmail.com</email><CNE>F131589</CNE></etudiant><etudiant group="2" numEtd="11" filier="3" annee="1"><nom>AGNINA 11</nom><prenom>OUSSAMA 11</prenom><email>agnina12@gmail.com</email><CNE>F131590</CNE></etudiant><etudiant group="2" numEtd="12" filier="3" annee="1"><nom>AGNINA 12</nom><prenom>OUSSAMA 12</prenom><email>agnina13@gmail.com</email><CNE>F131591</CNE></etudiant><etudiant group="2" numEtd="13" filier="3" annee="1"><nom>AGNINA 13</nom><prenom>OUSSAMA 13</prenom><email>agnina14@gmail.com</email><CNE>F131592</CNE></etudiant></etudiants>
 <!--end etudiants-->
 <!--start semesters-->
 <semesters>

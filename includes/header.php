@@ -79,6 +79,10 @@ $full_name = isset($active) ? $active['nom']." ".$active['prenom'] : 'first last
                 <a class="w-full" href="../dashboard/modules.php">modules et matieres</a> 
             </li>
             <!-- agent scolaire -->
+            <li class="flex w-11/12 bg-green-500 py-2 my-1 items-center hover:bg-green-700">
+                <i class="fa-solid fa-building text-3xl mx-3"></i>
+                <a class="w-full" href="etudiants.php">les etudiants</a> 
+            </li>
              <li class="flex w-11/12 bg-green-500 py-2 my-1 items-center hover:bg-green-700">
                 <i class="fa-solid fa-hourglass-end text-3xl mx-3"></i>
                 <a class="w-full" href="../dashboard/emplois.php">les emploit de tepms</a> 
@@ -98,6 +102,7 @@ $full_name = isset($active) ? $active['nom']." ".$active['prenom'] : 'first last
                 <i class="fa-solid fa-building text-3xl mx-3"></i>
                 <a class="w-full" href="../dashboard/marker.php">marker</a> 
             </li>
+            
         </ul>
         
         <div class="w-full  text-white h-1/5 self-end">

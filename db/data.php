@@ -506,5 +506,25 @@ class Data{
         }
     }
 
+    public function add_etudiant($data){
+        try{
+            $etudiant =$this->scolarite->etudiants->addChild('etudiant');
+            $etudiant->addChild('nom', $data['nom']);
+            $etudiant->addChild('prenom', $data['prenom']);
+            $etudiant->addChild('email', $data['email']);
+            $etudiant->addChild('CNE', $data['CNE']);
+            $etudiant->addAttribute('group',$data['group'] );
+            $etudiant->addAttribute('numEtd',$data['numEtd'] );
+            $etudiant->addAttribute('filier',$data['filier'] );
+            $etudiant->addAttribute('annee',$data['annee'] );
+            $this->saveChange();
+            return true;
+        }catch(Exception $e){
+            return false;
+        }
+        
+
+    }
+
 }
 ?>
