@@ -66,7 +66,10 @@ if(isset($_POST['modifier'])){
                 } ?>
             </select>
     </div>
+    <div class="my-2 flex content-around focus:outline-none">
         <input id="btn_add_dpt" class="block text-white w-1/4 mx-auto bg-green-500 py-2 px-3 font-semibold my-2 cursor-pointer rounded-md uppercase hover:text-gray-600" type="submit" name="<?php echo isset($dep) ? 'modifier' : 'ajouter' ?>" value="<?php echo isset($dep) ? 'modifier' : 'ajouter' ?>" >
+    </div>
+        
     </form>
     </div>
 <div class="overflow-x-auto relative mt-5 px-3">
@@ -94,7 +97,8 @@ if(isset($_POST['modifier'])){
                     <?php echo $dep['prenom'].' '.$dep['nom']; ?>
                 </td>
                 <td class="py-4 px-6">
-                <a class="text-blue-600 w-full" href="?edit=<?php echo $dep['NumDept'] ?>">modifier</a>
+                <a class="text-blue-600 w-full" href="?edit=<?php echo $dep['NumDept'] ?>">modifier</a> |
+                <a class="text-green-600 w-full font-semibold" href="professeurs.php?dep=<?php echo $dep['NumDept'] ?>">list des profs</a>
                 </td>
             </tr>
            <?php endforeach; ?>

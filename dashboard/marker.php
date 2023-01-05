@@ -1,6 +1,13 @@
 <?php 
 $title = 'gestion des absences';
-require_once '../includes/header.php' ?>
+
+
+
+require_once '../includes/header.php'; 
+
+
+
+?>
 
 <div class="w-11/12 mx-auto bg-blue-500 flex flex-wrap justify-start rounded-md shadow-md cursor-pointer " >
     <h3 class="text-xl font-semibold uppercase px-2 text-gray-800 w-1/2 ">Profisseur : <span class="text-gray-100">Abderrahmen Chekry</span>  </h3>

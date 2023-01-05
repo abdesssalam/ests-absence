@@ -1,7 +1,7 @@
 <?php
 require_once 'db/config.php';
 
-
+var_dump($db->get_User_Permessions(4));
 // ?>
 <!DOCTYPE html>
 <html lang="en">

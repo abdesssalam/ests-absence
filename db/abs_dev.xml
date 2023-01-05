@@ -1,27 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scolarite>
 <users>
-    <user id="1">
-        <nom>Hamid</nom>
-        <prenom>mol ziton</prenom>
-        <email>gess@cc.com</email>
-        <password>$2y$10$1fSiWWuRiT0bDaaoISdty.Oo5DNdpZ8cWmwG70dppb3QjN9QTJzZC</password>
-    </user>
-    <user id="2">
-        <nom>3bi9la</nom>
-        <prenom>SUIIIIIIII</prenom>
-        <email>gess@ccx.com</email>
-        <password>$2y$10$sR7l6Rdixknz5GGvzk3o9uAd290Pqnvd5dAThY0r/rN33ZCOcW9je</password>
-        
-    </user>
-    <user id="3">
-        <nom>tabi3a</nom>
-        <prenom>rabi3a</prenom>
-        <email>tabi3a@cc.com</email>
-        <password>$2y$10$qSUU6NWzhLaabW6RtzoY7eXADQVVEsquZ.k5Sm45EG3uT9Qx8ChpO</password>
-    </user>
-</users>
+
+<user id="1"><nom>AIT OMAR</nom><prenom>ABDESLAM</prenom><email>admin@ests.ma</email><password>$2y$10$xkBZLGbyQP1LRjIDWtl3F.gXF2LfX/d66qX7pn/p7wHTMzJ21PV4u</password></user><user id="2"><nom>nom 1</nom><prenom>prenom 1</prenom><email>agen1@ests.ma</email><password>$2y$10$GXgxkNLq9w3DvHvTWHssvuuDa/nIQ07mAVBp.6cT2DVKAc8oknLki</password></user><user id="3"><nom>nom 2</nom><prenom>prenom 2</prenom><email>agent2@ests.ma</email><password>$2y$10$bT8xazKCM5XqCf9c.dp1iet2p5fxEXONAVOJU95aSnDOrGb3MZc0C</password></user><user id="4"><nom>nom 3</nom><prenom>prenom 3</prenom><email>user1@ests.ma</email><password>$2y$10$2LP/.VD.wljizG7RKN9hxuW3s5NiabB7fkoXzEvtA1.lzN2ugyGKW</password></user><user id="5"><nom>nom 4</nom><prenom>prenom 4</prenom><email>user2@ests.ma</email><password>$2y$10$GxXA3Fnd06j45xthNn0k9.If9ZNiRAt9B91sA4LIyifb25az3FsGi</password></user><user id="6"><nom>nom 5</nom><prenom>prenom 5</prenom><email>user3@ests.ma</email><password>$2y$10$huuXoNwNaHMQUnatuJg6KudWHva3cnDDEmcu/lgOn7e.9kxb5eY8C</password></user><user id="7"><nom>nom 6</nom><prenom>prenom 6</prenom><email>user4@ests.ma</email><password>$2y$10$FOIuwFMZi6CNXd0fd91sveBLqErlvzy4F.j9JY4wmj9M2CtsirFVu</password></user><user id="8"><nom>nom 7</nom><prenom>prenom 7</prenom><email>user5@ests.ma</email><password>$2y$10$sQExt3oJ6NR3lE49hZDwXOaafnisWsLnO8QWKB4qqlvXAvd.q5VM2</password></user><user id="9"><nom>nom 8</nom><prenom>prenom 8</prenom><email>user6@ests.ma</email><password>$2y$10$aj/JTmA/Hda9XXTQo2hfJu9MiaiaravDQVFnaYXe/l55nAnV6Rf5e</password></user></users>
 <!--end users-->
+<!-- les profs -->
+<professeurs>
+    <professeur id="4" departement="1" etat="1"/>
+    <professeur id="5" departement="0" etat="1"/>
+    <professeur id="6" departement="0" etat="1"/>
+    <professeur id="7" departement="0" etat="1"/>
+    <professeur id="8" departement="0" etat="0"/>
+    <professeur id="9" departement="0" etat="0"/>
+</professeurs>
+
 <!-- start roles -->
 <roles>
     <role Num="1">
@@ -56,22 +48,15 @@
         <table>permissions</table>
     </permission>
 
-<permission code="4"><action>delete</action><table>users</table></permission><permission code="5"><action>select</action><table>authorizations</table></permission><permission code="6"><action>update</action><table>departements</table></permission><permission code="7"><action>update</action><table>roles</table></permission><permission code="8"><action>select</action><table>matieres</table></permission><permission code="9"><action>select</action><table>filiers</table></permission></permissions>
+<permission code="4"><action>delete</action><table>users</table></permission><permission code="5"><action>select</action><table>authorizations</table></permission><permission code="6"><action>update</action><table>departements</table></permission><permission code="7"><action>update</action><table>roles</table></permission><permission code="8"><action>select</action><table>matieres</table></permission><permission code="9"><action>select</action><table>filiers</table></permission><permission code="10"><action>update</action><table>filiers</table></permission><permission code="11"><action>select</action><table>departements</table></permission><permission code="12"><action>update</action><table>absences</table></permission></permissions>
 <!-- end permissions -->
 <authorizations>
     <authorization CodePermission="1" NumRole="1"/>
     <authorization CodePermission="2" NumRole="1"/>
-    <authorization CodePermission="6" NumRole="1"/><authorization CodePermission="7" NumRole="1"/><authorization CodePermission="3" NumRole="1"/><authorization CodePermission="8" NumRole="1"/><authorization CodePermission="9" NumRole="1"/></authorizations>
+    <authorization CodePermission="6" NumRole="1"/><authorization CodePermission="7" NumRole="1"/><authorization CodePermission="3" NumRole="1"/><authorization CodePermission="8" NumRole="1"/><authorization CodePermission="9" NumRole="1"/><authorization CodePermission="10" NumRole="3"/><authorization CodePermission="11" NumRole="3"/><authorization CodePermission="12" NumRole="5"/></authorizations>
 <!-- end auth -->
 <RoleUsers>
-    
-    
-    
-    <RoleUser id="3" NumRole="3"/>
-    <RoleUser id="3" NumRole="4"/>
-    <RoleUser id="2" NumRole="4"/>
-    <RoleUser id="3" NumRole="5"/>
-<RoleUser NumRole="3" id="2"/><RoleUser NumRole="5" id="2"/><RoleUser NumRole="1" id="1"/><RoleUser NumRole="2" id="1"/><RoleUser NumRole="3" id="1"/></RoleUsers>
+<RoleUser NumRole="1" id="1"/><RoleUser NumRole="2" id="2"/><RoleUser NumRole="2" id="3"/><RoleUser NumRole="3" id="4"/><RoleUser NumRole="5" id="4"/><RoleUser NumRole="3" id="5"/><RoleUser NumRole="5" id="5"/><RoleUser NumRole="3" id="6"/><RoleUser NumRole="5" id="6"/><RoleUser NumRole="3" id="7"/><RoleUser NumRole="5" id="7"/><RoleUser NumRole="4" id="8"/><RoleUser NumRole="5" id="8"/><RoleUser NumRole="4" id="9"/><RoleUser NumRole="5" id="9"/><RoleUser NumRole="5" id="10"/></RoleUsers>
 <!--start departement-->
 <departements>
     <departement NumDept="1" chef="2">
@@ -111,68 +96,7 @@
 <filier codeFil="8" codeDep="2" numAnnee="1" responsable="3"><intituleFil>wdwar333333</intituleFil></filier><filier codeFil="8" codeDep="2" numAnnee="2" responsable="3"><intituleFil>wdwar333333</intituleFil></filier></filiers>
 <!--end filiers-->
 <!--start professeurs-->
-<professeurs>
-<professeur idProf="1">
-<nom>ECHAIBI</nom>
-<prenom>Mohammed </prenom>
-<cin>EM12345</cin>
-</professeur>
-<professeur idProf="2">
-<nom>Ilham</nom>
-<prenom>MOUNIR</prenom>
-<cin>IM12345</cin>
-</professeur>
-<professeur idProf="3">
-<nom>MOKHLIS</nom>
-<prenom>Khalil</prenom>
-<cin>MK12345</cin>
-</professeur>
-<professeur idProf="4">
-<nom>BENHIDA</nom>
-<prenom>Khalid</prenom>
-<cin>BK12345</cin>
-</professeur>
-<professeur idProf="5">
-<nom>Boussalhi</nom>
-<prenom>Abdessamad</prenom>
-<cin>BA12345</cin> 
-</professeur>
-<professeur idProf="6">
-<nom>BAYAR</nom>
-<prenom>Abdelouahad</prenom>
-<cin>AB12345</cin> 
-</professeur>
-<professeur idProf="7">
-<nom>SOULMANI</nom>
-<prenom>Abdellah </prenom>
-<cin>SA12345</cin> 
-</professeur>
-<professeur idProf="8">
-<nom>BOULAHOUAL</nom>
-<prenom>Ahmed</prenom>
-<cin>BA123456</cin> 
-</professeur>
-<professeur idProf="9">
-<nom>BELEFKIH</nom>
-<prenom>Khalid</prenom>
-<cin>BK123456</cin> 
-</professeur>
-<professeur idProf="10">
-<nom>EL OUAZZANI</nom>
-<prenom>Hind</prenom>
-<cin>EH123456</cin>
-</professeur>
-<professeur idProf="11">
-<nom>KHZAMI</nom>
-<prenom>Hind</prenom>
-<cin>KH123456</cin>  
-</professeur>
-<professeur idProf="12">
-<nom>Abdelhadi</nom>
-<prenom>Daou</prenom>
-<cin>AD123456</cin>  
-</professeur>
-</professeurs>
+
 <!--end professeurs--> 
 <!--start modules-->
 <modules>
@@ -198,10 +122,10 @@
 <!--start matiere-->
 <matieres>
 <matiere codeMat="1" codeMod="1" filier="1" annee="1">
-<intitule>Langue française</intitule>
+<nomMatier>Langue française</nomMatier>
 </matiere>
 <matiere codeMat="2" codeMod="1" filier="1" annee="1">
-<intitule>Langue anglaise</intitule>
+<nomMatier>Langue anglaise</nomMatier>
 </matiere>
 <!-- <matiere codeMat="3" codeMod="2" filier="1" annee="1">
 <intitule>Techniques expression et de communication</intitule>
@@ -236,9 +160,10 @@
 <!-- end annee scolaire -->
 <!--start groups-->
 <groups>
-<group codeGrp="1" filier="1" annee="1"/>
-<group codeGrp="2" filier="1" annee="1"/>
-<group codeGrp="1" annee="1" filier="3"/><group codeGrp="2" annee="1" filier="3"/></groups>
+<group codeGrp="1" filier="3" annee="1"/>
+<group codeGrp="2" filier="3" annee="1"/>
+
+</groups>
 <!--end groups-->
 
 <!--start etudiants-->
