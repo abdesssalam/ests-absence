@@ -45,7 +45,7 @@ $full_name = isset($active) ? $active['nom']." ".$active['prenom'] : 'first last
             </a>
             
         </div>
-        <ul class="w-11/12 h-4/5 my-1 text-white font-bold text-lg uppercase ">
+        <ul class="w-11/12  my-1 text-white font-bold text-lg uppercase ">
             <?php 
             //only super admin can manage acount&roles
             //ga3ma khdamna 3ab bsesseioin role rir katjiv les  donne dyal khona kamlin fda9a bham hak nadi.
@@ -105,7 +105,7 @@ $full_name = isset($active) ? $active['nom']." ".$active['prenom'] : 'first last
             
         </ul>
         
-        <div class="w-full  text-white h-1/5 self-end">
+        <div class="w-full  text-white  self-end">
             <div class="flex items-center bg-red-500 w-11/12 mx-auto py-2 uppercase">
                 <i class="fa-solid fa-right-to-bracket text-3xl mx-3"></i>
                 <a class="w-full"  href="../controllers/logout.php">déconnection</a> 

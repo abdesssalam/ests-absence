@@ -508,6 +508,12 @@ class Data{
 
     public function add_etudiant($data){
         try{
+            if(!$this->add_group_if_not_exsits($data)){
+                throw new Exception();
+            }
+            if($this->check_etudiant_exsits($data)){
+                throw new Exception();
+            }
             $etudiant =$this->scolarite->etudiants->addChild('etudiant');
             $etudiant->addChild('nom', $data['nom']);
             $etudiant->addChild('prenom', $data['prenom']);
@@ -522,9 +528,40 @@ class Data{
         }catch(Exception $e){
             return false;
         }
-        
-
     }
 
+    public function add_group_if_not_exsits($data){
+        try{
+            $groupe = $this->getData('groups')
+                ->where('codeGrp', $data['group'])
+                ->where('annee', $data['annee'])
+                ->where('filier', $data['filier']);
+            if($groupe->count()==0){
+                $group =$this->scolarite->groups->addChild('group');
+                $group->addAttribute('codeGrp',$data['group'] );
+                $group->addAttribute('annee',$data['annee'] );
+                $group->addAttribute('filier',$data['filier'] );
+                $this->saveChange();           
+            }
+             return true;
+        }catch(Exception $e){
+            return false;
+        }
+    }
+
+    public function check_etudiant_exsits($data){
+        $etds = $this->getData('etudiant');
+        if(
+            $etds->where('CNE', $data['CNE'])->count()>0 || 
+            $etds->where('group', $data['group'])
+            ->where('numEtd', $data['numEtd'])
+            ->where('filier', $data['filier'])
+            ->where('annee', $data['annee'])
+            ){
+            return true;
+            }else{
+            return false;
+            }
+    }
 }
 ?>

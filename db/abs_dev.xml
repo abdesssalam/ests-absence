@@ -229,18 +229,18 @@
 </matiere> -->
 <matiere codeMat="1" codeMod="1" filier="4" annee="1"><nomMatier>c++</nomMatier></matiere></matieres>
 <!--end matieres-->
+<!-- start annee scolaire -->
+<anneeScolaires>
+    <anneeScolaire>2023</anneeScolaire>
+</anneeScolaires>
+<!-- end annee scolaire -->
 <!--start groups-->
 <groups>
-<group codeGrp="1" codeFil="1">
-<intitule>G1</intitule>
-<nbretud>30</nbretud>
-</group>
-<group codeGrp="2" codeFil="3">
-<intitule>G2</intitule>
-<nbretud>25</nbretud>
-</group>
-</groups>
+<group codeGrp="1" filier="1" annee="1"/>
+<group codeGrp="2" filier="1" annee="1"/>
+<group codeGrp="1" annee="1" filier="3"/><group codeGrp="2" annee="1" filier="3"/></groups>
 <!--end groups-->
+
 <!--start etudiants-->
 <etudiants>
 
@@ -330,17 +330,22 @@
     <absence codeAbsence="1" cne="" codeSean="" codeSem="" codeSemain="" codeJr="" codeFil=""/>
 <absence codeAbsence="2" cne="2" codeSean="devlopement" codeSem="devlopement" codeSemain="devlopement" codeJr="devlopement" codeFil="devlopement"/></absences>
 
-<!-- users > user -->
-<!-- departements > departement -->
-<!-- filiers > filier -->
-<!-- modules > module -->
-<!-- professeurs > professeur -->
-<!-- etudiants > etudiant -->
-<!-- groups > group -->
-<!-- __________________________ -->
-<!-- semesters > semester -->
-<!-- semaines > semaine -->
-<!-- jours > jour -->
-<!-- seances > seance -->
-
+<!-- start settings -->
+<settings>
+    <setting name="anneeScolaire" type="number" value="2023">
+        <label> current annee scolaire</label>
+    </setting>
+    <setting name="semester_1_debut" type="date" value="2022-09-12">
+        <label> date debut semester 1</label>
+    </setting>
+    <setting name="semester_1_fin" type="date" value="2023-01-18">
+        <label> date fin semester 1</label>
+    </setting>
+    <setting name="semester_2_debut" type="date" value="2023-02-06">
+        <label> date debut semester 2</label>
+    </setting>
+    <setting name="semester_2_fin" type="date" value="2023-07-01">
+        <label> date fin semester 2</label>
+    </setting>
+</settings>
 </scolarite>

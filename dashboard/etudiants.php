@@ -1,6 +1,7 @@
 <?php 
 $title = 'gestion des etudiants';
 require_once '../includes/header.php';
+
 if(isset($_POST['submit'])){
     if (isset($_FILES['etudiants']) && is_uploaded_file($_FILES['etudiants']['tmp_name'])) {
     // Open the file

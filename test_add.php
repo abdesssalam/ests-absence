@@ -1,8 +1,7 @@
 <?php
 require_once 'db/config.php';
 
-$t = $db->auto_increment2('codeMod','modules','filier',1,'annee',1);
-var_dump($t);
+
 // ?>
 <!DOCTYPE html>
 <html lang="en">
