@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <strings>
     <profilePage>
-        <string name="title">personal information :</string>
-        <string name="lastName">last name :</string>
-        <string name="firstName">first name :</string>
-        <string name="email">Email address :</string>
-        <string name="currentPass">current password :</string>
-        <string name="newPass">new password :</string>
-        <string name="confNewPass">confirme new password :</string>
-    </profilePage>
-</strings>
+         <title> personal information :</title>
+         <lastName> last name :</lastName>
+         <firstName> first name :</firstName>
+         <email> Email address :</email>
+         <currentPass> current password :</currentPass>
+         <newPass> new password :</newPass>
+         <confNewPass> confirme new password :</confNewPass>
+     </profilePage>
+ </strings>
