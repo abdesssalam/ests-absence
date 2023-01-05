@@ -22,8 +22,12 @@ if(isset($_SESSION['identifiant'])){
         
         } }
 
-        $xml = simplexml_load_file("http://localhost/ests-absence/db/fr.xml");
+if($_SESSION['lang'] == 'fr'){
+        $xml = simplexml_load_file("http://localhost/ests-absence/db/en.xml");
+    }else{
+        $xml = simplexml_load_file("http://localhost/ests-absence/db/en.xml");
 
+    }
 
 
 ?>
