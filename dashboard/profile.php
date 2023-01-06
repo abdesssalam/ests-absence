@@ -22,14 +22,6 @@ if(isset($_SESSION['identifiant'])){
         
         } }
 
-if($_SESSION['lang'] == 'fr'){
-        $xml = simplexml_load_file("http://localhost/ests-absence/db/en.xml");
-    }else{
-        $xml = simplexml_load_file("http://localhost/ests-absence/db/en.xml");
-
-    }
-
-
 ?>
 
 <div class="w-full ">
