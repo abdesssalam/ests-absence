@@ -3,7 +3,7 @@ $(document).ready(function(){
     let filier=$('#filier');
     let annee=$('#annee');
     let semester=$('#semester');
-    let module=$('#module');
+  
     let matier=$('#matier');
     let group=$('#group');
     let professeur=$('#professeur');
@@ -14,7 +14,8 @@ $(document).ready(function(){
     let departments=$('.dep');
     
     let filiersData=[];
-    //load filiers
+    let groupsData=[];
+    //load filiers et groups
     departments.each(function(){
         $(this).click(function(){
             departments.removeClass('bg-blue-400');
@@ -37,6 +38,15 @@ $(document).ready(function(){
                 }
                 
             })
+            professeur.empty();
+            $.get(BASE_URL+'emploi.php?profs='+$(this).attr('id'),function(profs){
+                profs=JSON.parse(profs);
+                profs.forEach((prof)=>{
+                    professeur.append(`<option value="${prof.id}">${prof.nom} ${prof.prenom}</option>`)
+                })
+                
+            })
+           
         })
     })
     //events
@@ -46,8 +56,38 @@ $(document).ready(function(){
         for(i=1;i<=t.length;i++){
             annee.append(`<option value="${i}">${i}</option>`)
         }
-        
+        $.get(BASE_URL+'emploi.php?groups='+filier.val(),function(grs){
+            grs=JSON.parse(grs);
+            groupsData=grs;
+        })
     })
+    annee.click(function(){
+        let grps=groupsData.filter((it)=>it.annee==annee.val())
+        if(grps.length>0){
+            group.attr('disabled',false); 
+          
+            matier.attr('disabled',false);
+        }else{
+            group.attr('disabled',true); 
+           
+            matier.attr('disabled',true);
+        }
+        group.empty();
+        for(i=1;i<=grps.length;i++){
+            group.append(`<option value="${i}">${i}</option>`)
+        }
+        console.log(annee.val())
+        //load matiers
+        $.get(`${BASE_URL}modules.php?matiers&filier=${filier.val()}&annee=${annee.val()}`,function(mats){
+            mats=JSON.parse(mats);
+            matier.empty();
+            mats.forEach((mat)=>{
+                matier.append(`<option value="${mat.codeMat}">${mat.nomMatier}</option>`)
+            })
+        })
+    });
+
+    
     //add
 
 })

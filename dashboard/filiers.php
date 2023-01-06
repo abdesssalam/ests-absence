@@ -104,8 +104,6 @@ if(isset($_POST['modifier'])){
                     </div>
                 </li>
             </ul>
-                
-
         </div>
     
         <input id="btn_add_fil" class="block text-white w-1/4 mx-auto bg-green-500 py-2 px-3 font-semibold my-2 cursor-pointer rounded-md uppercase hover:text-gray-600" type="submit" name="<?php echo isset($fil) ? 'modifier' : 'ajouter' ?>" value="<?php echo isset($fil) ? 'modifier' : 'ajouter' ?>">

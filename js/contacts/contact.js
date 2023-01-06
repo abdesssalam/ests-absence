@@ -6,10 +6,19 @@ $(document).ready(function(){
     let email=$('#user_email');
     let id=$('#user_id');
     let role=$('input[name="roles"]');
-   
-    // console.log(role.val())
-    // let role=$('#user_role');
+    let isProf=$('#role-5');
 
+    
+    isProf.change(function(){
+       
+        if(isProf.is(':checked')==true){
+           $('#etat').addClass('flex');
+           $('#etat').removeClass('hidden');
+        }else{
+            $('#etat').addClass('hidden');
+           $('#etat').removeClass('flex');
+        }
+    })
     //load users
     loadUsers()
     //add  new user
@@ -24,13 +33,15 @@ $(document).ready(function(){
         });
        
         let data={'id':id.val(),'nom':nom.val(),'prenom':prenom.val(),'email':email.val(),'roles':roles,'submit':$(this).attr('name')};
-        
+        if(isProf.is(':checked')){
+            data={...data,...{'etat':$('input[name="etat"]').val()}}
+        }
+        console.log(data);
         $.post(BASE_URL+'users.php',data,function(data,st){
-            console.log("sttt"+st);
             console.log(data);
         })
     })
-
+   
     // toggle form
     let ic_toggle_form=$('#toggle-form');
     ic_toggle_form.click(()=>toggleForm())

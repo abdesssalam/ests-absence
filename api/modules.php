@@ -65,4 +65,13 @@ require_once '../db/config.php';
             echo json_encode(['message' => 'non']);
         }
     }
+
+    if(isset($_GET['matiers'])){
+        if($_GET['filier'] && $_GET['annee']){
+        $data = $db->getData('matieres')
+            ->where('filier', $_GET['filier'])
+            ->where('annee', $_GET['annee']);
+        echo $data->toJson();   
+        }
+    }
 ?>

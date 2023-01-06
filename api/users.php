@@ -25,6 +25,9 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
             echo json_encode($id);
         }else{
             $roles = $_POST['roles'];
+            if(in_array('5',$roles)){
+                $ad = $db->add_professeur($id,$_POST);
+            }
             $i=0;
             do {
                 $roleAdded = $db->addRoleUsers(['id' => $id, 'NumRole'=>$roles[$i]]);
@@ -47,18 +50,9 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
         }
         echo json_encode($_POST);
     }
-    
-    // if($added==true){
-    //     echo json_encode(array("message" => "ok"));
-    // }else{
-    //     echo json_encode(
-    //         array(
-    //             "message" => "non",
-    //             "error" => $added['error'],
-    //             "line" => $added['line']
-    //         )
-    //     );
-    // };
+    if(isset($_POST['link_prof_dep'])){
+        $db->link_prof_dep($data);
+    }
 }
 
 ?>

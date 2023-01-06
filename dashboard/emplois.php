@@ -38,43 +38,24 @@ require_once '../includes/header.php' ?>
                 <option value="2">2</option>
             </select>
         </div>
-        <div class="md:w-1/3 w-full px-1 my-1 flex justify-between items-center" >
-            <label  class="block  md:w-1/3 w-full text-sm font-medium text-gray-900 dark:text-white">module</label>
-            <select id="module" class="md:w-2/3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                <option selected>choiser le module</option>
-                <option value="1">programmation web</option>
-                <option value="1">java oop</option>
-                <option value="1">SI</option>
-            </select>
-        </div>
-        <div class="md:w-1/3 w-full px-1 my-1  flex justify-between items-center" >
-            <label  class="block  md:w-1/3 w-full  text-sm font-medium text-gray-900 dark:text-white">matier</label>
-            <select id="matier" class="md:w-2/3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                <option selected>choiser matier</option>
-                <option value="GI">GI</option>
-                <option value="GIM">GIM</option>
-                <option value="TM">TM</option>
-                <option value="TIMQ">TIMQ</option>
-            </select>
-        </div>
         <div class="md:w-1/3 w-full px-1 my-1  flex justify-between items-center" >
             <label  class="block  md:w-1/3 w-full  text-sm font-medium text-gray-900 dark:text-white">groupe</label>
-            <select id="group" class="md:w-2/3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                <option selected>choiser groupe</option>
-                <option value="GI">GI</option>
-                <option value="GIM">GIM</option>
-                <option value="TM">TM</option>
-                <option value="TIMQ">TIMQ</option>
+            <select disabled id="group" class="md:w-2/3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                
             </select>
         </div>
+        
         <div class="md:w-1/3 w-full px-1 my-1  flex justify-between items-center" >
-            <label  class="block  md:w-1/3 w-full  text-sm font-medium text-gray-900 dark:text-white">profisseur</label>
+            <label  class="block  md:w-1/3 w-full  text-sm font-medium text-gray-900 dark:text-white">matier</label>
+            <select disabled id="matier" class="md:w-2/3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                
+            </select>
+        </div>
+        
+        <div class="md:w-1/3 w-full px-1 my-1  flex justify-between items-center" >
+            <label  class="block  md:w-1/3 w-full  text-sm font-medium text-gray-900 dark:text-white">professeur</label>
             <select id="professeur" class="md:w-2/3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                <option selected>choiser profisseur</option>
-                <option value="GI">GI</option>
-                <option value="GIM">GIM</option>
-                <option value="TM">TM</option>
-                <option value="TIMQ">TIMQ</option>
+                
             </select>
         </div>
         

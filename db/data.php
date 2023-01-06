@@ -285,10 +285,28 @@ class Data{
             return $u;
             
         });  
+        $roles=array_values($userRole->toArray());
+        // $roles=$roles[0];
        
-        return array_values($userRole->toArray());
+        return $roles;
     }
 
+    public function get_User_Permessions($id){
+        $roles = $this->getRolesByUser($id);
+        $Userpermessions = [];
+        foreach($roles as $role){
+            $permessions = $this->getData('authorizations')
+                ->where('NumRole', $role['NumRole']);
+            $Userpermessions = array_merge($permessions->toArray(), $Userpermessions);
+        }
+        $Userpermessions = array_map(function ($per) {
+            $permession = $this->getData('permissions')
+            ->firstWhere('code', $per['CodePermission']);
+            $per = $permession['action'] . ' ' . $permession['table'];
+            return $per;
+        }, $Userpermessions);
+        return $Userpermessions;
+    }
 
     public function addRoleUsers($data){
         try{
@@ -296,6 +314,7 @@ class Data{
             $RoleUser->addAttribute('NumRole', $data['NumRole']);
             $RoleUser->addAttribute('id', $data['id']);
             $this->saveChange();
+
             return true;
         }catch(Exception $e){
             return array(
@@ -304,6 +323,30 @@ class Data{
             );
         }
        
+    }
+    public function add_professeur($id,$data){
+        try{
+            $prof = $this->scolarite->professeurs->addChild('professeur');
+            $prof->addAttribute('id', $id);
+            $prof->addAttribute('departement', 0);
+            $prof->addAttribute('etat', $data['etat']);
+            $this->saveChange();
+            return true;  
+        }catch(Exception $e){
+            return false;
+        }
+        
+
+    }
+    public function link_prof_dep($data){
+        try{
+            $prof = $this->scolarite->professeurs->xpath('//professeurs/professeur[@id=' . $data["id"] . ']');
+            $prof = $prof[0];
+            $prof['departement'] = $data['departement'];
+            $this->saveChange();
+        }catch(Exception $e){
+            return false;
+        }
     }
 
     public function add_module($data){
@@ -497,7 +540,7 @@ class Data{
         try{
             $matiere = $this->scolarite->xpath('//matieres/matiere[@codeMat='.$id.']');
             $matiere =$matiere[0];
-            $matiere->intitule = $data['intitule'];
+            $matiere->nomMatier = $data['nomMatier'];
             $matiere['codeMod'] = $data['codeMod'];
             $this->saveChange();
             return true;
@@ -508,6 +551,12 @@ class Data{
 
     public function add_etudiant($data){
         try{
+            if(!$this->add_group_if_not_exsits($data)){
+                throw new Exception();
+            }
+            if($this->check_etudiant_exsits($data)){
+                throw new Exception();
+            }
             $etudiant =$this->scolarite->etudiants->addChild('etudiant');
             $etudiant->addChild('nom', $data['nom']);
             $etudiant->addChild('prenom', $data['prenom']);
@@ -522,9 +571,40 @@ class Data{
         }catch(Exception $e){
             return false;
         }
-        
-
     }
 
+    public function add_group_if_not_exsits($data){
+        try{
+            $groupe = $this->getData('groups')
+                ->where('codeGrp', $data['group'])
+                ->where('annee', $data['annee'])
+                ->where('filier', $data['filier']);
+            if($groupe->count()==0){
+                $group =$this->scolarite->groups->addChild('group');
+                $group->addAttribute('codeGrp',$data['group'] );
+                $group->addAttribute('annee',$data['annee'] );
+                $group->addAttribute('filier',$data['filier'] );
+                $this->saveChange();           
+            }
+             return true;
+        }catch(Exception $e){
+            return false;
+        }
+    }
+
+    public function check_etudiant_exsits($data){
+        $etds = $this->getData('etudiant');
+        if(
+            $etds->where('CNE', $data['CNE'])->count()>0 || 
+            $etds->where('group', $data['group'])
+            ->where('numEtd', $data['numEtd'])
+            ->where('filier', $data['filier'])
+            ->where('annee', $data['annee'])
+            ){
+            return true;
+            }else{
+            return false;
+            }
+    }
 }
 ?>
