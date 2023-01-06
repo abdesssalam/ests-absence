@@ -9,4 +9,23 @@
         <newPass>Nouveau mot de pass :</newPass>
         <confNewPass>confirmez le Nouveau mot de pass :</confNewPass>
     </profilePage>
+
+    <modulePage>
+        <modules>les modules</modules>
+        <matiers>les matiers</matiers>
+    </modulePage>
+
+    <markerPage>
+        <checkbox>checkbox</checkbox>
+        <Professeur>Professeur : </Professeur>
+        <Filiér>Filiér : </Filiér>
+        <année>année : </année>
+        <groupe>groupe : </groupe>
+        <Module>Module : </Module>
+        <Numéro>Numéro</Numéro>
+        <Nom>Nom</Nom>
+        <Prenom>Prenom</Prenom>
+        <absences>absences</absences>
+    </markerPage>
+    
 </strings>
