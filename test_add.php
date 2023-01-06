@@ -3,7 +3,7 @@ require_once 'db/config.php';
 
 
 
-
+$db->get_current_anneeScolaire();
 
 
 

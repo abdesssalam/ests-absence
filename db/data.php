@@ -613,5 +613,43 @@ class Data{
         $Date = "2023-01-02";
         return date('Y-m-d', strtotime($Date . ' + ' . $days . ' days'));
     }
+
+    public function add_seance($data){
+        try{
+            $dateSeance=$this->setDateSeance($data['semaine'],$data['jour']);
+            $anneeScolaire=$this->get_current_anneeScolaire();
+            $seance = $this->scolarite->seances->addChild('seance');
+            $seance->addAttribute('numSeance', $data['numSeance']);
+            $seance->addAttribute('jour', $data['jour']);
+            $seance->addAttribute('semaine', $data['semaine']);
+            $seance->addAttribute('semester', $data['semester']);
+            $seance->addAttribute('anneeScolaire', $anneeScolaire);
+            $seance->addAttribute('filier', $data['filier']);
+            $seance->addAttribute('annee', $data['annee']);
+            $seance->addAttribute('groupe', $data['groupe']);
+            $seance->addAttribute('prof', $data['prof']);
+            $seance->addChild('dateSeance', $dateSeance);
+            $this->saveChange();
+            return true;
+        }catch(Exception $e){
+            return false;
+        }
+    }
+
+    public function add_emploi($data){
+        $x = 0;
+        do {
+            $data['semaine'] = $x+1;
+            $added = $this->add_seance($data);
+
+            $x++;
+        } while ($x < $data['fin'] && $added == true);
+        return $x;
+    }
+    public function get_current_anneeScolaire(){
+        $annee = $this->getData('settings')
+            ->firstWhere('name', 'anneeScolaire')->only('value');
+        return $annee['value'];
+    }
 }
 ?>

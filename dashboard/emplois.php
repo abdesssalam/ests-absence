@@ -90,7 +90,7 @@ require_once '../includes/header.php' ?>
         </div>
         <div class="md:w-1/3 w-full px-1 my-1  flex justify-end items-center" >
             
-            <input class="cursor-pointer text-white font-semibold   rounded-md justify-self-end  md:w-2/3 w-full p-2.5 bg-green-600 hover:bg-green-500 hover:text-gray-50" type="submit" value="ajouter" >
+            <input id="add_seance" class="cursor-pointer text-white font-semibold   rounded-md justify-self-end  md:w-2/3 w-full p-2.5 bg-green-600 hover:bg-green-500 hover:text-gray-50" type="submit" value="ajouter" >
         </div>
         
     </div>

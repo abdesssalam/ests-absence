@@ -18,5 +18,8 @@ if(isset($_GET['profs'])){
     });
     echo json_encode($profs);
 }
-
+if(isset($_POST['add'])){
+    $nbr = $db->add_emploi($_POST);
+    echo json_encode(['number'=>$nbr]);
+}
 ?>

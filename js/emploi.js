@@ -3,7 +3,6 @@ $(document).ready(function(){
     let filier=$('#filier');
     let annee=$('#annee');
     let semester=$('#semester');
-  
     let matier=$('#matier');
     let group=$('#group');
     let professeur=$('#professeur');
@@ -89,5 +88,24 @@ $(document).ready(function(){
 
     
     //add
-
+    $('#add_seance').click(function(){
+       
+        let data={
+            'add':'submit',
+            'numSeance':seance.val(),
+            'jour':jour.val(),
+            'debut':debut.val(),
+            'fin':fin.val(),
+            'semester':semester.val(),
+            'filier':filier.val(),
+            'annee':annee.val(),
+            'groupe':group.val(),
+            'prof':professeur.val()
+        }
+        $.post(BASE_URL+'emploi.php',data,function(res){
+            res=JSON.parse(res);
+            console.log(res);
+        })
+        console.log(data);
+    })
 })

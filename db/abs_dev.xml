@@ -55,7 +55,13 @@
             <email>user6@ests.ma</email>
             <password>$2y$10$aj/JTmA/Hda9XXTQo2hfJu9MiaiaravDQVFnaYXe/l55nAnV6Rf5e</password>
         </user>
-    <user id="10"><nom>informa</nom><prenom>ticien</prenom><email>user7@ests.ma</email><password>$2y$10$fYP2ZdPb7p/JZEtfwR3SN.DYNg.CmuS8j4cQjdHPX26FkKcfz4pGO</password></user></users><!--end users--><!-- les profs -->
+        <user id="10">
+            <nom>informa</nom>
+            <prenom>ticien</prenom>
+            <email>user7@ests.ma</email>
+            <password>$2y$10$fYP2ZdPb7p/JZEtfwR3SN.DYNg.CmuS8j4cQjdHPX26FkKcfz4pGO</password>
+        </user>
+    </users><!--end users--><!-- les profs -->
     <professeurs>
         <professeur id="4" departement="1" etat="1"/>
         <professeur id="5" departement="1" etat="1"/>
@@ -63,7 +69,8 @@
         <professeur id="7" departement="0" etat="1"/>
         <professeur id="8" departement="0" etat="0"/>
         <professeur id="9" departement="0" etat="0"/>
-    <professeur id="10" departement="1" etat="1"/></professeurs><!-- start roles -->
+        <professeur id="10" departement="1" etat="1"/>
+    </professeurs><!-- start roles -->
     <roles>
         <role Num="1">
             <label>supper admin</label>
@@ -160,7 +167,9 @@
         <RoleUser NumRole="4" id="9"/>
         <RoleUser NumRole="5" id="9"/>
         <RoleUser NumRole="5" id="10"/>
-    <RoleUser NumRole="4" id="10"/><RoleUser NumRole="5" id="10"/></RoleUsers><!--start departement-->
+        <RoleUser NumRole="4" id="10"/>
+        <RoleUser NumRole="5" id="10"/>
+    </RoleUsers><!--start departement-->
     <departements>
         <departement NumDept="1" chef="2">
             <intituleDep>INFORMATIQUE</intituleDep>
@@ -223,8 +232,10 @@
         <module codeMod="1" coordonnateur="3" filier="2" annee="1">
             <nomModule>hiko</nomModule>
         </module>
-        
-    <module codeMod="1" coordonnateur="4" filier="3" annee="1"><nomModule>math</nomModule></module></modules><!--end modules--><!--start matiere-->
+        <module codeMod="1" coordonnateur="4" filier="3" annee="1">
+            <nomModule>math</nomModule>
+        </module>
+    </modules><!--end modules--><!--start matiere-->
     <matieres>
         <matiere codeMat="1" codeMod="1" filier="1" annee="1">
             <nomMatier>Langue française</nomMatier>
@@ -255,8 +266,16 @@
 <matiere codeMat="10" codeMod="4" filier="1" annee="1">
 <intitule>Cryptologie</intitule>
 </matiere> -->
-        
-    <matiere codeMat="1" codeMod="1" filier="3" annee="1"><nomMatier>analyse</nomMatier></matiere><matiere codeMat="1" codeMod="1" filier="3" annee="1"><nomMatier>algèbre</nomMatier></matiere><matiere codeMat="1" codeMod="1" filier="3" annee="1"><nomMatier>probabilité</nomMatier></matiere></matieres><!--end matieres--><!-- start annee scolaire -->
+        <matiere codeMat="1" codeMod="1" filier="3" annee="1">
+            <nomMatier>analyse</nomMatier>
+        </matiere>
+        <matiere codeMat="1" codeMod="1" filier="3" annee="1">
+            <nomMatier>algèbre</nomMatier>
+        </matiere>
+        <matiere codeMat="1" codeMod="1" filier="3" annee="1">
+            <nomMatier>probabilité</nomMatier>
+        </matiere>
+    </matieres><!--end matieres--><!-- start annee scolaire -->
     <anneeScolaires>
         <anneeScolaire>2023</anneeScolaire>
     </anneeScolaires><!-- end annee scolaire --><!--start groups-->
@@ -429,90 +448,63 @@
         <semester codeSem="2">
             <intitule>S2</intitule>
         </semester>
-        <semester codeSem="3">
-            <intitule>S3</intitule>
-        </semester>
-        <semester codeSem="4">
-            <intitule>S4</intitule>
-        </semester>
-        <semester codeSem="5">
-            <intitule>S5</intitule>
-        </semester>
-        <semester codeSem="6">
-            <intitule>S6</intitule>
-        </semester>
     </semesters><!--end semesters--><!--start semaine-->
     <semaines>
-        <semaine codeSemain="1">
+        <semaine num="1">
             <intitule>S1</intitule>
         </semaine>
-        <semaine codeSemain="2">
+        <semaine num="2">
             <intitule>S2</intitule>
         </semaine>
-        <semaine codeSemain="3">
+        <semaine num="3">
             <intitule>S3</intitule>
         </semaine>
-        <semaine codeSemain="4">
+        <semaine num="4">
             <intitule>S4</intitule>
         </semaine>
-        <semaine codeSemain="5">
+        <semaine num="5">
             <intitule>S5</intitule>
         </semaine>
-        <semaine codeSemain="6">
+        <semaine num="6">
             <intitule>S6</intitule>
         </semaine>
-        <semaine codeSemain="7">
-            <intitule>S6</intitule>
+        <semaine num="7">
+            <intitule>S7</intitule>
         </semaine>
-        <semaine codeSemain="8">
-            <intitule>S6</intitule>
+        <semaine num="8">
+            <intitule>S8</intitule>
         </semaine>
-        <semaine codeSemain="9">
-            <intitule>S6</intitule>
+        <semaine num="9">
+            <intitule>S9</intitule>
         </semaine>
-        <semaine codeSemain="10">
-            <intitule>S6</intitule>
+        <semaine num="10">
+            <intitule>S10</intitule>
         </semaine>
-        <semaine codeSemain="11">
-            <intitule>S6</intitule>
+        <semaine num="11">
+            <intitule>S11</intitule>
         </semaine>
-        <semaine codeSemain="12">
-            <intitule>S6</intitule>
+        <semaine num="12">
+            <intitule>S12</intitule>
         </semaine>
-    </semaines><!--end semaine-->
-    <jours>
-        <jour codeJr="1">
-            <intitule>lundi</intitule>
-        </jour>
-        <jour codeJr="2">
-            <intitule>mardi</intitule>
-        </jour>
-        <jour codeJr="3">
-            <intitule>mercredi</intitule>
-        </jour>
-        <jour codeJr="4">
-            <intitule>jeudi</intitule>
-        </jour>
-        <jour codeJr="5">
-            <intitule>vendredi</intitule>
-        </jour>
-        <jour codeJr="6">
-            <intitule>samedi</intitule>
-        </jour>
-        <jour codeJr="7">
-            <intitule>dimanche</intitule>
-        </jour>
-    </jours><!--end jours-->
+        <semaine num="13">
+            <intitule>S13</intitule>
+        </semaine>
+        <semaine num="14">
+            <intitule>S14</intitule>
+        </semaine>
+    </semaines>
     <seances>
-        <seance codeSean="1">1</seance>
-        <seance codeSean="2">2</seance>
-        <seance codeSean="3">3</seance>
-        <seance codeSean="4">4</seance>
+        <seance numSeance="1" jour="2" semaine="1" semester="1" anneeScolaire="2023" filier="3" annee="1" groupe="1" prof="5">
+            <dateSeance>2023-01-03</dateSeance>
+        </seance>
+        <seance numSeance="1" jour="2" semaine="2" semester="1" anneeScolaire="2023" filier="3" annee="1" groupe="1" prof="5">
+            <dateSeance>2023-01-10</dateSeance>
+        </seance>
+        <seance numSeance="1" jour="2" semaine="3" semester="1" anneeScolaire="2023" filier="3" annee="1" groupe="1" prof="5">
+            <dateSeance>2023-01-17</dateSeance>
+        </seance>
     </seances>
-    <absences>
-        <absence codeAbsence="1" cne="" codeSean="" codeSem="" codeSemain="" codeJr="" codeFil=""/>
-        <absence codeAbsence="2" cne="2" codeSean="devlopement" codeSem="devlopement" codeSemain="devlopement" codeJr="devlopement" codeFil="devlopement"/>
-    </absences><!-- start settings -->
+    <absences></absences>
     <settings>
         <setting name="anneeScolaire" type="number" value="2023">
             <label> current annee scolaire</label>
