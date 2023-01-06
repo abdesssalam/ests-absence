@@ -71,7 +71,9 @@ require_once '../db/config.php';
         $data = $db->getData('matieres')
             ->where('filier', $_GET['filier'])
             ->where('annee', $_GET['annee']);
-        echo $data->toJson();   
+        $data = array_values($data->toArray());
+            
+        echo json_encode($data);   
         }
     }
 ?>

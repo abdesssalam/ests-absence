@@ -61,7 +61,7 @@ $data = $data->map(function ($prof) use ($users) {
                 </td>
                 <td class="py-4 px-6">
                     <div class="flex items-center">
-                        <input id="checkbox-table-search-3" <?php echo $prof['departement']==$_GET['dep'] ? 'checked disabled' : '' ?> type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <input id="<?php echo $prof['id'] ?>" <?php echo $prof['departement']==$_GET['dep'] ? 'checked disabled' : '' ?> type="checkbox" class="checkbox-prof w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                         <label for="checkbox-table-search-3"  class="sr-only">checkbox</label>
                     </div>
                 </td>
@@ -72,11 +72,34 @@ $data = $data->map(function ($prof) use ($users) {
            
         </tbody>
     </table>
-    <input id="btn_add_abs" class="block text-white w-1/4 mx-auto bg-green-500 py-2 px-3 font-semibold my-2 cursor-pointer rounded-md uppercase hover:text-gray-600" type="submit" value="sauvgarder">
+    <input id="btn_save" class="block text-white w-1/4 mx-auto bg-green-500 py-2 px-3 font-semibold my-2 cursor-pointer rounded-md uppercase hover:text-gray-600" type="submit" value="sauvgarder">
 </div>
 <script>
     $(document).ready(function(){
        
+        let checkbox_profs=$('input[type="checkbox"]');
+        let btn_save=$('#btn_save');
+        let dp='<?php echo $_GET['dep'] ?>'
+        btn_save.click(function(){
+           let profs = getChecked();
+            let data={'submit':'link_prof_dep','departement' : dp,'profs':profs};
+            $.post(BASE_URL+'users.php',data,function(res){
+                console.log(res);
+            })
+            
+        })
+       
+        function getChecked(){
+            let IDS=[];
+            checkbox_profs.each(function(){
+                if($(this).is(':checked') && !$(this).is(':disabled')){
+                    IDS.push($(this).attr('id'))
+                    
+                }
+              
+            }) 
+            return IDS;
+        }
         
     })
 

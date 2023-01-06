@@ -82,10 +82,10 @@ require_once '../includes/header.php' ?>
             <label  class="block  md:w-1/3 w-full  text-sm font-medium text-gray-900 dark:text-white">seance</label>
             <select id="seance" class="md:w-2/3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 <option selected>choiser seance</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
+                <option value="1">08:30 - 10:30</option>
+                <option value="2">10:30 - 12:30</option>
+                <option value="3">14:30 - 16:30</option>
+                <option value="4">16:30 - 18:30</option>
             </select>
         </div>
         <div class="md:w-1/3 w-full px-1 my-1  flex justify-end items-center" >

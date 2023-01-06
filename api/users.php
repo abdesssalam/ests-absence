@@ -50,8 +50,16 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
         }
         echo json_encode($_POST);
     }
-    if(isset($_POST['link_prof_dep'])){
-        $db->link_prof_dep($data);
+    if($_POST['submit']=='link_prof_dep'){
+        $dep = $_POST['departement'];
+        $IDS = $_POST['profs'];
+        $res = [];
+       
+        for ($i = 0; $i < count($IDS);$i++){
+             $added=$db->link_prof_dep($dep,$IDS[$i]);
+            $res[$i] = $added;
+        }
+        echo json_encode($res);
     }
 }
 

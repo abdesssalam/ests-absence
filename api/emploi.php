@@ -7,7 +7,7 @@ if(isset($_GET['groups'])){
 }
 if(isset($_GET['profs'])){
     $profs = $db->getData('professeurs')->where('departement', $_GET['profs']);
-    $profsAll = $db->getData('professeurs')->where('departement',0);
+    $profsAll = $db->getData('professeurs')->where('etat',0);
     $profs = $profs->merge($profsAll);
     $users = $db->getUsersByRole(5);
     $profs = $profs->map(function ($prof) use ($users){

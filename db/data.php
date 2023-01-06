@@ -338,12 +338,13 @@ class Data{
         
 
     }
-    public function link_prof_dep($data){
+    public function link_prof_dep($dep,$id){
         try{
-            $prof = $this->scolarite->professeurs->xpath('//professeurs/professeur[@id=' . $data["id"] . ']');
+            $prof = $this->scolarite->professeurs->xpath('//professeurs/professeur[@id=' . $id . ']');
             $prof = $prof[0];
-            $prof['departement'] = $data['departement'];
+            $prof['departement'] = $dep;
             $this->saveChange();
+            return true;
         }catch(Exception $e){
             return false;
         }
@@ -506,12 +507,12 @@ class Data{
             $i=1;
              $id = $this->auto_increment('codeFil', 'filiers');
             while($i<=$data['annee']){
-                $departement =$this->scolarite->filiers->addChild('filier');
-                $departement->addChild('intituleFil', $data['intituleFil']);
-                $departement->addAttribute('codeFil',$id );
-                $departement->addAttribute('codeDep',$data['codeDep'] );
-                $departement->addAttribute('numAnnee',$i );
-                $departement->addAttribute('responsable',$data['responsable']);
+                $filier =$this->scolarite->filiers->addChild('filier');
+                $filier->addChild('intituleFil', $data['intituleFil']);
+                $filier->addAttribute('codeFil',$id );
+                $filier->addAttribute('codeDep',$data['codeDep'] );
+                $filier->addAttribute('numAnnee',$i );
+                $filier->addAttribute('responsable',$data['responsable']);
                 $this->saveChange();
                 $i++; 
             }
@@ -605,6 +606,12 @@ class Data{
             }else{
             return false;
             }
+    }
+
+    public function setDateSeance($week,$day){
+        $days = (($week - 1) * 7)  + ($day - 1) ;
+        $Date = "2023-01-02";
+        return date('Y-m-d', strtotime($Date . ' + ' . $days . ' days'));
     }
 }
 ?>
