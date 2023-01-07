@@ -120,7 +120,7 @@ class Data{
     public function auto_increment2(string $id,string $table,string $id1,$v1,string $id2,$v2){
         $tb = $this->xml_to_collection($this->scolarite->$table)
             ->where($id1, $v1)
-            ->where($id1, $v2)
+            ->where($id2, $v2)
             ->sortBy($id);
         if($tb->count()==0){
             return 1;
@@ -386,15 +386,26 @@ class Data{
     }
 
     public function add_absence($data){
-        $absence = $this->scolarite->absences->addChild('absence');
-        $absence->addAttribute('codeAbsence', $this->auto_increment('codeAbsence','absences'));
-        $absence->addAttribute('cne', $data['cne']);
-        $absence->addAttribute('codeSean', $data['codeSean']);
-        $absence->addAttribute('codeSem', $data['codeSem']);
-        $absence->addAttribute('codeSemain', $data['codeSemain']);
-        $absence->addAttribute('codeJr', $data['codeJr']);
-        $absence->addAttribute('codeFil', $data['codeFil']);
-        $this->saveChange();
+        try{
+            $absence = $this->scolarite->absences->addChild('absence');
+            $absence->addAttribute('NumSeance', $data['NumSeance']);
+            $absence->addAttribute('NumEtd', $data['NumEtd']);
+            $absence->addAttribute('DateAbsence', $data['DateAbsence']);
+            $absence->addAttribute('jour', $data['jour']);
+            $absence->addAttribute('semaine', $data['semaine']);
+            $absence->addAttribute('semester', $data['semester']);
+            $absence->addAttribute('NumFilier', $data['NumFilier']);
+            $absence->addAttribute('NumAnnee', $data['NumAnnee']);
+            $absence->addAttribute('NumGroupe', $data['NumGroupe']);
+            $absence->addAttribute('prof', $data['prof']);
+            $absence->addAttribute('matier', $data['matier']);
+            $absence->addAttribute('departement', $data['departement']);
+            $absence->addAttribute('module', $data['module']);
+            $this->saveChange();
+            return true;
+        }catch(Exception $e){
+            return false;
+        }    
     }
 
     public function updateUserRoles($id,$roles){
@@ -563,6 +574,7 @@ class Data{
             $etudiant->addChild('prenom', $data['prenom']);
             $etudiant->addChild('email', $data['email']);
             $etudiant->addChild('CNE', $data['CNE']);
+            $etudiant->addChild('anneeScolaire', $data['anneeScolaire']);
             $etudiant->addAttribute('group',$data['group'] );
             $etudiant->addAttribute('numEtd',$data['numEtd'] );
             $etudiant->addAttribute('filier',$data['filier'] );
@@ -594,16 +606,17 @@ class Data{
     }
 
     public function check_etudiant_exsits($data){
-        $etds = $this->getData('etudiant');
+        $etds = $this->getData('etudiants')
+                    ->where('anneeScolaire', $data['anneeScolaire']);
         if(
             $etds->where('CNE', $data['CNE'])->count()>0 || 
             $etds->where('group', $data['group'])
             ->where('numEtd', $data['numEtd'])
             ->where('filier', $data['filier'])
-            ->where('annee', $data['annee'])
-            ){
+            ->where('annee', $data['annee'])->count()>0
+            ){   
             return true;
-            }else{
+            }else{     
             return false;
             }
     }
@@ -628,6 +641,7 @@ class Data{
             $seance->addAttribute('annee', $data['annee']);
             $seance->addAttribute('groupe', $data['groupe']);
             $seance->addAttribute('prof', $data['prof']);
+            $seance->addAttribute('matier', $data['matier']);
             $seance->addChild('dateSeance', $dateSeance);
             $this->saveChange();
             return true;
@@ -651,5 +665,15 @@ class Data{
             ->firstWhere('name', 'anneeScolaire')->only('value');
         return $annee['value'];
     }
+
+    public function get_seance($prof,$num_seance)
+    {
+        $date = '2023-01-03';
+        return $this->getData('seances')
+            ->where('dateSeance', $date)
+            ->where('prof', $prof)
+            ->firstWhere('numSeance', $num_seance);
+    }
+      
 }
 ?>

@@ -100,7 +100,8 @@ $(document).ready(function(){
             'filier':filier.val(),
             'annee':annee.val(),
             'groupe':group.val(),
-            'prof':professeur.val()
+            'prof':professeur.val(),
+            'matier':matier.val()
         }
         $.post(BASE_URL+'emploi.php',data,function(res){
             res=JSON.parse(res);

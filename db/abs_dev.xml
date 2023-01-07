@@ -235,6 +235,12 @@
         <module codeMod="1" coordonnateur="4" filier="3" annee="1">
             <nomModule>math</nomModule>
         </module>
+        <module codeMod="2" coordonnateur="6" filier="3" annee="1">
+            <nomModule>programmation</nomModule>
+        </module>
+        <module codeMod="3" coordonnateur="8" filier="3" annee="1">
+            <nomModule>electronique</nomModule>
+        </module>
     </modules><!--end modules--><!--start matiere-->
     <matieres>
         <matiere codeMat="1" codeMod="1" filier="1" annee="1">
@@ -269,11 +275,14 @@
         <matiere codeMat="1" codeMod="1" filier="3" annee="1">
             <nomMatier>analyse</nomMatier>
         </matiere>
-        <matiere codeMat="1" codeMod="1" filier="3" annee="1">
+        <matiere codeMat="2" codeMod="1" filier="3" annee="1">
             <nomMatier>algèbre</nomMatier>
         </matiere>
-        <matiere codeMat="1" codeMod="1" filier="3" annee="1">
+        <matiere codeMat="3" codeMod="1" filier="3" annee="1">
             <nomMatier>probabilité</nomMatier>
+        </matiere>
+        <matiere codeMat="4" codeMod="2" filier="3" annee="1">
+            <nomMatier>algorithme 1</nomMatier>
         </matiere>
     </matieres><!--end matieres--><!-- start annee scolaire -->
     <anneeScolaires>
@@ -282,6 +291,7 @@
     <groups>
         <group codeGrp="1" filier="3" annee="1"/>
         <group codeGrp="2" filier="3" annee="1"/>
+        <group codeGrp="1" annee="1" filier="5"/>
     </groups><!--end groups--><!--start etudiants-->
     <etudiants>
         <etudiant group="1" numEtd="1" filier="3" annee="1">
@@ -289,156 +299,259 @@
             <prenom>ABDESLAM 1</prenom>
             <email>aitomar1@gmail.com</email>
             <CNE>M132510</CNE>
+            <anneeScolaire>2023</anneeScolaire>
         </etudiant>
         <etudiant group="1" numEtd="2" filier="3" annee="1">
             <nom>AIT OMAR 2</nom>
             <prenom>ABDESLAM 2</prenom>
             <email>aitomar2@gmail.com</email>
             <CNE>M132511</CNE>
+            <anneeScolaire>2023</anneeScolaire>
         </etudiant>
         <etudiant group="1" numEtd="3" filier="3" annee="1">
             <nom>AIT OMAR 3</nom>
             <prenom>ABDESLAM 3</prenom>
             <email>aitomar3@gmail.com</email>
             <CNE>M132512</CNE>
+            <anneeScolaire>2023</anneeScolaire>
         </etudiant>
         <etudiant group="1" numEtd="4" filier="3" annee="1">
             <nom>AIT OMAR 4</nom>
             <prenom>ABDESLAM 4</prenom>
             <email>aitomar4@gmail.com</email>
             <CNE>M132513</CNE>
+            <anneeScolaire>2023</anneeScolaire>
         </etudiant>
         <etudiant group="1" numEtd="5" filier="3" annee="1">
             <nom>AIT OMAR 5</nom>
             <prenom>ABDESLAM 5</prenom>
             <email>aitomar5@gmail.com</email>
             <CNE>M132514</CNE>
+            <anneeScolaire>2023</anneeScolaire>
         </etudiant>
         <etudiant group="1" numEtd="6" filier="3" annee="1">
             <nom>AIT OMAR 6</nom>
             <prenom>ABDESLAM 6</prenom>
             <email>aitomar6@gmail.com</email>
             <CNE>M132515</CNE>
+            <anneeScolaire>2023</anneeScolaire>
         </etudiant>
         <etudiant group="1" numEtd="7" filier="3" annee="1">
             <nom>AIT OMAR 7</nom>
             <prenom>ABDESLAM 7</prenom>
             <email>aitomar7@gmail.com</email>
             <CNE>M132516</CNE>
+            <anneeScolaire>2023</anneeScolaire>
         </etudiant>
         <etudiant group="1" numEtd="8" filier="3" annee="1">
             <nom>AIT OMAR 8</nom>
             <prenom>ABDESLAM 8</prenom>
             <email>aitomar8@gmail.com</email>
             <CNE>M132517</CNE>
+            <anneeScolaire>2023</anneeScolaire>
         </etudiant>
         <etudiant group="1" numEtd="9" filier="3" annee="1">
             <nom>AIT OMAR 9</nom>
             <prenom>ABDESLAM 9</prenom>
             <email>aitomar9@gmail.com</email>
             <CNE>M132518</CNE>
+            <anneeScolaire>2023</anneeScolaire>
         </etudiant>
         <etudiant group="1" numEtd="10" filier="3" annee="1">
             <nom>AIT OMAR 10</nom>
             <prenom>ABDESLAM 10</prenom>
             <email>aitomar10@gmail.com</email>
             <CNE>M132519</CNE>
+            <anneeScolaire>2023</anneeScolaire>
         </etudiant>
         <etudiant group="1" numEtd="11" filier="3" annee="1">
             <nom>AIT OMAR 11</nom>
             <prenom>ABDESLAM 11</prenom>
             <email>aitomar11@gmail.com</email>
             <CNE>M132520</CNE>
+            <anneeScolaire>2023</anneeScolaire>
         </etudiant>
         <etudiant group="1" numEtd="12" filier="3" annee="1">
             <nom>AIT OMAR 12</nom>
             <prenom>ABDESLAM 12</prenom>
             <email>aitomar12@gmail.com</email>
             <CNE>M132521</CNE>
+            <anneeScolaire>2023</anneeScolaire>
         </etudiant>
         <etudiant group="1" numEtd="13" filier="3" annee="1">
             <nom>AIT OMAR 13</nom>
             <prenom>ABDESLAM 13</prenom>
             <email>agnina1@gmail.com</email>
             <CNE>M132522</CNE>
+            <anneeScolaire>2023</anneeScolaire>
         </etudiant>
         <etudiant group="2" numEtd="1" filier="3" annee="1">
             <nom>AGNINA 1</nom>
             <prenom>OUSSAMA 1</prenom>
             <email>agnina2@gmail.com</email>
             <CNE>F131580</CNE>
+            <anneeScolaire>2023</anneeScolaire>
         </etudiant>
         <etudiant group="2" numEtd="2" filier="3" annee="1">
             <nom>AGNINA 2</nom>
             <prenom>OUSSAMA 2</prenom>
             <email>agnina3@gmail.com</email>
             <CNE>F131581</CNE>
+            <anneeScolaire>2023</anneeScolaire>
         </etudiant>
         <etudiant group="2" numEtd="3" filier="3" annee="1">
             <nom>AGNINA 3</nom>
             <prenom>OUSSAMA 3</prenom>
             <email>agnina4@gmail.com</email>
             <CNE>F131582</CNE>
+            <anneeScolaire>2023</anneeScolaire>
         </etudiant>
         <etudiant group="2" numEtd="4" filier="3" annee="1">
             <nom>AGNINA 4</nom>
             <prenom>OUSSAMA 4</prenom>
             <email>agnina5@gmail.com</email>
             <CNE>F131583</CNE>
+            <anneeScolaire>2023</anneeScolaire>
         </etudiant>
         <etudiant group="2" numEtd="5" filier="3" annee="1">
             <nom>AGNINA 5</nom>
             <prenom>OUSSAMA 5</prenom>
             <email>agnina6@gmail.com</email>
             <CNE>F131584</CNE>
+            <anneeScolaire>2023</anneeScolaire>
         </etudiant>
         <etudiant group="2" numEtd="6" filier="3" annee="1">
             <nom>AGNINA 6</nom>
             <prenom>OUSSAMA 6</prenom>
             <email>agnina7@gmail.com</email>
             <CNE>F131585</CNE>
+            <anneeScolaire>2023</anneeScolaire>
         </etudiant>
         <etudiant group="2" numEtd="7" filier="3" annee="1">
             <nom>AGNINA 7</nom>
             <prenom>OUSSAMA 7</prenom>
             <email>agnina8@gmail.com</email>
             <CNE>F131586</CNE>
+            <anneeScolaire>2023</anneeScolaire>
         </etudiant>
         <etudiant group="2" numEtd="8" filier="3" annee="1">
             <nom>AGNINA 8</nom>
             <prenom>OUSSAMA 8</prenom>
             <email>agnina9@gmail.com</email>
             <CNE>F131587</CNE>
+            <anneeScolaire>2023</anneeScolaire>
         </etudiant>
         <etudiant group="2" numEtd="9" filier="3" annee="1">
             <nom>AGNINA 9</nom>
             <prenom>OUSSAMA 9</prenom>
             <email>agnina10@gmail.com</email>
             <CNE>F131588</CNE>
+            <anneeScolaire>2023</anneeScolaire>
         </etudiant>
         <etudiant group="2" numEtd="10" filier="3" annee="1">
             <nom>AGNINA 10</nom>
             <prenom>OUSSAMA 10</prenom>
             <email>agnina11@gmail.com</email>
             <CNE>F131589</CNE>
+            <anneeScolaire>2023</anneeScolaire>
         </etudiant>
         <etudiant group="2" numEtd="11" filier="3" annee="1">
             <nom>AGNINA 11</nom>
             <prenom>OUSSAMA 11</prenom>
             <email>agnina12@gmail.com</email>
             <CNE>F131590</CNE>
+            <anneeScolaire>2023</anneeScolaire>
         </etudiant>
         <etudiant group="2" numEtd="12" filier="3" annee="1">
             <nom>AGNINA 12</nom>
             <prenom>OUSSAMA 12</prenom>
             <email>agnina13@gmail.com</email>
             <CNE>F131591</CNE>
+            <anneeScolaire>2023</anneeScolaire>
         </etudiant>
         <etudiant group="2" numEtd="13" filier="3" annee="1">
             <nom>AGNINA 13</nom>
             <prenom>OUSSAMA 13</prenom>
             <email>agnina14@gmail.com</email>
             <CNE>F131592</CNE>
+            <anneeScolaire>2023</anneeScolaire>
+        </etudiant>
+        <etudiant group="1" numEtd="1" filier="5" annee="1">
+            <nom>MOHATI 1</nom>
+            <prenom>HOUSSAME 1</prenom>
+            <email>moahti1@gmail.com</email>
+            <CNE>F100</CNE>
+            <anneeScolaire>2023</anneeScolaire>
+        </etudiant>
+        <etudiant group="1" numEtd="2" filier="5" annee="1">
+            <nom>MOHATI 2</nom>
+            <prenom>HOUSSAME 2</prenom>
+            <email>moahti2@gmail.com</email>
+            <CNE>F101</CNE>
+            <anneeScolaire>2023</anneeScolaire>
+        </etudiant>
+        <etudiant group="1" numEtd="3" filier="5" annee="1">
+            <nom>MOHATI 3</nom>
+            <prenom>HOUSSAME 3</prenom>
+            <email>moahti3@gmail.com</email>
+            <CNE>F102</CNE>
+            <anneeScolaire>2023</anneeScolaire>
+        </etudiant>
+        <etudiant group="1" numEtd="4" filier="5" annee="1">
+            <nom>MOHATI 4</nom>
+            <prenom>HOUSSAME 4</prenom>
+            <email>moahti4@gmail.com</email>
+            <CNE>F103</CNE>
+            <anneeScolaire>2023</anneeScolaire>
+        </etudiant>
+        <etudiant group="1" numEtd="5" filier="5" annee="1">
+            <nom>MOHATI 5</nom>
+            <prenom>HOUSSAME 5</prenom>
+            <email>moahti5@gmail.com</email>
+            <CNE>F104</CNE>
+            <anneeScolaire>2023</anneeScolaire>
+        </etudiant>
+        <etudiant group="1" numEtd="6" filier="5" annee="1">
+            <nom>MOHATI 6</nom>
+            <prenom>HOUSSAME 6</prenom>
+            <email>moahti6@gmail.com</email>
+            <CNE>F105</CNE>
+            <anneeScolaire>2023</anneeScolaire>
+        </etudiant>
+        <etudiant group="1" numEtd="7" filier="5" annee="1">
+            <nom>MOHATI 7</nom>
+            <prenom>HOUSSAME 7</prenom>
+            <email>moahti7@gmail.com</email>
+            <CNE>F106</CNE>
+            <anneeScolaire>2023</anneeScolaire>
+        </etudiant>
+        <etudiant group="1" numEtd="8" filier="5" annee="1">
+            <nom>MOHATI 8</nom>
+            <prenom>HOUSSAME 8</prenom>
+            <email>moahti8@gmail.com</email>
+            <CNE>F107</CNE>
+            <anneeScolaire>2023</anneeScolaire>
+        </etudiant>
+        <etudiant group="1" numEtd="9" filier="5" annee="1">
+            <nom>MOHATI 9</nom>
+            <prenom>HOUSSAME 9</prenom>
+            <email>moahti9@gmail.com</email>
+            <CNE>F108</CNE>
+            <anneeScolaire>2023</anneeScolaire>
+        </etudiant>
+        <etudiant group="1" numEtd="10" filier="5" annee="1">
+            <nom>MOHATI 10</nom>
+            <prenom>HOUSSAME 10</prenom>
+            <email>moahti10@gmail.com</email>
+            <CNE>F109</CNE>
+            <anneeScolaire>2023</anneeScolaire>
+        </etudiant>
+        <etudiant group="1" numEtd="11" filier="5" annee="1">
+            <nom>MOHATI 11</nom>
+            <prenom>HOUSSAME 11</prenom>
+            <email>moahti11@gmail.com</email>
+            <CNE>F110</CNE>
+            <anneeScolaire>2023</anneeScolaire>
         </etudiant>
     </etudiants><!--end etudiants--><!--start semesters-->
     <semesters>
@@ -494,17 +607,29 @@
         </semaine>
     </semaines>
     <seances>
-        <seance numSeance="1" jour="2" semaine="1" semester="1" anneeScolaire="2023" filier="3" annee="1" groupe="1" prof="5">
+        <seance numSeance="1" jour="2" semaine="1" semester="1" anneeScolaire="2023" filier="3" annee="1" groupe="1" prof="5" matier="2">
             <dateSeance>2023-01-03</dateSeance>
         </seance>
-        <seance numSeance="1" jour="2" semaine="2" semester="1" anneeScolaire="2023" filier="3" annee="1" groupe="1" prof="5">
+        <seance numSeance="1" jour="2" semaine="2" semester="1" anneeScolaire="2023" filier="3" annee="1" groupe="1" prof="5" matier="2">
             <dateSeance>2023-01-10</dateSeance>
         </seance>
-        <seance numSeance="1" jour="2" semaine="3" semester="1" anneeScolaire="2023" filier="3" annee="1" groupe="1" prof="5">
+        <seance numSeance="1" jour="2" semaine="3" semester="1" anneeScolaire="2023" filier="3" annee="1" groupe="1" prof="5" matier="2">
+            <dateSeance>2023-01-17</dateSeance>
+        </seance>
+        <seance numSeance="2" jour="2" semaine="1" semester="1" anneeScolaire="2023" filier="3" annee="1" groupe="1" prof="6" matier="2">
+            <dateSeance>2023-01-03</dateSeance>
+        </seance>
+        <seance numSeance="2" jour="2" semaine="2" semester="1" anneeScolaire="2023" filier="3" annee="1" groupe="1" prof="6" matier="2">
+            <dateSeance>2023-01-10</dateSeance>
+        </seance>
+        <seance numSeance="2" jour="2" semaine="3" semester="1" anneeScolaire="2023" filier="3" annee="1" groupe="1" prof="6" matier="2">
             <dateSeance>2023-01-17</dateSeance>
         </seance>
     </seances>
-    <absences></absences>
+    <absences>
+        <absence NumSeance="1" NumEtd="12" DateAbsence="2019" jour="2" semaine="1" semester="1" NumFilier="3" NumAnnee="1" NumGroupe="1" prof="5" matier="2" departement="1" module="1"/>
+        <absence NumSeance="1" NumEtd="13" DateAbsence="2019" jour="2" semaine="1" semester="1" NumFilier="3" NumAnnee="1" NumGroupe="1" prof="5" matier="2" departement="1" module="1"/>
+    </absences>
     <settings>
         <setting name="anneeScolaire" type="number" value="2023">
             <label> current annee scolaire</label>

@@ -16,12 +16,14 @@ if(isset($_POST['submit'])){
                 $data = [];
                 for ($x = 0; $x < count($line);$x++){
                     $data[$kys[$x]] = $line[$x];
+                    
                 }
                 $data = array_merge($data, $_POST);
                 $sucss = $db->add_etudiant($data);
                 var_dump($sucss);
             }else{
                 $kys = $line;
+                
             } 
             $i++;
         }

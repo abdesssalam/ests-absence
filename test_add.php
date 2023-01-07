@@ -2,9 +2,9 @@
 require_once 'db/config.php';
 
 
-
-$db->get_current_anneeScolaire();
-
+$data = ['filier' => '3', 'annee' => '1'];
+$code = $db->auto_increment2('codeMat','matieres','filier',$data['filier'],'annee',$data['annee']);
+var_dump($code);
 
 
 // ?>
