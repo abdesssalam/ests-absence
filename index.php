@@ -44,14 +44,14 @@ if(isset($_POST['submit'])){
      if($us){
         if(password_verify($_POST['password'],$us['password'])){
            
-            $_SESSION['ID'] = $db->getLoggedUserID($_POST['email']);
+            $_SESSION['ID'] = $us['id'];
+            $permissions = $db->get_User_Permessions($_SESSION['ID']);
+                $_SESSION['permissions'] = $permissions;
+                $_SESSION['roles'] = $db->get_num_roles_user($us['id']);
             if(password_verify('ESTS123',$us['password'])){
                 header("Location:newpass.php");
             }else{
-                $permissions = $db->get_User_Permessions($_SESSION['ID']);
-                $_SESSION['permissions'] = $permissions;
-                $_SESSION['roles'] = $db->get_num_roles_user($us['id']);
-                var_dump($_SESSION['roles']);
+                
                  if(in_array(1,$_SESSION['roles'])){
                     header("Location:dashboard/contacts.php");
                  }else if(in_array(2,$_SESSION['roles'])){

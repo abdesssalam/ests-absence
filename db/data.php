@@ -147,8 +147,8 @@ class Data{
         $user = $this->getData('users')->firstWhere('email', $email);
         return $user['id'];
     }
-    public function getLoggedUser($email){
-        $user = $this->getData('users')->firstWhere('email', $email);
+    public function getLoggedUser($ID){
+        $user = $this->getData('users')->firstWhere('id', $ID);
         return $user;
     }
 

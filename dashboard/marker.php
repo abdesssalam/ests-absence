@@ -24,8 +24,7 @@ if($time>=date('h:i',strtotime('02:30pm'))){
         $num_seance=3;
     }
 }
-$prof = 5;
-$num_seance = 1;
+$prof = $_SESSION['ID'];
 $seance = $db->get_seance($prof, $num_seance);
 $etudiants;
 $professeur;
@@ -165,4 +164,9 @@ if(isset($seance)){
         }
     })
 </script>
-<?php endif; ?>
+<?php else:
+    echo '<div class="w-1/2 cursor-pointer text-center mx-auto p-4 mb-4 text-sm text-blue-700 bg-blue-100 rounded-lg dark:bg-blue-200 dark:text-blue-800" role="alert">
+<span class="font-medium">pas de seance maintenant!! Merci :)</span> 
+</div>';
+
+endif; ?>

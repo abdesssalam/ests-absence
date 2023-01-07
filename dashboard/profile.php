@@ -2,7 +2,7 @@
 $title = 'profile';
 require_once '../includes/header.php';
 require_once '../db/config.php';
-
+// var_dump($_SESSION['roles']);
 
 if(isset($_SESSION['identifiant'])){
     $active = $db->get_users()->firstWhere('id',$_SESSION['identifiant']);
@@ -25,6 +25,7 @@ if(isset($_SESSION['identifiant'])){
 ?>
 
 <div class="w-full ">
+    
     <h1 class="text-center text-2xl font-semibold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl mt-3 mb-8"> <?php echo $xml->profilePage->title ?></h1>
     
     <div class="w-full md:w-2/3 mx-auto mt-5 bg-slate-100">
@@ -61,4 +62,4 @@ if(isset($_SESSION['identifiant'])){
 </div>
 
     
-<?php require_once '../includes/footer.php' ?>
+
