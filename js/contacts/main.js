@@ -16,22 +16,41 @@ $(document).ready(function(){
         content.load('../content/contacts/role.php',function(){
             loadRoles();
             //add new auth
+            let tables=$('.tables');
             $('#btn_add_auth').click(function(){
                 let role=$('#role').val();
                 let table=$('#table').val();
                 let action=$('#action').val();
-
-                let data={'role':role,'table':table,'action':action,'add':'submit'};
+                let tbls=get_checked_tables()
+                let data={'role':role,'tables':tbls,'action':action,'add':'submit'};
                 $.post(BASE_URL+'auth.php',data,function(data,st){
                     console.log(st);
                     
                     data=JSON.parse(data);
-                    console.log(data.message);
+                    console.log(data);
 
-                    // if(data.)
+                    if(data.message=='ok'){
+                        $('#alertS').removeClass('hidden');
+                            setTimeout(()=>{
+                                $('alertS').addClass('hidden');
+                                 $('#model').removeClass('flex');
+                            $('#model').addClass('hidden');
+                            },3000)
+                           
+                    }
                 })
 
             })
+            function get_checked_tables(){
+                let tables_names=[];
+                tables.each(function(){
+                   
+                    if($(this).is(':checked')){
+                        tables_names.push($(this).val())
+                    }
+                })
+                return tables_names;
+            }
 
         });
         

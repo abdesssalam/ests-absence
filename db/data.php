@@ -286,9 +286,16 @@ class Data{
             
         });  
         $roles=array_values($userRole->toArray());
-        // $roles=$roles[0];
        
         return $roles;
+    }
+
+    public function get_num_roles_user($id){
+        $userRoles = collect($this->getRolesByUser($id));
+        $userRoles = $userRoles->map(function ($item) {
+            return $item['NumRole'];
+        });
+        return $userRoles->toArray();
     }
 
     public function get_User_Permessions($id){

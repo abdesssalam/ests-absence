@@ -2,8 +2,8 @@
 require_once('session.php');
 require_once('../db/config.php');
 
-if(isset($_SESSION['identifiant'])){
-  $active = $db->getLoggedUser($_SESSION['identifiant']);  
+if(isset($_SESSION['ID'])){
+  $active = $db->getLoggedUser($_SESSION['ID']);  
 }
 
 $full_name = isset($active) ? $active['nom']." ".$active['prenom'] : 'first last';
@@ -46,18 +46,8 @@ $full_name = isset($active) ? $active['nom']." ".$active['prenom'] : 'first last
             
         </div>
         <ul class="w-11/12  my-1 text-white font-bold text-lg uppercase ">
-            <?php 
-            //only super admin can manage acount&roles
-            //ga3ma khdamna 3ab bsesseioin role rir katjiv les  donne dyal khona kamlin fda9a bham hak nadi.
-            // exemple super admin : login : test@gmail.com && pass :12345
-            /**
-             * @author abdessalam 
-             * andir lhad test comment bach n9ad design bla ma kola mra ndir login
-             * nsali design d les role kamlin w ghadi n7yd les cemmentaires
-             */
-           // if($active->role == "SuperAdmin"){
-            ?>
             <!-- only for super admin -->
+            <?php //if(in_array()) ?>
             <li class="flex w-11/12 bg-green-500 py-2 my-1 items-center hover:bg-green-700">
                 <i class="fas fa-user text-3xl mx-3"></i>
                 <a class="w-full" href="../dashboard/contacts.php">les comptes et les roles</a>

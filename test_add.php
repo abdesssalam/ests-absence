@@ -18,25 +18,47 @@ var_dump($code);
     <title>Document</title>
 </head>
 <body class="bg-blue-300">
-    
-    <div class="w-1/2 mx-auto mt-5">
-       <form action="" method="post" class="flex flex-col ">
-            <div class="my-2 flex ">
-                <span class="w-1/3">nom :</span> 
-                <input class="w-2/3 focus:outline-none py-1 " type="text" name="nom">
-            </div>
-           <div class="my-2 flex ">
-                <span class="w-1/3">Prenom:</span>
-                <input class="w-2/3 focus:outline-none py-1 " type="text" name="prenom">
-           </div>
-           <input type="submit" name="add" value="add">
-            <!-- <input id="btn_add_person" name="add_person" type="submit" value="add" class="bg-green-500 w-1/3 mx-auto cursor-pointer hover:bg-green-700 text-white"> -->
-        </form> 
+     <!-- This button is used to open the dialog -->
+     <button id="open" class="px-5 py-2 bg-rose-500 hover:bg-rose-700 text-white cursor-pointer rounded-md">
+        Show Dialog
+    </button>
+
+    <!-- Overlay element -->
+    <div id="overlay" class="fixed hidden z-40 w-screen h-screen inset-0 bg-gray-900 bg-opacity-60"></div>
+
+    <!-- The dialog -->
+    <div id="dialog"
+        class="hidden fixed z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 bg-white rounded-md px-8 py-6 space-y-5 drop-shadow-lg">
+        <h1 class="text-2xl font-semibold">Dialog Title</h1>
+        <div class="py-5 border-t border-b border-gray-300">
+            <p>Welcome to KindaCode.com. Hope you will find something useful. Have a nice day and happy coding</p>
+        </div>
+        <div class="flex justify-end">
+            <!-- This button is used to close the dialog -->
+            <button id="close" class="px-5 py-2 bg-indigo-500 hover:bg-indigo-700 text-white cursor-pointer rounded-md">
+                Close</button>
+        </div>
     </div>
-    
 
+    <!-- Javascript code -->
+    <script>
+        var openButton = document.getElementById('open');
+        var dialog = document.getElementById('dialog');
+        var closeButton = document.getElementById('close');
+        var overlay = document.getElementById('overlay');
 
-    <script src="js/jquery-3.6.0.min.js"></script>
-    <script src="js/index.js"></script>
+        // show the overlay and the dialog
+        openButton.addEventListener('click', function () {
+            dialog.classList.remove('hidden');
+            overlay.classList.remove('hidden');
+        });
+
+        // hide the overlay and the dialog
+        closeButton.addEventListener('click', function () {
+            dialog.classList.add('hidden');
+            overlay.classList.add('hidden');
+        });
+    </script>
+  
 </body>
 </html>

@@ -3,8 +3,17 @@
 require_once '../db/config.php';
 
 if(isset($_POST['add'])){
-    if($db->add_authorization($_POST)){
+    $i = 0;
+    do {
+        $data = $_POST;
+        $data['table'] = $_POST['tables'][$i];
+        $added = $db->add_authorization($data);
+        $i++;
+    } while ($i < count($_POST['tables']) && $added);
+    if($added==true){
         echo json_encode(['message'=>'ok']);
+    }else{
+        echo json_encode(['message'=>'non']);
     }
    
 }

@@ -5,7 +5,7 @@
             <nom>AIT OMAR</nom>
             <prenom>ABDESLAM</prenom>
             <email>admin@ests.ma</email>
-            <password>$2y$10$xkBZLGbyQP1LRjIDWtl3F.gXF2LfX/d66qX7pn/p7wHTMzJ21PV4u</password>
+            <password>$2y$10$fi605MXMTjhOPYqzlxhIL.51Xz.5dC4wMe/CZGDmsuxmdyhz8iF62</password>
         </user>
         <user id="2">
             <nom>nom 1</nom>
@@ -137,9 +137,48 @@
             <action>update</action>
             <table>absences</table>
         </permission>
-    </permissions><!-- end permissions -->
+        <permission code="13">
+            <action>update</action>
+            <table>groups</table>
+        </permission>
+        <permission code="14">
+            <action>update</action>
+            <table>etudiants</table>
+        </permission>
+        <permission code="15">
+            <action>update</action>
+            <table>seances</table>
+        </permission>
+        <permission code="16">
+            <action>select</action>
+            <table>modules</table>
+        </permission>
+        <permission code="17">
+            <action>select</action>
+            <table>groups</table>
+        </permission>
+        <permission code="18">
+            <action>select</action>
+            <table>etudiants</table>
+        </permission>
+        <permission code="19">
+            <action>select</action>
+            <table>semesters</table>
+        </permission>
+        <permission code="20">
+            <action>select</action>
+            <table>semaines</table>
+        </permission>
+        <permission code="21">
+            <action>select</action>
+            <table>seances</table>
+        </permission>
+        <permission code="22">
+            <action>select</action>
+            <table>absences</table>
+        </permission>
+    <permission code="23"><action>update</action><table>settings</table></permission><permission code="24"><action>select</action><table>settings</table></permission></permissions><!-- end permissions -->
     <authorizations>
-        <authorization CodePermission="1" NumRole="1"/>
         <authorization CodePermission="2" NumRole="1"/>
         <authorization CodePermission="6" NumRole="1"/>
         <authorization CodePermission="7" NumRole="1"/>
@@ -149,7 +188,22 @@
         <authorization CodePermission="10" NumRole="3"/>
         <authorization CodePermission="11" NumRole="3"/>
         <authorization CodePermission="12" NumRole="5"/>
-    </authorizations><!-- end auth -->
+        <authorization CodePermission="1" NumRole="1"/>
+        <authorization CodePermission="13" NumRole="2"/>
+        <authorization CodePermission="14" NumRole="2"/>
+        <authorization CodePermission="15" NumRole="2"/>
+        <authorization CodePermission="12" NumRole="2"/>
+        <authorization CodePermission="11" NumRole="2"/>
+        <authorization CodePermission="9" NumRole="2"/>
+        <authorization CodePermission="16" NumRole="2"/>
+        <authorization CodePermission="8" NumRole="2"/>
+        <authorization CodePermission="17" NumRole="2"/>
+        <authorization CodePermission="18" NumRole="2"/>
+        <authorization CodePermission="19" NumRole="2"/>
+        <authorization CodePermission="20" NumRole="2"/>
+        <authorization CodePermission="21" NumRole="2"/>
+        <authorization CodePermission="22" NumRole="2"/>
+    <authorization CodePermission="24" NumRole="1"/></authorizations><!-- end auth -->
     <RoleUsers>
         <RoleUser NumRole="1" id="1"/>
         <RoleUser NumRole="2" id="2"/>

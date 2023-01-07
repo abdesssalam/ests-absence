@@ -43,14 +43,48 @@ if(isset($_POST['submit'])){
      $us=$db->get_users()->firstWhere('email',$_POST['email']);
      if($us){
         if(password_verify($_POST['password'],$us['password'])){
-            $_SESSION['identifiant'] = $db->getLoggedUserID($_POST['email']);
+           
+            $_SESSION['ID'] = $db->getLoggedUserID($_POST['email']);
             if(password_verify('ESTS123',$us['password'])){
                 header("Location:newpass.php");
             }else{
-                header("Location:dashboard/index.php");
+                $permissions = $db->get_User_Permessions($_SESSION['ID']);
+                $_SESSION['permissions'] = $permissions;
+                $_SESSION['roles'] = $db->get_num_roles_user($us['id']);
+                var_dump($_SESSION['roles']);
+                 if(in_array(1,$_SESSION['roles'])){
+                    header("Location:dashboard/contacts.php");
+                 }else if(in_array(2,$_SESSION['roles'])){
+                    // agent de scolarite
+                    header("Location:dashboard/absences.php");
+                 }else if(in_array(3,$_SESSION['roles'])){
+                    // chef departement=>get dep
+                    $dep = $db->getData('departements')->firstWhere('chef', $us['id']);
+                    if($dep){
+                        $_SESSION['dep'] = $dep['NumDept'];
+                         header("Location:dashboard/filiers.php");
+                    }else{
+                         header("Location:dashboard/marker.php");
+                    }
+                }else if(in_array(4,$_SESSION['roles'])){
+                    // chef filier=>filier
+                    $fil = $db->getData('filiers')->firstWhere('responsable', $us['id']);
+                    if($fil){
+                        $_SESSION['filier'] = $dep['codeFil'];
+                         header("Location:dashboard/absences.php");
+                    }else{
+                         header("Location:dashboard/marker.php");
+                    }
+
+                }else if(in_array(5,$_SESSION['roles'])){
+                        // professeur
+                     header("Location:dashboard/marker.php");
+                }
+                 
+                
             }
         }
-     }else{
+        }else{
             $err = 1;
         }
 
