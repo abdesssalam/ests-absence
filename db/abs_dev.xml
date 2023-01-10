@@ -177,7 +177,15 @@
             <action>select</action>
             <table>absences</table>
         </permission>
-    <permission code="23"><action>update</action><table>settings</table></permission><permission code="24"><action>select</action><table>settings</table></permission></permissions><!-- end permissions -->
+        <permission code="23">
+            <action>update</action>
+            <table>settings</table>
+        </permission>
+        <permission code="24">
+            <action>select</action>
+            <table>settings</table>
+        </permission>
+    </permissions><!-- end permissions -->
     <authorizations>
         <authorization CodePermission="2" NumRole="1"/>
         <authorization CodePermission="6" NumRole="1"/>
@@ -203,10 +211,10 @@
         <authorization CodePermission="20" NumRole="2"/>
         <authorization CodePermission="21" NumRole="2"/>
         <authorization CodePermission="22" NumRole="2"/>
-    <authorization CodePermission="24" NumRole="1"/></authorizations><!-- end auth -->
+        <authorization CodePermission="24" NumRole="1"/>
+    </authorizations><!-- end auth -->
     <RoleUsers>
         <RoleUser NumRole="1" id="1"/>
-        <RoleUser NumRole="2" id="2"/>
         <RoleUser NumRole="2" id="3"/>
         <RoleUser NumRole="3" id="4"/>
         <RoleUser NumRole="5" id="4"/>
@@ -223,6 +231,7 @@
         <RoleUser NumRole="5" id="10"/>
         <RoleUser NumRole="4" id="10"/>
         <RoleUser NumRole="5" id="10"/>
+        <RoleUser NumRole="2" id="2"/>
     </RoleUsers><!--start departement-->
     <departements>
         <departement NumDept="1" chef="2">

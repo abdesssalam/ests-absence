@@ -14,4 +14,24 @@ if(isset($_POST['add_abs'])){
     echo json_encode(['message'=> $added ? 'ok' : 'non']);
     exit;
 }
+
+if(isset($_GET['departement'])){
+
+    $data = $db->getData('absences')
+            ->where('departement', $_GET['departement']);
+
+    $data = $data->map(function ($item) use ($db) {
+        $etd = $db->getData('etudiants')
+            ->where('filier',$item['NumFilier'])
+            ->where('annee',$item['NumAnnee'])
+            ->where('group',$item['NumGroupe'])
+            ->firstWhere('numEtd',$item['NumEtd']);
+        $item['nomEtd'] = $etd['nom'];
+        $item['prenomEtd'] = $etd['prenom'];
+        return $item;
+    });
+    $data = array_values($data->toArray());
+    echo json_encode($data);        
+}
+
 ?>

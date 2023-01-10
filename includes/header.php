@@ -5,10 +5,11 @@ require_once('../db/config.php');
 $active;
 if(isset($_SESSION['ID'])){
   $active = $db->getLoggedUser($_SESSION['ID']);  
-}else{
-    header('location:../index.php');
 }
-
+// else{
+//     header('location:../index.php');
+// }
+$_SESSION['roles'] = [1, 2, 3, 4, 5];
 $full_name = isset($active) ? $active['nom']." ".$active['prenom'] : 'first last';
 
 ?>
@@ -23,14 +24,23 @@ $full_name = isset($active) ? $active['nom']." ".$active['prenom'] : 'first last
     <!-- <link rel="stylesheet" href="../css/dashboard.css"> -->
     <link rel="stylesheet" href="../css/output.css">
     <!-- <link rel="stylesheet" href="../css/header.css"> -->
-    <title><?php echo $title ?></title>
+    <title><?php echo isset($title) ? $title : 'dashboard' ?></title>
     <style>
-        input:focus{
+        input:focus,select:focus{
             outline: none;
         }
     </style>
     <script src="../js/jquery-3.6.0.min.js"></script>
-    <script> const BASE_URL="<?php echo "http://localhost/ests-absence/api/" ?>"; </script>
+    <script> 
+    const BASE_URL="<?php echo "http://localhost/ests-absence/api/" ?>";
+        $(document).ready(function(){
+            load_lang('fr')
+            function load_lang(lang){
+                console.log(lang)
+            }
+        }) 
+    </script>
+   
 </head>
 <body class="md:flex bg-gray-100 ">
 
@@ -39,17 +49,23 @@ $full_name = isset($active) ? $active['nom']." ".$active['prenom'] : 'first last
         <i id="menu" class="fas fa-bars cursor-pointer "></i>
     </div>
     
-    <nav class="bg-blue-500 py-2 md:fixed flex flex-col items-center cursor-pointer h-screen w-screen   md:w-3/12 md:h-screen">
-        <div class="bg-blue-900 w-11/12 rounded-md h-1/6 my-2 text-center text-white uppercase py-2 md:block sm:flex-none  ">
-            <a  href="../dashboard/profile.php">
+    <nav class="bg-blue-500 py-1 md:fixed flex flex-col items-center cursor-pointer h-screen w-screen   md:w-3/12 md:h-screen">
+        <div class="bg-blue-900 py-2  w-11/12 rounded-md h-1/6 my-2 text-center text-white uppercase md:block sm:flex-none  ">
+            <a  href="../dashboard/profile.php" class="h-1/2">
                 <div class="flex items-center mx-auto text-center justify-center w-10/12 border border-gray-100 py-1 rounded-md hover:text-gray-400 ">
                     <i class="fas fa-user text-3xl mx-2"></i>
                     <span><?php echo $full_name; ?> </span>
                 </div>
             </a>
-            
+            <div class="flex items-center  mx-auto text-center h-1/2 justify-center w-10/12  py-3 rounded-md hover:text-gray-400">
+            <label for="countries" class="w-1/3 cursor-pointer block text-sm font-medium text-gray-50 dark:text-white">Languge :</label>
+                <select id="countries" class="w-2/3 bg-gray-50 cursor-pointer border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <option value="FR">Francais</option>
+                    <option value="EN">Anglais</option>
+                </select>
+            </div>
         </div>
-        <ul class="w-11/12  h-3/5 my-1 text-white font-bold text-lg uppercase ">
+        <ul class="w-11/12   my-1 text-white font-bold text-lg uppercase ">
             <!-- only for super admin -->
             <?php if(in_array(1,$_SESSION['roles'])): ?>
                 <li class="flex w-11/12 bg-green-500 py-2 my-1 items-center hover:bg-green-700">
@@ -127,3 +143,4 @@ $full_name = isset($active) ? $active['nom']." ".$active['prenom'] : 'first last
       <div class="w-9/12 text-center cursor-pointer bg-green-500 mx-auto my-2 py-4 rounded-md shadow-md hover:bg-green-700">
         <h3 class="text-lg uppercase font-semibold text-white"><?php echo $title ?></h3>
       </div>
+

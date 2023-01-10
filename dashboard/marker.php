@@ -24,12 +24,15 @@ if($time>=date('h:i',strtotime('02:30pm'))){
         $num_seance=3;
     }
 }
-$prof = $_SESSION['ID'];
+if(isset($_SESSION['ID'])){
+    $prof = $_SESSION['ID'];
 $seance = $db->get_seance($prof, $num_seance);
 $etudiants;
 $professeur;
 $filier;
 $matier;
+}
+    
 
 if(isset($seance)){
     $etudiants = $db->getData('etudiants')

@@ -36,3 +36,11 @@ require_once '../includes/header.php' ?>
         </div>
     </div>
 </div>
+
+
+
+<!-- 
+http://localhost/ests-absence/api/home.php?filiers=1
+http://localhost/ests-absence/api/home.php?modules&filier=3&annee=1
+http://localhost/ests-absence/api/home.php?matiers&filier=3&annee=1
+ -->
