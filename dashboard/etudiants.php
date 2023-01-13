@@ -45,8 +45,8 @@ if(isset($_POST['submit'])){
         <?php endforeach;?>
     </ul>
     <!-- display after GET Method -->
-   <form action="" method="post" enctype="multipart/form-data">
-    <div class="w-full mt-5 mx-auto  bg-green-300 py-3 px-2 rounded shadow  flex flex-wrap justify-between items-center">
+   <form  action="" method="post" enctype="multipart/form-data">
+    <div id="box" class="hidden w-full mt-5 mx-auto  bg-green-300 py-3 px-2 rounded shadow   flex-wrap justify-between items-center">
         <div class="md:w-1/2 w-full px-1 my-1 flex justify-between items-center " >
             <label  class="block  md:w-1/3 w-full  text-sm font-medium text-gray-900 dark:text-white">filiers</label>
             <select disabled name="filier" id="filier"  class="md:w-2/3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">

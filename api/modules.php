@@ -71,6 +71,17 @@ require_once '../db/config.php';
         $data = $db->getData('matieres')
             ->where('filier', $_GET['filier'])
             ->where('annee', $_GET['annee']);
+        $data = $data->map(function ($item) use ($db) {
+            $fil = $db->getData('filiers')->firstWhere('codeFil', $item['filier']);
+            $item['intituleFil'] = $fil['intituleFil'];
+
+            $module = $db->getData('modules')
+            ->where('filier',$item['filier'])
+            ->where('annee',$item['annee'])
+            ->firstWhere('codeMod', $item['codeMod']);
+            $item['module'] = $module['nomModule'];
+            return $item;
+        });   
         $data = array_values($data->toArray());
             
         echo json_encode($data);   

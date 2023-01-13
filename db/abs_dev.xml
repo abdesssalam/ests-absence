@@ -691,6 +691,15 @@
         <seance numSeance="2" jour="2" semaine="3" semester="1" anneeScolaire="2023" filier="3" annee="1" groupe="1" prof="6" matier="2">
             <dateSeance>2023-01-17</dateSeance>
         </seance>
+        <seance numSeance="2" jour="2" semaine="1" semester="1" anneeScolaire="2023" filier="3" annee="1" groupe="2" prof="5" matier="3">
+            <dateSeance>2023-01-03</dateSeance>
+        </seance>
+        <seance numSeance="2" jour="2" semaine="2" semester="1" anneeScolaire="2023" filier="3" annee="1" groupe="2" prof="5" matier="3">
+            <dateSeance>2023-01-10</dateSeance>
+        </seance>
+        <seance numSeance="2" jour="2" semaine="3" semester="1" anneeScolaire="2023" filier="3" annee="1" groupe="2" prof="5" matier="3">
+            <dateSeance>2023-01-17</dateSeance>
+        </seance>
     </seances>
     <absences>
         <absence NumSeance="1" NumEtd="6" DateAbsence="2023-01-03" jour="2" semaine="1" semester="1" NumFilier="3" NumAnnee="1" NumGroupe="1" prof="5" matier="2" departement="1" module="1"/>

@@ -13,10 +13,16 @@ $(document).ready(function(){
     let seance=$('#seance');
     let departments=$('.dep');
     
+    let box=document.querySelector('#box');
+
     let filiersData=[];
     //load filiers
     departments.each(function(){
         $(this).click(function(){
+            if(box.classList.contains('hidden')){
+                box.classList.remove('hidden');
+                box.classList.add('flex');
+           }
             departments.removeClass('bg-blue-400');
             departments.addClass('bg-green-400');
             $(this).removeClass('bg-green-400');

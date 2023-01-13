@@ -11,12 +11,20 @@ $(document).ready(function(){
     let jour=$('#jour');
     let seance=$('#seance');
     let departments=$('.dep');
-    
+    let box=document.querySelector('#box');
     let filiersData=[];
-    let groupsData=[];
+    let groupsData=[]; 
+    
+    
     //load filiers et groups
     departments.each(function(){
         $(this).click(function(){
+            // console.log(box.classList.);
+            if(box.classList.contains('hidden')){
+                 box.classList.remove('hidden');
+                 box.classList.add('flex');
+            }
+           
             departments.removeClass('bg-blue-400');
             departments.addClass('bg-green-400');
             $(this).removeClass('bg-green-400');

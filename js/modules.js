@@ -104,6 +104,7 @@ $(document).ready(function(){
                     showTableMatiers(filier.val(), yr)
                 }
                 
+                
             })
 
         //load table
@@ -207,7 +208,36 @@ $(document).ready(function(){
                             console.log('pop up no module');
                         }
                             
-                })})
+                })
+                //load table
+                table.empty();
+                 url=`${BASE_URL}modules.php?matiers&filier=${filier.val()}&annee=${numAnnee.val()}`;
+                $.get(url,function(fl){
+                    fl=JSON.parse(fl);
+                    if(typeof fl.message==='undefined'){
+                    fl.forEach((fil)=>{
+                      var content=`
+                        <tr class="bg-white border-b ">
+                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
+                                ${fil.codeMat}
+                            </th>
+                            <td class="py-4 px-6">
+                                 ${fil.nomMatier}
+                            </td>
+                            <td class="py-4 px-6">
+                                 ${fil.module}
+                            </td>
+                            <td class="py-4 px-6">
+                                ${fil.intituleFil}
+                            </td>
+                            <td class="py-4 px-6">
+                                ${fil.annee}
+                            </td>
+                        </tr>
+                    `; 
+                    
+                    table.append(content);})} })
+            })
             //add new matier
                 btn_add_matier.click(function(){
                     if(NomMatier.val()==''){

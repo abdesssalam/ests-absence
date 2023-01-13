@@ -1,32 +1,95 @@
 <?php 
 $title = 'gestion des absences';
-require_once '../includes/header.php' ?>
+require_once '../includes/header.php';
+
+$_SESSION['roles']=[5];
+$_SESSION['ID']=5;
+// case chef dep
+$user;
+if(in_array(5,$_SESSION['roles'])){
+    $user = $db->getData('professeurs')->firstWhere('id',$_SESSION['ID']);
+}
+$modules;
+$filiersALL;
+$filiers;
+$matiers;
+if(isset($user) && $user['etat']==1){
+    $seances = $db->getData('seances')
+        ->where('prof', $_SESSION['ID']);
+    $filters = $seances->map(function ($item) {
+
+        return [
+            'filier'=>$item['filier'],
+            'annee'=>$item['annee'],
+            'matier'=>$item['matier']];
+    })->unique();
+
+    $matiers = $filters->map(function ($item) use ($db) {
+
+        return $db->getData('matieres')
+            ->where('filier', $item['filier'])
+            ->where('annee', $item['annee'])
+            ->firstWhere('codeMat', $item['matier']);
+          
+    });
+    $modules = $matiers->map(function ($item) {
+        return [
+            'filier' => $item['filier'],
+            'annee' => $item['annee'],
+            'module' => $item['codeMod']
+        ];
+    })->unique();
+    $modules = $modules->map(function ($item) use($db) {
+        return $db->getData('modules')
+        ->where('filier', $item['filier'])
+        ->where('annee', $item['annee'])
+        ->firstWhere('codeMod', $item['module']);
+    });
+
+    $filiersALL = $filters->map(function ($item) use ($db) {
+        $filier = $db->getData('filiers')
+            ->firstWhere('codeFil', $item['filier']);
+        return ['codeFil'=>$filier['codeFil'],'intituleFil' => $filier['intituleFil']];
+    });
+
+    $filiers = $filiersALL->unique();
+
+    foreach($modules as $mod){
+       var_dump($mod);
+    }
+}
+
+?>
 
 <div class="w-full mt-5">
     <div class="w-11/12 mx-auto  bg-green-300 py-3 px-2 rounded shadow flex flex-wrap justify-start items-center">
         <div class="w-full md:w-2/6  my-2  flex justify-between items-center" >
             <label  class="block w-1/3 text-sm font-medium text-gray-900 dark:text-white">departement</label>
-            <select id="departement" class="w-2/3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            <select <?php echo  min($_SESSION['roles'])>2 ? 'disabled' : '';?> id="departement" class="w-2/3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 <option selected>choiser departement</option>
-                <?php foreach($db->getData('departements') as $dep){
-                    echo '<option value="'.$dep['NumDept'].'">'.$dep['intituleDep'].'</option>';
-                } ?>     
+                <?php foreach ($db->getData('departements') as $dep):
+                    if (isset($user)):?>
+                         <option <?php echo $user['etat']==1 &&  $user['departement']==$dep['NumDept'] ? 'selected':'' ?> value="<?php echo $dep['NumDept']?>"><?php echo $dep['intituleDep']?></option>';
+                   <?php else:?>
+                    <option value="<?php echo $dep['NumDept']?>"><?php echo $dep['intituleDep']?></option>';
+                <?php endif; endforeach; ?>     
             </select>
         </div>
         
         <div class="w-full md:w-2/6 px-2 my-2   flex justify-between items-center" >
             <label  class="block  w-1/5 text-sm font-medium text-gray-900 dark:text-white">filier</label>
-            <select disabled  id="filiers" class="w-4/5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            <select <?php echo   max($_SESSION['roles'])<5 ? 'disabled' : '';?>  id="filiers" class="w-4/5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 <option selected>choiser filier</option>
-                <option value="GI">GI</option>
-                <option value="GIM">GIM</option>
-                <option value="TM">TM</option>
-                <option value="TIMQ">TIMQ</option>
+                <?php if(isset($filiers)){
+                    foreach($filiers as $fil){
+                        echo '<option value="'.$fil['codeFil'].'">'.$fil['intituleFil'].'</option>';
+                    }
+                } ?>
             </select>
         </div>
         <div class="w-full md:w-2/6 px-2 my-2   flex justify-between items-center" >
             <label  class="block w-1/5 text-sm font-medium text-gray-900 dark:text-white">Année</label>
-            <select disabled id="annee" class="w-4/5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            <select <?php echo   max($_SESSION['roles'])<5 ? 'disabled' : '';?> id="annee" class="w-4/5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 <option selected>choiser l'année</option>
                 <option value="1">1er</option>
                 <option value="2">2eme</option>
@@ -35,15 +98,20 @@ require_once '../includes/header.php' ?>
         </div>
         
         <div class="w-full md:w-2/6 px-2 my-2   flex justify-between items-center" >
-            <label  class="block w-1/5 text-sm font-medium text-gray-900 dark:text-white">Matier :</label>
-            <select disabled id="modules" class=" w-4/5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"> 
-            <option selected>choiser la matier</option>
+            <label  class="block w-1/5 text-sm font-medium text-gray-900 dark:text-white">module :</label>
+            <select <?php echo  max($_SESSION['roles'])<5 ? 'disabled' : '';?> id="modules" class=" w-4/5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"> 
+            <option selected>choiser le module</option>
+            <?php if(isset($modules)){
+                foreach($modules as $mod){
+                    echo '<option value="'.$mod['codeMod'].'">'.$mod['nomModule'].'</option>';
+                }
+            } ?>
             </select>
         </div>
         
         <div class="w-full md:w-2/6 px-2 my-2   flex justify-between items-center" >
             <label  class="block w-1/5 text-sm font-medium text-gray-900 dark:text-white">Matier :</label>
-            <select disabled id="matiers" class=" w-4/5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"> 
+            <select  <?php echo  max($_SESSION['roles'])<5 ? 'disabled' : '';?> id="matiers" class=" w-4/5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"> 
             <option selected>choiser la matier</option>
             </select>
         </div>
@@ -91,13 +159,15 @@ http://localhost/ests-absence/api/home.php?matiers&filier=3&annee=1
         const btn_afficher=$('#btn_afficher');
 
         let absencesData=[];
-        let filiersData=[];
-        let matiersData=[];
+        let filierServer=<?php echo isset($filiersALL) ? $filiersALL->toJson() : '' ?>;
+        let filiersData=filierServer!='' ? Object.values(filierServer):[];
+        
+        let matierServer=<?php echo isset($matiers) ? $matiers->toJson() : '' ?>;
+        let matiersData=matierServer!='' ? Object.values(matierServer):[];
         let clicked='';
-        departement.click(function(){
-            if(!isNaN(departement.val())){
-                clicked='departement';
-                $.get(
+
+        function loadFiliers(){
+            $.get(
                     BASE_URL+'home.php?filiers='+departement.val(),
                     function(res){
                         res=JSON.parse(res);
@@ -123,16 +193,33 @@ http://localhost/ests-absence/api/home.php?matiers&filier=3&annee=1
                         absencesData=res;
                     }
                 )
+        }
+
+        function loadModules(){
+            
+        }
+
+        // if(!isNaN(departement.val())){
+        //     loadFiliers();
+        // }
+        
+        departement.click(function(){
+            if(!isNaN(departement.val())){
+                clicked='departement';
+                loadFiliers()
             }
            
         })
 
         filier.click(function(){
             clicked='filier';
+            
             const t=filiersData.filter((it)=>it.codeFil==filier.val());
+            console.log(filier.val());
             annee.empty();
             annee.attr('disabled',false);
             for(i=1;i<=t.length;i++){
+                console
                 annee.append(`<option value="${i}">${i}</option>`)
             }
             
