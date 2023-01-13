@@ -675,7 +675,12 @@ class Data{
 
     public function get_seance($prof,$num_seance)
     {
+        //To-Test
         $date = '2023-01-03';
+        //exatt
+        /*
+        $date=date("Y-m-d");
+        */
         return $this->getData('seances')
             ->where('dateSeance', $date)
             ->where('prof', $prof)

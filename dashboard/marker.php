@@ -5,7 +5,7 @@ require_once '../includes/header.php';
 
 
 
-$date = '2023-01-03';
+// $date = '2023-01-03';
 $time = date("h:i");
 $num_seance;
 
@@ -26,13 +26,22 @@ if($time>=date('h:i',strtotime('02:30pm'))){
 }
 if(isset($_SESSION['ID'])){
     $prof = $_SESSION['ID'];
-$seance = $db->get_seance($prof, $num_seance);
-$etudiants;
-$professeur;
-$filier;
-$matier;
+    $seance = $db->get_seance($prof, $num_seance);
+    $etudiants;
+    $professeur;
+    $filier;
+    $matier;
 }
-    
+//start
+   $prof = 5;
+   $num_seance = 1;
+   $seance = $db->get_seance($prof, $num_seance);
+  
+   $etudiants;
+   $professeur;
+   $filier;
+   $matier;
+    //end   
 
 if(isset($seance)){
     $etudiants = $db->getData('etudiants')
@@ -111,7 +120,6 @@ if(isset($seance)){
     </table>
     <input id="btn_add_abs" class="block text-white w-1/4 mx-auto bg-green-500 py-2 px-3 font-semibold my-2 cursor-pointer rounded-md uppercase hover:text-gray-600" type="submit" value="sauvgarder">
 </div>
-
 <script>
     $(document).ready(function(){
         let checkbox_abs=$('.checkbox-abs');
@@ -119,23 +127,27 @@ if(isset($seance)){
         
         btn_add_abs.click(()=>{
             let NUMBERS=getCheckedAbsence();
+            let seance =<?php echo json_encode($seance) ?>;
+            // ss=JSON.parse(ss);
+            // console.log(seance);
+          
             let data={
-                'NumSeance':<?php echo $seance['numSeance'] ?>,
-                'jour':<?php echo $seance['jour'] ?>,
-                'semaine':<?php echo $seance['semaine'] ?>,
-                'semester':<?php echo $seance['semester'] ?>,
+                'NumSeance':seance.numSeance,
+                'jour':seance.jour,
+                'semaine':seance.semaine,
+                'semester':seance.semester,
                 'NumsEtds':NUMBERS,
-                'NumFilier':<?php echo $seance['filier'] ?>,
-                'NumAnnee':<?php echo $seance['annee'] ?>,
-                'NumGroupe':<?php echo $seance['groupe'] ?>,
-                'DateAbsence':<?php echo $seance['dateSeance'] ?>,
-                'prof':<?php echo $seance['prof'] ?>,
-                'matier':<?php echo $seance['matier'] ?>,
-                'departement':<?php echo $filier['codeDep'] ?>,
-                'module':<?php echo $matier['codeMod'] ?>,
+                'NumFilier':seance.filier,
+                'NumAnnee':seance.annee,
+                'NumGroupe':seance.groupe,
+                'DateAbsence':seance.dateSeance,
+                'prof':seance.prof,
+                'matier':seance.matier,
+                'departement':<?php echo $filier['codeDep']?>,
+                'module':<?php echo $matier['codeMod']?>,
                 'add_abs':'submit'
             }
-
+          
            $.ajax({
             url:`${BASE_URL}absence.php`,
             type:'post',

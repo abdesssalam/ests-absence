@@ -28,6 +28,11 @@ if(isset($_GET['departement'])){
             ->firstWhere('numEtd',$item['NumEtd']);
         $item['nomEtd'] = $etd['nom'];
         $item['prenomEtd'] = $etd['prenom'];
+        $mat = $db->getData('matieres')
+            ->where('filier', $item['NumFilier'])
+            ->where('annee', $item['NumAnnee'])
+            ->firstWhere('codeMat',$item['matier']);
+        $item['nomMatier'] = $mat['nomMatier'];    
         return $item;
     });
     $data = array_values($data->toArray());

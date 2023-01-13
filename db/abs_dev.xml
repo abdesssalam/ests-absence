@@ -347,6 +347,9 @@
         <matiere codeMat="4" codeMod="2" filier="3" annee="1">
             <nomMatier>algorithme 1</nomMatier>
         </matiere>
+        <matiere codeMat="5" codeMod="3" filier="3" annee="1">
+            <nomMatier>circuits logique </nomMatier>
+        </matiere>
     </matieres><!--end matieres--><!-- start annee scolaire -->
     <anneeScolaires>
         <anneeScolaire>2023</anneeScolaire>
@@ -690,8 +693,9 @@
         </seance>
     </seances>
     <absences>
-        <absence NumSeance="1" NumEtd="12" DateAbsence="2019" jour="2" semaine="1" semester="1" NumFilier="3" NumAnnee="1" NumGroupe="1" prof="5" matier="2" departement="1" module="1"/>
-        <absence NumSeance="1" NumEtd="13" DateAbsence="2019" jour="2" semaine="1" semester="1" NumFilier="3" NumAnnee="1" NumGroupe="1" prof="5" matier="2" departement="1" module="1"/>
+        <absence NumSeance="1" NumEtd="6" DateAbsence="2023-01-03" jour="2" semaine="1" semester="1" NumFilier="3" NumAnnee="1" NumGroupe="1" prof="5" matier="2" departement="1" module="1"/>
+        <absence NumSeance="1" NumEtd="10" DateAbsence="2023-01-03" jour="2" semaine="1" semester="1" NumFilier="3" NumAnnee="1" NumGroupe="1" prof="5" matier="2" departement="1" module="1"/>
+        <absence NumSeance="1" NumEtd="11" DateAbsence="2023-01-03" jour="2" semaine="1" semester="1" NumFilier="3" NumAnnee="1" NumGroupe="1" prof="5" matier="2" departement="1" module="1"/>
     </absences>
     <settings>
         <setting name="anneeScolaire" type="number" value="2023">

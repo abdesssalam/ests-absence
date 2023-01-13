@@ -75,7 +75,7 @@ $(document).ready(function(){
         for(i=1;i<=grps.length;i++){
             group.append(`<option value="${i}">${i}</option>`)
         }
-        console.log(annee.val())
+       
         //load matiers
         $.get(`${BASE_URL}modules.php?matiers&filier=${filier.val()}&annee=${annee.val()}`,function(mats){
             mats=JSON.parse(mats);
