@@ -5,11 +5,10 @@ require_once('../db/config.php');
 $active;
 if(isset($_SESSION['ID'])){
   $active = $db->getLoggedUser($_SESSION['ID']);  
+}else{
+    echo 'sss';
+    header('location:../index.php');
 }
-// else{
-//     header('location:../index.php');
-// }
-$_SESSION['roles'] = [1, 2, 3, 4, 5];
 $full_name = isset($active) ? $active['nom']." ".$active['prenom'] : 'first last';
 
 ?>

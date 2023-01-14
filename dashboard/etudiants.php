@@ -1,7 +1,7 @@
 <?php 
 $title = 'gestion des etudiants';
 require_once '../includes/header.php';
-
+$sucss = false;
 if(isset($_POST['submit'])){
     if (isset($_FILES['etudiants']) && is_uploaded_file($_FILES['etudiants']['tmp_name'])) {
     // Open the file
@@ -10,7 +10,7 @@ if(isset($_POST['submit'])){
     // Loop through each line of the file
         $i = 0;
         $kys = [];
-        $sucss = true;
+        
         while (($line = fgetcsv($file)) !== FALSE) {
             if($i>0){
                 $data = [];
@@ -20,7 +20,6 @@ if(isset($_POST['submit'])){
                 }
                 $data = array_merge($data, $_POST);
                 $sucss = $db->add_etudiant($data);
-                var_dump($sucss);
             }else{
                 $kys = $line;
                 
@@ -44,6 +43,16 @@ if(isset($_POST['submit'])){
         <li id="<?php echo $dep['NumDept']?>"  class="dep bg-green-400  cursor-pointer text-lg text-gray-700 font-semibold py-1 hover:bg-blue-400 hover:text-white border-r border-r-white w-full md:mx-1 md:my-0 my-1  md:w-1/2 text-center" "><?php echo $dep['intituleDep']?> </li>
         <?php endforeach;?>
     </ul>
+    <?php if($sucss): ?>
+    <div id="alertS" class="flex p-4 w-1/2 mx-auto text-center my-5 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800" role="alert">
+        <span class="font-medium">les étudiants bien ajouté</span> 
+    </div>
+    <script>
+        setTimeout(() => {
+            window.location.reload()
+        }, 1500);
+    </script>
+    <?php endif; ?>
     <!-- display after GET Method -->
    <form  action="" method="post" enctype="multipart/form-data">
     <div id="box" class="hidden w-full mt-5 mx-auto  bg-green-300 py-3 px-2 rounded shadow   flex-wrap justify-between items-center">

@@ -32,16 +32,7 @@ if(isset($_SESSION['ID'])){
     $filier;
     $matier;
 }
-//start
-   $prof = 5;
-   $num_seance = 1;
-   $seance = $db->get_seance($prof, $num_seance);
-  
-   $etudiants;
-   $professeur;
-   $filier;
-   $matier;
-    //end   
+ 
 
 if(isset($seance)){
     $etudiants = $db->getData('etudiants')

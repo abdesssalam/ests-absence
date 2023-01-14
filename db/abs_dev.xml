@@ -23,7 +23,7 @@
             <nom>nom 3</nom>
             <prenom>prenom 3</prenom>
             <email>user1@ests.ma</email>
-            <password>$2y$10$Tyi9lGIObmRXXEe19mWHkuWhyEAp7VRetkPz513P24ZOKJu5CYy8q</password>
+            <password>$2y$10$gudJNRSxuz74xAkwXRYK.uHDJ/yVW4Lu/Oz97mCi/wOYji5.3Bi8m</password>
         </user>
         <user id="5">
             <nom>nom 4</nom>
@@ -358,6 +358,8 @@
         <group codeGrp="1" filier="3" annee="1"/>
         <group codeGrp="2" filier="3" annee="1"/>
         <group codeGrp="1" annee="1" filier="5"/>
+        <group codeGrp="1" annee="2" filier="3"/>
+        <group codeGrp="2" annee="2" filier="3"/>
     </groups><!--end groups--><!--start etudiants-->
     <etudiants>
         <etudiant group="1" numEtd="1" filier="3" annee="1">
@@ -617,6 +619,167 @@
             <prenom>HOUSSAME 11</prenom>
             <email>moahti11@gmail.com</email>
             <CNE>F110</CNE>
+            <anneeScolaire>2023</anneeScolaire>
+        </etudiant>
+        <etudiant group="1" numEtd="1" filier="3" annee="2">
+            <nom>SALMI 1</nom>
+            <prenom>KARIM 1</prenom>
+            <email>saalmi1@gmail.com</email>
+            <CNE>R800</CNE>
+            <anneeScolaire>2023</anneeScolaire>
+        </etudiant>
+        <etudiant group="1" numEtd="2" filier="3" annee="2">
+            <nom>SALMI 2</nom>
+            <prenom>KARIM 2</prenom>
+            <email>saalmi2@gmail.com</email>
+            <CNE>R801</CNE>
+            <anneeScolaire>2023</anneeScolaire>
+        </etudiant>
+        <etudiant group="1" numEtd="3" filier="3" annee="2">
+            <nom>SALMI 3</nom>
+            <prenom>KARIM 3</prenom>
+            <email>saalmi3@gmail.com</email>
+            <CNE>R802</CNE>
+            <anneeScolaire>2023</anneeScolaire>
+        </etudiant>
+        <etudiant group="1" numEtd="4" filier="3" annee="2">
+            <nom>SALMI 4</nom>
+            <prenom>KARIM 4</prenom>
+            <email>saalmi4@gmail.com</email>
+            <CNE>R803</CNE>
+            <anneeScolaire>2023</anneeScolaire>
+        </etudiant>
+        <etudiant group="1" numEtd="5" filier="3" annee="2">
+            <nom>SALMI 5</nom>
+            <prenom>KARIM 5</prenom>
+            <email>saalmi5@gmail.com</email>
+            <CNE>R804</CNE>
+            <anneeScolaire>2023</anneeScolaire>
+        </etudiant>
+        <etudiant group="1" numEtd="6" filier="3" annee="2">
+            <nom>SALMI 6</nom>
+            <prenom>KARIM 6</prenom>
+            <email>saalmi6@gmail.com</email>
+            <CNE>R805</CNE>
+            <anneeScolaire>2023</anneeScolaire>
+        </etudiant>
+        <etudiant group="1" numEtd="7" filier="3" annee="2">
+            <nom>SALMI 7</nom>
+            <prenom>KARIM 7</prenom>
+            <email>saalmi7@gmail.com</email>
+            <CNE>R806</CNE>
+            <anneeScolaire>2023</anneeScolaire>
+        </etudiant>
+        <etudiant group="1" numEtd="8" filier="3" annee="2">
+            <nom>SALMI 8</nom>
+            <prenom>KARIM 8</prenom>
+            <email>saalmi8@gmail.com</email>
+            <CNE>R807</CNE>
+            <anneeScolaire>2023</anneeScolaire>
+        </etudiant>
+        <etudiant group="1" numEtd="9" filier="3" annee="2">
+            <nom>SALMI 9</nom>
+            <prenom>KARIM 9</prenom>
+            <email>saalmi9@gmail.com</email>
+            <CNE>R808</CNE>
+            <anneeScolaire>2023</anneeScolaire>
+        </etudiant>
+        <etudiant group="1" numEtd="10" filier="3" annee="2">
+            <nom>SALMI 10</nom>
+            <prenom>KARIM 10</prenom>
+            <email>saalmi10@gmail.com</email>
+            <CNE>R809</CNE>
+            <anneeScolaire>2023</anneeScolaire>
+        </etudiant>
+        <etudiant group="1" numEtd="11" filier="3" annee="2">
+            <nom>SALMI 11</nom>
+            <prenom>KARIM 11</prenom>
+            <email>saalmi11@gmail.com</email>
+            <CNE>R810</CNE>
+            <anneeScolaire>2023</anneeScolaire>
+        </etudiant>
+        <etudiant group="2" numEtd="1" filier="3" annee="2">
+            <nom>MOUDNI 1</nom>
+            <prenom>WAFAE 1</prenom>
+            <email>moudni1@gmail.com</email>
+            <CNE>T500</CNE>
+            <anneeScolaire>2023</anneeScolaire>
+        </etudiant>
+        <etudiant group="2" numEtd="2" filier="3" annee="2">
+            <nom>MOUDNI 2</nom>
+            <prenom>WAFAE 2</prenom>
+            <email>moudni2@gmail.com</email>
+            <CNE>T501</CNE>
+            <anneeScolaire>2023</anneeScolaire>
+        </etudiant>
+        <etudiant group="2" numEtd="3" filier="3" annee="2">
+            <nom>MOUDNI 3</nom>
+            <prenom>WAFAE 3</prenom>
+            <email>moudni3@gmail.com</email>
+            <CNE>T502</CNE>
+            <anneeScolaire>2023</anneeScolaire>
+        </etudiant>
+        <etudiant group="2" numEtd="4" filier="3" annee="2">
+            <nom>MOUDNI 4</nom>
+            <prenom>WAFAE 4</prenom>
+            <email>moudni4@gmail.com</email>
+            <CNE>T503</CNE>
+            <anneeScolaire>2023</anneeScolaire>
+        </etudiant>
+        <etudiant group="2" numEtd="5" filier="3" annee="2">
+            <nom>MOUDNI 5</nom>
+            <prenom>WAFAE 5</prenom>
+            <email>moudni5@gmail.com</email>
+            <CNE>T504</CNE>
+            <anneeScolaire>2023</anneeScolaire>
+        </etudiant>
+        <etudiant group="2" numEtd="6" filier="3" annee="2">
+            <nom>MOUDNI 6</nom>
+            <prenom>WAFAE 6</prenom>
+            <email>moudni6@gmail.com</email>
+            <CNE>T505</CNE>
+            <anneeScolaire>2023</anneeScolaire>
+        </etudiant>
+        <etudiant group="2" numEtd="7" filier="3" annee="2">
+            <nom>MOUDNI 7</nom>
+            <prenom>WAFAE 7</prenom>
+            <email>moudni7@gmail.com</email>
+            <CNE>T506</CNE>
+            <anneeScolaire>2023</anneeScolaire>
+        </etudiant>
+        <etudiant group="2" numEtd="8" filier="3" annee="2">
+            <nom>MOUDNI 8</nom>
+            <prenom>WAFAE 8</prenom>
+            <email>moudni8@gmail.com</email>
+            <CNE>T507</CNE>
+            <anneeScolaire>2023</anneeScolaire>
+        </etudiant>
+        <etudiant group="2" numEtd="9" filier="3" annee="2">
+            <nom>MOUDNI 9</nom>
+            <prenom>WAFAE 9</prenom>
+            <email>moudni9@gmail.com</email>
+            <CNE>T508</CNE>
+            <anneeScolaire>2023</anneeScolaire>
+        </etudiant>
+        <etudiant group="2" numEtd="10" filier="3" annee="2">
+            <nom>MOUDNI 10</nom>
+            <prenom>WAFAE 10</prenom>
+            <email>moudni10@gmail.com</email>
+            <CNE>T509</CNE>
+            <anneeScolaire>2023</anneeScolaire>
+        </etudiant>
+        <etudiant group="2" numEtd="11" filier="3" annee="2">
+            <nom>MOUDNI 11</nom>
+            <prenom>WAFAE 11</prenom>
+            <email>moudni11@gmail.com</email>
+            <CNE>T510</CNE>
+            <anneeScolaire>2023</anneeScolaire>
+        </etudiant>
+        <etudiant group="2" numEtd="12" filier="3" annee="2">
+            <nom>MOUDNI 12</nom>
+            <prenom>WAFAE 12</prenom>
+            <email>moudni12@gmail.com</email>
+            <CNE>T511</CNE>
             <anneeScolaire>2023</anneeScolaire>
         </etudiant>
     </etudiants><!--end etudiants--><!--start semesters-->

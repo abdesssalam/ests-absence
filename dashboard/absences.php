@@ -2,61 +2,53 @@
 $title = 'gestion des absences';
 require_once '../includes/header.php';
 
-$_SESSION['roles']=[5];
-$_SESSION['ID']=5;
+
 // case chef dep
-$user;
+$prof;
 if(in_array(5,$_SESSION['roles'])){
-    $user = $db->getData('professeurs')->firstWhere('id',$_SESSION['ID']);
+    $prof = $db->getData('professeurs')->firstWhere('id',$_SESSION['ID']);
 }
 $modules;
 $filiersALL;
 $filiers;
 $matiers;
-if(isset($user) && $user['etat']==1){
+if(isset($prof)){
     $seances = $db->getData('seances')
         ->where('prof', $_SESSION['ID']);
     $filters = $seances->map(function ($item) {
-
+        
         return [
             'filier'=>$item['filier'],
             'annee'=>$item['annee'],
-            'matier'=>$item['matier']];
+            'matier'=>$item['matier'],
+            'group'=>$item['groupe'] 
+        ];
     })->unique();
 
     $matiers = $filters->map(function ($item) use ($db) {
-
-        return $db->getData('matieres')
+        $data= $db->getData('matieres')
             ->where('filier', $item['filier'])
             ->where('annee', $item['annee'])
             ->firstWhere('codeMat', $item['matier']);
-          
+        $data['group'] = $item['group'];
+        return $data; 
     });
-    $modules = $matiers->map(function ($item) {
-        return [
-            'filier' => $item['filier'],
-            'annee' => $item['annee'],
-            'module' => $item['codeMod']
-        ];
-    })->unique();
-    $modules = $modules->map(function ($item) use($db) {
-        return $db->getData('modules')
-        ->where('filier', $item['filier'])
-        ->where('annee', $item['annee'])
-        ->firstWhere('codeMod', $item['module']);
-    });
+    
+   
 
     $filiersALL = $filters->map(function ($item) use ($db) {
         $filier = $db->getData('filiers')
             ->firstWhere('codeFil', $item['filier']);
-        return ['codeFil'=>$filier['codeFil'],'intituleFil' => $filier['intituleFil']];
+        $item['intituleFil'] = $filier['intituleFil'];
+        return $item;  
+        // return $filier;
+        // return ['codeFil'=>$filier['codeFil'],'intituleFil' => $filier['intituleFil']];
     });
+    $filiersALL = array_values($filiersALL->toArray());
+    $filiers = collect($filiersALL)->unique(['filier']);
 
-    $filiers = $filiersALL->unique();
-
-    foreach($modules as $mod){
-       var_dump($mod);
-    }
+  
+    
 }
 
 ?>
@@ -82,7 +74,7 @@ if(isset($user) && $user['etat']==1){
                 <option selected>choiser filier</option>
                 <?php if(isset($filiers)){
                     foreach($filiers as $fil){
-                        echo '<option value="'.$fil['codeFil'].'">'.$fil['intituleFil'].'</option>';
+                        echo '<option value="'.$fil['filier'].'">'.$fil['intituleFil'].'</option>';
                     }
                 } ?>
             </select>
@@ -98,14 +90,16 @@ if(isset($user) && $user['etat']==1){
         </div>
         
         <div class="w-full md:w-2/6 px-2 my-2   flex justify-between items-center" >
-            <label  class="block w-1/5 text-sm font-medium text-gray-900 dark:text-white">module :</label>
-            <select <?php echo  max($_SESSION['roles'])<5 ? 'disabled' : '';?> id="modules" class=" w-4/5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"> 
+            <label  class="block w-1/5 text-sm font-medium text-gray-900 dark:text-white">groupes :</label>
+            <select <?php echo  max($_SESSION['roles'])<5 ? 'disabled' : '';?> id="groupes" class=" w-4/5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"> 
             <option selected>choiser le module</option>
-            <?php if(isset($modules)){
-                foreach($modules as $mod){
-                    echo '<option value="'.$mod['codeMod'].'">'.$mod['nomModule'].'</option>';
-                }
-            } ?>
+            <?php
+            //  if(isset($modules)){
+            //     foreach($modules as $mod){
+            //         echo '<option value="'.$mod['codeMod'].'">'.$mod['nomModule'].'</option>';
+            //     }
+            // }
+             ?>
             </select>
         </div>
         
@@ -136,7 +130,7 @@ if(isset($user) && $user['etat']==1){
             
         </thead>
         <tbody>
-            
+                  
         </tbody>
     </table>
 </div>
@@ -152,17 +146,25 @@ http://localhost/ests-absence/api/home.php?matiers&filier=3&annee=1
         const departement=$('#departement');
         const filier=$('#filiers');
         const annee=$('#annee');
-        const modules=$('#modules');
+        const groupes=$('#groupes');
         const matier=$('#matiers');
        
         const table=$('#table tbody');
         const btn_afficher=$('#btn_afficher');
 
         let absencesData=[];
-        let filierServer=<?php echo isset($filiersALL) ? $filiersALL->toJson() : '' ?>;
+       
+        let filierServer= '';
+        <?php if(isset($filiersALL)): ?>
+          filierServer= <?php echo  collect($filiersALL)->toJson()  ?>;
+         
+        <?php endif;?>  
         let filiersData=filierServer!='' ? Object.values(filierServer):[];
-        
-        let matierServer=<?php echo isset($matiers) ? $matiers->toJson() : '' ?>;
+        let matierServer='';
+        <?php if( isset($matiers)): ?>
+            matierServer=<?php echo  $matiers->toJson() ?>;
+           
+        <?php endif;?>
         let matiersData=matierServer!='' ? Object.values(matierServer):[];
         let clicked='';
 
@@ -176,32 +178,20 @@ http://localhost/ests-absence/api/home.php?matiers&filier=3&annee=1
                            
                             filier.empty();
                             filiersData=res;
-                            const key='codeFil';
+                            const key='filier';
                             const unique=[...new Map(res.map(it=>[it[key],it])).values()]
-                            console.log(unique);
                             unique.forEach((fil)=>{
-                                filier.append(`<option value="${fil.codeFil}">${fil.intituleFil}</option>`);
+                                filier.append(`<option value="${fil.filier}">${fil.intituleFil}</option>`);
                             })
                         }
                        
                     }
                 );
-                $.get(
-                    BASE_URL+'absence.php?departement='+departement.val(),
-                    function(res){
-                        res=JSON.parse(res);
-                        absencesData=res;
-                    }
-                )
+               
         }
 
-        function loadModules(){
-            
-        }
+       
 
-        // if(!isNaN(departement.val())){
-        //     loadFiliers();
-        // }
         
         departement.click(function(){
             if(!isNaN(departement.val())){
@@ -210,53 +200,102 @@ http://localhost/ests-absence/api/home.php?matiers&filier=3&annee=1
             }
            
         })
+        if(departement.attr('disabled')){
+            <?php if(min($_SESSION['roles'])>=5):?>
+                let x='';
+                x=<?php echo $_SESSION['ID'];?>;
+                url='prof='+x;
+            <?php else:?>
+            url='departement='+departement.val()
+            <?php endif;?>
+            $.get(
+                    BASE_URL+'absence.php?'+url,
+                    function(res){
+                        res=JSON.parse(res);
+                        absencesData=res;
+                        
+                    }
+            )
+        }
 
         filier.click(function(){
             clicked='filier';
             
-            const t=filiersData.filter((it)=>it.codeFil==filier.val());
-            console.log(filier.val());
+            const filiersAnnee=filiersData.filter((it)=>it.filier==filier.val());
+           
+            const key='annee';
+            const unique=[...new Map(filiersAnnee.map(it=>[it[key],it])).values()]
+            
             annee.empty();
             annee.attr('disabled',false);
-            for(i=1;i<=t.length;i++){
-                console
-                annee.append(`<option value="${i}">${i}</option>`)
-            }
+            unique.forEach((fa)=>{
+                annee.append(`<option value="${fa.annee}">${fa.annee}</option>`)
+            })
+           
             
         })
 
         annee.click(function(){
-            $.get(
-                `${BASE_URL}home.php?modules&filier=${filier.val()}&annee=${annee.val()}`,
-                function(mods){
-                    mods=JSON.parse(mods);
-                    if(mods.length>0){
-                       modules.empty();
-                       modules.attr('disabled',false);
-                        mods.forEach((mod)=>{
-                            modules.append(`<option value="${mod.codeMod}">${mod.nomModule}</option>`)
-                        }) 
-                    }
-                    
+            groupes.empty();
+            groupes.attr('disabled',false);
+            let groupesData=filiersData.filter((it)=>{
+                if(it.filier==filier.val()&&it.annee==annee.val()){
+                    return it;
+                }
             })
+           
+            const key='group';
+            const grps=[...new Map(groupesData.map(it=>[it[key],it])).values()]
+            grps.forEach((grp)=>{
+                groupes.append(`<option value="${grp.group}">${grp.group}</option>`)
+            })
+            matier.empty();
+            matier.attr('disabled',false);
+            /**
+             * matiers depend on who is concted
+             * if not prof we have to load it from API
+             * if prof it's loaded here
+             */
+            <?php if( min($_SESSION['roles'])<5): ?>
             $.get(
                 `${BASE_URL}home.php?matiers&filier=${filier.val()}&annee=${annee.val()}`,
                 function(res){
                     res=JSON.parse(res);
-                    matiersData=res;
+                    res.forEach((mat)=>{
+                         matier.append(`<option value="${mat.codeMat}">${mat.nomMatier}</option>`)
+                    })
                 }
+                  
             )
+           
+            <?php  else: ?>
+               matiersData.forEach((mat)=>{
+                         matier.append(`<option value="${mat.codeMat}">${mat.nomMatier}</option>`)
+                })
+            <?php endif; ?>
+            
+           
             clicked='annee'
         })
 
-        modules.click(function(){
-            matier.empty();
-            matier.attr('disabled',false);
-            let mod_matiers=matiersData.filter((it)=>it.codeMod==modules.val());
-            mod_matiers.forEach((mat)=>{
-                matier.append(`<option value="${mat.codeMat}">${mat.nomMatier}</option>`)
+        groupes.click(function(){
+            <?php if( min($_SESSION['roles'])>=5): ?>
+                matier.empty()
+            const matierFiltred=matiersData.filter((it)=>{
+                if(
+                    it.filier==filier.val() &&
+                    it.annee==annee.val() &&
+                    it.group==groupes.val() 
+                    
+                    ){
+                        return it;
+                    }
             })
-            clicked='modules'
+            matierFiltred.forEach((mat)=>{
+                         matier.append(`<option value="${mat.codeMat}">${mat.nomMatier}</option>`)
+                })
+            <?php endif; ?>    
+            clicked='groupes'
         })
 
         matier.click(function(){
@@ -266,10 +305,9 @@ http://localhost/ests-absence/api/home.php?matiers&filier=3&annee=1
         btn_afficher.click(function(){
             table.empty();
             let data=[];
+            let url;
             switch(clicked){
-                case 'departement':
-                    data=absencesData
-                    break;
+               
                 case 'filier':
                     data=absencesData.filter(it=>it.NumFilier==filier.val())
                     break;
@@ -280,12 +318,12 @@ http://localhost/ests-absence/api/home.php?matiers&filier=3&annee=1
                             it.NumAnnee==annee.val()
                         )
                     break;
-                case 'modules':
+                case 'groupes':
                     data=absencesData.filter(
                         it=>
                             it.NumFilier==filier.val() && 
                             it.NumAnnee==annee.val() &&
-                            it.module==modules.val() 
+                            it.NumGroupe==groupes.val() 
                         )
                     break;
                 case 'matier':
@@ -296,7 +334,11 @@ http://localhost/ests-absence/api/home.php?matiers&filier=3&annee=1
                             it.matier==matier.val() 
                         )
                     break;
+                default:
+                    data=absencesData
+                    break;   
             }
+           
             if(data.length>0){
             
                data.forEach(abs=>{
@@ -310,9 +352,19 @@ http://localhost/ests-absence/api/home.php?matiers&filier=3&annee=1
                 
                })
                 
+            }else{
+               
+                let content=` <tr class="border-b  odd:bg-white even:bg-gray-200">
+                    <td class="text-center text-lg py-4 font-bold" colspan="3"> no absence </td>
+                </tr> 
+                `
+                table.append(content);
             }
         })
         
         
     })
+
+
+ 
 </script>
