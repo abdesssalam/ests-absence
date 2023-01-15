@@ -16,12 +16,12 @@ require_once '../includes/header.php' ?>
     <!-- display after GET Method -->
     <div id="box" class="hidden w-full mt-5 mx-auto  bg-green-300 py-3 px-2 rounded shadow   flex-wrap justify-start items-center">
         <div class="md:w-1/3 w-full px-1 my-1 flex justify-between items-center " >
-            <label  class="block  md:w-1/3 w-full  text-sm font-medium text-gray-900 dark:text-white">filiers</label>
+            <label  class="block  md:w-1/3 w-full  text-sm font-medium text-gray-900 dark:text-white"><span id="label-filiers"></span></label>
             <select disabled id="filier" class="md:w-2/3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
             </select>
         </div>
         <div class="md:w-1/3 w-full px-1 my-1  flex justify-between items-center" >
-            <label  class="block md:w-1/3 w-full text-sm font-medium text-gray-900 dark:text-white">Année</label>
+            <label  class="block md:w-1/3 w-full text-sm font-medium text-gray-900 dark:text-white"><span id="label-annee"></span></label>
             <select disabled id="annee" class="md:w-2/3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 <!-- <option selected>choiser l'année</option>
                 <option value="1">1er</option>
@@ -30,7 +30,7 @@ require_once '../includes/header.php' ?>
             </select>
         </div>
         <div class="md:w-1/3 w-full px-1 my-1  flex justify-between items-center" >
-            <label  class="block  md:w-1/3 w-full  text-sm font-medium text-gray-900 dark:text-white">semestre</label>
+            <label  class="block  md:w-1/3 w-full  text-sm font-medium text-gray-900 dark:text-white"><span id="label-semestre"></span></label>
             <select id="semester" class="md:w-2/3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 <option selected>choiser semestre</option>
                 <option value="1">1</option>
@@ -38,36 +38,36 @@ require_once '../includes/header.php' ?>
             </select>
         </div>
         <div class="md:w-1/3 w-full px-1 my-1  flex justify-between items-center" >
-            <label  class="block  md:w-1/3 w-full  text-sm font-medium text-gray-900 dark:text-white">groupe</label>
+            <label  class="block  md:w-1/3 w-full  text-sm font-medium text-gray-900 dark:text-white"><span id="label-groupe"></span></label>
             <select disabled id="group" class="md:w-2/3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 
             </select>
         </div>
         
         <div class="md:w-1/3 w-full px-1 my-1  flex justify-between items-center" >
-            <label  class="block  md:w-1/3 w-full  text-sm font-medium text-gray-900 dark:text-white">matier</label>
+            <label  class="block  md:w-1/3 w-full  text-sm font-medium text-gray-900 dark:text-white"><span id="label-matiere"></span></label>
             <select disabled id="matier" class="md:w-2/3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 
             </select>
         </div>
         
         <div class="md:w-1/3 w-full px-1 my-1  flex justify-between items-center" >
-            <label  class="block  md:w-1/3 w-full  text-sm font-medium text-gray-900 dark:text-white">professeur</label>
+            <label  class="block  md:w-1/3 w-full  text-sm font-medium text-gray-900 dark:text-white"><span id="label-professeur"></span></label>
             <select id="professeur" class="md:w-2/3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 
             </select>
         </div>
         
         <div class="md:w-1/3 w-full px-1 my-1  flex justify-between items-center" >
-            <label  class="block  md:w-1/3 w-full  text-sm font-medium text-gray-900 ">semaine debut </label>
+            <label  class="block  md:w-1/3 w-full  text-sm font-medium text-gray-900 "><span id="text-startingWeek"></span></label>
             <input id="debut" class=" p-2.5 md:p-2 rounded-md md:w-2/3 w-full " type="number" >
         </div>
         <div class="md:w-1/3 w-full px-1 my-1  flex justify-between items-center" >
-            <label  class="block  md:w-1/3 w-full  text-sm font-medium text-gray-900 ">semaine fin </label>
+            <label  class="block  md:w-1/3 w-full  text-sm font-medium text-gray-900 "><span id="text-endingWeek"></span></label>
             <input id="fin" class=" p-2.5 md:p-2 rounded-md md:w-2/3 w-full " type="number" >
         </div>
         <div class="md:w-1/3 w-full px-1 my-1  flex justify-between items-center" >
-            <label  class="block  md:w-1/3 w-full  text-sm font-medium text-gray-900 dark:text-white">jour</label>
+            <label  class="block  md:w-1/3 w-full  text-sm font-medium text-gray-900 dark:text-white"><span id="label-day"></span></label>
             <select id="jour"  class="md:w-2/3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 <option selected>choiser jour</option>
                 <option value="1">lundi</option>
@@ -78,7 +78,7 @@ require_once '../includes/header.php' ?>
             </select>
         </div>
         <div class="md:w-1/3 w-full px-1 my-1  flex justify-between items-center" >
-            <label  class="block  md:w-1/3 w-full  text-sm font-medium text-gray-900 dark:text-white">seance</label>
+            <label  class="block  md:w-1/3 w-full  text-sm font-medium text-gray-900 dark:text-white"><span id="label-class"></span></label>
             <select id="seance" class="md:w-2/3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 <option selected>choiser seance</option>
                 <option value="1">08:30 - 10:30</option>
