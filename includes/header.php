@@ -5,10 +5,10 @@ require_once('../db/config.php');
 $active;
 if(isset($_SESSION['ID'])){
   $active = $db->getLoggedUser($_SESSION['ID']);  
-}else{
-    echo 'sss';
-    header('location:../index.php');
 }
+// else{
+//     header('location:../index.php');
+// }
 $full_name = isset($active) ? $active['nom']." ".$active['prenom'] : 'first last';
 
 ?>
@@ -32,17 +32,36 @@ $full_name = isset($active) ? $active['nom']." ".$active['prenom'] : 'first last
     <script src="../js/jquery-3.6.0.min.js"></script>
     <script> 
     const BASE_URL="<?php echo "http://localhost/ests-absence/api/" ?>";
-        $(document).ready(function(){
-            load_lang('fr')
-            function load_lang(lang){
-                console.log(lang)
-            }
+    $(document).ready(function(){
+            $.ajax({
+                type: "GET",
+                url: "http://localhost/ests-absence/db/translations.xml",
+                dataType: "xml",
+                success: function(xml) {
+                    var currentLanguageCode = 'fr';
+                    $(xml).find('language').each(function(){
+                        if($(this).attr('code') == currentLanguageCode){
+                            $(this).find('string').each(function(){
+                                var id = $(this).attr('id');
+                                var text = $(this).text();
+                                var htmlElt=$("#"+id);
+                                if($("#"+id).length){
+                                   
+                                    $("span#"+id).text(text)
+                                }
+                            });
+                        }
+                    });
+                }
+            });
+
         }) 
+        
     </script>
    
 </head>
 <body class="md:flex bg-gray-100 ">
-
+    <span id="welcome"></span>    
     <div class="md:hidden bg-blue-500 text-center text-3xl  w-full">
     
         <i id="menu" class="fas fa-bars cursor-pointer "></i>
@@ -63,6 +82,7 @@ $full_name = isset($active) ? $active['nom']." ".$active['prenom'] : 'first last
                     <option value="EN">Anglais</option>
                 </select>
             </div>
+           
         </div>
         <ul class="w-11/12   my-1 text-white font-bold text-lg uppercase ">
             <!-- only for super admin -->

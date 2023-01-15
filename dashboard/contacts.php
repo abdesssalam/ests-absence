@@ -8,6 +8,7 @@ require_once '../includes/header.php' ?>
         <li id="contact-role" class="cursor-pointer text-lg text-gray-700 font-semibold py-1 hover:bg-blue-400 hover:text-white border-r border-r-white  w-full md:w-1/2 text-center">les roles et permessions</li>
 
     </ul>
+    <span id="welcome">e</span>
     <div id="content">
 
     </div>
@@ -15,4 +16,7 @@ require_once '../includes/header.php' ?>
 
 
 <!-- <script src="../js/jquery-3.6.0.min.js"></script> -->
+
 <script src="../js/contacts/main.js"></script>
+
+<?php require_once '../includes/footer.php' ?> 

@@ -41,7 +41,7 @@ use Illuminate\Support\Collection;
            * current table (*)
            */
     
-    public function jointure(array | Columns $target,string $origine,string $foregin){
+    public function jointure( $target,string $origine,string $foregin){
         
         $target=new Columns($target);
        

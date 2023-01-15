@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<translations>
+    <language code="fr">
+        <string id="welcome">Bienvenue</string>
+        <string id="title-profile-page">les information personnel :</string>
+        <string id="label-lastName">Nom </string>
+        <string id="label-firstName">Prenom </string>
+        <string id="label-email">Email address </string>
+        <string id="label-currentPass">Mot de pass actuel </string>
+        <string id="label-newPass">Nouveau mot de pass </string>
+        <string id="label-confNewPass">confirmez le Nouveau mot de pass :</string>
+        <string id="label-modules">les modules</string>
+        <string id="label-matiers">les matiers</string>
+        <string id="label-professeur">Professeur </string>
+        <string id="label-filier">Filiér</string>
+        <string id="label-annee">année</string>
+        <string id="label-groupe">groupe</string>
+        <string id="label-module">Module</string>
+        <string id="label-numero">Numéro</string>
+        <string id="label-absences">absences</string>
+     
+    </language>
+    <language code="en">
+        <string id="welcome">Welcome</string>
+        <string id="about">About Us</string>
+    </language>
+    
+</translations>
