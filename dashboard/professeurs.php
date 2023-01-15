@@ -32,16 +32,16 @@ $data = $data->map(function ($prof) use ($users) {
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="py-3 px-6">
-                    ID
+                    <span id="label-id"></span>
                 </th>
                 <th scope="col" class="py-3 px-6">
-                    Nom 
+                    <span id="label-lastName"></span>
                 </th>
                 <th scope="col" class="py-3 px-6">
-                     Prenom
+                    <span id="label-firstName"></span>
                 </th>
                 <th scope="col" class="py-3 px-6">
-                    
+
                 </th>
                 
                 

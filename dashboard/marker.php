@@ -52,16 +52,16 @@ if(isset($seance)){
 
 <?php if(isset($seance)): ?>
 <div class="w-11/12 mx-auto bg-blue-500 flex flex-wrap justify-start rounded-md shadow-md cursor-pointer " >
-    <h3 class="text-xl font-semibold uppercase px-2 text-gray-800 w-full md:w-1/2 ">Profisseur : <span class="text-gray-100"><?php echo isset($seance) ? $professeur['nom'].' '.$professeur['prenom'] : '' ?></span>  </h3>
-    <h3 class="text-xl font-semibold uppercase px-2 text-gray-800 w-full md:w-1/2 ">Filier : <span class="text-gray-100"><?php echo isset($seance) ? $filier['intituleFil'] : '' ?></span>  </h3>
-    <h3 class="text-xl font-semibold uppercase px-2 text-gray-800 w-full md:w-1/4 ">annee : <span class="text-gray-100"><?php echo isset($seance) ? $seance['annee'] : '' ?></span>  </h3>
-    <h3 class="text-xl font-semibold uppercase px-2 text-gray-800 w-full md:w-1/4 ">groupe : <span class="text-gray-100"><?php echo isset($seance) ? $seance['groupe'] : '' ?></span>  </h3>
-    <h3 class="text-xl font-semibold uppercase px-2 text-gray-800 w-full md:w-2/4 ">matiere : <span class="text-gray-100"> <?php echo isset($seance) ? $matier['nomMatier'] : '' ?> </span>  </h3>
+    <h3 class="text-xl font-semibold uppercase px-2 text-gray-800 w-full md:w-1/2 "><span id="label-professeur"></span><span class="text-gray-100"><?php echo isset($seance) ? $professeur['nom'].' '.$professeur['prenom'] : '' ?></span>  </h3>
+    <h3 class="text-xl font-semibold uppercase px-2 text-gray-800 w-full md:w-1/2 "><span id="label-filier"></span><span class="text-gray-100"><?php echo isset($seance) ? $filier['intituleFil'] : '' ?></span>  </h3>
+    <h3 class="text-xl font-semibold uppercase px-2 text-gray-800 w-full md:w-1/4 "><span id="label-annee"></span><span class="text-gray-100"><?php echo isset($seance) ? $seance['annee'] : '' ?></span>  </h3>
+    <h3 class="text-xl font-semibold uppercase px-2 text-gray-800 w-full md:w-1/4 "><span id="label-groupe"></span><span class="text-gray-100"><?php echo isset($seance) ? $seance['groupe'] : '' ?></span>  </h3>
+    <h3 class="text-xl font-semibold uppercase px-2 text-gray-800 w-full md:w-2/4 "><span id="label-matiere"></span><span class="text-gray-100"> <?php echo isset($seance) ? $matier['nomMatier'] : '' ?> </span>  </h3>
 </div>
 
 <!-- list des etudiants -->
 <div id="alertS" class="hidden p-4 w-1/2 mx-auto text-center my-5 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800" role="alert">
-  <span class="font-medium">les absences bien ajouté</span> 
+  <span class="font-medium"><span id="msg-absenceAdded"></span></span> 
 </div>
 
 <div class="overflow-x-auto relative mt-5">
@@ -69,16 +69,16 @@ if(isset($seance)){
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="py-3 px-6">
-                    Numero
+                    <span id="label-numero"></span>
                 </th>
                 <th scope="col" class="py-3 px-6">
-                    Nom 
+                     <span id="label-lastName"></span>
                 </th>
                 <th scope="col" class="py-3 px-6">
-                     Prenom
+                     <span id="label-firstName"></span>
                 </th>
                 <th scope="col" class="py-3 px-6">
-                    absences
+                    <span id="label-absences"></span>
                 </th>
                 
             </tr>

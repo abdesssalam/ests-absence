@@ -54,15 +54,15 @@ if(isset($_POST['modifier'])){
 <div class="w-full  py-1 px-2">
     
     <div class="bg-green-200 rounded-sm shadow-md transition-all ease-in-out w-10/12 mx-auto my-5 py-1 px-2 flex flex-col ">
-        <span class="justify-self-center self-center text-lg font-medium capitalize">mise a jour filiers </span>
+        <span class="justify-self-center self-center text-lg font-medium capitalize"><span id="text-updatebranches"></span></span>
         <form method="post" action="" id="form" class=" w-10/12 mx-auto my-5 py-1 px-2">
             <div class="my-2 flex content-around focus:outline-none">
-                <label class="font-medium text-lg capitalize  w-1/3" for="">labele:</label>
+                <label class="font-medium text-lg capitalize  w-1/3" for=""><span id="label-lab"></span></label>
                 <input name="intituleFil" value="<?php echo isset($fil) ? $fil['intituleFil'] : ''; ?>" class="p-1 rounded-sm w-2/3" type="text" placeholder="lebele de filier" id="fil_label">
             </div>
 
     <div class="my-2 flex content-around focus:outline-none">
-            <label class="font-medium text-lg capitalize  w-1/3" for="">departement :</label>
+            <label class="font-medium text-lg capitalize  w-1/3" for=""><span id="label-departement"></span></label>
              <select id="user_role" name="codeDep" class="w-2/3 bg-white border border-white text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  p-2.5 ">
                 <!--  dynamique list all departement -->
                 <?php foreach($db->getData('departements') as $dep){
@@ -74,7 +74,7 @@ if(isset($_POST['modifier'])){
             </select>
     </div>
     <div class="my-2 flex content-around focus:outline-none">
-            <label class="font-medium text-lg capitalize  w-1/3" for="">responsable filier :</label>
+            <label class="font-medium text-lg capitalize  w-1/3" for=""><span id="label-responsable-long"></span></label>
              <select id="user_role" name="responsable" class="w-2/3 bg-white border border-white text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  p-2.5 ">
                 <!--  dynamique list all chef filier -->
                 <?php foreach($db->getUsersByRole(4) as $chef){
@@ -89,7 +89,7 @@ if(isset($_POST['modifier'])){
             </select>
     </div>
     <div class="my-2 flex content-around focus:outline-none" >
-            <label  class="font-medium text-lg   w-1/3">nombre des années</label>
+            <label  class="font-medium text-lg   w-1/3"><span id="text-nbAnnee"></span></label>
             <ul class="items-center w-2/3 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                 <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
                     <div class="flex items-center pl-3">
@@ -116,13 +116,13 @@ if(isset($_POST['modifier'])){
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="py-3 px-6">
-                    Labele de filier
+                    <span id="label-filier-long"></span>
                 </th>
                 <th scope="col" class="py-3 px-6">
-                    departement
+                    <span id="label-departement"></span>
                 </th>
                 <th scope="col" class="py-3 px-6">
-                    responsable
+                    <span id="label-responsable"></span>
                 </th>
                 <th scope="col" class="py-3 px-6">
                     
@@ -142,7 +142,7 @@ if(isset($_POST['modifier'])){
                 <?php echo $fl['nom'].' '.$fl['nom']; ?>
                 </td>
                 <td class="py-4 px-6">
-                <a class="text-blue-600 w-full" href="?edit=<?php echo $fl['codeFil'];  ?>">modifier</a>
+                <a class="text-blue-600 w-full" href="?edit=<?php echo $fl['codeFil'];  ?>"><span id="action-update"></span></a>
                 </td>
             </tr>
            <?php endforeach;?>

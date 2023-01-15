@@ -15,14 +15,74 @@
         <string id="label-filier">Filiér</string>
         <string id="label-annee">année</string>
         <string id="label-groupe">groupe</string>
+        <string id="label-matiere">matiere</string>
         <string id="label-module">Module</string>
         <string id="label-numero">Numéro</string>
         <string id="label-absences">absences</string>
-     
+        <string id="label-semestre">semestre</string>
+        <string id="label-departement">departement</string>
+        <string id="label-responsable">responsable</string>
+        <string id="label-filier-long">Labele de filiér</string>
+        <string id="label-responsable-long">responsable filier :</string>
+        <string id="label-lab">labele:</string>
+        <string id="label-filiers">Filiérs</string>
+
+        <string id="label-day">jour</string>
+        <string id="label-class">seance</string>
+        <string id="label-accouts">les comptes</string>
+        <string id="label-rolesANDpermissions">les roles et permessions</string>
+        <string id="label-id">ID</string>
+
+        <string id="msg-absenceAdded">les absences bien ajouté</string>
+        <string id="msg-studentAdded">les étudiants bien ajouté</string>
+        <string id="action-update">modifier</string>
+        <string id="text-nbAnnee">nombre des années</string>
+        <span id="text-updatebranches">mise a jour filiers </span>
+        <span id="text-studentList">la list des etudiants </span>
+        <span id="text-startingWeek">semaine debut </span>
+        <span id="text-endingWeek">semaine fin </span>
     </language>
     <language code="en">
         <string id="welcome">Welcome</string>
-        <string id="about">About Us</string>
+        <string id="title-profile-page">personal informations :</string>
+        <string id="label-lastName">last name </string>
+        <string id="label-firstName">first name </string>
+        <string id="label-email">Email address </string>
+        <string id="label-currentPass">current password </string>
+        <string id="label-newPass">new password </string>
+        <string id="label-confNewPass">confirm new password :</string>
+        <string id="label-modules">modules</string>
+        <string id="label-matiers">subjects</string>
+        <string id="label-professeur">Professer </string>
+        <string id="label-filier">branch</string>
+        <string id="label-annee">year</string>
+        <string id="label-groupe">group</string>
+        <string id="label-matiere">subject</string>
+        <string id="label-module">Modules</string>
+        <string id="label-numero">Number</string>
+        <string id="label-absences">absences</string>
+        <string id="label-semestre">semestre</string>
+        <string id="label-departement">departement</string>
+        <string id="label-responsable">superviser</string>
+        <string id="label-filier-long">branch label</string>
+        <string id="label-responsable-long">branch superviser:</string>
+        <string id="label-lab">labele:</string>
+        <string id="label-filiers">branches</string>
+
+        <string id="label-day">day</string>
+        <string id="label-class">class</string>
+        <string id="label-accouts">accounts</string>
+        <string id="label-rolesANDpermissions">roles and permessions</string>
+        <string id="label-id">ID</string>
+
+        <string id="msg-absenceAdded">absences added succesfuly</string>
+        <string id="msg-studentAdded">students added succesfuly</string>
+        <string id="action-update">update</string>
+        <string id="text-nbAnnee">year number</string>
+        <span id="text-updatebranches">update branches </span>
+        <span id="text-studentList">students list </span>
+        <span id="text-startingWeek">starting week </span>
+        <span id="text-endingWeek">ending week </span>
     </language>
     
 </translations>

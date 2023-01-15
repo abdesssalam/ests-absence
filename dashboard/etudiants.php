@@ -45,7 +45,7 @@ if(isset($_POST['submit'])){
     </ul>
     <?php if($sucss): ?>
     <div id="alertS" class="flex p-4 w-1/2 mx-auto text-center my-5 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800" role="alert">
-        <span class="font-medium">les étudiants bien ajouté</span> 
+        <span class="font-medium"><span id="msg-studentAdded"></span></span> 
     </div>
     <script>
         setTimeout(() => {
@@ -57,19 +57,17 @@ if(isset($_POST['submit'])){
    <form  action="" method="post" enctype="multipart/form-data">
     <div id="box" class="hidden w-full mt-5 mx-auto  bg-green-300 py-3 px-2 rounded shadow   flex-wrap justify-between items-center">
         <div class="md:w-1/2 w-full px-1 my-1 flex justify-between items-center " >
-            <label  class="block  md:w-1/3 w-full  text-sm font-medium text-gray-900 dark:text-white">filiers</label>
+            <label  class="block  md:w-1/3 w-full  text-sm font-medium text-gray-900 dark:text-white"><span id="label-filier"></span></label>
             <select disabled name="filier" id="filier"  class="md:w-2/3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
             </select>
         </div>
         <div class="md:w-1/2 w-full px-1 my-1  flex justify-between items-center" >
-            <label  class="block md:w-1/3 w-full text-sm font-medium text-gray-900 dark:text-white">Année</label>
-            <select disabled  name="annee" id="annee" class="md:w-2/3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                
-               
+            <label  class="block md:w-1/3 w-full text-sm font-medium text-gray-900 dark:text-white"><span id="label-annee"></span></label>
+            <select disabled  name="annee" id="annee" class="md:w-2/3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"> 
             </select>
         </div>
         <div class="md:w-1/2 w-full px-1 my-1  flex justify-between items-center" >
-            <label  class="block  md:w-1/3 w-full  text-sm font-medium text-gray-900 ">la list des etudiants </label>
+            <label  class="block  md:w-1/3 w-full  text-sm font-medium text-gray-900 "><span id="text-studentList"></span></label>
             <input id="etudiants" name="etudiants" accept=".csv" class=" p-2.5 md:p-2 rounded-md md:w-2/3 w-full " type="file" >
         </div>
 
