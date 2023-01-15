@@ -29,6 +29,8 @@
 
         <string id="label-day">jour</string>
         <string id="label-class">seance</string>
+        <string id="label-accouts">les comptes</string>
+        <string id="label-rolesANDpermissions">les roles et permessions</string>
 
 
         <string id="label-id">ID</string>
