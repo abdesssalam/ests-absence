@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<scolarite>
+<scolarite  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="absenceschema.xsd">
     <users>
         <user id="1">
             <nom>AIT OMAR</nom>

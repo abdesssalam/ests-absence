@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="scolarite">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="users"/>
+        <xs:element ref="professeurs"/>
+        <xs:element ref="roles"/>
+        <xs:element ref="permissions"/>
+        <xs:element ref="authorizations"/>
+        <xs:element ref="RoleUsers"/>
+        <xs:element ref="departements"/>
+        <xs:element ref="filiers"/>
+        <xs:element ref="modules"/>
+        <xs:element ref="matieres"/>
+        <xs:element ref="anneeScolaires"/>
+        <xs:element ref="groups"/>
+        <xs:element ref="etudiants"/>
+        <xs:element ref="semesters"/>
+        <xs:element ref="semaines"/>
+        <xs:element ref="seances"/>
+        <xs:element ref="absences"/>
+        <xs:element ref="settings"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="users">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="user"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="user">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="nom"/>
+        <xs:element ref="prenom"/>
+        <xs:element ref="email"/>
+        <xs:element ref="password"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="password" type="xs:string"/>
+  <xs:element name="professeurs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="professeur"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="professeur">
+    <xs:complexType>
+      <xs:attribute name="departement" use="required" type="xs:integer"/>
+      <xs:attribute name="etat" use="required" type="xs:integer"/>
+      <xs:attribute name="id" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="roles">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="role"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="role">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="label">
+          <xs:attribute name="Num" use="required" type="xs:integer"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="permissions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="permission"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="permission">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="action"/>
+        <xs:element ref="table"/>
+      </xs:sequence>
+      <xs:attribute name="code" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="action" type="xs:NCName"/>
+  <xs:element name="table" type="xs:NCName"/>
+  <xs:element name="authorizations">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="authorization"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="authorization">
+    <xs:complexType>
+      <xs:attribute name="CodePermission" use="required" type="xs:integer"/>
+      <xs:attribute name="NumRole" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RoleUsers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="RoleUser"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RoleUser">
+    <xs:complexType>
+      <xs:attribute name="NumRole" use="required" type="xs:integer"/>
+      <xs:attribute name="id" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="departements">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="departement"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="departement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="intituleDep"/>
+      </xs:sequence>
+      <xs:attribute name="NumDept" use="required" type="xs:integer"/>
+      <xs:attribute name="chef" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="intituleDep" type="xs:NCName"/>
+  <xs:element name="filiers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="filier"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="filier">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="intituleFil"/>
+      </xs:sequence>
+      <xs:attribute name="codeDep" use="required" type="xs:integer"/>
+      <xs:attribute name="codeFil" use="required" type="xs:integer"/>
+      <xs:attribute name="numAnnee" use="required" type="xs:integer"/>
+      <xs:attribute name="responsable" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="intituleFil" type="xs:string"/>
+  <xs:element name="modules">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="module"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="module">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="nomModule"/>
+      </xs:sequence>
+      <xs:attribute name="annee" use="required" type="xs:integer"/>
+      <xs:attribute name="codeMod" use="required" type="xs:integer"/>
+      <xs:attribute name="coordonnateur" use="required" type="xs:integer"/>
+      <xs:attribute name="filier" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="nomModule" type="xs:string"/>
+  <xs:element name="matieres">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="matiere"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="matiere">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="nomMatier"/>
+      </xs:sequence>
+      <xs:attribute name="annee" use="required" type="xs:integer"/>
+      <xs:attribute name="codeMat" use="required" type="xs:integer"/>
+      <xs:attribute name="codeMod" use="required" type="xs:integer"/>
+      <xs:attribute name="filier" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="nomMatier" type="xs:string"/>
+  <xs:element name="anneeScolaires">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="anneeScolaire"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="groups">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="group"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="group">
+    <xs:complexType>
+      <xs:attribute name="annee" use="required" type="xs:integer"/>
+      <xs:attribute name="codeGrp" use="required" type="xs:integer"/>
+      <xs:attribute name="filier" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="etudiants">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="etudiant"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="etudiant">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="nom"/>
+        <xs:element ref="prenom"/>
+        <xs:element ref="email"/>
+        <xs:element ref="CNE"/>
+        <xs:element ref="anneeScolaire"/>
+      </xs:sequence>
+      <xs:attribute name="annee" use="required" type="xs:integer"/>
+      <xs:attribute name="filier" use="required" type="xs:integer"/>
+      <xs:attribute name="group" use="required" type="xs:integer"/>
+      <xs:attribute name="numEtd" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CNE" type="xs:NCName"/>
+  <xs:element name="semesters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="semester"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="semester">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="intitule">
+          <xs:attribute name="codeSem" use="required" type="xs:integer"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="semaines">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="semaine"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="semaine">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="intitule">
+          <xs:attribute name="num" use="required" type="xs:integer"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="seances">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="seance"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="seance">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="dateSeance"/>
+      </xs:sequence>
+      <xs:attribute name="annee" use="required" type="xs:integer"/>
+      <xs:attribute name="anneeScolaire" use="required" type="xs:integer"/>
+      <xs:attribute name="filier" use="required" type="xs:integer"/>
+      <xs:attribute name="groupe" use="required" type="xs:integer"/>
+      <xs:attribute name="jour" use="required" type="xs:integer"/>
+      <xs:attribute name="matier" use="required" type="xs:integer"/>
+      <xs:attribute name="numSeance" use="required" type="xs:integer"/>
+      <xs:attribute name="prof" use="required" type="xs:integer"/>
+      <xs:attribute name="semaine" use="required" type="xs:integer"/>
+      <xs:attribute name="semester" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="dateSeance" type="xs:date"/>
+  <xs:element name="absences">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="absence"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="absence">
+    <xs:complexType>
+      <xs:attribute name="DateAbsence" use="required" type="xs:date"/>
+      <xs:attribute name="NumAnnee" use="required" type="xs:integer"/>
+      <xs:attribute name="NumEtd" use="required" type="xs:integer"/>
+      <xs:attribute name="NumFilier" use="required" type="xs:integer"/>
+      <xs:attribute name="NumGroupe" use="required" type="xs:integer"/>
+      <xs:attribute name="NumSeance" use="required" type="xs:integer"/>
+      <xs:attribute name="departement" use="required" type="xs:integer"/>
+      <xs:attribute name="jour" use="required" type="xs:integer"/>
+      <xs:attribute name="matier" use="required" type="xs:integer"/>
+      <xs:attribute name="module" use="required" type="xs:integer"/>
+      <xs:attribute name="prof" use="required" type="xs:integer"/>
+      <xs:attribute name="semaine" use="required" type="xs:integer"/>
+      <xs:attribute name="semester" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="settings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="setting"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setting">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="label">
+          <xs:attribute name="name" use="required" type="xs:NCName"/>
+          <xs:attribute name="type" use="required" type="xs:NCName"/>
+          <xs:attribute name="value" use="required" type="xs:NMTOKEN"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="nom" type="xs:string"/>
+  <xs:element name="prenom" type="xs:string"/>
+  <xs:element name="email" type="xs:string"/>
+  <xs:complexType name="label">
+    <xs:sequence>
+      <xs:element ref="label"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="label" type="xs:string"/>
+  <xs:element name="anneeScolaire" type="xs:integer"/>
+  <xs:complexType name="intitule">
+    <xs:sequence>
+      <xs:element ref="intitule"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="intitule" type="xs:NCName"/>
+</xs:schema>
