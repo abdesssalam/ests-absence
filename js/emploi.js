@@ -64,8 +64,11 @@ $(document).ready(function(){
             annee.append(`<option value="${i}">${i}</option>`)
         }
         $.get(BASE_URL+'emploi.php?groups='+filier.val(),function(grs){
+           
             grs=JSON.parse(grs);
-            groupsData=grs;
+            
+            groupsData=Object.values(grs);
+            console.log(groupsData);
         })
     })
     annee.click(function(){

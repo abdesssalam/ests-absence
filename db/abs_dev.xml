@@ -10,8 +10,8 @@
         <user id="2">
             <nom>nom 1</nom>
             <prenom>prenom 1</prenom>
-            <email>agen1@ests.ma</email>
-            <password>$2y$10$GXgxkNLq9w3DvHvTWHssvuuDa/nIQ07mAVBp.6cT2DVKAc8oknLki</password>
+            <email>agent1@ests.ma</email>
+            <password>$2y$10$hUWjl.e/XjRJ0eg2j4BJBuxAxrCJU7er/CSh5wtGb.5BFh1QSuwnW</password>
         </user>
         <user id="3">
             <nom>nom 2</nom>
@@ -23,7 +23,7 @@
             <nom>nom 3</nom>
             <prenom>prenom 3</prenom>
             <email>user1@ests.ma</email>
-            <password>$2y$10$gudJNRSxuz74xAkwXRYK.uHDJ/yVW4Lu/Oz97mCi/wOYji5.3Bi8m</password>
+            <password>$2y$10$9qGsp/QJFmyjWP24efJthuVZhJPAqklGG9sQVCgC7JAb0z1v0itny</password>
         </user>
         <user id="5">
             <nom>nom 4</nom>
@@ -35,7 +35,7 @@
             <nom>nom 5</nom>
             <prenom>prenom 5</prenom>
             <email>user3@ests.ma</email>
-            <password>$2y$10$huuXoNwNaHMQUnatuJg6KudWHva3cnDDEmcu/lgOn7e.9kxb5eY8C</password>
+            <password>$2y$10$tA13.UVN3kYzAls3vSijB.nG9PKvh8iU/9tkkNaNUKau4j0Xcdjyi</password>
         </user>
         <user id="7">
             <nom>nom 6</nom>
@@ -47,7 +47,7 @@
             <nom>nom 7</nom>
             <prenom>prenom 7</prenom>
             <email>user5@ests.ma</email>
-            <password>$2y$10$sQExt3oJ6NR3lE49hZDwXOaafnisWsLnO8QWKB4qqlvXAvd.q5VM2</password>
+            <password>$2y$10$/MaOfmRhJSjfng4dnc/lkeHZiZIFIJduIOea5v.5v945nfyXtR5s.</password>
         </user>
         <user id="9">
             <nom>nom 8</nom>
@@ -59,17 +59,25 @@
             <nom>informa</nom>
             <prenom>ticien</prenom>
             <email>user7@ests.ma</email>
-            <password>$2y$10$fYP2ZdPb7p/JZEtfwR3SN.DYNg.CmuS8j4cQjdHPX26FkKcfz4pGO</password>
+            <password>$2y$10$2eVOfeXUHZxlVa0vlON4vuG7UiKFro2rE4fx4XnJPGyqPKYX/7t36</password>
+        </user>
+        <user id="11">
+            <nom>chef</nom>
+            <prenom>isir</prenom>
+            <email>user8@ests.ma</email>
+            <password>$2y$10$hhwerc1YAFTr5GKpexQ4uuTui/AibEDZmcckdCiNKp694CY4iuyn2</password>
         </user>
     </users><!--end users--><!-- les profs -->
     <professeurs>
-        <professeur id="4" departement="1" etat="1"/>
+        <professeur id="4" departement="3" etat="1"/>
+        <professeur id="3" departement="2" etat="1"/>
         <professeur id="5" departement="1" etat="1"/>
         <professeur id="6" departement="1" etat="1"/>
-        <professeur id="7" departement="0" etat="1"/>
-        <professeur id="8" departement="0" etat="0"/>
-        <professeur id="9" departement="0" etat="0"/>
+        <professeur id="7" departement="2" etat="1"/>
+        <professeur id="8" departement="3" etat="1"/>
+        <professeur id="9" departement="2" etat="1"/>
         <professeur id="10" departement="1" etat="1"/>
+        <professeur id="11" departement="1" etat="1"/>
     </professeurs><!-- start roles -->
     <roles>
         <role Num="1">
@@ -214,15 +222,12 @@
         <authorization CodePermission="24" NumRole="1"/>
     </authorizations><!-- end auth -->
     <RoleUsers>
-        <RoleUser NumRole="1" id="1"/>
         <RoleUser NumRole="2" id="3"/>
         <RoleUser NumRole="3" id="4"/>
         <RoleUser NumRole="5" id="4"/>
         <RoleUser NumRole="3" id="5"/>
         <RoleUser NumRole="5" id="5"/>
-        <RoleUser NumRole="3" id="6"/>
         <RoleUser NumRole="5" id="6"/>
-        <RoleUser NumRole="3" id="7"/>
         <RoleUser NumRole="5" id="7"/>
         <RoleUser NumRole="4" id="8"/>
         <RoleUser NumRole="5" id="8"/>
@@ -232,9 +237,12 @@
         <RoleUser NumRole="4" id="10"/>
         <RoleUser NumRole="5" id="10"/>
         <RoleUser NumRole="2" id="2"/>
+        <RoleUser NumRole="1" id="1"/>
+        <RoleUser NumRole="4" id="11"/>
+        <RoleUser NumRole="5" id="11"/>
     </RoleUsers><!--start departement-->
     <departements>
-        <departement NumDept="1" chef="2">
+        <departement NumDept="1" chef="5">
             <intituleDep>INFORMATIQUE</intituleDep>
         </departement>
         <departement NumDept="2" chef="3">
@@ -245,11 +253,11 @@
         </departement>
     </departements><!--end departements--><!--start filiers-->
     <filiers>
-        <filier codeFil="1" numAnnee="1" codeDep="3" responsable="2">
-            <intituleFil>Génie Industriel et Maintenance</intituleFil>
+        <filier codeFil="1" numAnnee="1" codeDep="2" responsable="9">
+            <intituleFil>Techniques de management</intituleFil>
         </filier>
-        <filier codeFil="1" numAnnee="2" codeDep="3" responsable="2">
-            <intituleFil>Génie Industriel et Maintenance</intituleFil>
+        <filier codeFil="1" numAnnee="2" codeDep="2" responsable="9">
+            <intituleFil>Techniques de management</intituleFil>
         </filier>
         <filier codeFil="2" numAnnee="1" codeDep="3" responsable="8">
             <intituleFil>Mécatronique</intituleFil>
@@ -263,7 +271,7 @@
         <filier codeFil="3" numAnnee="2" codeDep="1" responsable="10">
             <intituleFil>Génie Informatique</intituleFil>
         </filier>
-        <filier codeFil="5" codeDep="1" numAnnee="1" responsable="10">
+        <filier codeFil="5" codeDep="1" numAnnee="1" responsable="11">
             <intituleFil>ISIR</intituleFil>
         </filier>
     </filiers>
@@ -303,6 +311,9 @@
         </module>
         <module codeMod="3" coordonnateur="8" filier="3" annee="1">
             <nomModule>electronique</nomModule>
+        </module>
+        <module codeMod="1" coordonnateur="11" filier="5" annee="1">
+            <nomModule>programation web </nomModule>
         </module>
     </modules><!--end modules--><!--start matiere-->
     <matieres>
@@ -349,6 +360,9 @@
         </matiere>
         <matiere codeMat="5" codeMod="3" filier="3" annee="1">
             <nomMatier>circuits logique </nomMatier>
+        </matiere>
+        <matiere codeMat="1" codeMod="1" filier="5" annee="1">
+            <nomMatier>php</nomMatier>
         </matiere>
     </matieres><!--end matieres--><!-- start annee scolaire -->
     <anneeScolaires>
@@ -836,13 +850,13 @@
         </semaine>
     </semaines>
     <seances>
-        <seance numSeance="1" jour="2" semaine="1" semester="1" anneeScolaire="2023" filier="3" annee="1" groupe="1" prof="5" matier="2">
+        <seance numSeance="1" jour="2" semaine="1" semester="1" anneeScolaire="2023" filier="3" annee="1" groupe="1" prof="10" matier="2">
             <dateSeance>2023-01-03</dateSeance>
         </seance>
-        <seance numSeance="1" jour="2" semaine="2" semester="1" anneeScolaire="2023" filier="3" annee="1" groupe="1" prof="5" matier="2">
+        <seance numSeance="1" jour="2" semaine="2" semester="1" anneeScolaire="2023" filier="3" annee="1" groupe="1" prof="10" matier="2">
             <dateSeance>2023-01-10</dateSeance>
         </seance>
-        <seance numSeance="1" jour="2" semaine="3" semester="1" anneeScolaire="2023" filier="3" annee="1" groupe="1" prof="5" matier="2">
+        <seance numSeance="1" jour="2" semaine="3" semester="1" anneeScolaire="2023" filier="3" annee="1" groupe="1" prof="10" matier="2">
             <dateSeance>2023-01-17</dateSeance>
         </seance>
         <seance numSeance="2" jour="2" semaine="1" semester="1" anneeScolaire="2023" filier="3" annee="1" groupe="1" prof="6" matier="2">
@@ -854,21 +868,78 @@
         <seance numSeance="2" jour="2" semaine="3" semester="1" anneeScolaire="2023" filier="3" annee="1" groupe="1" prof="6" matier="2">
             <dateSeance>2023-01-17</dateSeance>
         </seance>
-        <seance numSeance="2" jour="2" semaine="1" semester="1" anneeScolaire="2023" filier="3" annee="1" groupe="2" prof="5" matier="3">
+        <seance numSeance="2" jour="2" semaine="1" semester="1" anneeScolaire="2023" filier="3" annee="1" groupe="2" prof="10" matier="3">
             <dateSeance>2023-01-03</dateSeance>
         </seance>
-        <seance numSeance="2" jour="2" semaine="2" semester="1" anneeScolaire="2023" filier="3" annee="1" groupe="2" prof="5" matier="3">
+        <seance numSeance="2" jour="2" semaine="2" semester="1" anneeScolaire="2023" filier="3" annee="1" groupe="2" prof="10" matier="3">
             <dateSeance>2023-01-10</dateSeance>
         </seance>
-        <seance numSeance="2" jour="2" semaine="3" semester="1" anneeScolaire="2023" filier="3" annee="1" groupe="2" prof="5" matier="3">
+        <seance numSeance="2" jour="2" semaine="3" semester="1" anneeScolaire="2023" filier="3" annee="1" groupe="2" prof="10" matier="3">
             <dateSeance>2023-01-17</dateSeance>
+        </seance>
+        <seance numSeance="3" jour="3" semaine="1" semester="1" anneeScolaire="2023" filier="5" annee="1" groupe="1" prof="10" matier="1">
+            <dateSeance>2023-01-04</dateSeance>
+        </seance>
+        <seance numSeance="3" jour="3" semaine="2" semester="1" anneeScolaire="2023" filier="5" annee="1" groupe="1" prof="10" matier="1">
+            <dateSeance>2023-01-11</dateSeance>
+        </seance>
+        <seance numSeance="3" jour="3" semaine="3" semester="1" anneeScolaire="2023" filier="5" annee="1" groupe="1" prof="10" matier="1">
+            <dateSeance>2023-01-18</dateSeance>
+        </seance>
+        <seance numSeance="3" jour="3" semaine="4" semester="1" anneeScolaire="2023" filier="5" annee="1" groupe="1" prof="10" matier="1">
+            <dateSeance>2023-01-25</dateSeance>
+        </seance>
+        <seance numSeance="3" jour="3" semaine="5" semester="1" anneeScolaire="2023" filier="5" annee="1" groupe="1" prof="10" matier="1">
+            <dateSeance>2023-02-01</dateSeance>
+        </seance>
+        <seance numSeance="3" jour="3" semaine="1" semester="1" anneeScolaire="2023" filier="3" annee="1" groupe="1" prof="6" matier="4">
+            <dateSeance>2023-01-04</dateSeance>
+        </seance>
+        <seance numSeance="3" jour="3" semaine="2" semester="1" anneeScolaire="2023" filier="3" annee="1" groupe="1" prof="6" matier="4">
+            <dateSeance>2023-01-11</dateSeance>
+        </seance>
+        <seance numSeance="3" jour="3" semaine="3" semester="1" anneeScolaire="2023" filier="3" annee="1" groupe="1" prof="6" matier="4">
+            <dateSeance>2023-01-18</dateSeance>
+        </seance>
+        <seance numSeance="3" jour="3" semaine="4" semester="1" anneeScolaire="2023" filier="3" annee="1" groupe="1" prof="6" matier="4">
+            <dateSeance>2023-01-25</dateSeance>
+        </seance>
+        <seance numSeance="3" jour="3" semaine="5" semester="1" anneeScolaire="2023" filier="3" annee="1" groupe="1" prof="6" matier="4">
+            <dateSeance>2023-02-01</dateSeance>
+        </seance>
+        <seance numSeance="3" jour="3" semaine="6" semester="1" anneeScolaire="2023" filier="3" annee="1" groupe="1" prof="6" matier="4">
+            <dateSeance>2023-02-08</dateSeance>
+        </seance>
+        <seance numSeance="2" jour="3" semaine="1" semester="1" anneeScolaire="2023" filier="3" annee="1" groupe="2" prof="6" matier="5">
+            <dateSeance>2023-01-04</dateSeance>
+        </seance>
+        <seance numSeance="2" jour="3" semaine="2" semester="1" anneeScolaire="2023" filier="3" annee="1" groupe="2" prof="6" matier="5">
+            <dateSeance>2023-01-11</dateSeance>
+        </seance>
+        <seance numSeance="2" jour="3" semaine="3" semester="1" anneeScolaire="2023" filier="3" annee="1" groupe="2" prof="6" matier="5">
+            <dateSeance>2023-01-18</dateSeance>
+        </seance>
+        <seance numSeance="2" jour="3" semaine="4" semester="1" anneeScolaire="2023" filier="3" annee="1" groupe="2" prof="6" matier="5">
+            <dateSeance>2023-01-25</dateSeance>
+        </seance>
+        <seance numSeance="2" jour="3" semaine="5" semester="1" anneeScolaire="2023" filier="3" annee="1" groupe="2" prof="6" matier="5">
+            <dateSeance>2023-02-01</dateSeance>
+        </seance>
+        <seance numSeance="2" jour="3" semaine="6" semester="1" anneeScolaire="2023" filier="3" annee="1" groupe="2" prof="6" matier="5">
+            <dateSeance>2023-02-08</dateSeance>
+        </seance>
+        <seance numSeance="2" jour="3" semaine="7" semester="1" anneeScolaire="2023" filier="3" annee="1" groupe="2" prof="6" matier="5">
+            <dateSeance>2023-02-15</dateSeance>
+        </seance>
+        <seance numSeance="2" jour="3" semaine="8" semester="1" anneeScolaire="2023" filier="3" annee="1" groupe="2" prof="6" matier="5">
+            <dateSeance>2023-02-22</dateSeance>
         </seance>
     </seances>
     <absences>
-        <absence NumSeance="1" NumEtd="6" DateAbsence="2023-01-03" jour="2" semaine="1" semester="1" NumFilier="3" NumAnnee="1" NumGroupe="1" prof="5" matier="2" departement="1" module="1"/>
-        <absence NumSeance="1" NumEtd="10" DateAbsence="2023-01-03" jour="2" semaine="1" semester="1" NumFilier="3" NumAnnee="1" NumGroupe="1" prof="5" matier="2" departement="1" module="1"/>
-        <absence NumSeance="1" NumEtd="11" DateAbsence="2023-01-03" jour="2" semaine="1" semester="1" NumFilier="3" NumAnnee="1" NumGroupe="1" prof="5" matier="2" departement="1" module="1"/>
-    </absences>
+        <absence NumSeance="1" NumEtd="6" DateAbsence="2023-01-03" jour="2" semaine="1" semester="1" NumFilier="3" NumAnnee="1" NumGroupe="1" prof="10" matier="2" departement="1" module="1"/>
+        <absence NumSeance="1" NumEtd="10" DateAbsence="2023-01-03" jour="2" semaine="1" semester="1" NumFilier="3" NumAnnee="1" NumGroupe="1" prof="10" matier="2" departement="1" module="1"/>
+        <absence NumSeance="1" NumEtd="11" DateAbsence="2023-01-03" jour="2" semaine="1" semester="1" NumFilier="3" NumAnnee="1" NumGroupe="1" prof="10" matier="2" departement="1" module="1"/>
+    <absence NumSeance="3" NumEtd="6" DateAbsence="2023-01-04" jour="3" semaine="1" semester="1" NumFilier="3" NumAnnee="1" NumGroupe="1" prof="6" matier="4" departement="1" module="2"/><absence NumSeance="3" NumEtd="9" DateAbsence="2023-01-04" jour="3" semaine="1" semester="1" NumFilier="3" NumAnnee="1" NumGroupe="1" prof="6" matier="4" departement="1" module="2"/><absence NumSeance="3" NumEtd="10" DateAbsence="2023-01-04" jour="3" semaine="1" semester="1" NumFilier="3" NumAnnee="1" NumGroupe="1" prof="6" matier="4" departement="1" module="2"/></absences>
     <settings>
         <setting name="anneeScolaire" type="number" value="2023">
             <label> current annee scolaire</label>

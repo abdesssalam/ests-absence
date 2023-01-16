@@ -25,6 +25,9 @@ if($time>=date('h:i',strtotime('02:30pm'))){
     }
 }
 if(isset($_SESSION['ID'])){
+    // to test
+    $num_seance = 3;
+    // end
     $prof = $_SESSION['ID'];
     $seance = $db->get_seance($prof, $num_seance);
     $etudiants;
@@ -52,11 +55,11 @@ if(isset($seance)){
 
 <?php if(isset($seance)): ?>
 <div class="w-11/12 mx-auto bg-blue-500 flex flex-wrap justify-start rounded-md shadow-md cursor-pointer " >
-    <h3 class="text-xl font-semibold uppercase px-2 text-gray-800 w-full md:w-1/2 "><span id="label-professeur"></span><span class="text-gray-100"><?php echo isset($seance) ? $professeur['nom'].' '.$professeur['prenom'] : '' ?></span>  </h3>
-    <h3 class="text-xl font-semibold uppercase px-2 text-gray-800 w-full md:w-1/2 "><span id="label-filier"></span><span class="text-gray-100"><?php echo isset($seance) ? $filier['intituleFil'] : '' ?></span>  </h3>
-    <h3 class="text-xl font-semibold uppercase px-2 text-gray-800 w-full md:w-1/4 "><span id="label-annee"></span><span class="text-gray-100"><?php echo isset($seance) ? $seance['annee'] : '' ?></span>  </h3>
-    <h3 class="text-xl font-semibold uppercase px-2 text-gray-800 w-full md:w-1/4 "><span id="label-groupe"></span><span class="text-gray-100"><?php echo isset($seance) ? $seance['groupe'] : '' ?></span>  </h3>
-    <h3 class="text-xl font-semibold uppercase px-2 text-gray-800 w-full md:w-2/4 "><span id="label-matiere"></span><span class="text-gray-100"> <?php echo isset($seance) ? $matier['nomMatier'] : '' ?> </span>  </h3>
+    <h3 class="text-xl font-semibold uppercase px-2 text-gray-800 w-full md:w-1/2 "><span id="label-professeur"></span> : <span class="text-gray-100"><?php echo isset($seance) ? $professeur['nom'].' '.$professeur['prenom'] : '' ?></span>  </h3>
+    <h3 class="text-xl font-semibold uppercase px-2 text-gray-800 w-full md:w-1/2 "><span id="label-filier"></span> : <span class="text-gray-100"><?php echo isset($seance) ? $filier['intituleFil'] : '' ?></span>  </h3>
+    <h3 class="text-xl font-semibold uppercase px-2 text-gray-800 w-full md:w-1/4 "><span id="label-annee"></span> : <span class="text-gray-100"><?php echo isset($seance) ? $seance['annee'] : '' ?></span>  </h3>
+    <h3 class="text-xl font-semibold uppercase px-2 text-gray-800 w-full md:w-1/4 "><span id="label-groupe"></span> : <span class="text-gray-100"><?php echo isset($seance) ? $seance['groupe'] : '' ?></span>  </h3>
+    <h3 class="text-xl font-semibold uppercase px-2 text-gray-800 w-full md:w-2/4 "><span id="label-matiere"></span> : <span class="text-gray-100"> <?php echo isset($seance) ? $matier['nomMatier'] : '' ?> </span>  </h3>
 </div>
 
 <!-- list des etudiants -->

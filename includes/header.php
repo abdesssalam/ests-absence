@@ -6,9 +6,9 @@ $active;
 if(isset($_SESSION['ID'])){
   $active = $db->getLoggedUser($_SESSION['ID']);  
 }
-// else{
-//     header('location:../index.php');
-// }
+else{
+    header('location:../index.php');
+}
 $full_name = isset($active) ? $active['nom']." ".$active['prenom'] : 'first last';
 
 ?>
@@ -101,7 +101,7 @@ $full_name = isset($active) ? $active['nom']." ".$active['prenom'] : 'first last
             <?php endif; ?>
             <!-- supper admin + chef departement -->
             
-           <?php if(in_array(1,$_SESSION['roles']) ||in_array(3,$_SESSION['roles']) ): ?>
+           <?php if(in_array(1,$_SESSION['roles'])  ): ?>
             <li class="flex w-11/12 bg-green-500 py-2 my-1 items-center hover:bg-green-700">
                 <i class="fa-solid fa-graduation-cap text-3xl mx-3"></i>
                 <a class="w-full" href="../dashboard/filiers.php">les  filiers</a> 

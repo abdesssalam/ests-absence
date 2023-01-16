@@ -53,12 +53,20 @@ if(isset($_GET['groups']) && isset($_GET['filier']) && isset($_GET['annee'])){
         $data = array_values($data->toArray());
         echo json_encode($data);       
 }
-if( isset($_GET['matiers']) && isset($_GET['filier']) && isset($_GET['annee'])){
-    $data = $db->getData('matieres')
+if( isset($_GET['matiers']) && isset($_GET['filier']) ){
+    if(isset($_GET['annee'])){
+         $data = $db->getData('matieres')
         ->where('filier', $_GET['filier'])
         ->where('annee', $_GET['annee']);
         $data = array_values($data->toArray());
-        echo json_encode($data);       
+        echo json_encode($data); 
+    }else{
+        $data = $db->getData('matieres')
+            ->where('filier', $_GET['filier']);
+        $data = array_values($data->toArray());
+        echo json_encode($data);
+    }
+         
 }
 
 

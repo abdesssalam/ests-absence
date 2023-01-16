@@ -66,7 +66,7 @@ if(isset($_POST['modifier'])){
              <select id="user_role" name="codeDep" class="w-2/3 bg-white border border-white text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  p-2.5 ">
                 <!--  dynamique list all departement -->
                 <?php foreach($db->getData('departements') as $dep){
-                    if($dep['NumDept']==$fil['codeDep']){
+                    if(isset($fil) && $dep['NumDept']==$fil['codeDep']){
                         echo '<option selected value="'.$dep['NumDept'].'">'.$dep['intituleDep'].'</option>';
                     }
                     echo '<option value="'.$dep['NumDept'].'">'.$dep['intituleDep'].'</option>';
@@ -139,7 +139,7 @@ if(isset($_POST['modifier'])){
                 <?php echo $fl['intituleDep']; ?>
                 </td>
                 <td class="py-4 px-6 uppercase">
-                <?php echo $fl['nom'].' '.$fl['nom']; ?>
+                <?php echo $fl['nom'].' '.$fl['prenom']; ?>
                 </td>
                 <td class="py-4 px-6">
                 <a class="text-blue-600 w-full" href="?edit=<?php echo $fl['codeFil'];  ?>"><span id="action-update"></span></a>

@@ -676,7 +676,7 @@ class Data{
     public function get_seance($prof,$num_seance)
     {
         //To-Test
-        $date = '2023-01-03';
+        $date = '2023-01-04';
         //exatt
         /*
         $date=date("Y-m-d");

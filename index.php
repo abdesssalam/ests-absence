@@ -83,6 +83,8 @@ if(isset($_POST['submit'])){
                  
                 
             }
+        }else{
+            $err = 1;
         }
         }else{
             $err = 1;
@@ -99,7 +101,7 @@ if(isset($_POST['submit'])){
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" class="w-1/2 md:w-1/3 bg-blue-500 py-5 px-2  rounded-lg shadow-md">
         <?php if($err==1): ?>
             <div class="p-4 mb-4 text-sm text-center text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
-                <span class="font-medium">invalite compte!</span> 
+                <span class="font-medium">les informations incorrectes!</span> 
             </div>
         <?php endif; ?>
         <div class="mb-2">

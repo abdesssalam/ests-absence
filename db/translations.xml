@@ -37,10 +37,10 @@
         <string id="msg-studentAdded">les étudiants bien ajouté</string>
         <string id="action-update">modifier</string>
         <string id="text-nbAnnee">nombre des années</string>
-        <span id="text-updatebranches">mise a jour filiers </span>
-        <span id="text-studentList">la list des etudiants </span>
-        <span id="text-startingWeek">semaine debut </span>
-        <span id="text-endingWeek">semaine fin </span>
+        <string id="text-updatebranches">mise a jour filiers </string>
+        <string id="text-studentList">la list des etudiants </string>
+        <string id="text-startingWeek">semaine debut </string>
+        <string id="text-endingWeek">semaine fin </string>
     </language>
     <language code="en">
         <string id="welcome">Welcome</string>
@@ -79,10 +79,10 @@
         <string id="msg-studentAdded">students added succesfuly</string>
         <string id="action-update">update</string>
         <string id="text-nbAnnee">year number</string>
-        <span id="text-updatebranches">update branches </span>
-        <span id="text-studentList">students list </span>
-        <span id="text-startingWeek">starting week </span>
-        <span id="text-endingWeek">ending week </span>
+        <string id="text-updatebranches">update branches </string>
+        <string id="text-studentList">students list </string>
+        <string id="text-startingWeek">starting week </string>
+        <string id="text-endingWeek">ending week </string>
     </language>
     
 </translations>
