@@ -48,8 +48,6 @@ if(isset($prof) && min($_SESSION['roles'])>=4 ){
         ->where('annee', $item['annee'])
         ->firstWhere('codeMat', $item['matier']);
         $dd['group'] = $item['group'];
-        // $item['nomMatier'] = $dd['nomMatier'];
-        // $item['nomMatier'] = $dd['nomMatier'];
         return $dd;
     });
     
@@ -135,17 +133,6 @@ if(isset($prof) && min($_SESSION['roles'])>=4 ){
     $matiers = collect($matiersAll)->unique(['codeMat']);
  
 }
-
-
-
-
-// else if(min($_SESSION['roles'])==3){
-//     $filiers = $db->getData('filiers')->where('codeDep',$prof['departement'] );
-// }
-// else if(min($_SESSION['roles'])==4){
-
-// }
-
 ?>
 
 <div class="w-full mt-5">
@@ -227,12 +214,6 @@ if(isset($prof) && min($_SESSION['roles'])>=4 ){
     </table>
 </div>
 
-
-<!-- 
-http://localhost/ests-absence/api/home.php?filiers=1
-http://localhost/ests-absence/api/home.php?modules&filier=3&annee=1
-http://localhost/ests-absence/api/home.php?matiers&filier=3&annee=1
- -->
 <script>
     $(document).ready(function(){
         console.log('rea')
