@@ -33,12 +33,31 @@ $full_name = isset($active) ? $active['nom']." ".$active['prenom'] : 'first last
     <script> 
     const BASE_URL="<?php echo "http://localhost/ests-absence/api/" ?>";
     $(document).ready(function(){
-            $.ajax({
+
+            //get cook
+            $('#select_lang').change(function(){
+                // $.cookie('lang', $(this).val());
+                document.cookie="lang="+$(this).val();
+                // browser.cookies.set({'lang':$(this).val()})
+                console.log(getCookie('lang'))
+                updateLang();
+            })
+
+            function getCookie(name) {
+                const value = `; ${document.cookie}`;
+                const parts = value.split(`; ${name}=`);
+                if (parts.length === 2) return parts.pop().split(';').shift();
+                }
+            updateLang();
+            function updateLang(){
+                $.ajax({
                 type: "GET",
                 url: "http://localhost/ests-absence/db/translations.xml",
                 dataType: "xml",
                 success: function(xml) {
-                    var currentLanguageCode = 'fr';
+                    // let lang= $.cookie('lang') ? $.cookie('lang') : 'FR';
+                    
+                    var currentLanguageCode = getCookie('lang');
                     $(xml).find('language').each(function(){
                         if($(this).attr('code') == currentLanguageCode){
                             $(this).find('string').each(function(){
@@ -54,6 +73,8 @@ $full_name = isset($active) ? $active['nom']." ".$active['prenom'] : 'first last
                     });
                 }
             });
+            }
+            
 
         }) 
         
@@ -77,7 +98,7 @@ $full_name = isset($active) ? $active['nom']." ".$active['prenom'] : 'first last
             </a>
             <div class="flex items-center  mx-auto text-center h-1/2 justify-center w-10/12  py-3 rounded-md hover:text-gray-400">
             <label for="countries" class="w-1/3 cursor-pointer block text-sm font-medium text-gray-50 dark:text-white">language :</label>
-                <select id="countries" class="w-2/3 bg-gray-50 cursor-pointer border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <select id="select_lang" class="w-2/3 bg-gray-50 cursor-pointer border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     <option value="FR">Francais</option>
                     <option value="EN">Anglais</option>
                 </select>
@@ -89,14 +110,14 @@ $full_name = isset($active) ? $active['nom']." ".$active['prenom'] : 'first last
             <?php if(in_array(1,$_SESSION['roles'])): ?>
                 <li class="flex w-11/12 bg-green-500 py-2 my-1 items-center hover:bg-green-700">
                     <i class="fas fa-user text-3xl mx-3"></i>
-                    <a class="w-full" href="../dashboard/contacts.php">les comptes et les roles</a>
+                    <a class="w-full" href="../dashboard/contacts.php"> <span id="nav-account"></span></a>
                 </li>
             <?php endif; ?>
             <!-- only for supper admin -->
             <?php if(in_array(1,$_SESSION['roles'])): ?>
             <li class="flex w-11/12 bg-green-500 py-2 my-1 items-center hover:bg-green-700">
                 <i class="fa-solid fa-table-list text-3xl mx-3"></i>
-                <a class="w-full" href="../dashboard/departements.php">les départements</a>
+                <a class="w-full" href="../dashboard/departements.php"><span id="nav-department"></span></a>
             </li>
             <?php endif; ?>
             <!-- supper admin + chef departement -->
@@ -104,27 +125,27 @@ $full_name = isset($active) ? $active['nom']." ".$active['prenom'] : 'first last
            <?php if(in_array(1,$_SESSION['roles'])  ): ?>
             <li class="flex w-11/12 bg-green-500 py-2 my-1 items-center hover:bg-green-700">
                 <i class="fa-solid fa-graduation-cap text-3xl mx-3"></i>
-                <a class="w-full" href="../dashboard/filiers.php">les  filiers</a> 
+                <a class="w-full" href="../dashboard/filiers.php"><span id="nav-filiers"></span> </a> 
             </li>
              <?php endif; ?>
             <!-- chef filier + agent scolaire -->
            <?php if(in_array(4,$_SESSION['roles']) || in_array(3,$_SESSION['roles'])): ?>
             <li class="flex w-11/12 bg-green-500 py-2 my-1 items-center hover:bg-green-700">
                 <i class="fa-solid fa-graduation-cap text-3xl mx-3"></i>
-                <a class="w-full" href="../dashboard/modules.php">modules et matieres</a> 
+                <a class="w-full" href="../dashboard/modules.php"><span id="nav-modules"></span></a> 
             </li>
              <?php endif; ?>
             <!-- agent scolaire -->
             <?php if(in_array(2,$_SESSION['roles'])): ?>
             <li class="flex w-11/12 bg-green-500 py-2 my-1 items-center hover:bg-green-700">
                 <i class="fa-solid fa-building text-3xl mx-3"></i>
-                <a class="w-full" href="etudiants.php">les etudiants</a> 
+                <a class="w-full" href="etudiants.php"><span id="nav-students"></span></a> 
             </li>
              <?php endif; ?>
             <?php if(in_array(2,$_SESSION['roles'])): ?> 
             <li class="flex w-11/12 bg-green-500 py-2 my-1 items-center hover:bg-green-700">
                 <i class="fa-solid fa-hourglass-end text-3xl mx-3"></i>
-                <a class="w-full" href="../dashboard/emplois.php">les emploit de tepms</a> 
+                <a class="w-full" href="../dashboard/emplois.php"><span id="nav-schedule"></span></a> 
             </li>
              <?php endif; ?>
             <!-- all but there is traitement inside
@@ -136,14 +157,14 @@ $full_name = isset($active) ? $active['nom']." ".$active['prenom'] : 'first last
             <?php if(isset($_SESSION['roles'])): ?>
             <li class="flex w-11/12 bg-green-500 py-2 my-1 items-center hover:bg-green-700">
                 <i class="fa-solid fa-building text-3xl mx-3"></i>
-                <a class="w-full" href="../dashboard/absences.php">les absences</a> 
+                <a class="w-full" href="../dashboard/absences.php"><span id="nav-absence"></span></a> 
             </li>
              <?php endif; ?>
             <!-- only for prof -->
             <?php if(in_array(5,$_SESSION['roles'])): ?>
             <li class="flex w-11/12 bg-green-500 py-2 my-1 items-center hover:bg-green-700">
                 <i class="fa-solid fa-building text-3xl mx-3"></i>
-                <a class="w-full" href="../dashboard/marker.php">marker</a> 
+                <a class="w-full" href="../dashboard/marker.php"><span id="nav-marker"></span></a> 
             </li>
              <?php endif; ?>
             
@@ -152,7 +173,7 @@ $full_name = isset($active) ? $active['nom']." ".$active['prenom'] : 'first last
         <div class="w-full  text-white  h-1/5 self-end">
             <div class="flex items-center bg-red-500 w-11/12 mx-auto py-2 uppercase">
                 <i class="fa-solid fa-right-to-bracket text-3xl mx-3"></i>
-                <a class="w-full"  href="../controllers/logout.php">déconnection</a> 
+                <a class="w-full"  href="../controllers/logout.php"><span id="nav-logout"> </span></a> 
             </div>
         
         </div>

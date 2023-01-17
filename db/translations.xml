@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <translations>
-    <language code="fr">
+    <language code="FR">
         <string id="welcome">Bienvenue</string>
         <string id="title-profile-page">les information personnel :</string>
         <string id="label-lastName">Nom </string>
@@ -41,8 +41,18 @@
         <string id="text-studentList">la list des etudiants </string>
         <string id="text-startingWeek">semaine debut </string>
         <string id="text-endingWeek">semaine fin </string>
+        <string id="nav-account"> les comptes et les roles</string>
+        <string id="nav-department"> les départements</string>
+        <string id="nav-filiers"> les  filiers</string>
+        <string id="nav-modules"> modules et matieres</string>
+        <string id="nav-students"> les etudiants</string>
+        <string id="nav-schedule"> les emploit de tepms</string>
+        <string id="nav-absence"> les absences</string>
+        <string id="nav-marker"> marker</string>
+        <string id="nav-logout"> déconnection</string>
+
     </language>
-    <language code="en">
+    <language code="EN">
         <string id="welcome">Welcome</string>
         <string id="title-profile-page">personal informations :</string>
         <string id="label-lastName">last name </string>
@@ -83,6 +93,15 @@
         <string id="text-studentList">students list </string>
         <string id="text-startingWeek">starting week </string>
         <string id="text-endingWeek">ending week </string>
+        <string id="nav-account"> roles and accounts</string>
+        <string id="nav-department"> departements</string>
+        <string id="nav-filiers"> branches</string>
+        <string id="nav-modules"> modules and courses</string>
+        <string id="nav-students"> students</string>
+        <string id="nav-schedule"> schedule</string>
+        <string id="nav-absence"> absences</string>
+        <string id="nav-marker"> markering absences</string>
+        <string id="nav-logout"> logout</string>
     </language>
     
 </translations>
