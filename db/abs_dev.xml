@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<scolarite  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="absenceschema.xsd">
+<scolarite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="absenceschema.xsd">
     <users>
         <user id="1">
             <nom>AIT OMAR</nom>
@@ -67,7 +67,7 @@
             <email>user8@ests.ma</email>
             <password>$2y$10$hhwerc1YAFTr5GKpexQ4uuTui/AibEDZmcckdCiNKp694CY4iuyn2</password>
         </user>
-    </users><!--end users--><!-- les profs -->
+    <user id="12"><nom>test</nom><prenom>user 25</prenom><email>user25@ests.ma</email><password>$2y$10$hwuHDPhF9voKW0o/k073J.5ty1x/DuODmum8BbITHMMcNsFh2WjQu</password></user></users><!--end users--><!-- les profs -->
     <professeurs>
         <professeur id="4" departement="3" etat="1"/>
         <professeur id="3" departement="2" etat="1"/>
@@ -78,7 +78,7 @@
         <professeur id="9" departement="2" etat="1"/>
         <professeur id="10" departement="1" etat="1"/>
         <professeur id="11" departement="1" etat="1"/>
-    </professeurs><!-- start roles -->
+    <professeur id="12" departement="0" etat="1"/></professeurs><!-- start roles -->
     <roles>
         <role Num="1">
             <label>supper admin</label>
@@ -193,7 +193,7 @@
             <action>select</action>
             <table>settings</table>
         </permission>
-    </permissions><!-- end permissions -->
+    <permission code="25"><action>select</action><table>professeurs</table></permission></permissions><!-- end permissions -->
     <authorizations>
         <authorization CodePermission="2" NumRole="1"/>
         <authorization CodePermission="6" NumRole="1"/>
@@ -240,7 +240,7 @@
         <RoleUser NumRole="1" id="1"/>
         <RoleUser NumRole="4" id="11"/>
         <RoleUser NumRole="5" id="11"/>
-    </RoleUsers><!--start departement-->
+    <RoleUser NumRole="5" id="12"/></RoleUsers><!--start departement-->
     <departements>
         <departement NumDept="1" chef="5">
             <intituleDep>INFORMATIQUE</intituleDep>

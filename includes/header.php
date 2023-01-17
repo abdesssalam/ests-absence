@@ -10,10 +10,7 @@ else{
     header('location:../index.php');
 }
 $full_name = isset($active) ? $active['nom']." ".$active['prenom'] : 'first last';
-if(!isset($_COOKIE['lang'])){
-    setcookie('lang', 'FR');
 
-}
 ?>
 
 <!DOCTYPE html>
@@ -39,13 +36,13 @@ if(!isset($_COOKIE['lang'])){
 
             //get cook
             $('#select_lang').change(function(){
-                // $.cookie('lang', $(this).val());
                 document.cookie="lang="+$(this).val();
-                // browser.cookies.set({'lang':$(this).val()})
-                console.log(getCookie('lang'))
                 updateLang();
             })
-
+            if(getCookie('lang')===undefined){
+                document.cookie="lang=FR";
+            }
+            $('#select_lang').val(getCookie('lang'));
             function getCookie(name) {
                 const value = `; ${document.cookie}`;
                 const parts = value.split(`; ${name}=`);
@@ -102,8 +99,8 @@ if(!isset($_COOKIE['lang'])){
             <div class="flex items-center  mx-auto text-center h-1/2 justify-center w-10/12  py-3 rounded-md hover:text-gray-400">
             <label for="countries" class="w-1/3 cursor-pointer block text-sm font-medium text-gray-50 dark:text-white">language :</label>
                 <select id="select_lang" class="w-2/3 bg-gray-50 cursor-pointer border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                    <option <?php echo $_COOKIE['lang']=='FR' ? 'selected' : '' ?> value="FR">Francais</option>
-                    <option <?php echo $_COOKIE['lang']=='EN' ? 'selected' : '' ?> value="EN">Anglais</option>
+                    <option  value="FR">Francais</option>
+                    <option  value="EN">Anglais</option>
                 </select>
             </div>
            
