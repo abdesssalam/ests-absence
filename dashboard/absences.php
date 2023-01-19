@@ -55,13 +55,16 @@ if(isset($prof) && min($_SESSION['roles'])>=4 ){
 
     //chef filier
 
+    
     if (in_array(4, $_SESSION['roles'])) {
         $chefFilier = $db->getData('filiers')->where('responsable', $_SESSION['ID']);
         //append groupes
         $x=0;
         $filiers_chef;
         $chefFilier = array_values($chefFilier->toArray());
-        for ($i = 0; $i < count($chefFilier);$i++){
+        // var_dump($chefFilier);
+        if(count($chefFilier)>0){
+             for ($i = 0; $i < count($chefFilier);$i++){
             $item = $chefFilier[$i];
             $groups = $db->getData('groups')
             ->where('filier',$item['codeFil'])
@@ -75,52 +78,65 @@ if(isset($prof) && min($_SESSION['roles'])>=4 ){
                 $dd['group'] = $it['codeGrp'];
                 $filiers_chef[$x] = $dd;
                 $x++;
+                } 
+                if(isset($filiers_chef)){
+                    $matiersChef;
+                $x = 0;
+                for ($i = 0; $i < count($filiers_chef);$i++){
+                    $item = $filiers_chef[$i];
+                    $matiers = $db->getData('matieres')
+                        ->where('filier', $item['filier'])
+                        ->where('annee', $item['annee']);
+                    $matiers = array_values($matiers->toArray());
+                    for ($j = 0; $j < count($matiers);$j++){
+                        $it=$matiers[$j];
+                        $it['group'] = $item['group'];
+                        $matiersChef[$x] = $it;
+                        $x++;
+                    }
+                    }
+                    
+            //clean matiers
+                    unset($matiersChef['codeMod']);
+                   
+                $filiersProf = array_filter($filiersProf->toArray(), function ($item) use ($filiers_chef) {
+                    $fils = collect($filiers_chef)
+                        ->where('filier', $item['filier'])
+                        ->where('annee', $item['annee']);
+                    if(count($fils)==0){
+                        return $item;
+                    }
+                });
+                $matiersProf = array_filter($matiersProf->toArray(), function ($item) use ($matiersChef) {
+                    $mats = collect($matiersChef)
+                        ->where('filier', $item['filier'])
+                        ->where('annee', $item['annee'])
+                        ->where('codeMat', $item['codeMat']);
+                    if(count($mats)==0){
+                        return $item;
+                    }
+                });
+               
             } 
-        }
 
-        //append matier
-        $matiersChef;
-        $x = 0;
-        for ($i = 0; $i < count($filiers_chef);$i++){
-            $item = $filiers_chef[$i];
-            $matiers = $db->getData('matieres')
-                ->where('filier', $item['filier'])
-                ->where('annee', $item['annee']);
-            $matiers = array_values($matiers->toArray());
-            for ($j = 0; $j < count($matiers);$j++){
-                $it=$matiers[$j];
-                $it['group'] = $item['group'];
-                $matiersChef[$x] = $it;
-                $x++;
-            }
         }
-        //clean matiers
-        unset($matiersChef['codeMod']);
+        // var_dump($filiers_chef);
+        //append matier
+        
 
         //cleaning filiers
-        $filiersProf = array_filter($filiersProf->toArray(), function ($item) use ($filiers_chef) {
-            $fils = collect($filiers_chef)
-                ->where('filier', $item['filier'])
-                ->where('annee', $item['annee']);
-            if(count($fils)==0){
-                return $item;
-            }
-        });
+        
        
         //cleaning matiers
-        $matiersProf = array_filter($matiersProf->toArray(), function ($item) use ($matiersChef) {
-            $mats = collect($matiersChef)
-                ->where('filier', $item['filier'])
-                ->where('annee', $item['annee'])
-                ->where('codeMat', $item['codeMat']);
-            if(count($mats)==0){
-                return $item;
-            }
-        });
+        
+        }
+       
     }
     if(isset($filiers_chef)){
+        
        $filiersALL = array_merge($filiers_chef, $filiersProf);
         $matiersAll = array_merge($matiersProf, $matiersChef); 
+        
     }else{
   
         $filiersALL = array_values($filiersProf->toArray());
@@ -232,14 +248,20 @@ if(isset($prof) && min($_SESSION['roles'])>=4 ){
         <?php if(isset($filiersALL)): ?>
           filierServer= <?php echo  collect($filiersALL)->toJson()  ?>;
          
-        <?php endif;?>  
-        let filiersData=filierServer!='' ? Object.values(filierServer):[];
-        let matierServer='';
-        <?php if( isset($matiers)): ?>
-            matierServer=<?php echo  json_encode($matiersAll) ?>;
-           
         <?php endif;?>
-        let matiersData=matierServer!='' ? Object.values(matierServer):[];
+      
+        let filiersData=filierServer!='' ? Object.values(filierServer):[];
+       
+        <?php if( isset($matiers)): ?>
+            let matierServer='';
+            matierServer=<?php echo  json_encode($matiersAll) ?>;
+            
+        let yy='';
+        yy= <?php echo json_encode($matiers); ?>;
+        let MatiersSrvFiltred=Object.values(yy);
+          let matiersData=matierServer!='' ? Object.values(matierServer):[];
+        <?php endif;?>
+      
         let clicked='';
 
         function loadFiliers(){
@@ -322,21 +344,9 @@ if(isset($prof) && min($_SESSION['roles'])>=4 ){
              * if not prof we have to load it from API
              * if prof it's loaded here
              */
-            <?php if( min($_SESSION['roles'])<5): ?>
-                
-                <?php if(min($_SESSION['roles'])==4){ ?>
-                    $.get(
-                    `${BASE_URL}home.php?matiers&filier=${filier.val()}`,
-                    function(res){
-                        res=JSON.parse(res);
-                        res.forEach((mat)=>{
-                            matier.append(`<option value="${mat.codeMat}">${mat.nomMatier}</option>`)
-                        })
-                    }
-                  
-                    )
-               <?php } else { ?>
-                  $.get(
+            
+            <?php if( min($_SESSION['roles'])<4): ?>
+                $.get(
                     `${BASE_URL}home.php?matiers&filier=${filier.val()}&annee=${annee.val()}`,
                     function(res){
                         res=JSON.parse(res);
@@ -345,12 +355,17 @@ if(isset($prof) && min($_SESSION['roles'])>=4 ){
                         })
                     }
                   
-                    )  
-                <?php } ?>
-            
+                    ) 
            
             <?php  else: ?>
-               matiersData.forEach((mat)=>{
+               
+                // console.log(xx);
+                let mtt=MatiersSrvFiltred.filter(it=>it.filier==filier.val() && annee.val() );
+                // const key2='group';
+                // const mty=[...new Map(mtt.map(it=>[it[key2],it])).values()]
+                // console.log(mty);
+                // let mttt=matiersData.filter((it)=>it.filier==filier.val() && it.annee==annee.val())
+                mtt.forEach((mat)=>{
                          matier.append(`<option value="${mat.codeMat}">${mat.nomMatier}</option>`)
                 })
             <?php endif; ?>
@@ -360,7 +375,7 @@ if(isset($prof) && min($_SESSION['roles'])>=4 ){
         })
 
         groupes.click(function(){
-            <?php if( min($_SESSION['roles'])>=5): ?>
+            <?php if( min($_SESSION['roles'])>=4): ?>
                 matier.empty()
             const matierFiltred=matiersData.filter((it)=>{
                 if(
@@ -387,10 +402,11 @@ if(isset($prof) && min($_SESSION['roles'])>=4 ){
             table.empty();
             let data=[];
             let url;
-            <?php  if( min($_SESSION['roles'])>=5): ?>
+            <?php  if( min($_SESSION['roles'])>=4): ?>
                 let x='';
                 x=<?php echo $_SESSION['ID'] ?>;
                 url='absence.php?prof='+x;
+
             <?php else: ?>
                 url='absence.php?departement='+departement.val();
             <?php endif; ?>

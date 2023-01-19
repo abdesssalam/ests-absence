@@ -62,7 +62,7 @@ if(isset($_POST['submit'])){
                     $dep = $db->getData('departements')->firstWhere('chef', $us['id']);
                     if($dep){
                         $_SESSION['dep'] = $dep['NumDept'];
-                         header("Location:dashboard/filiers.php");
+                         header("Location:dashboard/absences.php");
                     }else{
                          header("Location:dashboard/marker.php");
                     }

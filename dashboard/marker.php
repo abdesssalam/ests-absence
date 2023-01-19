@@ -8,26 +8,27 @@ require_once '../includes/header.php';
 // $date = '2023-01-03';
 $time = date("h:i");
 $num_seance;
-
+$seance;
 if($time>=date('h:i',strtotime('08:30am'))){
     if($time>=date('h:i',strtotime('10:30pm'))){
         $num_seance=2;
     }else{
         $num_seance=1;
     }
-}
-
-if($time>=date('h:i',strtotime('02:30pm'))){
+}else{
+  if($time>=date('h:i',strtotime('02:30pm'))){
     if($time>=date('h:i',strtotime('04:30pm'))){
         $num_seance=4;
     }else{
         $num_seance=3;
     }
+}  
 }
+
+
+// var_dump($_SESSION['ID']);
 if(isset($_SESSION['ID'])){
-    // to test
-    $num_seance = 3;
-    // end
+   
     $prof = $_SESSION['ID'];
     $seance = $db->get_seance($prof, $num_seance);
     $etudiants;
